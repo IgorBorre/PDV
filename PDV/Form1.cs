@@ -5,12 +5,25 @@ namespace PDV
         public Form1()
         {
             InitializeComponent();
+            Conexao conexao = new Conexao();
+            conexao.AbrirConexao();
         }
 
         private void cadastroGeralToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CadastroGeral form = new CadastroGeral();
             form.ShowDialog();
+        }
+
+        private void estoqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CadastroEstoque formEstoque = new CadastroEstoque();
+            formEstoque.ShowDialog();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

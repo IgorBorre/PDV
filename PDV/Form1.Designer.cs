@@ -40,7 +40,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { cadastroToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1384, 24);
+            menuStrip1.Size = new Size(1370, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -54,26 +54,28 @@
             // cadastroGeralToolStripMenuItem
             // 
             cadastroGeralToolStripMenuItem.Name = "cadastroGeralToolStripMenuItem";
-            cadastroGeralToolStripMenuItem.Size = new Size(180, 22);
+            cadastroGeralToolStripMenuItem.Size = new Size(151, 22);
             cadastroGeralToolStripMenuItem.Text = "Cadastro Geral";
             cadastroGeralToolStripMenuItem.Click += cadastroGeralToolStripMenuItem_Click;
             // 
             // estoqueToolStripMenuItem
             // 
             estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
-            estoqueToolStripMenuItem.Size = new Size(180, 22);
+            estoqueToolStripMenuItem.Size = new Size(151, 22);
             estoqueToolStripMenuItem.Text = "Estoque";
+            estoqueToolStripMenuItem.Click += estoqueToolStripMenuItem_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1384, 861);
+            ClientSize = new Size(1370, 749);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);

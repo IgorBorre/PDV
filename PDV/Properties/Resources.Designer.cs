@@ -63,6 +63,16 @@ namespace PDV.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap adicionar_produto__1_ {
+            get {
+                object obj = ResourceManager.GetObject("adicionar-produto (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap adicionar_usuario__1_ {
             get {
                 object obj = ResourceManager.GetObject("adicionar-usuario (1)", resourceCulture);
@@ -76,6 +86,16 @@ namespace PDV.Properties {
         internal static System.Drawing.Bitmap adicionar_usuario__1_1 {
             get {
                 object obj = ResourceManager.GetObject("adicionar-usuario (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cancelar__1_ {
+            get {
+                object obj = ResourceManager.GetObject("cancelar (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,6 +176,26 @@ namespace PDV.Properties {
         internal static System.Drawing.Bitmap publico_alvo__1_ {
             get {
                 object obj = ResourceManager.GetObject("publico-alvo (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap verifica__1_ {
+            get {
+                object obj = ResourceManager.GetObject("verifica (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap verifica__2___1_ {
+            get {
+                object obj = ResourceManager.GetObject("verifica (2) (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
