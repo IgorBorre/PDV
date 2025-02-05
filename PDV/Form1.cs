@@ -1,3 +1,5 @@
+using MySql.Data.MySqlClient;
+
 namespace PDV
 {
     public partial class Form1 : Form

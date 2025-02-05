@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using Mysqlx.Connection;
 
 namespace PDV
 {
     public class Conexao
     {
-        private string str = "server=localhost;uid=root;pwd=masterkey;database=pdv;Port=3305;";
+        private string str = "server=localhost;uid=root;pwd=masterkey;database=pdv";
         private MySqlConnection conexao;
 
         public Conexao()
@@ -27,6 +28,10 @@ namespace PDV
             {
                 MessageBox.Show("Erro ao conetar com o banco: " + e);
             }
+        }
+
+        public MySqlConnection ObterConexao() { 
+            return conexao;
         }
     }
 }
