@@ -30,6 +30,7 @@ namespace PDV
             Clientes c = new Clientes();
 
             c.nome = TfNome.Text;
+            TfTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             c.telefone = TfTelefone.Text;
             c.estado = CBEstado.Text;
             c.complemento = TfComplemento.Text;
@@ -40,14 +41,34 @@ namespace PDV
             c.bairro = TfBairro.Text;
             c.cidade = TfCidade.Text;
             c.rua = TfRua.Text;
+            TfNascimento.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             c.nascimento = TfNascimento.Text;
             c.referencia = TfReferencia.Text;
             c.numero = TfNumero.Text;
 
-            clientedao.InserirCliente(c);
+            if (TfCodigo.Text == "")
+            {
+                if (!clientedao.Validacoes(c))
+                {
+                    clientedao.InserirCliente(c);
+                    TfCodigo.Text = c.codigo.ToString();
+                }
+                
+            }
+            else
+            {
+                if (!clientedao.Validacoes(c))
+                {
+                    c.codigo = Convert.ToInt32(TfCodigo.Text);
+                    clientedao.AtualizarCliente(c);
+                }
+            }
 
-            TfCodigo.Text = c.codigo.ToString();
 
+        }
+
+        private void TfTelefone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
 
         }
     }

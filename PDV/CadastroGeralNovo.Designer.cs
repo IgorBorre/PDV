@@ -60,6 +60,9 @@
             label9 = new Label();
             BtOK = new Button();
             BtCancelar = new Button();
+            label11 = new Label();
+            label16 = new Label();
+            label17 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -75,7 +78,7 @@
             // TfCodigo
             // 
             TfCodigo.Enabled = false;
-            TfCodigo.Location = new Point(75, 12);
+            TfCodigo.Location = new Point(80, 12);
             TfCodigo.Name = "TfCodigo";
             TfCodigo.Size = new Size(100, 23);
             TfCodigo.TabIndex = 1;
@@ -91,7 +94,7 @@
             // 
             // TfNome
             // 
-            TfNome.Location = new Point(75, 50);
+            TfNome.Location = new Point(80, 50);
             TfNome.Name = "TfNome";
             TfNome.Size = new Size(321, 23);
             TfNome.TabIndex = 3;
@@ -107,7 +110,7 @@
             // 
             // TfIdentificacao
             // 
-            TfIdentificacao.Location = new Point(75, 89);
+            TfIdentificacao.Location = new Point(80, 89);
             TfIdentificacao.Name = "TfIdentificacao";
             TfIdentificacao.Size = new Size(227, 23);
             TfIdentificacao.TabIndex = 5;
@@ -124,10 +127,11 @@
             // TfTelefone
             // 
             TfTelefone.Location = new Point(528, 12);
-            TfTelefone.Mask = "(00)0000-0000";
+            TfTelefone.Mask = "(00)00000-0000";
             TfTelefone.Name = "TfTelefone";
             TfTelefone.Size = new Size(136, 23);
             TfTelefone.TabIndex = 7;
+            TfTelefone.MaskInputRejected += TfTelefone_MaskInputRejected;
             // 
             // label5
             // 
@@ -358,11 +362,44 @@
             BtCancelar.UseVisualStyleBackColor = true;
             BtCancelar.Click += button2_Click;
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.ForeColor = Color.Red;
+            label11.Location = new Point(45, 50);
+            label11.Name = "label11";
+            label11.Size = new Size(12, 15);
+            label11.TabIndex = 19;
+            label11.Text = "*";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.ForeColor = Color.Red;
+            label16.Location = new Point(62, 89);
+            label16.Name = "label16";
+            label16.Size = new Size(12, 15);
+            label16.TabIndex = 20;
+            label16.Text = "*";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.ForeColor = Color.Red;
+            label17.Location = new Point(336, 472);
+            label17.Name = "label17";
+            label17.Size = new Size(128, 15);
+            label17.TabIndex = 21;
+            label17.Text = "* Campos Obrigatórios";
+            // 
             // CadastroGeralNovo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(826, 507);
+            Controls.Add(label17);
+            Controls.Add(label16);
+            Controls.Add(label11);
             Controls.Add(BtCancelar);
             Controls.Add(BtOK);
             Controls.Add(groupBox1);
@@ -421,5 +458,8 @@
         private TextBox TfReferencia;
         private Button BtOK;
         private Button BtCancelar;
+        private Label label11;
+        private Label label16;
+        private Label label17;
     }
 }

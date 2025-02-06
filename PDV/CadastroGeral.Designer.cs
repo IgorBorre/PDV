@@ -107,9 +107,9 @@
             // TFTelefone
             // 
             TFTelefone.Location = new Point(481, 28);
-            TFTelefone.Mask = "(00) 0000-0000";
+            TFTelefone.Mask = "(00) 00000-0000";
             TFTelefone.Name = "TFTelefone";
-            TFTelefone.Size = new Size(85, 23);
+            TFTelefone.Size = new Size(93, 23);
             TFTelefone.TabIndex = 7;
             // 
             // button1

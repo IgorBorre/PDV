@@ -19,7 +19,8 @@ namespace PDV
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            ClienteDAO clienteDAO = new ClienteDAO();
+            dataGridView1.DataSource = clienteDAO.ListarClientes();
         }
 
         private void button2_Click(object sender, EventArgs e)

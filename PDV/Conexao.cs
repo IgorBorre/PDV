@@ -10,7 +10,7 @@ namespace PDV
 {
     public class Conexao
     {
-        private string str = "server=localhost;uid=root;pwd=masterkey;database=pdv";
+        private string str = "server=localhost;uid=root;pwd=masterkey;database=pdv;port=3305";
         private MySqlConnection conexao;
 
         public Conexao()
@@ -32,6 +32,11 @@ namespace PDV
 
         public MySqlConnection ObterConexao() { 
             return conexao;
+        }
+
+        public void FecharConexao()
+        {
+            conexao.Close();
         }
     }
 }
