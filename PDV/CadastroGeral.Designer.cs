@@ -149,30 +149,37 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(931, 535);
             dataGridView1.TabIndex = 10;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
+            dataGridView1.Sorted += dataGridView1_Sorted;
             // 
             // Código
             // 
+            Código.DataPropertyName = "codigo";
             Código.HeaderText = "Código";
             Código.Name = "Código";
             Código.ReadOnly = true;
             // 
             // Nome
             // 
+            Nome.DataPropertyName = "nome";
             Nome.HeaderText = "Nome";
             Nome.Name = "Nome";
             Nome.ReadOnly = true;
             // 
             // CPF
             // 
+            CPF.DataPropertyName = "identificacao";
             CPF.HeaderText = "CPF/CNPJ";
             CPF.Name = "CPF";
             CPF.ReadOnly = true;
             // 
             // Telefone
             // 
+            Telefone.DataPropertyName = "telefone";
             Telefone.HeaderText = "Telefone";
             Telefone.Name = "Telefone";
             Telefone.ReadOnly = true;
@@ -227,10 +234,10 @@
         private Button button1;
         private Button button2;
         private DataGridView dataGridView1;
+        private Button button3;
         private DataGridViewTextBoxColumn Código;
         private DataGridViewTextBoxColumn Nome;
         private DataGridViewTextBoxColumn CPF;
         private DataGridViewTextBoxColumn Telefone;
-        private Button button3;
     }
 }

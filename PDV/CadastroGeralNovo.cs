@@ -41,19 +41,18 @@ namespace PDV
             c.bairro = TfBairro.Text;
             c.cidade = TfCidade.Text;
             c.rua = TfRua.Text;
-            TfNascimento.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             c.nascimento = TfNascimento.Text;
             c.referencia = TfReferencia.Text;
             c.numero = TfNumero.Text;
 
-            if (TfCodigo.Text == "")
+            if (string.IsNullOrEmpty(TfCodigo.Text))
             {
                 if (!clientedao.Validacoes(c))
                 {
                     clientedao.InserirCliente(c);
                     TfCodigo.Text = c.codigo.ToString();
                 }
-                
+
             }
             else
             {
@@ -70,6 +69,30 @@ namespace PDV
         private void TfTelefone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
+        }
+
+        private void CadastroGeralNovo_Load(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TfCodigo.Text)) { 
+                DataTable dt = clientedao.ClienteByID(TfCodigo.Text);
+                DataRow row = null;
+                row = dt.Rows[0];
+
+                TfNome.Text = row["nome"].ToString();
+                TfIdentificacao.Text = row["identificacao"].ToString();
+                TfCidade.Text = row["cidade"].ToString();
+                TfCep.Text = row["cep"].ToString();
+                TfBairro.Text = row["bairro"].ToString();
+                TfComplemento.Text = row["complemento"].ToString();
+                TfNascimento.Text = row["nascimento"].ToString();
+                TfNumero.Text = row["numero"].ToString();
+                TfReferencia.Text = row["referencia"].ToString();
+                TfRua.Text = row["rua"].ToString();
+                TfTelefone.Text = row["telefone"].ToString();
+                CBEstado.SelectedItem = row["estado"].ToString();
+                CBLogradouro.SelectedItem = row["logradouro"].ToString();
+                CBSituacao.SelectedItem = row["situacao"].ToString();
+            }
         }
     }
 }

@@ -418,6 +418,7 @@
             Name = "CadastroGeralNovo";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CadastroGeralNovo";
+            Load += CadastroGeralNovo_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -427,7 +428,6 @@
         #endregion
 
         private Label label1;
-        private TextBox TfCodigo;
         private Label label2;
         private TextBox TfNome;
         private Label label3;
@@ -461,5 +461,6 @@
         private Label label11;
         private Label label16;
         private Label label17;
+        public TextBox TfCodigo;
     }
 }

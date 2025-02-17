@@ -21,6 +21,7 @@ namespace PDV
         {
             ClienteDAO clienteDAO = new ClienteDAO();
             dataGridView1.DataSource = clienteDAO.ListarClientes();
+            dataGridView1.ClearSelection();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -52,6 +53,22 @@ namespace PDV
         {
             CadastroGeralNovo cadastro = new CadastroGeralNovo();
             cadastro.ShowDialog();
+        }
+
+        private void dataGridView1_Sorted(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CadastroGeralNovo form = new CadastroGeralNovo();
+
+            form.TfCodigo.Text = dataGridView1.CurrentRow.Cells["Código"].Value.ToString();
+
+            ClienteDAO clienteDAO = new ClienteDAO();
+
+            form.ShowDialog();  
         }
     }
 }
