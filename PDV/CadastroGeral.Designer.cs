@@ -62,6 +62,7 @@
             TFCodigo.Name = "TFCodigo";
             TFCodigo.Size = new Size(66, 23);
             TFCodigo.TabIndex = 1;
+            TFCodigo.TextChanged += TFCodigo_TextChanged;
             // 
             // label2
             // 
@@ -78,6 +79,7 @@
             TFNome.Name = "TFNome";
             TFNome.Size = new Size(258, 23);
             TFNome.TabIndex = 3;
+            TFNome.TextChanged += TFNome_TextChanged;
             // 
             // label3
             // 
@@ -216,6 +218,7 @@
             Name = "CadastroGeral";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CadastroGeral";
+            Load += CadastroGeral_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

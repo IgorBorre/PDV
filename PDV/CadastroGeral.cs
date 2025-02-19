@@ -12,15 +12,21 @@ namespace PDV
 {
     public partial class CadastroGeral : Form
     {
+
+        
+
         public CadastroGeral()
         {
             InitializeComponent();
+            TFTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string c = "";
             ClienteDAO clienteDAO = new ClienteDAO();
-            dataGridView1.DataSource = clienteDAO.ListarClientes();
+            c = "select codigo, nome, telefone, identificacao from clientes where 1" + clienteDAO.Criterios(TFCodigo.Text, TFNome.Text, TFTelefone.Text, TFCpf.Text);
+            dataGridView1.DataSource = clienteDAO.ListarClientes(c);
             dataGridView1.ClearSelection();
         }
 
@@ -68,7 +74,22 @@ namespace PDV
 
             ClienteDAO clienteDAO = new ClienteDAO();
 
-            form.ShowDialog();  
+            form.ShowDialog();
+        }
+
+        private void TFCodigo_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void CadastroGeral_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TFNome_TextChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }

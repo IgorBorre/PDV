@@ -113,14 +113,13 @@ namespace PDV
         }
 
 
-        public DataTable ListarClientes()
+        public DataTable ListarClientes(string c)
         {
             DataTable dt = new DataTable();
-            string comando = "SELECT codigo, nome, identificacao, telefone FROM clientes";
             try
             {
                 conexao.AbrirConexao();
-                using (MySqlCommand command = new MySqlCommand(comando, conexao.ObterConexao()))
+                using (MySqlCommand command = new MySqlCommand(c, conexao.ObterConexao()))
                 {
                     using (MySqlDataAdapter da = new MySqlDataAdapter(command))
                     {
@@ -162,6 +161,28 @@ namespace PDV
             }
             return dt;
 
+        }
+
+        public string Criterios(string codigo, string nome, string telefone, string identificacao) {
+            string a = "";
+
+            if (!string.IsNullOrEmpty(codigo))
+            {
+                a += " and codigo = " + codigo;
+            }
+            if (!string.IsNullOrEmpty(nome))
+            {
+                a += " and nome like '%" + nome + "%'";
+            }
+            if (!string.IsNullOrEmpty(telefone))
+            {
+                a += " and telefone like '%" + telefone + "%'";
+            }
+            if (!string.IsNullOrEmpty(identificacao)) { 
+                a += " and identificacao like '%" + identificacao + "%'";
+            }
+
+            return a;
         }
 
     }
