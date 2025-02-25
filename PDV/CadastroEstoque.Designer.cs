@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox1 = new TextBox();
+            TfCodigo = new TextBox();
             label2 = new Label();
-            textBox2 = new TextBox();
+            TfDescricao = new TextBox();
             label3 = new Label();
-            textBox3 = new TextBox();
+            TfGrupo = new TextBox();
             label4 = new Label();
-            textBox4 = new TextBox();
+            TfReferencia = new TextBox();
             dataGridView1 = new DataGridView();
             Código = new DataGridViewTextBoxColumn();
             Referência = new DataGridViewTextBoxColumn();
@@ -57,12 +57,12 @@
             label1.TabIndex = 0;
             label1.Text = "Código";
             // 
-            // textBox1
+            // TfCodigo
             // 
-            textBox1.Location = new Point(69, 15);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 1;
+            TfCodigo.Location = new Point(69, 15);
+            TfCodigo.Name = "TfCodigo";
+            TfCodigo.Size = new Size(100, 23);
+            TfCodigo.TabIndex = 1;
             // 
             // label2
             // 
@@ -73,12 +73,12 @@
             label2.TabIndex = 2;
             label2.Text = "Descrição";
             // 
-            // textBox2
+            // TfDescricao
             // 
-            textBox2.Location = new Point(421, 53);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(240, 23);
-            textBox2.TabIndex = 3;
+            TfDescricao.Location = new Point(421, 53);
+            TfDescricao.Name = "TfDescricao";
+            TfDescricao.Size = new Size(240, 23);
+            TfDescricao.TabIndex = 3;
             // 
             // label3
             // 
@@ -89,12 +89,12 @@
             label3.TabIndex = 4;
             label3.Text = "Grupo";
             // 
-            // textBox3
+            // TfGrupo
             // 
-            textBox3.Location = new Point(421, 15);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(208, 23);
-            textBox3.TabIndex = 5;
+            TfGrupo.Location = new Point(421, 15);
+            TfGrupo.Name = "TfGrupo";
+            TfGrupo.Size = new Size(208, 23);
+            TfGrupo.TabIndex = 5;
             // 
             // label4
             // 
@@ -105,12 +105,12 @@
             label4.TabIndex = 6;
             label4.Text = "Referência";
             // 
-            // textBox4
+            // TfReferencia
             // 
-            textBox4.Location = new Point(69, 53);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(174, 23);
-            textBox4.TabIndex = 7;
+            TfReferencia.Location = new Point(69, 53);
+            TfReferencia.Name = "TfReferencia";
+            TfReferencia.Size = new Size(174, 23);
+            TfReferencia.TabIndex = 7;
             // 
             // dataGridView1
             // 
@@ -122,34 +122,45 @@
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Código, Referência, Descrição, Estoque, Preço });
             dataGridView1.Location = new Point(3, 133);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.Size = new Size(938, 554);
             dataGridView1.TabIndex = 8;
             // 
             // Código
             // 
+            Código.DataPropertyName = "codigo";
             Código.HeaderText = "Código";
             Código.Name = "Código";
+            Código.ReadOnly = true;
             // 
             // Referência
             // 
+            Referência.DataPropertyName = "referencia";
             Referência.HeaderText = "Referência";
             Referência.Name = "Referência";
+            Referência.ReadOnly = true;
             // 
             // Descrição
             // 
+            Descrição.DataPropertyName = "descricao";
             Descrição.HeaderText = "Descrição";
             Descrição.Name = "Descrição";
+            Descrição.ReadOnly = true;
             // 
             // Estoque
             // 
+            Estoque.DataPropertyName = "estoque";
             Estoque.HeaderText = "Estoque";
             Estoque.Name = "Estoque";
+            Estoque.ReadOnly = true;
             // 
             // Preço
             // 
+            Preço.DataPropertyName = "preco";
             Preço.HeaderText = "Preço";
             Preço.Name = "Preço";
+            Preço.ReadOnly = true;
             // 
             // button1
             // 
@@ -161,6 +172,7 @@
             button1.TabIndex = 9;
             button1.Text = "   Procurar";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -195,13 +207,13 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
-            Controls.Add(textBox4);
+            Controls.Add(TfReferencia);
             Controls.Add(label4);
-            Controls.Add(textBox3);
+            Controls.Add(TfGrupo);
             Controls.Add(label3);
-            Controls.Add(textBox2);
+            Controls.Add(TfDescricao);
             Controls.Add(label2);
-            Controls.Add(textBox1);
+            Controls.Add(TfCodigo);
             Controls.Add(label1);
             Name = "CadastroEstoque";
             StartPosition = FormStartPosition.CenterScreen;
@@ -215,21 +227,21 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
+        private TextBox TfCodigo;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox TfDescricao;
         private Label label3;
-        private TextBox textBox3;
+        private TextBox TfGrupo;
         private Label label4;
-        private TextBox textBox4;
+        private TextBox TfReferencia;
         private DataGridView dataGridView1;
+        private Button button1;
+        private Button button2;
+        private Button button3;
         private DataGridViewTextBoxColumn Código;
         private DataGridViewTextBoxColumn Referência;
         private DataGridViewTextBoxColumn Descrição;
         private DataGridViewTextBoxColumn Estoque;
         private DataGridViewTextBoxColumn Preço;
-        private Button button1;
-        private Button button2;
-        private Button button3;
     }
 }

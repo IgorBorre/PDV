@@ -103,6 +103,26 @@ namespace PDV.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap inserir__1_ {
+            get {
+                object obj = ResourceManager.GetObject("inserir (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap inserir__2___1_ {
+            get {
+                object obj = ResourceManager.GetObject("inserir (2) (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lixeira_de_reciclagem__1_ {
             get {
                 object obj = ResourceManager.GetObject("lixeira-de-reciclagem (1)", resourceCulture);

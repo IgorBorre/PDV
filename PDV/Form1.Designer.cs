@@ -32,6 +32,7 @@
             cadastroToolStripMenuItem = new ToolStripMenuItem();
             cadastroGeralToolStripMenuItem = new ToolStripMenuItem();
             estoqueToolStripMenuItem = new ToolStripMenuItem();
+            gruposToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             // 
             // cadastroToolStripMenuItem
             // 
-            cadastroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastroGeralToolStripMenuItem, estoqueToolStripMenuItem });
+            cadastroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastroGeralToolStripMenuItem, estoqueToolStripMenuItem, gruposToolStripMenuItem });
             cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
             cadastroToolStripMenuItem.Size = new Size(66, 20);
             cadastroToolStripMenuItem.Text = "Cadastro";
@@ -54,16 +55,23 @@
             // cadastroGeralToolStripMenuItem
             // 
             cadastroGeralToolStripMenuItem.Name = "cadastroGeralToolStripMenuItem";
-            cadastroGeralToolStripMenuItem.Size = new Size(151, 22);
+            cadastroGeralToolStripMenuItem.Size = new Size(180, 22);
             cadastroGeralToolStripMenuItem.Text = "Cadastro Geral";
             cadastroGeralToolStripMenuItem.Click += cadastroGeralToolStripMenuItem_Click;
             // 
             // estoqueToolStripMenuItem
             // 
             estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
-            estoqueToolStripMenuItem.Size = new Size(151, 22);
+            estoqueToolStripMenuItem.Size = new Size(180, 22);
             estoqueToolStripMenuItem.Text = "Estoque";
             estoqueToolStripMenuItem.Click += estoqueToolStripMenuItem_Click;
+            // 
+            // gruposToolStripMenuItem
+            // 
+            gruposToolStripMenuItem.Name = "gruposToolStripMenuItem";
+            gruposToolStripMenuItem.Size = new Size(180, 22);
+            gruposToolStripMenuItem.Text = "Grupos";
+            gruposToolStripMenuItem.Click += gruposToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -88,5 +96,6 @@
         private ToolStripMenuItem cadastroToolStripMenuItem;
         private ToolStripMenuItem cadastroGeralToolStripMenuItem;
         private ToolStripMenuItem estoqueToolStripMenuItem;
+        private ToolStripMenuItem gruposToolStripMenuItem;
     }
 }

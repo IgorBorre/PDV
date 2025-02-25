@@ -27,5 +27,11 @@ namespace PDV
         {
 
         }
+
+        private void gruposToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GrupoCadastro grupo = new GrupoCadastro();
+            grupo.ShowDialog();
+        }
     }
 }

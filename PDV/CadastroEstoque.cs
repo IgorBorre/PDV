@@ -12,9 +12,11 @@ namespace PDV
 {
     public partial class CadastroEstoque : Form
     {
+        private ProdutoDAO produtoDAO;
         public CadastroEstoque()
         {
             InitializeComponent();
+            produtoDAO = new ProdutoDAO();
         }
 
         private void CadastroEstoque_Load(object sender, EventArgs e)
@@ -37,7 +39,14 @@ namespace PDV
         private void button3_Click(object sender, EventArgs e)
         {
             CadastroEstoqueNovo cadastroEstoqueNovo = new CadastroEstoqueNovo();
-            cadastroEstoqueNovo.ShowDialog();   
+            cadastroEstoqueNovo.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string c = "select codigo, referencia, descricao, estoque, preco from produtos where 1"  +produtoDAO.Criterios(TfCodigo.Text, TfReferencia.Text, TfDescricao.Text, TfGrupo.Text);
+            dataGridView1.DataSource = produtoDAO.ListarProdutos(c);
+            dataGridView1.ClearSelection();
         }
     }
 }

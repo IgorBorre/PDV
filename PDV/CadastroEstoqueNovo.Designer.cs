@@ -29,19 +29,23 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox1 = new TextBox();
+            TfCodigo = new TextBox();
             label2 = new Label();
-            textBox2 = new TextBox();
+            TfReferencia = new TextBox();
             label3 = new Label();
-            textBox3 = new TextBox();
+            TfDescricao = new TextBox();
             label4 = new Label();
-            textBox4 = new TextBox();
+            TfGrupo = new TextBox();
             label5 = new Label();
-            textBox5 = new TextBox();
+            TfEstoque = new TextBox();
             label6 = new Label();
-            textBox6 = new TextBox();
+            TfPreco = new TextBox();
             button1 = new Button();
             button2 = new Button();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            label10 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -53,13 +57,13 @@
             label1.TabIndex = 0;
             label1.Text = "Código";
             // 
-            // textBox1
+            // TfCodigo
             // 
-            textBox1.Enabled = false;
-            textBox1.Location = new Point(72, 11);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 1;
+            TfCodigo.Enabled = false;
+            TfCodigo.Location = new Point(82, 6);
+            TfCodigo.Name = "TfCodigo";
+            TfCodigo.Size = new Size(100, 23);
+            TfCodigo.TabIndex = 1;
             // 
             // label2
             // 
@@ -70,12 +74,12 @@
             label2.TabIndex = 2;
             label2.Text = "Referência";
             // 
-            // textBox2
+            // TfReferencia
             // 
-            textBox2.Location = new Point(72, 47);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(463, 23);
-            textBox2.TabIndex = 3;
+            TfReferencia.Location = new Point(82, 42);
+            TfReferencia.Name = "TfReferencia";
+            TfReferencia.Size = new Size(463, 23);
+            TfReferencia.TabIndex = 3;
             // 
             // label3
             // 
@@ -86,12 +90,12 @@
             label3.TabIndex = 4;
             label3.Text = "Descrição";
             // 
-            // textBox3
+            // TfDescricao
             // 
-            textBox3.Location = new Point(72, 83);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(463, 23);
-            textBox3.TabIndex = 5;
+            TfDescricao.Location = new Point(82, 78);
+            TfDescricao.Name = "TfDescricao";
+            TfDescricao.Size = new Size(463, 23);
+            TfDescricao.TabIndex = 5;
             // 
             // label4
             // 
@@ -102,44 +106,44 @@
             label4.TabIndex = 6;
             label4.Text = "Grupo";
             // 
-            // textBox4
+            // TfGrupo
             // 
-            textBox4.Location = new Point(72, 118);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(247, 23);
-            textBox4.TabIndex = 7;
+            TfGrupo.Location = new Point(82, 113);
+            TfGrupo.Name = "TfGrupo";
+            TfGrupo.Size = new Size(247, 23);
+            TfGrupo.TabIndex = 7;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(8, 160);
+            label5.Location = new Point(4, 160);
             label5.Name = "label5";
             label5.Size = new Size(49, 15);
             label5.TabIndex = 8;
             label5.Text = "Estoque";
             // 
-            // textBox5
+            // TfEstoque
             // 
-            textBox5.Location = new Point(72, 157);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(100, 23);
-            textBox5.TabIndex = 9;
+            TfEstoque.Location = new Point(82, 152);
+            TfEstoque.Name = "TfEstoque";
+            TfEstoque.Size = new Size(100, 23);
+            TfEstoque.TabIndex = 9;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(12, 198);
+            label6.Location = new Point(4, 198);
             label6.Name = "label6";
             label6.Size = new Size(37, 15);
             label6.TabIndex = 10;
             label6.Text = "Preço";
             // 
-            // textBox6
+            // TfPreco
             // 
-            textBox6.Location = new Point(72, 195);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(100, 23);
-            textBox6.TabIndex = 11;
+            TfPreco.Location = new Point(82, 190);
+            TfPreco.Name = "TfPreco";
+            TfPreco.Size = new Size(100, 23);
+            TfPreco.TabIndex = 11;
             // 
             // button1
             // 
@@ -151,6 +155,7 @@
             button1.TabIndex = 12;
             button1.Text = "OK";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -164,24 +169,68 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.ForeColor = Color.Red;
+            label7.Location = new Point(64, 86);
+            label7.Name = "label7";
+            label7.Size = new Size(12, 15);
+            label7.TabIndex = 14;
+            label7.Text = "*";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.ForeColor = Color.Red;
+            label8.Location = new Point(54, 160);
+            label8.Name = "label8";
+            label8.Size = new Size(12, 15);
+            label8.TabIndex = 15;
+            label8.Text = "*";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.ForeColor = Color.Red;
+            label9.Location = new Point(41, 198);
+            label9.Name = "label9";
+            label9.Size = new Size(12, 15);
+            label9.TabIndex = 16;
+            label9.Text = "*";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.ForeColor = Color.Red;
+            label10.Location = new Point(317, 370);
+            label10.Name = "label10";
+            label10.Size = new Size(126, 15);
+            label10.TabIndex = 17;
+            label10.Text = "* Campos obrigatórios";
+            // 
             // CadastroEstoqueNovo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(698, 406);
+            Controls.Add(label10);
+            Controls.Add(label9);
+            Controls.Add(label8);
+            Controls.Add(label7);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(textBox6);
+            Controls.Add(TfPreco);
             Controls.Add(label6);
-            Controls.Add(textBox5);
+            Controls.Add(TfEstoque);
             Controls.Add(label5);
-            Controls.Add(textBox4);
+            Controls.Add(TfGrupo);
             Controls.Add(label4);
-            Controls.Add(textBox3);
+            Controls.Add(TfDescricao);
             Controls.Add(label3);
-            Controls.Add(textBox2);
+            Controls.Add(TfReferencia);
             Controls.Add(label2);
-            Controls.Add(textBox1);
+            Controls.Add(TfCodigo);
             Controls.Add(label1);
             Name = "CadastroEstoqueNovo";
             StartPosition = FormStartPosition.CenterScreen;
@@ -194,18 +243,22 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
+        private TextBox TfCodigo;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox TfReferencia;
         private Label label3;
-        private TextBox textBox3;
+        private TextBox TfDescricao;
         private Label label4;
-        private TextBox textBox4;
+        private TextBox TfGrupo;
         private Label label5;
-        private TextBox textBox5;
+        private TextBox TfEstoque;
         private Label label6;
-        private TextBox textBox6;
+        private TextBox TfPreco;
         private Button button1;
         private Button button2;
+        private Label label7;
+        private Label label8;
+        private Label label9;
+        private Label label10;
     }
 }
