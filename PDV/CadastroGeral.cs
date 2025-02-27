@@ -72,8 +72,6 @@ namespace PDV
 
             form.TfCodigo.Text = dataGridView1.CurrentRow.Cells["Código"].Value.ToString();
 
-            ClienteDAO clienteDAO = new ClienteDAO();
-
             form.ShowDialog();
         }
 

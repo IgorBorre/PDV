@@ -124,12 +124,15 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(938, 554);
             dataGridView1.TabIndex = 8;
+            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
             // Código
             // 
             Código.DataPropertyName = "codigo";
+            Código.FillWeight = 62.35949F;
             Código.HeaderText = "Código";
             Código.Name = "Código";
             Código.ReadOnly = true;
@@ -137,6 +140,7 @@
             // Referência
             // 
             Referência.DataPropertyName = "referencia";
+            Referência.FillWeight = 137.970367F;
             Referência.HeaderText = "Referência";
             Referência.Name = "Referência";
             Referência.ReadOnly = true;
@@ -144,6 +148,7 @@
             // Descrição
             // 
             Descrição.DataPropertyName = "descricao";
+            Descrição.FillWeight = 137.970367F;
             Descrição.HeaderText = "Descrição";
             Descrição.Name = "Descrição";
             Descrição.ReadOnly = true;
@@ -151,6 +156,7 @@
             // Estoque
             // 
             Estoque.DataPropertyName = "estoque";
+            Estoque.FillWeight = 76.14212F;
             Estoque.HeaderText = "Estoque";
             Estoque.Name = "Estoque";
             Estoque.ReadOnly = true;
@@ -158,6 +164,7 @@
             // Preço
             // 
             Preço.DataPropertyName = "preco";
+            Preço.FillWeight = 85.5576F;
             Preço.HeaderText = "Preço";
             Preço.Name = "Preço";
             Preço.ReadOnly = true;
@@ -219,6 +226,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CadastroEstoque";
             Load += CadastroEstoque_Load;
+            DoubleClick += CadastroEstoque_DoubleClick;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

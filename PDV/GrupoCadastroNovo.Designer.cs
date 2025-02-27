@@ -92,6 +92,7 @@
             button2.Text = "Cancelar";
             button2.TextAlign = ContentAlignment.MiddleRight;
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // GrupoCadastroNovo
             // 
@@ -107,6 +108,7 @@
             Name = "GrupoCadastroNovo";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "GrupoCadastroNovo";
+            Load += GrupoCadastroNovo_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -115,9 +117,9 @@
 
         private Label label1;
         private Label label2;
-        private TextBox TfCodigo;
         private TextBox TfNome;
         private Button button1;
         private Button button2;
+        public TextBox TfCodigo;
     }
 }

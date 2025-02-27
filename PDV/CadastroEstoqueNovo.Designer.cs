@@ -243,7 +243,6 @@
         #endregion
 
         private Label label1;
-        private TextBox TfCodigo;
         private Label label2;
         private TextBox TfReferencia;
         private Label label3;
@@ -260,5 +259,6 @@
         private Label label8;
         private Label label9;
         private Label label10;
+        public TextBox TfCodigo;
     }
 }

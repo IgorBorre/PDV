@@ -23,16 +23,37 @@ namespace PDV
         {
             Grupo g = new Grupo();
             g.nome = TfNome.Text;
-            if (string.IsNullOrEmpty(TfCodigo.Text))
+
+            if (grupodao.Validacoes(g))
             {
-                grupodao.InserirGrupo(g);
-                TfCodigo.Text = g.id.ToString();
+                if (string.IsNullOrEmpty(TfCodigo.Text))
+                {
+                    grupodao.InserirGrupo(g);
+                    TfCodigo.Text = g.id.ToString();
+                }
+                else
+                {
+                    g.id = int.Parse(TfCodigo.Text);
+                    grupodao.AtualizarGrupo(g);
+                }
             }
-            else
+        }
+
+        private void GrupoCadastroNovo_Load(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TfCodigo.Text))
             {
-                g.id = int.Parse(TfCodigo.Text);
-                grupodao.AtualizarGrupo(g);
+                DataTable dt = grupodao.BuscarGrupoById(TfCodigo.Text);
+                DataRow row = null;
+                row = dt.Rows[0];
+
+                TfNome.Text = row["nome"].ToString();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

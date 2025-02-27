@@ -12,13 +12,33 @@ namespace PDV
 {
     public partial class GrupoCadastro : Form
     {
+        GrupoDAO grupoDAO;
         public GrupoCadastro()
         {
             InitializeComponent();
+            grupoDAO = new GrupoDAO();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            GrupoCadastroNovo grupoCadastroNovo = new GrupoCadastroNovo();
+            grupoCadastroNovo.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string c = "select * from grupos where 1" + grupoDAO.Criterios(TfId.Text, TfNome.Text);
+            dataGridView1.DataSource = grupoDAO.BuscarGrupo(c);
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            /*GrupoCadastroNovo form = new GrupoCadastroNovo();
+
+            form.TfCodigo.Text = dataGridView1.CurrentRow.Cells["Código"].Value.ToString();
+
+            form.ShowDialog();*/
+
             GrupoCadastroNovo grupoCadastroNovo = new GrupoCadastroNovo();
             grupoCadastroNovo.ShowDialog();
         }

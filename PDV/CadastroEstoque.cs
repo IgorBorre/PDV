@@ -44,9 +44,23 @@ namespace PDV
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string c = "select codigo, referencia, descricao, estoque, preco from produtos where 1"  +produtoDAO.Criterios(TfCodigo.Text, TfReferencia.Text, TfDescricao.Text, TfGrupo.Text);
+            string c = "select codigo, referencia, descricao, estoque, preco from produtos where 1" + produtoDAO.Criterios(TfCodigo.Text, TfReferencia.Text, TfDescricao.Text, TfGrupo.Text);
             dataGridView1.DataSource = produtoDAO.ListarProdutos(c);
             dataGridView1.ClearSelection();
+        }
+
+        private void CadastroEstoque_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CadastroEstoqueNovo cadastroEstoqueNovo = new CadastroEstoqueNovo();
+
+            cadastroEstoqueNovo.TfCodigo.Text = dataGridView1.CurrentRow.Cells["Código"].Value.ToString();
+            
+            cadastroEstoqueNovo.ShowDialog();
         }
     }
 }

@@ -140,26 +140,8 @@ namespace PDV
         public DataTable ClienteByID(string id) {
 
             DataTable dt = new DataTable();
-            string comando = "SELECT * from Clientes where codigo = @id";
-            try
-            {
-                conexao.AbrirConexao();
-                using (MySqlCommand command = new MySqlCommand(comando, conexao.ObterConexao()))
-                {
-                    command.Parameters.AddWithValue("id", id);
-
-                    using (MySqlDataAdapter da = new MySqlDataAdapter(command))
-                    {
-                        da.Fill(dt);
-                    }
-                }
-                conexao.FecharConexao();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            return dt;
+            string comando = "SELECT * from Clientes where codigo = " + id;
+            return ListarClientes(comando);
 
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,6 +59,58 @@ namespace PDV
             {
                 MessageBox.Show("Erro ao atualizar grupo: " + e.Message);
             }
+        }
+
+
+        public DataTable BuscarGrupo(string c) {
+            
+            DataTable dt = new DataTable();
+            try
+            {
+                conexao.AbrirConexao();
+                using (MySqlCommand command = new MySqlCommand(c, conexao.ObterConexao()))
+                {
+                    using (MySqlDataAdapter da = new MySqlDataAdapter(command))
+                    {
+                        da.Fill(dt);
+                    }
+                }
+                conexao.FecharConexao();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return dt;
+
+        }
+
+        public DataTable BuscarGrupoById(string id) { 
+            string comando = "select * from grupos where id = " + id;
+            return BuscarGrupo(comando);
+        }
+
+        public string Criterios(string codigo, string nome) {
+            string a = "";
+
+            if (!string.IsNullOrEmpty(codigo)) { 
+                a += " and id = " + codigo;
+            }
+            if (!string.IsNullOrEmpty(nome)) { 
+                a += " and nome like '%" + nome + "%'";
+            }
+
+            return a;
+        }
+
+        public bool Validacoes(Grupo g)
+        {
+            if (string.IsNullOrEmpty(g.nome))
+            {
+                MessageBox.Show("Nome do grupo não pode ser vazio");
+                return false;
+            }
+            return true;
         }
     }
 }

@@ -21,7 +21,17 @@ namespace PDV
 
         private void CadastroEstoqueNovo_Load(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(TfCodigo.Text)) {
+                DataTable dt = produtoDAO.ListarProdutoByiD(TfCodigo.Text);
+                DataRow row = null;
+                row = dt.Rows[0];
 
+                TfDescricao.Text = row["descricao"].ToString();
+                TfEstoque.Text = row["estoque"].ToString();
+                //TfGrupo.Text = row["grupo"].ToString();
+                TfPreco.Text = row["preco"].ToString();
+                TfReferencia.Text = row["referencia"].ToString();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -34,26 +44,30 @@ namespace PDV
             Produtos p = new Produtos();
             p.referencia = TfReferencia.Text;
             p.descricao = TfDescricao.Text;
-            p.estoque = int.Parse(TfEstoque.Text);
-            p.preco = double.Parse(TfPreco.Text);
-            
 
-            if (string.IsNullOrEmpty(TfCodigo.Text))
+
+            if (produtoDAO.Validacoes(TfDescricao.Text, TfEstoque.Text, TfPreco.Text))
             {
-                if (produtoDAO.Validacoes(p))
+
+
+                p.estoque = int.Parse(TfEstoque.Text);
+                p.preco = double.Parse(TfPreco.Text);
+
+                if (string.IsNullOrEmpty(TfCodigo.Text))
                 {
+
                     produtoDAO.InserirProduto(p);
                     TfCodigo.Text = p.codigo.ToString();
+
                 }
-            }
-            else
-            {
-                if (produtoDAO.Validacoes(p))
+                else
                 {
+
                     p.codigo = int.Parse(TfCodigo.Text);
                     produtoDAO.AtualizarProduto(p);
-                }
 
+
+                }
             }
         }
     }

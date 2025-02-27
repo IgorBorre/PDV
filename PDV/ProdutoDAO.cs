@@ -93,9 +93,17 @@ namespace PDV
             return dt;
         }
 
-        public bool Validacoes(Produtos p) {
-            if (string.IsNullOrEmpty(p.descricao) || string.IsNullOrEmpty(p.estoque.ToString())
-                || string.IsNullOrEmpty(p.preco.ToString())) {
+        public DataTable ListarProdutoByiD(string codigo) { 
+            
+            string comando = "select * from produtos where codigo = " + codigo;
+            return ListarProdutos(comando);
+
+
+        }
+
+        public bool Validacoes(string descricao, string estoque, string preco) {
+            if (string.IsNullOrEmpty(descricao) || string.IsNullOrEmpty(estoque)
+                || string.IsNullOrEmpty(preco)) {
                 MessageBox.Show("Os campos Descrição, Estoque e Preço não podem ser vazios!");
                 return false;
             }
