@@ -31,6 +31,14 @@ namespace PDV
 
             c.nome = TfNome.Text;
             TfTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+
+            //Console.WriteLine(TfNascimento.Text);
+
+            if (TfNascimento.Text == "  /  /") { 
+
+                TfNascimento.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals; 
+            }
+
             c.telefone = TfTelefone.Text;
             c.estado = CBEstado.Text;
             c.complemento = TfComplemento.Text;

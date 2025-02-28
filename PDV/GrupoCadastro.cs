@@ -29,18 +29,31 @@ namespace PDV
         {
             string c = "select * from grupos where 1" + grupoDAO.Criterios(TfId.Text, TfNome.Text);
             dataGridView1.DataSource = grupoDAO.BuscarGrupo(c);
+            dataGridView1.ClearSelection();
         }
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            /*GrupoCadastroNovo form = new GrupoCadastroNovo();
 
-            form.TfCodigo.Text = dataGridView1.CurrentRow.Cells["Código"].Value.ToString();
+        }
 
-            form.ShowDialog();*/
+        private void GrupoCadastro_Load(object sender, EventArgs e)
+        {
 
-            GrupoCadastroNovo grupoCadastroNovo = new GrupoCadastroNovo();
-            grupoCadastroNovo.ShowDialog();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            GrupoCadastroNovo form = new GrupoCadastroNovo();
+
+            form.TfCodigo.Text = dataGridView1.CurrentRow.Cells["id"].Value.ToString();
+
+            form.ShowDialog();
+        }
+
+        private void dataGridView1_Sorted(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
         }
     }
 }

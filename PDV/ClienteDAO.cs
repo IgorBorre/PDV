@@ -33,7 +33,8 @@ namespace PDV
                 {
                     command.Parameters.AddWithValue("@nome", c.nome);
                     command.Parameters.AddWithValue("@identificacao", c.identificacao);
-                    command.Parameters.AddWithValue("@telefone",string.IsNullOrWhiteSpace(c.telefone) ? (object)DBNull.Value : c.telefone);
+                    //command.Parameters.AddWithValue("@telefone",string.IsNullOrWhiteSpace(c.telefone) ? (object)DBNull.Value : c.telefone);
+                    command.Parameters.AddWithValue("@telefone", c.telefone);
                     command.Parameters.AddWithValue("@nascimento", string.IsNullOrWhiteSpace(c.nascimento) ? (object)DBNull.Value : Convert.ToDateTime(c.nascimento));
                     command.Parameters.AddWithValue("@situacao", c.situacao);
                     command.Parameters.AddWithValue("@logradouro", c.logradouro);

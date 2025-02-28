@@ -113,6 +113,8 @@
             dataGridView1.Size = new Size(454, 346);
             dataGridView1.TabIndex = 6;
             dataGridView1.CellContentDoubleClick += dataGridView1_CellContentDoubleClick;
+            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
+            dataGridView1.Sorted += dataGridView1_Sorted;
             // 
             // id
             // 
@@ -145,6 +147,7 @@
             Name = "GrupoCadastro";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "GrupoCadastro";
+            Load += GrupoCadastro_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
