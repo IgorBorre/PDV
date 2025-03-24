@@ -46,6 +46,7 @@
             label8 = new Label();
             label9 = new Label();
             label10 = new Label();
+            TfIdGrupo = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -108,10 +109,11 @@
             // 
             // TfGrupo
             // 
-            TfGrupo.Location = new Point(82, 113);
+            TfGrupo.Location = new Point(150, 118);
             TfGrupo.Name = "TfGrupo";
             TfGrupo.Size = new Size(247, 23);
             TfGrupo.TabIndex = 7;
+            TfGrupo.Enter += TfGrupo_Enter;
             // 
             // label5
             // 
@@ -209,11 +211,20 @@
             label10.TabIndex = 17;
             label10.Text = "* Campos obrigatórios";
             // 
+            // TfIdGrupo
+            // 
+            TfIdGrupo.Location = new Point(82, 118);
+            TfIdGrupo.Name = "TfIdGrupo";
+            TfIdGrupo.Size = new Size(50, 23);
+            TfIdGrupo.TabIndex = 18;
+            TfIdGrupo.Enter += TfIdGrupo_Enter;
+            // 
             // CadastroEstoqueNovo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(698, 406);
+            Controls.Add(TfIdGrupo);
             Controls.Add(label10);
             Controls.Add(label9);
             Controls.Add(label8);
@@ -260,5 +271,6 @@
         private Label label9;
         private Label label10;
         public TextBox TfCodigo;
+        private TextBox TfIdGrupo;
     }
 }

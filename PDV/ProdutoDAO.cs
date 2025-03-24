@@ -18,8 +18,8 @@ namespace PDV
         }
 
         public void InserirProduto(Produtos p) {
-            string comando = "insert into produtos (referencia, descricao, estoque, preco) values " +
-                "(@referencia, @descricao, @estoque, @preco)";
+            string comando = "insert into produtos (referencia, descricao, estoque, preco, idGrupo, grupo) values " +
+                "(@referencia, @descricao, @estoque, @preco, @idGrupo, @grupo)";
 
             try
             {
@@ -31,6 +31,8 @@ namespace PDV
                     cmd.Parameters.AddWithValue("@descricao", p.descricao);
                     cmd.Parameters.AddWithValue("@estoque", p.estoque);
                     cmd.Parameters.AddWithValue("@preco", p.preco);
+                    cmd.Parameters.AddWithValue("@idGrupo", p.idGrupo);
+                    cmd.Parameters.AddWithValue("@grupo", p.grupo);
                     cmd.ExecuteNonQuery();
 
 
@@ -49,7 +51,8 @@ namespace PDV
 
         public void AtualizarProduto(Produtos p)
         {
-            string comando = "update produtos set referencia = @referencia, descricao = @descricao, estoque = @estoque, preco = @preco where codigo = @codigo";
+            string comando = "update produtos set referencia = @referencia, descricao = @descricao, estoque = @estoque, preco = @preco, idGrupo = @idGrupo, " +
+                "grupo = @grupo where codigo = @codigo";
             try
             {
                 conexao.AbrirConexao();
@@ -60,6 +63,8 @@ namespace PDV
                     cmd.Parameters.AddWithValue("@estoque", p.estoque);
                     cmd.Parameters.AddWithValue("@preco", p.preco);
                     cmd.Parameters.AddWithValue("@codigo", p.codigo);
+                    cmd.Parameters.AddWithValue("@idGrupo", p.idGrupo);
+                    cmd.Parameters.AddWithValue("@grupo", p.grupo);
                     cmd.ExecuteNonQuery();
                 }
                 conexao.FecharConexao();

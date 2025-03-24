@@ -90,6 +90,16 @@ namespace PDV
             return BuscarGrupo(comando);
         }
 
+        public DataTable BuscarNomeGrupo(string id) { 
+            string comando = "select nome from grupos where id = " + id;
+            return BuscarGrupo(comando);
+        }
+
+        public DataTable BuscarIdGrupo(string nome) {
+            string comando = "select * from grupos where nome like '%" + nome + "%'";
+            return BuscarGrupo(comando);
+        }
+
         public string Criterios(string codigo, string nome) {
             string a = "";
 
