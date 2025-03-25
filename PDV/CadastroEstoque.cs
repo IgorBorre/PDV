@@ -26,6 +26,7 @@ namespace PDV
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //for que percorre o form e limpa todos os campos
             foreach (Control control in this.Controls)
             {
 
@@ -44,6 +45,7 @@ namespace PDV
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //filtros para a pesquisa dos produtos no banco
             string c = "select codigo, referencia, descricao, estoque, preco from produtos where 1" + produtoDAO.Criterios(TfCodigo.Text, TfReferencia.Text, TfDescricao.Text, TfGrupo.Text);
             dataGridView1.DataSource = produtoDAO.ListarProdutos(c);
             dataGridView1.ClearSelection();
@@ -56,6 +58,8 @@ namespace PDV
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+           //duplo clique na linha da tabela abre a janela de cadastro de produtos com o código do produto
+           //selecionado
             CadastroEstoqueNovo cadastroEstoqueNovo = new CadastroEstoqueNovo();
 
             cadastroEstoqueNovo.TfCodigo.Text = dataGridView1.CurrentRow.Cells["Código"].Value.ToString();

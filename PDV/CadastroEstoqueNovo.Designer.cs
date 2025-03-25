@@ -114,6 +114,7 @@
             TfGrupo.Size = new Size(247, 23);
             TfGrupo.TabIndex = 7;
             TfGrupo.Enter += TfGrupo_Enter;
+            TfGrupo.Leave += TfGrupo_Leave;
             // 
             // label5
             // 
@@ -218,6 +219,7 @@
             TfIdGrupo.Size = new Size(50, 23);
             TfIdGrupo.TabIndex = 18;
             TfIdGrupo.Enter += TfIdGrupo_Enter;
+            TfIdGrupo.Leave += TfIdGrupo_Leave;
             // 
             // CadastroEstoqueNovo
             // 

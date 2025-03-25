@@ -23,6 +23,7 @@ namespace PDV
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //filtros para a pesquisa de clientes no banco
             string c = "";
             ClienteDAO clienteDAO = new ClienteDAO();
             c = "select codigo, nome, telefone, identificacao from clientes where 1" + clienteDAO.Criterios(TFCodigo.Text, TFNome.Text, TFTelefone.Text, TFCpf.Text);
@@ -63,11 +64,13 @@ namespace PDV
 
         private void dataGridView1_Sorted(object sender, EventArgs e)
         {
+            //para não gerar a tabela com a primeira liha já selecionada
             dataGridView1.ClearSelection();
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //abre a janela de cadastro preenchendo o código do cliente na célula selecionada
             CadastroGeralNovo form = new CadastroGeralNovo();
 
             form.TfCodigo.Text = dataGridView1.CurrentRow.Cells["Código"].Value.ToString();
