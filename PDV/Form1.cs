@@ -33,5 +33,11 @@ namespace PDV
             GrupoCadastro grupo = new GrupoCadastro();
             grupo.ShowDialog();
         }
+
+        private void vendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JanelaVenda janelaVenda = new JanelaVenda();
+            janelaVenda.ShowDialog();
+        }
     }
 }

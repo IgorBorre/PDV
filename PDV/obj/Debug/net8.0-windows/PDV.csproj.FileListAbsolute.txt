@@ -82,3 +82,4 @@ C:\Users\igorT\Documents\Visual Studio 2022\PDV\PDV\obj\Debug\net8.0-windows\PDV
 C:\Users\igorT\Documents\Visual Studio 2022\PDV\PDV\obj\Debug\net8.0-windows\PDV.GrupoCadastroNovo.resources
 C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\obj\Debug\net8.0-windows\PDV.GrupoCadastro.resources
 C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\obj\Debug\net8.0-windows\PDV.GrupoCadastroNovo.resources
+C:\Users\igorT\Documents\Visual Studio 2022\PDV\PDV\obj\Debug\net8.0-windows\PDV.JanelaVenda.resources

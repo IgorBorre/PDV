@@ -33,12 +33,15 @@
             cadastroGeralToolStripMenuItem = new ToolStripMenuItem();
             estoqueToolStripMenuItem = new ToolStripMenuItem();
             gruposToolStripMenuItem = new ToolStripMenuItem();
+            peçasToolStripMenuItem = new ToolStripMenuItem();
+            saídaToolStripMenuItem = new ToolStripMenuItem();
+            vendaToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { cadastroToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { cadastroToolStripMenuItem, peçasToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1370, 24);
@@ -55,23 +58,44 @@
             // cadastroGeralToolStripMenuItem
             // 
             cadastroGeralToolStripMenuItem.Name = "cadastroGeralToolStripMenuItem";
-            cadastroGeralToolStripMenuItem.Size = new Size(180, 22);
+            cadastroGeralToolStripMenuItem.Size = new Size(151, 22);
             cadastroGeralToolStripMenuItem.Text = "Cadastro Geral";
             cadastroGeralToolStripMenuItem.Click += cadastroGeralToolStripMenuItem_Click;
             // 
             // estoqueToolStripMenuItem
             // 
             estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
-            estoqueToolStripMenuItem.Size = new Size(180, 22);
+            estoqueToolStripMenuItem.Size = new Size(151, 22);
             estoqueToolStripMenuItem.Text = "Estoque";
             estoqueToolStripMenuItem.Click += estoqueToolStripMenuItem_Click;
             // 
             // gruposToolStripMenuItem
             // 
             gruposToolStripMenuItem.Name = "gruposToolStripMenuItem";
-            gruposToolStripMenuItem.Size = new Size(180, 22);
+            gruposToolStripMenuItem.Size = new Size(151, 22);
             gruposToolStripMenuItem.Text = "Grupos";
             gruposToolStripMenuItem.Click += gruposToolStripMenuItem_Click;
+            // 
+            // peçasToolStripMenuItem
+            // 
+            peçasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { saídaToolStripMenuItem });
+            peçasToolStripMenuItem.Name = "peçasToolStripMenuItem";
+            peçasToolStripMenuItem.Size = new Size(49, 20);
+            peçasToolStripMenuItem.Text = "Peças";
+            // 
+            // saídaToolStripMenuItem
+            // 
+            saídaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { vendaToolStripMenuItem });
+            saídaToolStripMenuItem.Name = "saídaToolStripMenuItem";
+            saídaToolStripMenuItem.Size = new Size(180, 22);
+            saídaToolStripMenuItem.Text = "Saída";
+            // 
+            // vendaToolStripMenuItem
+            // 
+            vendaToolStripMenuItem.Name = "vendaToolStripMenuItem";
+            vendaToolStripMenuItem.Size = new Size(180, 22);
+            vendaToolStripMenuItem.Text = "Venda";
+            vendaToolStripMenuItem.Click += vendaToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -97,5 +121,8 @@
         private ToolStripMenuItem cadastroGeralToolStripMenuItem;
         private ToolStripMenuItem estoqueToolStripMenuItem;
         private ToolStripMenuItem gruposToolStripMenuItem;
+        private ToolStripMenuItem peçasToolStripMenuItem;
+        private ToolStripMenuItem saídaToolStripMenuItem;
+        private ToolStripMenuItem vendaToolStripMenuItem;
     }
 }
