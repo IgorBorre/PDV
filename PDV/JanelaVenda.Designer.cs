@@ -63,6 +63,7 @@
             // 
             // textBox1
             // 
+            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox1.Location = new Point(12, 48);
             textBox1.Name = "textBox1";
@@ -81,6 +82,7 @@
             // 
             // textBox2
             // 
+            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             textBox2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox2.Location = new Point(1152, 48);
             textBox2.Name = "textBox2";
@@ -89,6 +91,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(1152, 28);
@@ -99,6 +102,7 @@
             // 
             // textBox3
             // 
+            textBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             textBox3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox3.Location = new Point(1258, 48);
             textBox3.Name = "textBox3";
@@ -107,6 +111,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(1258, 28);
@@ -117,6 +122,7 @@
             // 
             // listBox1
             // 
+            listBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
             listBox1.Location = new Point(12, 79);
@@ -126,6 +132,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(LbPreco);
             groupBox1.Controls.Add(LbEstoque);
             groupBox1.Controls.Add(LbDescricao);
@@ -231,6 +238,7 @@
             // 
             // label8
             // 
+            label8.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.Location = new Point(12, 612);
@@ -241,6 +249,7 @@
             // 
             // label9
             // 
+            label9.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.Location = new Point(77, 654);
@@ -251,6 +260,7 @@
             // 
             // F3
             // 
+            F3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             F3.Location = new Point(57, 699);
             F3.Name = "F3";
             F3.Size = new Size(29, 23);
@@ -262,6 +272,7 @@
             // 
             // label10
             // 
+            label10.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.Location = new Point(92, 701);
@@ -272,6 +283,7 @@
             // 
             // label11
             // 
+            label11.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label11.Location = new Point(245, 701);
@@ -282,6 +294,7 @@
             // 
             // F4
             // 
+            F4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             F4.Location = new Point(210, 699);
             F4.Name = "F4";
             F4.Size = new Size(29, 23);
@@ -292,6 +305,7 @@
             // 
             // label12
             // 
+            label12.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label12.Location = new Point(412, 699);
@@ -303,6 +317,7 @@
             // 
             // F5
             // 
+            F5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             F5.Location = new Point(377, 697);
             F5.Name = "F5";
             F5.Size = new Size(29, 23);
@@ -314,6 +329,7 @@
             // 
             // label13
             // 
+            label13.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label13.Location = new Point(588, 699);
@@ -324,6 +340,7 @@
             // 
             // F6
             // 
+            F6.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             F6.Location = new Point(553, 697);
             F6.Name = "F6";
             F6.Size = new Size(29, 23);
