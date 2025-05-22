@@ -63,6 +63,7 @@
             TfCodigo.Name = "TfCodigo";
             TfCodigo.Size = new Size(100, 23);
             TfCodigo.TabIndex = 1;
+            TfCodigo.KeyDown += TfCodigo_KeyDown;
             // 
             // label2
             // 
@@ -79,6 +80,7 @@
             TfDescricao.Name = "TfDescricao";
             TfDescricao.Size = new Size(240, 23);
             TfDescricao.TabIndex = 3;
+            TfDescricao.KeyDown += TfDescricao_KeyDown;
             // 
             // label3
             // 
@@ -95,6 +97,7 @@
             TfGrupo.Name = "TfGrupo";
             TfGrupo.Size = new Size(208, 23);
             TfGrupo.TabIndex = 5;
+            TfGrupo.KeyDown += TfGrupo_KeyDown;
             // 
             // label4
             // 
@@ -111,6 +114,7 @@
             TfReferencia.Name = "TfReferencia";
             TfReferencia.Size = new Size(174, 23);
             TfReferencia.TabIndex = 7;
+            TfReferencia.KeyDown += TfReferencia_KeyDown;
             // 
             // dataGridView1
             // 
@@ -227,6 +231,7 @@
             Text = "CadastroEstoque";
             Load += CadastroEstoque_Load;
             DoubleClick += CadastroEstoque_DoubleClick;
+            KeyDown += CadastroEstoque_KeyDown;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

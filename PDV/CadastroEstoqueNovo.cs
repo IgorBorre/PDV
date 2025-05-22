@@ -107,10 +107,18 @@ namespace PDV
                 /*preenche tanto o id do grupo quanto o nome do grupo nos campos TfIdGrupo e TfGrupo
                 de acordo com o conteudo das linhas id e nome na tabela dt*/
                 DataTable dt = grupoDAO.BuscarIdGrupo(TfGrupo.Text);
-                DataRow row = null;
-                row = dt.Rows[0];
-                TfIdGrupo.Text = row["id"].ToString();
-                TfGrupo.Text = row["nome"].ToString();
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    DataRow row = null;
+                    row = dt.Rows[0];
+                    TfIdGrupo.Text = row["id"].ToString();
+                    TfGrupo.Text = row["nome"].ToString();
+                }
+                else {
+                    MessageBox.Show("Grupo não encontado!");
+                    TfIdGrupo.Text = string.Empty;
+                    TfGrupo.Focus();
+                }
             }
             
         }
@@ -125,9 +133,17 @@ namespace PDV
 
                 //preenche o nome do grupo no campo TfGrupo com o conteudo da linha nome na tabela dt
                 DataTable dt = grupoDAO.BuscarNomeGrupo(TfIdGrupo.Text);
-                DataRow row = null;
-                row = dt.Rows[0];
-                TfGrupo.Text = row["nome"].ToString();
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    DataRow row = null;
+                    row = dt.Rows[0];
+                    TfGrupo.Text = row["nome"].ToString();
+                }
+                else {
+                    MessageBox.Show("Grupo não encontrado!");
+                    TfIdGrupo.Focus();
+                    TfGrupo.Text= string.Empty;
+                }
             }
         }
     }

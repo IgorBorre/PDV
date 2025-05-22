@@ -63,6 +63,7 @@
             TFCodigo.Size = new Size(66, 23);
             TFCodigo.TabIndex = 1;
             TFCodigo.TextChanged += TFCodigo_TextChanged;
+            TFCodigo.KeyDown += TFCodigo_KeyDown;
             // 
             // label2
             // 
@@ -80,6 +81,7 @@
             TFNome.Size = new Size(258, 23);
             TFNome.TabIndex = 3;
             TFNome.TextChanged += TFNome_TextChanged;
+            TFNome.KeyDown += TFNome_KeyDown;
             // 
             // label3
             // 
@@ -96,13 +98,14 @@
             TFCpf.Name = "TFCpf";
             TFCpf.Size = new Size(193, 23);
             TFCpf.TabIndex = 5;
+            TFCpf.KeyDown += TFCpf_KeyDown;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Location = new Point(424, 31);
             label4.Name = "label4";
-            label4.Size = new Size(51, 15);
+            label4.Size = new Size(52, 15);
             label4.TabIndex = 6;
             label4.Text = "Telefone";
             // 
@@ -113,6 +116,7 @@
             TFTelefone.Name = "TFTelefone";
             TFTelefone.Size = new Size(93, 23);
             TFTelefone.TabIndex = 7;
+            TFTelefone.KeyDown += TFTelefone_KeyDown;
             // 
             // button1
             // 
@@ -219,6 +223,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CadastroGeral";
             Load += CadastroGeral_Load;
+            KeyDown += CadastroGeral_KeyDown;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

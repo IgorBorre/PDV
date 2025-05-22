@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
+            TfId = new TextBox();
             Produto = new Label();
-            textBox2 = new TextBox();
+            TfQtd = new TextBox();
             label1 = new Label();
-            textBox3 = new TextBox();
+            TfPreco = new TextBox();
             label2 = new Label();
             listBox1 = new ListBox();
             groupBox1 = new GroupBox();
@@ -61,14 +61,15 @@
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // textBox1
+            // TfId
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(12, 48);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(1134, 25);
-            textBox1.TabIndex = 0;
+            TfId.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TfId.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TfId.Location = new Point(12, 48);
+            TfId.Name = "TfId";
+            TfId.Size = new Size(1134, 25);
+            TfId.TabIndex = 0;
+            TfId.Leave += textBox1_Leave;
             // 
             // Produto
             // 
@@ -80,14 +81,14 @@
             Produto.TabIndex = 1;
             Produto.Text = "Produto";
             // 
-            // textBox2
+            // TfQtd
             // 
-            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            textBox2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(1152, 48);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 25);
-            textBox2.TabIndex = 2;
+            TfQtd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            TfQtd.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TfQtd.Location = new Point(1152, 48);
+            TfQtd.Name = "TfQtd";
+            TfQtd.Size = new Size(100, 25);
+            TfQtd.TabIndex = 2;
             // 
             // label1
             // 
@@ -100,14 +101,15 @@
             label1.TabIndex = 3;
             label1.Text = "Quantidade";
             // 
-            // textBox3
+            // TfPreco
             // 
-            textBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            textBox3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(1258, 48);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 25);
-            textBox3.TabIndex = 4;
+            TfPreco.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            TfPreco.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TfPreco.Location = new Point(1258, 48);
+            TfPreco.Name = "TfPreco";
+            TfPreco.Size = new Size(100, 25);
+            TfPreco.TabIndex = 4;
+            TfPreco.KeyDown += TfPreco_KeyDown;
             // 
             // label2
             // 
@@ -388,11 +390,11 @@
             Controls.Add(groupBox1);
             Controls.Add(listBox1);
             Controls.Add(label2);
-            Controls.Add(textBox3);
+            Controls.Add(TfPreco);
             Controls.Add(label1);
-            Controls.Add(textBox2);
+            Controls.Add(TfQtd);
             Controls.Add(Produto);
-            Controls.Add(textBox1);
+            Controls.Add(TfId);
             FormBorderStyle = FormBorderStyle.None;
             KeyPreview = true;
             Name = "JanelaVenda";
@@ -408,11 +410,11 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox TfId;
         private Label Produto;
-        private TextBox textBox2;
+        private TextBox TfQtd;
         private Label label1;
-        private TextBox textBox3;
+        private TextBox TfPreco;
         private Label label2;
         private ListBox listBox1;
         private GroupBox groupBox1;

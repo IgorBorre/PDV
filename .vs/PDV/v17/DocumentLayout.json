@@ -3,20 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\pdv\\janelavenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\janelavenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\cadastroestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\cadastroestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\cadastroestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\cadastroestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\cadastrogeral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\cadastrogeral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\cadastroestoquenovo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\cadastroestoquenovo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\janelavenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\janelavenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\conexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\conexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\janelavenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\janelavenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\pdv\\cadastroestoquenovo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\cadastroestoquenovo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\produtodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\produtodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\produtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\produtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\vendadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\vendadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\grupodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\grupodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\pdv\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -34,33 +58,123 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Conexao.cs",
-              "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Conexao.cs",
-              "RelativeDocumentMoniker": "PDV\\Conexao.cs",
-              "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Conexao.cs",
-              "RelativeToolTip": "PDV\\Conexao.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABSAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "CadastroEstoque.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\CadastroEstoque.cs",
+              "RelativeDocumentMoniker": "PDV\\CadastroEstoque.cs",
+              "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\CadastroEstoque.cs [Projeto]",
+              "RelativeToolTip": "PDV\\CadastroEstoque.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T18:46:27.435Z",
+              "WhenOpened": "2025-05-22T21:42:24.65Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CadastroGeral.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\CadastroGeral.cs",
+              "RelativeDocumentMoniker": "PDV\\CadastroGeral.cs",
+              "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\CadastroGeral.cs",
+              "RelativeToolTip": "PDV\\CadastroGeral.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAmwCwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T21:21:43.74Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "CadastroEstoque.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\CadastroEstoque.cs",
+              "RelativeDocumentMoniker": "PDV\\CadastroEstoque.cs",
+              "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\CadastroEstoque.cs",
+              "RelativeToolTip": "PDV\\CadastroEstoque.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAQwHUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T20:49:46.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Produtos.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Produtos.cs",
+              "RelativeDocumentMoniker": "PDV\\Produtos.cs",
+              "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Produtos.cs",
+              "RelativeToolTip": "PDV\\Produtos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T18:52:03.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProdutoDAO.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\ProdutoDAO.cs",
+              "RelativeDocumentMoniker": "PDV\\ProdutoDAO.cs",
+              "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\ProdutoDAO.cs",
+              "RelativeToolTip": "PDV\\ProdutoDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF8AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T18:10:18.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GrupoDAO.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\GrupoDAO.cs",
+              "RelativeDocumentMoniker": "PDV\\GrupoDAO.cs",
+              "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\GrupoDAO.cs",
+              "RelativeToolTip": "PDV\\GrupoDAO.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T18:09:44.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "VendaDAO.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\VendaDAO.cs",
+              "RelativeDocumentMoniker": "PDV\\VendaDAO.cs",
+              "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\VendaDAO.cs",
+              "RelativeToolTip": "PDV\\VendaDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T18:09:22.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CadastroEstoqueNovo.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\CadastroEstoqueNovo.cs",
+              "RelativeDocumentMoniker": "PDV\\CadastroEstoqueNovo.cs",
+              "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\CadastroEstoqueNovo.cs",
+              "RelativeToolTip": "PDV\\CadastroEstoqueNovo.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAJAAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T18:05:19.498Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "JanelaVenda.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\JanelaVenda.cs",
               "RelativeDocumentMoniker": "PDV\\JanelaVenda.cs",
               "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\JanelaVenda.cs",
               "RelativeToolTip": "PDV\\JanelaVenda.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAhwFIAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAkwIIAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-09T18:02:27.815Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "JanelaVenda.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\JanelaVenda.cs",
               "RelativeDocumentMoniker": "PDV\\JanelaVenda.cs",
@@ -72,18 +186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CadastroEstoqueNovo.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\CadastroEstoqueNovo.cs",
-              "RelativeDocumentMoniker": "PDV\\CadastroEstoqueNovo.cs",
-              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\CadastroEstoqueNovo.cs [Projeto]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\CadastroEstoqueNovo.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T17:04:19.368Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "Form1.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Form1.cs",
               "RelativeDocumentMoniker": "PDV\\Form1.cs",

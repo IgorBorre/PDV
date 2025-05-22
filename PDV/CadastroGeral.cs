@@ -13,7 +13,7 @@ namespace PDV
     public partial class CadastroGeral : Form
     {
 
-        
+
 
         public CadastroGeral()
         {
@@ -27,8 +27,23 @@ namespace PDV
             string c = "";
             ClienteDAO clienteDAO = new ClienteDAO();
             c = "select codigo, nome, telefone, identificacao from clientes where 1" + clienteDAO.Criterios(TFCodigo.Text, TFNome.Text, TFTelefone.Text, TFCpf.Text);
-            dataGridView1.DataSource = clienteDAO.ListarClientes(c);
-            dataGridView1.ClearSelection();
+
+            DataTable dt = clienteDAO.ListarClientes(c);
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                dataGridView1.DataSource = dt;
+                dataGridView1.ClearSelection();
+            }
+            else
+            {
+                MessageBox.Show("Cliente não encontrado!");
+                TFCodigo.Text = string.Empty;
+                TFCpf.Text = string.Empty;
+                TFNome.Text = string.Empty;
+                TFTelefone.Text = string.Empty;
+                TFCodigo.Focus();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -80,7 +95,7 @@ namespace PDV
 
         private void TFCodigo_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void CadastroGeral_Load(object sender, EventArgs e)
@@ -90,7 +105,44 @@ namespace PDV
 
         private void TFNome_TextChanged(object sender, EventArgs e)
         {
-           
+
+        }
+
+        private void CadastroGeral_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TFCodigo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1.PerformClick();
+            }
+        }
+
+        private void TFTelefone_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1.PerformClick();
+            }
+        }
+
+        private void TFNome_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1.PerformClick();
+            }
+        }
+
+        private void TFCpf_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1.PerformClick();
+            }
         }
     }
 }

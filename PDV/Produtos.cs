@@ -16,5 +16,13 @@ namespace PDV
         public double estoque { get; set; }
         public double preco { get; set; }
 
+        public double quantidade { get; set; }
+
+
+        public override string ToString()
+        {
+            return $"{descricao} + Qtd: {quantidade} + Preço: {preco}";
+        }
+
     }
 }
