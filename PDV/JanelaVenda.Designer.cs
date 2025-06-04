@@ -58,6 +58,13 @@
             F6 = new Button();
             LbQuantidade = new Label();
             LbTotal = new Label();
+            listView1 = new ListView();
+            CÓDIGO = new ColumnHeader();
+            DESC = new ColumnHeader();
+            QTD = new ColumnHeader();
+            PREÇO = new ColumnHeader();
+            lblQtd = new Label();
+            lblTotal = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -127,9 +134,10 @@
             listBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(12, 79);
+            listBox1.Location = new Point(12, 124);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(381, 514);
+            listBox1.SelectionMode = SelectionMode.None;
+            listBox1.Size = new Size(381, 469);
             listBox1.TabIndex = 6;
             // 
             // groupBox1
@@ -369,12 +377,67 @@
             LbTotal.Size = new Size(0, 30);
             LbTotal.TabIndex = 18;
             // 
+            // listView1
+            // 
+            listView1.Columns.AddRange(new ColumnHeader[] { CÓDIGO, DESC, QTD, PREÇO });
+            listView1.Enabled = false;
+            listView1.FullRowSelect = true;
+            listView1.GridLines = true;
+            listView1.Location = new Point(12, 89);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(381, 36);
+            listView1.TabIndex = 19;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = View.Details;
+            // 
+            // CÓDIGO
+            // 
+            CÓDIGO.Text = "CÓDIGO";
+            // 
+            // DESC
+            // 
+            DESC.Text = "DESCRIÇÃO";
+            DESC.Width = 197;
+            // 
+            // QTD
+            // 
+            QTD.Text = "QTD";
+            // 
+            // PREÇO
+            // 
+            PREÇO.Text = "PREÇO";
+            // 
+            // lblQtd
+            // 
+            lblQtd.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblQtd.AutoSize = true;
+            lblQtd.Location = new Point(136, 624);
+            lblQtd.Name = "lblQtd";
+            lblQtd.Size = new Size(44, 15);
+            lblQtd.TabIndex = 20;
+            lblQtd.Text = "label14";
+            lblQtd.Visible = false;
+            // 
+            // lblTotal
+            // 
+            lblTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblTotal.AutoSize = true;
+            lblTotal.Location = new Point(136, 666);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(44, 15);
+            lblTotal.TabIndex = 21;
+            lblTotal.Text = "label14";
+            lblTotal.Visible = false;
+            // 
             // JanelaVenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDark;
             ClientSize = new Size(1370, 749);
+            Controls.Add(lblTotal);
+            Controls.Add(lblQtd);
+            Controls.Add(listView1);
             Controls.Add(LbTotal);
             Controls.Add(LbQuantidade);
             Controls.Add(label13);
@@ -440,5 +503,12 @@
         private Label LbCodigo;
         private Label LbQuantidade;
         private Label LbTotal;
+        private ListView listView1;
+        private ColumnHeader CÓDIGO;
+        private ColumnHeader DESC;
+        private ColumnHeader QTD;
+        private ColumnHeader PREÇO;
+        private Label lblQtd;
+        private Label lblTotal;
     }
 }

@@ -108,6 +108,61 @@ LOCK TABLES `produtos` WRITE;
 INSERT INTO `produtos` VALUES (1,'teste','casaco de couro',50,20,NULL,NULL),(2,'teste2','calça de moletom',60,115,NULL,NULL),(4,'teste','calça de moletom',50,28,2,'calça'),(5,'asdjjkjqwkjdakjsdj','tenis vermelho',50,60,3,'tenis'),(6,'','camisa polo',50,25,1,'camisa');
 /*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `saida`
+--
+
+DROP TABLE IF EXISTS `saida`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `saida` (
+  `documento` int NOT NULL AUTO_INCREMENT,
+  `clienteId` int DEFAULT NULL,
+  `clienteNome` varchar(50) DEFAULT NULL,
+  `dataSaida` date DEFAULT NULL,
+  PRIMARY KEY (`documento`),
+  KEY `clienteId` (`clienteId`),
+  CONSTRAINT `saida_ibfk_1` FOREIGN KEY (`clienteId`) REFERENCES `clientes` (`codigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `saida`
+--
+
+LOCK TABLES `saida` WRITE;
+/*!40000 ALTER TABLE `saida` DISABLE KEYS */;
+/*!40000 ALTER TABLE `saida` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `saidadados`
+--
+
+DROP TABLE IF EXISTS `saidadados`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `saidadados` (
+  `documento` int DEFAULT NULL,
+  `produto` int DEFAULT NULL,
+  `produtoNome` varchar(50) DEFAULT NULL,
+  `quantidade` float DEFAULT NULL,
+  KEY `documento` (`documento`),
+  KEY `produto` (`produto`),
+  CONSTRAINT `saidadados_ibfk_1` FOREIGN KEY (`documento`) REFERENCES `saida` (`documento`),
+  CONSTRAINT `saidadados_ibfk_2` FOREIGN KEY (`produto`) REFERENCES `produtos` (`codigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `saidadados`
+--
+
+LOCK TABLES `saidadados` WRITE;
+/*!40000 ALTER TABLE `saidadados` DISABLE KEYS */;
+/*!40000 ALTER TABLE `saidadados` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -118,4 +173,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-24 15:29:21
+-- Dump completed on 2025-06-04 20:51:56
