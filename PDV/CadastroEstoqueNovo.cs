@@ -38,6 +38,7 @@ namespace PDV
                 TfIdGrupo.Text = row["idGrupo"].ToString();
                 TfPreco.Text = row["preco"].ToString();
                 TfReferencia.Text = row["referencia"].ToString();
+                TfEstoque.Enabled = false;
             }
         }
 

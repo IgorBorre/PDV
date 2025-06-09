@@ -65,6 +65,11 @@
             PREÇO = new ColumnHeader();
             lblQtd = new Label();
             lblTotal = new Label();
+            lbDetalhesCodigo = new Label();
+            lbDetalhesReferencia = new Label();
+            lbDetalhesDesc = new Label();
+            lbDetalhesEstoque = new Label();
+            lbDetalhesPreco = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -143,6 +148,11 @@
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(lbDetalhesPreco);
+            groupBox1.Controls.Add(lbDetalhesEstoque);
+            groupBox1.Controls.Add(lbDetalhesDesc);
+            groupBox1.Controls.Add(lbDetalhesReferencia);
+            groupBox1.Controls.Add(lbDetalhesCodigo);
             groupBox1.Controls.Add(LbPreco);
             groupBox1.Controls.Add(LbEstoque);
             groupBox1.Controls.Add(LbDescricao);
@@ -204,47 +214,47 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(10, 163);
+            label7.Location = new Point(34, 163);
             label7.Name = "label7";
-            label7.Size = new Size(37, 15);
+            label7.Size = new Size(40, 15);
             label7.TabIndex = 4;
-            label7.Text = "Preço";
+            label7.Text = "Preço:";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(10, 131);
+            label6.Location = new Point(22, 131);
             label6.Name = "label6";
-            label6.Size = new Size(49, 15);
+            label6.Size = new Size(52, 15);
             label6.TabIndex = 3;
-            label6.Text = "Estoque";
+            label6.Text = "Estoque:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(10, 99);
+            label5.Location = new Point(14, 99);
             label5.Name = "label5";
-            label5.Size = new Size(58, 15);
+            label5.Size = new Size(61, 15);
             label5.TabIndex = 2;
-            label5.Text = "Descrição";
+            label5.Text = "Descrição:";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Location = new Point(10, 67);
             label4.Name = "label4";
-            label4.Size = new Size(62, 15);
+            label4.Size = new Size(65, 15);
             label4.TabIndex = 1;
-            label4.Text = "Referência";
+            label4.Text = "Referência:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(10, 33);
+            label3.Location = new Point(26, 45);
             label3.Name = "label3";
-            label3.Size = new Size(46, 15);
+            label3.Size = new Size(49, 15);
             label3.TabIndex = 0;
-            label3.Text = "Código";
+            label3.Text = "Código:";
             // 
             // label8
             // 
@@ -429,6 +439,56 @@
             lblTotal.Text = "label14";
             lblTotal.Visible = false;
             // 
+            // lbDetalhesCodigo
+            // 
+            lbDetalhesCodigo.AutoSize = true;
+            lbDetalhesCodigo.Location = new Point(80, 45);
+            lbDetalhesCodigo.Name = "lbDetalhesCodigo";
+            lbDetalhesCodigo.Size = new Size(44, 15);
+            lbDetalhesCodigo.TabIndex = 10;
+            lbDetalhesCodigo.Text = "label14";
+            lbDetalhesCodigo.Visible = false;
+            // 
+            // lbDetalhesReferencia
+            // 
+            lbDetalhesReferencia.AutoSize = true;
+            lbDetalhesReferencia.Location = new Point(80, 68);
+            lbDetalhesReferencia.Name = "lbDetalhesReferencia";
+            lbDetalhesReferencia.Size = new Size(44, 15);
+            lbDetalhesReferencia.TabIndex = 11;
+            lbDetalhesReferencia.Text = "label14";
+            lbDetalhesReferencia.Visible = false;
+            // 
+            // lbDetalhesDesc
+            // 
+            lbDetalhesDesc.AutoSize = true;
+            lbDetalhesDesc.Location = new Point(80, 99);
+            lbDetalhesDesc.Name = "lbDetalhesDesc";
+            lbDetalhesDesc.Size = new Size(44, 15);
+            lbDetalhesDesc.TabIndex = 12;
+            lbDetalhesDesc.Text = "label14";
+            lbDetalhesDesc.Visible = false;
+            // 
+            // lbDetalhesEstoque
+            // 
+            lbDetalhesEstoque.AutoSize = true;
+            lbDetalhesEstoque.Location = new Point(80, 131);
+            lbDetalhesEstoque.Name = "lbDetalhesEstoque";
+            lbDetalhesEstoque.Size = new Size(44, 15);
+            lbDetalhesEstoque.TabIndex = 13;
+            lbDetalhesEstoque.Text = "label14";
+            lbDetalhesEstoque.Visible = false;
+            // 
+            // lbDetalhesPreco
+            // 
+            lbDetalhesPreco.AutoSize = true;
+            lbDetalhesPreco.Location = new Point(80, 163);
+            lbDetalhesPreco.Name = "lbDetalhesPreco";
+            lbDetalhesPreco.Size = new Size(44, 15);
+            lbDetalhesPreco.TabIndex = 14;
+            lbDetalhesPreco.Text = "label14";
+            lbDetalhesPreco.Visible = false;
+            // 
             // JanelaVenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -510,5 +570,10 @@
         private ColumnHeader PREÇO;
         private Label lblQtd;
         private Label lblTotal;
+        private Label lbDetalhesCodigo;
+        private Label lbDetalhesPreco;
+        private Label lbDetalhesEstoque;
+        private Label lbDetalhesDesc;
+        private Label lbDetalhesReferencia;
     }
 }

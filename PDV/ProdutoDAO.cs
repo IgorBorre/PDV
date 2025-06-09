@@ -108,7 +108,7 @@ namespace PDV
 
         public DataTable ListarNomeById(string id)
         {
-            string comando = "select descricao, preco from produtos where codigo = " + id;
+            string comando = "select descricao, referencia, estoque, preco from produtos where codigo = " + id;
             return ListarProdutos(comando);
        }
 

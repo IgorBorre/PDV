@@ -36,7 +36,9 @@ namespace PDV
                     command.Parameters.AddWithValue("@nome", c.nome);
                     command.Parameters.AddWithValue("@identificacao", c.identificacao);
                     command.Parameters.AddWithValue("@telefone", c.telefone);
-                    command.Parameters.AddWithValue("@nascimento", string.IsNullOrWhiteSpace(c.nascimento) ? (object)DBNull.Value : Convert.ToDateTime(c.nascimento));
+
+                    //se o valor da string for vazio ou apenas espaços em branco, salva no banco como null, se não for, faz a conversão para DateTime e salva no banco a data convertida
+                    command.Parameters.AddWithValue("@nascimento", string.IsNullOrWhiteSpace(c.nascimento) ? (object)DBNull.Value : Convert.ToDateTime(c.nascimento)); 
                     command.Parameters.AddWithValue("@situacao", c.situacao);
                     command.Parameters.AddWithValue("@logradouro", c.logradouro);
                     command.Parameters.AddWithValue("@rua", c.rua);

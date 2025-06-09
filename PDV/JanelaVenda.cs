@@ -15,6 +15,7 @@ namespace PDV
     public partial class JanelaVenda : Form
     {
         ProdutoDAO produtoDAO;
+        VendaDAO vendaDAO;
         List<Produtos> listaProdutos = new List<Produtos>();
         int id = 0;
         double quantidade = 0;
@@ -23,6 +24,32 @@ namespace PDV
         {
             InitializeComponent();
             produtoDAO = new ProdutoDAO();
+            vendaDAO = new VendaDAO();
+        }
+
+        private void LimparCampos() {
+            TfId.Text = string.Empty;
+            TfQtd.Text = string.Empty;
+            TfPreco.Text = string.Empty;
+            listBox1.Items.Clear();
+            listaProdutos.Clear();
+            lblQtd.Text = string.Empty;
+            lblQtd.Visible = false;
+
+            lblTotal.Text = string.Empty;
+            lblTotal.Visible = false;
+
+            lbDetalhesDesc.Text = string.Empty;
+            lbDetalhesDesc.Visible = false;
+            lbDetalhesCodigo.Text = string.Empty;
+            lbDetalhesCodigo.Visible = false;
+            lbDetalhesEstoque.Text = string.Empty;
+            lbDetalhesEstoque.Visible = false;
+            lbDetalhesPreco.Text = string.Empty;
+            lbDetalhesPreco.Visible = false;
+            lbDetalhesReferencia.Text = string.Empty;
+            lbDetalhesReferencia.Visible = false;
+            TfId.Focus();
         }
 
         private void label12_Click(object sender, EventArgs e)
@@ -40,17 +67,14 @@ namespace PDV
                 }
                 else
                 {
-                    TfId.Text = string.Empty;
-                    TfQtd.Text = string.Empty;
-                    TfPreco.Text = string.Empty;
-                    listBox1.Items.Clear();
-                    listaProdutos.Clear();
-                    lblQtd.Text = string.Empty ;
-                    lblQtd.Visible = false;
+                    DialogResult resultado = MessageBox.Show("Cancelar venda?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    lblTotal.Text = string.Empty;
-                    lblTotal.Visible = false;
-                    TfId.Focus();
+
+                    if (resultado == DialogResult.Yes)
+                    {
+                        LimparCampos();
+                    }
+                    
                 }
             }
 
@@ -105,14 +129,25 @@ namespace PDV
 
         private void F5_Click(object sender, EventArgs e)
         {
-
+            Venda v = new Venda();
+            vendaDAO.Venda(v, listaProdutos);
+            LimparCampos();
         }
 
         private void textBox1_Leave(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(TfId.Text.ToString()))
             {
-                id = int.Parse(TfId.Text.ToString());
+                try
+                {
+                    id = int.Parse(TfId.Text.ToString());
+                }
+                catch
+                {
+                    MessageBox.Show("Produto não encontrado!");
+                    TfId.Focus();
+                    return;
+                }
                 DataTable dt = produtoDAO.ListarNomeById(TfId.Text.ToString());
                 if (dt != null && dt.Rows.Count > 0)
                 {
@@ -121,6 +156,17 @@ namespace PDV
                     TfId.Text = row["descricao"].ToString().ToUpper();
                     TfQtd.Text = "1,0";
                     TfPreco.Text = row["preco"].ToString();
+                    lbDetalhesCodigo.Text = id.ToString();
+                    lbDetalhesDesc.Text = row["descricao"].ToString().ToUpper();
+                    lbDetalhesReferencia.Text = row["referencia"].ToString().ToUpper();
+                    lbDetalhesPreco.Text = row["preco"].ToString();
+                    lbDetalhesEstoque.Text = row["estoque"].ToString();
+
+                    lbDetalhesCodigo.Visible = true;
+                    lbDetalhesDesc.Visible = true;
+                    lbDetalhesEstoque.Visible = true;
+                    lbDetalhesPreco.Visible = true;
+                    lbDetalhesReferencia.Visible = true;                    
                 }
                 else
                 {
@@ -165,6 +211,17 @@ namespace PDV
                 TfId.Text = string.Empty;
                 TfQtd.Text = string.Empty;
                 TfPreco.Text = string.Empty;
+
+                lbDetalhesDesc.Text = string.Empty;
+                lbDetalhesDesc.Visible = false;
+                lbDetalhesCodigo.Text = string.Empty;
+                lbDetalhesCodigo.Visible = false;
+                lbDetalhesEstoque.Text = string.Empty;
+                lbDetalhesEstoque.Visible = false;
+                lbDetalhesPreco.Text = string.Empty;
+                lbDetalhesPreco.Visible = false;
+                lbDetalhesReferencia.Text = string.Empty;
+                lbDetalhesReferencia.Visible = false;
                 TfId.Focus();
             }
         }
