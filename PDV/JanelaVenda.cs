@@ -27,7 +27,8 @@ namespace PDV
             vendaDAO = new VendaDAO();
         }
 
-        private void LimparCampos() {
+        private void LimparCampos()
+        {
             TfId.Text = string.Empty;
             TfQtd.Text = string.Empty;
             TfPreco.Text = string.Empty;
@@ -74,7 +75,7 @@ namespace PDV
                     {
                         LimparCampos();
                     }
-                    
+
                 }
             }
 
@@ -166,7 +167,7 @@ namespace PDV
                     lbDetalhesDesc.Visible = true;
                     lbDetalhesEstoque.Visible = true;
                     lbDetalhesPreco.Visible = true;
-                    lbDetalhesReferencia.Visible = true;                    
+                    lbDetalhesReferencia.Visible = true;
                 }
                 else
                 {
@@ -180,7 +181,8 @@ namespace PDV
         private void TfPreco_KeyDown(object sender, KeyEventArgs e)
         {
 
-            if (e.KeyCode == Keys.Enter) {
+            if (e.KeyCode == Keys.Enter)
+            {
                 Produtos p = new Produtos();
                 p.codigo = id;
                 p.descricao = TfId.Text.ToString();
@@ -224,6 +226,15 @@ namespace PDV
                 lbDetalhesReferencia.Visible = false;
                 TfId.Focus();
             }
+        }
+
+        private void F3_Click(object sender, EventArgs e)
+        {
+            JanelaClienteVenda janelaClienteVenda = new JanelaClienteVenda();
+            janelaClienteVenda.Show();
+            janelaClienteVenda.TopMost = true;
+            janelaClienteVenda.BringToFront();
+            janelaClienteVenda.Focus();
         }
     }
 }

@@ -31,7 +31,7 @@ namespace PDV
                     cmd.Parameters.AddWithValue("@descricao", p.descricao);
                     cmd.Parameters.AddWithValue("@estoque", p.estoque);
                     cmd.Parameters.AddWithValue("@preco", p.preco);
-                    cmd.Parameters.AddWithValue("@idGrupo", p.idGrupo);
+                    cmd.Parameters.AddWithValue("@idGrupo", p.idGrupo == null ? (object)DBNull.Value : p.idGrupo);
                     cmd.Parameters.AddWithValue("@grupo", p.grupo);
                     cmd.ExecuteNonQuery();
 

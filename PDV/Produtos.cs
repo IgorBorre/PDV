@@ -12,7 +12,7 @@ namespace PDV
         public string referencia { get; set; }
         public string descricao { get; set; }
         public string grupo { get; set; }
-        public int idGrupo { get; set; }
+        public int? idGrupo { get; set; }
         public double estoque { get; set; }
         public double preco { get; set; }
 

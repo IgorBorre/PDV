@@ -58,6 +58,7 @@ namespace PDV
                         cmd.ExecuteNonQuery();
                     }
                 }
+                con.FecharConexao();
             }
             catch (Exception)
             {

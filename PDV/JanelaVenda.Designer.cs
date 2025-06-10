@@ -36,6 +36,11 @@
             label2 = new Label();
             listBox1 = new ListBox();
             groupBox1 = new GroupBox();
+            lbDetalhesPreco = new Label();
+            lbDetalhesEstoque = new Label();
+            lbDetalhesDesc = new Label();
+            lbDetalhesReferencia = new Label();
+            lbDetalhesCodigo = new Label();
             LbPreco = new Label();
             LbEstoque = new Label();
             LbDescricao = new Label();
@@ -65,11 +70,9 @@
             PREÇO = new ColumnHeader();
             lblQtd = new Label();
             lblTotal = new Label();
-            lbDetalhesCodigo = new Label();
-            lbDetalhesReferencia = new Label();
-            lbDetalhesDesc = new Label();
-            lbDetalhesEstoque = new Label();
-            lbDetalhesPreco = new Label();
+            label14 = new Label();
+            lbIdCliente = new Label();
+            lbNomeCliente = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -171,6 +174,61 @@
             groupBox1.Text = "Detalhes do produto";
             groupBox1.Enter += groupBox1_Enter;
             // 
+            // lbDetalhesPreco
+            // 
+            lbDetalhesPreco.AutoSize = true;
+            lbDetalhesPreco.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbDetalhesPreco.Location = new Point(80, 163);
+            lbDetalhesPreco.Name = "lbDetalhesPreco";
+            lbDetalhesPreco.Size = new Size(50, 17);
+            lbDetalhesPreco.TabIndex = 14;
+            lbDetalhesPreco.Text = "label14";
+            lbDetalhesPreco.Visible = false;
+            // 
+            // lbDetalhesEstoque
+            // 
+            lbDetalhesEstoque.AutoSize = true;
+            lbDetalhesEstoque.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbDetalhesEstoque.Location = new Point(80, 131);
+            lbDetalhesEstoque.Name = "lbDetalhesEstoque";
+            lbDetalhesEstoque.Size = new Size(50, 17);
+            lbDetalhesEstoque.TabIndex = 13;
+            lbDetalhesEstoque.Text = "label14";
+            lbDetalhesEstoque.Visible = false;
+            // 
+            // lbDetalhesDesc
+            // 
+            lbDetalhesDesc.AutoSize = true;
+            lbDetalhesDesc.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbDetalhesDesc.Location = new Point(80, 103);
+            lbDetalhesDesc.Name = "lbDetalhesDesc";
+            lbDetalhesDesc.Size = new Size(50, 17);
+            lbDetalhesDesc.TabIndex = 12;
+            lbDetalhesDesc.Text = "label14";
+            lbDetalhesDesc.Visible = false;
+            // 
+            // lbDetalhesReferencia
+            // 
+            lbDetalhesReferencia.AutoSize = true;
+            lbDetalhesReferencia.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbDetalhesReferencia.Location = new Point(80, 73);
+            lbDetalhesReferencia.Name = "lbDetalhesReferencia";
+            lbDetalhesReferencia.Size = new Size(50, 17);
+            lbDetalhesReferencia.TabIndex = 11;
+            lbDetalhesReferencia.Text = "label14";
+            lbDetalhesReferencia.Visible = false;
+            // 
+            // lbDetalhesCodigo
+            // 
+            lbDetalhesCodigo.AutoSize = true;
+            lbDetalhesCodigo.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbDetalhesCodigo.Location = new Point(80, 45);
+            lbDetalhesCodigo.Name = "lbDetalhesCodigo";
+            lbDetalhesCodigo.Size = new Size(50, 17);
+            lbDetalhesCodigo.TabIndex = 10;
+            lbDetalhesCodigo.Text = "label14";
+            lbDetalhesCodigo.Visible = false;
+            // 
             // LbPreco
             // 
             LbPreco.AutoSize = true;
@@ -190,7 +248,7 @@
             // LbDescricao
             // 
             LbDescricao.AutoSize = true;
-            LbDescricao.Location = new Point(74, 99);
+            LbDescricao.Location = new Point(74, 103);
             LbDescricao.Name = "LbDescricao";
             LbDescricao.Size = new Size(0, 15);
             LbDescricao.TabIndex = 7;
@@ -198,7 +256,7 @@
             // LbReferencia
             // 
             LbReferencia.AutoSize = true;
-            LbReferencia.Location = new Point(74, 68);
+            LbReferencia.Location = new Point(74, 73);
             LbReferencia.Name = "LbReferencia";
             LbReferencia.Size = new Size(0, 15);
             LbReferencia.TabIndex = 6;
@@ -214,45 +272,50 @@
             // label7
             // 
             label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.Location = new Point(34, 163);
             label7.Name = "label7";
-            label7.Size = new Size(40, 15);
+            label7.Size = new Size(44, 17);
             label7.TabIndex = 4;
             label7.Text = "Preço:";
             // 
             // label6
             // 
             label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.Location = new Point(22, 131);
             label6.Name = "label6";
-            label6.Size = new Size(52, 15);
+            label6.Size = new Size(58, 17);
             label6.TabIndex = 3;
             label6.Text = "Estoque:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(14, 99);
+            label5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(14, 103);
             label5.Name = "label5";
-            label5.Size = new Size(61, 15);
+            label5.Size = new Size(68, 17);
             label5.TabIndex = 2;
             label5.Text = "Descrição:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(10, 67);
+            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(10, 72);
             label4.Name = "label4";
-            label4.Size = new Size(65, 15);
+            label4.Size = new Size(72, 17);
             label4.TabIndex = 1;
             label4.Text = "Referência:";
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.Location = new Point(26, 45);
             label3.Name = "label3";
-            label3.Size = new Size(49, 15);
+            label3.Size = new Size(54, 17);
             label3.TabIndex = 0;
             label3.Text = "Código:";
             // 
@@ -287,6 +350,7 @@
             F3.TabIndex = 10;
             F3.Text = "F3";
             F3.UseVisualStyleBackColor = true;
+            F3.Click += F3_Click;
             F3.KeyDown += button1_KeyDown;
             F3.KeyPress += button1_KeyPress;
             // 
@@ -421,9 +485,10 @@
             // 
             lblQtd.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblQtd.AutoSize = true;
-            lblQtd.Location = new Point(136, 624);
+            lblQtd.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblQtd.Location = new Point(136, 614);
             lblQtd.Name = "lblQtd";
-            lblQtd.Size = new Size(44, 15);
+            lblQtd.Size = new Size(76, 28);
             lblQtd.TabIndex = 20;
             lblQtd.Text = "label14";
             lblQtd.Visible = false;
@@ -432,62 +497,45 @@
             // 
             lblTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblTotal.AutoSize = true;
-            lblTotal.Location = new Point(136, 666);
+            lblTotal.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTotal.Location = new Point(136, 656);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(44, 15);
+            lblTotal.Size = new Size(76, 28);
             lblTotal.TabIndex = 21;
             lblTotal.Text = "label14";
             lblTotal.Visible = false;
             // 
-            // lbDetalhesCodigo
+            // label14
             // 
-            lbDetalhesCodigo.AutoSize = true;
-            lbDetalhesCodigo.Location = new Point(80, 45);
-            lbDetalhesCodigo.Name = "lbDetalhesCodigo";
-            lbDetalhesCodigo.Size = new Size(44, 15);
-            lbDetalhesCodigo.TabIndex = 10;
-            lbDetalhesCodigo.Text = "label14";
-            lbDetalhesCodigo.Visible = false;
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label14.Location = new Point(400, 560);
+            label14.Name = "label14";
+            label14.Size = new Size(50, 17);
+            label14.TabIndex = 22;
+            label14.Text = "Cliente:";
             // 
-            // lbDetalhesReferencia
+            // lbIdCliente
             // 
-            lbDetalhesReferencia.AutoSize = true;
-            lbDetalhesReferencia.Location = new Point(80, 68);
-            lbDetalhesReferencia.Name = "lbDetalhesReferencia";
-            lbDetalhesReferencia.Size = new Size(44, 15);
-            lbDetalhesReferencia.TabIndex = 11;
-            lbDetalhesReferencia.Text = "label14";
-            lbDetalhesReferencia.Visible = false;
+            lbIdCliente.AutoSize = true;
+            lbIdCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbIdCliente.Location = new Point(452, 560);
+            lbIdCliente.Name = "lbIdCliente";
+            lbIdCliente.Size = new Size(50, 17);
+            lbIdCliente.TabIndex = 23;
+            lbIdCliente.Text = "label14";
+            lbIdCliente.Visible = false;
             // 
-            // lbDetalhesDesc
+            // lbNomeCliente
             // 
-            lbDetalhesDesc.AutoSize = true;
-            lbDetalhesDesc.Location = new Point(80, 99);
-            lbDetalhesDesc.Name = "lbDetalhesDesc";
-            lbDetalhesDesc.Size = new Size(44, 15);
-            lbDetalhesDesc.TabIndex = 12;
-            lbDetalhesDesc.Text = "label14";
-            lbDetalhesDesc.Visible = false;
-            // 
-            // lbDetalhesEstoque
-            // 
-            lbDetalhesEstoque.AutoSize = true;
-            lbDetalhesEstoque.Location = new Point(80, 131);
-            lbDetalhesEstoque.Name = "lbDetalhesEstoque";
-            lbDetalhesEstoque.Size = new Size(44, 15);
-            lbDetalhesEstoque.TabIndex = 13;
-            lbDetalhesEstoque.Text = "label14";
-            lbDetalhesEstoque.Visible = false;
-            // 
-            // lbDetalhesPreco
-            // 
-            lbDetalhesPreco.AutoSize = true;
-            lbDetalhesPreco.Location = new Point(80, 163);
-            lbDetalhesPreco.Name = "lbDetalhesPreco";
-            lbDetalhesPreco.Size = new Size(44, 15);
-            lbDetalhesPreco.TabIndex = 14;
-            lbDetalhesPreco.Text = "label14";
-            lbDetalhesPreco.Visible = false;
+            lbNomeCliente.AutoSize = true;
+            lbNomeCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbNomeCliente.Location = new Point(502, 560);
+            lbNomeCliente.Name = "lbNomeCliente";
+            lbNomeCliente.Size = new Size(50, 17);
+            lbNomeCliente.TabIndex = 24;
+            lbNomeCliente.Text = "label14";
+            lbNomeCliente.Visible = false;
             // 
             // JanelaVenda
             // 
@@ -495,6 +543,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDark;
             ClientSize = new Size(1370, 749);
+            Controls.Add(lbNomeCliente);
+            Controls.Add(lbIdCliente);
+            Controls.Add(label14);
             Controls.Add(lblTotal);
             Controls.Add(lblQtd);
             Controls.Add(listView1);
@@ -575,5 +626,8 @@
         private Label lbDetalhesEstoque;
         private Label lbDetalhesDesc;
         private Label lbDetalhesReferencia;
+        private Label label14;
+        public Label lbIdCliente;
+        public Label lbNomeCliente;
     }
 }
