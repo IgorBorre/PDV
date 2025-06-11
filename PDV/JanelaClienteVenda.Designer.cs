@@ -108,6 +108,7 @@
             Name = "JanelaClienteVenda";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "JanelaClienteVenda";
+            Load += JanelaClienteVenda_Load;
             KeyDown += JanelaClienteVenda_KeyDown;
             ResumeLayout(false);
             PerformLayout();

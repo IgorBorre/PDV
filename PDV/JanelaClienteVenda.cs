@@ -73,7 +73,12 @@ namespace PDV
 
         private void JanelaClienteVenda_KeyDown(object sender, KeyEventArgs e)
         {
-            
+
+        }
+
+        private void JanelaClienteVenda_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

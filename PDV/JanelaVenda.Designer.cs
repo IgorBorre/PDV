@@ -507,6 +507,7 @@
             // 
             // label14
             // 
+            label14.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label14.Location = new Point(400, 560);
@@ -517,6 +518,7 @@
             // 
             // lbIdCliente
             // 
+            lbIdCliente.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lbIdCliente.AutoSize = true;
             lbIdCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbIdCliente.Location = new Point(452, 560);
@@ -528,6 +530,7 @@
             // 
             // lbNomeCliente
             // 
+            lbNomeCliente.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lbNomeCliente.AutoSize = true;
             lbNomeCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbNomeCliente.Location = new Point(502, 560);
