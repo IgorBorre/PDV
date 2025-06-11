@@ -230,7 +230,7 @@ namespace PDV
 
         private void F3_Click(object sender, EventArgs e)
         {
-            JanelaClienteVenda janelaClienteVenda = new JanelaClienteVenda();
+            JanelaClienteVenda janelaClienteVenda = new JanelaClienteVenda(this);
             janelaClienteVenda.Show();
             janelaClienteVenda.TopMost = true;
             janelaClienteVenda.BringToFront();

@@ -13,10 +13,12 @@ namespace PDV
     public partial class JanelaClienteVenda : Form
     {
         ClienteDAO clienteDAO;
-        public JanelaClienteVenda()
+        private JanelaVenda janelaVenda;
+        public JanelaClienteVenda(JanelaVenda janela)
         {
             InitializeComponent();
             clienteDAO = new ClienteDAO();
+            this.janelaVenda = janela;
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
@@ -41,7 +43,6 @@ namespace PDV
             Clientes c = new Clientes();
             c.codigo = Convert.ToInt32(tfCodigo.Text);
             c.nome = tfNome.Text;
-            JanelaVenda janelaVenda = new JanelaVenda();
             janelaVenda.lbIdCliente.Text = c.codigo.ToString();
             janelaVenda.lbNomeCliente.Text = c.nome.ToUpper();
             janelaVenda.lbIdCliente.Visible = true;
