@@ -62,6 +62,7 @@ namespace PDV
                     DataRow row = null;
                     row = dt.Rows[0];
                     tfNome.Text = row["nome"].ToString().ToUpper();
+                    btOk.Enabled = true;
                 }
                 else
                 {
@@ -78,7 +79,7 @@ namespace PDV
 
         private void JanelaClienteVenda_Load(object sender, EventArgs e)
         {
-
+            btOk.Enabled = false;
         }
     }
 }

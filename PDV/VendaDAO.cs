@@ -59,6 +59,7 @@ namespace PDV
                     }
                 }
                 con.FecharConexao();
+                MessageBox.Show("Documento " + v.codigo.ToString() + " gravado com sucesso!");
             }
             catch (Exception)
             {
@@ -110,6 +111,7 @@ namespace PDV
                         cmd.ExecuteNonQuery();
                     }
                 }
+                con.FecharConexao();
                 MessageBox.Show("Documento " + v.codigo.ToString() + " gravado com sucesso!");
             }
             catch (Exception)
@@ -117,6 +119,17 @@ namespace PDV
 
                 throw;
             }
+        }
+
+        public bool Validações(double preco, double quantidade) {
+            if (preco <= 0) { 
+                MessageBox.Show("Não é permitido inserir um produto sem valor ou com valor negativo");
+                return false;
+            }if (quantidade <= 0) { 
+                MessageBox.Show("Não é permitido inserir um produto sem quantidade ou com quantidade negativa");
+                return false;
+            }
+            return true;
         }
     }
 }

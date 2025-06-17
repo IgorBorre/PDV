@@ -8,6 +8,12 @@ namespace PDV
 {
     public class Clientes
     {
+        public Clientes(int codigo, string nome) { 
+            this.codigo = codigo;
+            this.nome = nome;
+        }
+
+        public Clientes() { }
       public int codigo { get; set;}
       public  string nome { get; set;}
       public string identificacao { get; set; }

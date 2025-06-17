@@ -523,9 +523,8 @@
             lbIdCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbIdCliente.Location = new Point(452, 560);
             lbIdCliente.Name = "lbIdCliente";
-            lbIdCliente.Size = new Size(50, 17);
+            lbIdCliente.Size = new Size(0, 17);
             lbIdCliente.TabIndex = 23;
-            lbIdCliente.Text = "label14";
             lbIdCliente.Visible = false;
             // 
             // lbNomeCliente
@@ -535,9 +534,8 @@
             lbNomeCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbNomeCliente.Location = new Point(502, 560);
             lbNomeCliente.Name = "lbNomeCliente";
-            lbNomeCliente.Size = new Size(50, 17);
+            lbNomeCliente.Size = new Size(0, 17);
             lbNomeCliente.TabIndex = 24;
-            lbNomeCliente.Text = "label14";
             lbNomeCliente.Visible = false;
             // 
             // JanelaVenda

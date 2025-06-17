@@ -50,6 +50,10 @@ namespace PDV
             lbDetalhesPreco.Visible = false;
             lbDetalhesReferencia.Text = string.Empty;
             lbDetalhesReferencia.Visible = false;
+            lbIdCliente.Text = string.Empty;
+            lbIdCliente.Visible = false;
+            lbNomeCliente.Text = string.Empty;
+            lbNomeCliente.Visible = false;
             TfId.Focus();
         }
 
@@ -62,7 +66,7 @@ namespace PDV
         {
             if (e.KeyCode == Keys.Escape)
             {
-                if (string.IsNullOrEmpty(TfId.Text.ToString()) && string.IsNullOrEmpty(TfQtd.Text.ToString()) && string.IsNullOrEmpty(TfPreco.Text.ToString()) && listBox1.Items.Count <= 0)
+                if (string.IsNullOrEmpty(TfId.Text.ToString()) && string.IsNullOrEmpty(TfQtd.Text.ToString()) && string.IsNullOrEmpty(TfPreco.Text.ToString()) && listBox1.Items.Count <= 0 && string.IsNullOrEmpty(lbIdCliente.Text))
                 {
                     this.Close();
                 }
@@ -131,8 +135,24 @@ namespace PDV
         private void F5_Click(object sender, EventArgs e)
         {
             Venda v = new Venda();
-            vendaDAO.Venda(v, listaProdutos);
-            LimparCampos();
+            if (listaProdutos.Count > 0)
+            {
+                if (string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text))
+                {
+                    vendaDAO.Venda(v, listaProdutos);
+                }
+                else
+                {
+                    Clientes c = new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
+                    vendaDAO.Venda(c, v, listaProdutos);
+                }
+
+                LimparCampos();
+            }
+            else
+            {
+                MessageBox.Show("Não é possível finalizar uma venda sem produto!");
+            }
         }
 
         private void textBox1_Leave(object sender, EventArgs e)
@@ -183,6 +203,7 @@ namespace PDV
 
             if (e.KeyCode == Keys.Enter)
             {
+                if (vendaDAO.Validações(Convert.ToDouble(TfPreco.Text), Convert.ToDouble(TfQtd.Text))) { 
                 Produtos p = new Produtos();
                 p.codigo = id;
                 p.descricao = TfId.Text.ToString();
@@ -225,6 +246,7 @@ namespace PDV
                 lbDetalhesReferencia.Text = string.Empty;
                 lbDetalhesReferencia.Visible = false;
                 TfId.Focus();
+            }
             }
         }
 
