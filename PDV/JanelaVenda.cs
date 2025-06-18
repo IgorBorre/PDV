@@ -55,6 +55,8 @@ namespace PDV
             lbNomeCliente.Text = string.Empty;
             lbNomeCliente.Visible = false;
             TfId.Focus();
+            quantidade = 0;
+            total = 0;
         }
 
         private void label12_Click(object sender, EventArgs e)
@@ -203,50 +205,51 @@ namespace PDV
 
             if (e.KeyCode == Keys.Enter)
             {
-                if (vendaDAO.Validações(Convert.ToDouble(TfPreco.Text), Convert.ToDouble(TfQtd.Text))) { 
-                Produtos p = new Produtos();
-                p.codigo = id;
-                p.descricao = TfId.Text.ToString();
-                p.preco = double.Parse(TfPreco.Text);
-                p.quantidade = double.Parse(TfQtd.Text);
-                quantidade += p.quantidade;
-                total += p.preco * p.quantidade;
-
-                lblQtd.Text = quantidade.ToString();
-                lblQtd.Visible = true;
-
-                lblTotal.Text = total.ToString();
-                lblTotal.Visible = true;
-
-
-                listaProdutos.Add(p);
-                listBox1.Items.Clear();
-                foreach (var produtos in listaProdutos)
+                if (vendaDAO.Validações(Convert.ToDouble(TfPreco.Text), Convert.ToDouble(TfQtd.Text)))
                 {
-                    string linha =
-                    produtos.codigo.ToString().PadLeft(0) +
-                    produtos.descricao.ToString().PadLeft(33) +
-                    produtos.quantidade.ToString().PadLeft(35) +
-                    produtos.preco.ToString("C", new CultureInfo("pt-BR")).PadLeft(19);
+                    Produtos p = new Produtos();
+                    p.codigo = id;
+                    p.descricao = TfId.Text.ToString();
+                    p.preco = double.Parse(TfPreco.Text);
+                    p.quantidade = double.Parse(TfQtd.Text);
+                    quantidade += p.quantidade;
+                    total += p.preco * p.quantidade;
 
-                    listBox1.Items.Add(linha);
+                    lblQtd.Text = quantidade.ToString();
+                    lblQtd.Visible = true;
+
+                    lblTotal.Text = total.ToString();
+                    lblTotal.Visible = true;
+
+
+                    listaProdutos.Add(p);
+                    listBox1.Items.Clear();
+                    foreach (var produtos in listaProdutos)
+                    {
+                        string linha =
+                        produtos.codigo.ToString().PadLeft(0) +
+                        produtos.descricao.ToString().PadLeft(33) +
+                        produtos.quantidade.ToString().PadLeft(35) +
+                        produtos.preco.ToString("C", new CultureInfo("pt-BR")).PadLeft(19);
+
+                        listBox1.Items.Add(linha);
+                    }
+                    TfId.Text = string.Empty;
+                    TfQtd.Text = string.Empty;
+                    TfPreco.Text = string.Empty;
+
+                    lbDetalhesDesc.Text = string.Empty;
+                    lbDetalhesDesc.Visible = false;
+                    lbDetalhesCodigo.Text = string.Empty;
+                    lbDetalhesCodigo.Visible = false;
+                    lbDetalhesEstoque.Text = string.Empty;
+                    lbDetalhesEstoque.Visible = false;
+                    lbDetalhesPreco.Text = string.Empty;
+                    lbDetalhesPreco.Visible = false;
+                    lbDetalhesReferencia.Text = string.Empty;
+                    lbDetalhesReferencia.Visible = false;
+                    TfId.Focus();
                 }
-                TfId.Text = string.Empty;
-                TfQtd.Text = string.Empty;
-                TfPreco.Text = string.Empty;
-
-                lbDetalhesDesc.Text = string.Empty;
-                lbDetalhesDesc.Visible = false;
-                lbDetalhesCodigo.Text = string.Empty;
-                lbDetalhesCodigo.Visible = false;
-                lbDetalhesEstoque.Text = string.Empty;
-                lbDetalhesEstoque.Visible = false;
-                lbDetalhesPreco.Text = string.Empty;
-                lbDetalhesPreco.Visible = false;
-                lbDetalhesReferencia.Text = string.Empty;
-                lbDetalhesReferencia.Visible = false;
-                TfId.Focus();
-            }
             }
         }
 
@@ -257,6 +260,22 @@ namespace PDV
             janelaClienteVenda.TopMost = true;
             janelaClienteVenda.BringToFront();
             janelaClienteVenda.Focus();
+        }
+
+        private void F4_Click(object sender, EventArgs e)
+        {
+            JanelaDesconto janelaDesconto = new JanelaDesconto(this);
+            janelaDesconto.Show();
+            janelaDesconto.TopMost = true;
+            janelaDesconto.BringToFront();
+            janelaDesconto.Focus();
+            janelaDesconto.TfSubtotal.Text = lblTotal.Text;
+            janelaDesconto.TfTotal.Text = lblTotal.Text;
+        }
+
+        private void JanelaVenda_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

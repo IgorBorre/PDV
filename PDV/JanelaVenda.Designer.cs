@@ -62,7 +62,6 @@
             label13 = new Label();
             F6 = new Button();
             LbQuantidade = new Label();
-            LbTotal = new Label();
             listView1 = new ListView();
             CÓDIGO = new ColumnHeader();
             DESC = new ColumnHeader();
@@ -335,7 +334,7 @@
             label9.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(77, 654);
+            label9.Location = new Point(77, 642);
             label9.Name = "label9";
             label9.Size = new Size(62, 30);
             label9.TabIndex = 9;
@@ -385,6 +384,7 @@
             F4.TabIndex = 12;
             F4.Text = "F4";
             F4.UseVisualStyleBackColor = true;
+            F4.Click += F4_Click;
             F4.KeyDown += F4_KeyDown;
             // 
             // label12
@@ -442,15 +442,6 @@
             LbQuantidade.Size = new Size(0, 30);
             LbQuantidade.TabIndex = 17;
             // 
-            // LbTotal
-            // 
-            LbTotal.AutoSize = true;
-            LbTotal.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            LbTotal.Location = new Point(145, 654);
-            LbTotal.Name = "LbTotal";
-            LbTotal.Size = new Size(0, 30);
-            LbTotal.TabIndex = 18;
-            // 
             // listView1
             // 
             listView1.Columns.AddRange(new ColumnHeader[] { CÓDIGO, DESC, QTD, PREÇO });
@@ -488,9 +479,8 @@
             lblQtd.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblQtd.Location = new Point(136, 614);
             lblQtd.Name = "lblQtd";
-            lblQtd.Size = new Size(76, 28);
+            lblQtd.Size = new Size(0, 28);
             lblQtd.TabIndex = 20;
-            lblQtd.Text = "label14";
             lblQtd.Visible = false;
             // 
             // lblTotal
@@ -498,11 +488,10 @@
             lblTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblTotal.AutoSize = true;
             lblTotal.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTotal.Location = new Point(136, 656);
+            lblTotal.Location = new Point(136, 642);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(76, 28);
+            lblTotal.Size = new Size(0, 28);
             lblTotal.TabIndex = 21;
-            lblTotal.Text = "label14";
             lblTotal.Visible = false;
             // 
             // label14
@@ -550,7 +539,6 @@
             Controls.Add(lblTotal);
             Controls.Add(lblQtd);
             Controls.Add(listView1);
-            Controls.Add(LbTotal);
             Controls.Add(LbQuantidade);
             Controls.Add(label13);
             Controls.Add(F6);
@@ -576,6 +564,7 @@
             Text = "JanelaVenda";
             TopMost = true;
             WindowState = FormWindowState.Maximized;
+            Load += JanelaVenda_Load;
             KeyDown += JanelaVenda_KeyDown;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -613,15 +602,12 @@
         private Label LbDescricao;
         private Label LbReferencia;
         private Label LbCodigo;
-        private Label LbQuantidade;
-        private Label LbTotal;
         private ListView listView1;
         private ColumnHeader CÓDIGO;
         private ColumnHeader DESC;
         private ColumnHeader QTD;
         private ColumnHeader PREÇO;
         private Label lblQtd;
-        private Label lblTotal;
         private Label lbDetalhesCodigo;
         private Label lbDetalhesPreco;
         private Label lbDetalhesEstoque;
@@ -630,5 +616,7 @@
         private Label label14;
         public Label lbIdCliente;
         public Label lbNomeCliente;
+        public Label LbQuantidade;
+        public Label lblTotal;
     }
 }
