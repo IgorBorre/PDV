@@ -59,6 +59,7 @@
             TfSubtotal.ReadOnly = true;
             TfSubtotal.Size = new Size(152, 23);
             TfSubtotal.TabIndex = 1;
+            TfSubtotal.Leave += TfSubtotal_Leave;
             // 
             // label2
             // 
@@ -77,6 +78,7 @@
             TfDesconto.Size = new Size(152, 23);
             TfDesconto.TabIndex = 3;
             TfDesconto.TextChanged += TfDesconto_TextChanged;
+            TfDesconto.Leave += TfDesconto_Leave;
             // 
             // TfAcrescimo
             // 
@@ -85,6 +87,7 @@
             TfAcrescimo.Size = new Size(152, 23);
             TfAcrescimo.TabIndex = 4;
             TfAcrescimo.TextChanged += TfAcrescimo_TextChanged;
+            TfAcrescimo.Leave += TfAcrescimo_Leave;
             // 
             // TfTotal
             // 
@@ -93,6 +96,7 @@
             TfTotal.Size = new Size(152, 23);
             TfTotal.TabIndex = 5;
             TfTotal.TextChanged += TfTotal_TextChanged;
+            TfTotal.Leave += TfTotal_Leave;
             // 
             // label3
             // 
