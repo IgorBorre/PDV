@@ -55,6 +55,30 @@ INSERT INTO `clientes` VALUES (1,'Cliente Teste','00000000000',NULL,NULL,'normal
 UNLOCK TABLES;
 
 --
+-- Table structure for table `formas_pagamento`
+--
+
+DROP TABLE IF EXISTS `formas_pagamento`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `formas_pagamento` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(50) DEFAULT NULL,
+  `ativa` char(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `formas_pagamento`
+--
+
+LOCK TABLES `formas_pagamento` WRITE;
+/*!40000 ALTER TABLE `formas_pagamento` DISABLE KEYS */;
+/*!40000 ALTER TABLE `formas_pagamento` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `grupos`
 --
 
@@ -96,7 +120,7 @@ CREATE TABLE `produtos` (
   PRIMARY KEY (`codigo`),
   KEY `idGrupo` (`idGrupo`),
   CONSTRAINT `produtos_ibfk_1` FOREIGN KEY (`idGrupo`) REFERENCES `grupos` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,7 +129,7 @@ CREATE TABLE `produtos` (
 
 LOCK TABLES `produtos` WRITE;
 /*!40000 ALTER TABLE `produtos` DISABLE KEYS */;
-INSERT INTO `produtos` VALUES (1,'teste','casaco de couro',50,20,NULL,NULL),(2,'teste2','calça de moletom',60,115,NULL,NULL),(4,'teste','calça de moletom',50,28,2,'calça'),(5,'asdjjkjqwkjdakjsdj','tenis vermelho',50,60,3,'tenis'),(6,'','camisa polo',50,25,1,'camisa');
+INSERT INTO `produtos` VALUES (1,'teste','casaco de couro',18,20,NULL,NULL),(2,'teste2','calça de moletom',56,115,NULL,NULL),(4,'teste','calça de moletom',50,28,2,'calça'),(5,'asdjjkjqwkjdakjsdj','tenis vermelho',50,60,3,'tenis'),(6,'','camisa polo',50,25,1,'camisa');
 /*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,7 +148,7 @@ CREATE TABLE `saida` (
   PRIMARY KEY (`documento`),
   KEY `clienteId` (`clienteId`),
   CONSTRAINT `saida_ibfk_1` FOREIGN KEY (`clienteId`) REFERENCES `clientes` (`codigo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -133,6 +157,7 @@ CREATE TABLE `saida` (
 
 LOCK TABLES `saida` WRITE;
 /*!40000 ALTER TABLE `saida` DISABLE KEYS */;
+INSERT INTO `saida` VALUES (1,NULL,NULL,'2025-06-09'),(2,NULL,NULL,'2025-06-09'),(3,NULL,NULL,'2025-06-09'),(4,NULL,NULL,'2025-06-20');
 /*!40000 ALTER TABLE `saida` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,6 +186,7 @@ CREATE TABLE `saidadados` (
 
 LOCK TABLES `saidadados` WRITE;
 /*!40000 ALTER TABLE `saidadados` DISABLE KEYS */;
+INSERT INTO `saidadados` VALUES (1,1,'CASACO DE COURO',10),(1,2,'CALÇA DE MOLETOM',2),(2,1,'CASACO DE COURO',1),(3,1,'CASACO DE COURO',20),(3,2,'CALÇA DE MOLETOM',2),(4,1,'CASACO DE COURO',1);
 /*!40000 ALTER TABLE `saidadados` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -173,4 +199,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-06-04 20:51:56
+-- Dump completed on 2025-06-30 23:25:14
