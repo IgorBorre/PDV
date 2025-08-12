@@ -39,5 +39,11 @@ namespace PDV
             JanelaVenda janelaVenda = new JanelaVenda();
             janelaVenda.ShowDialog();
         }
+
+        private void formasDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormasPagamento formasPagamento = new FormasPagamento();
+            formasPagamento.ShowDialog();
+        }
     }
 }

@@ -88,3 +88,7 @@ C:\Users\igorT\Documents\Visual Studio 2022\PDV\PDV\obj\Debug\net8.0-windows\PDV
 C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\obj\Debug\net8.0-windows\PDV.JanelaClienteVenda.resources
 C:\Users\igorT\Documents\Visual Studio 2022\PDV\PDV\obj\Debug\net8.0-windows\PDV.JanelaDesconto.resources
 C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\obj\Debug\net8.0-windows\PDV.JanelaDesconto.resources
+C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\obj\Debug\net8.0-windows\PDV.JanelaPagamento.resources
+C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\obj\Debug\net8.0-windows\PDV.FormasPagamento.resources
+C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\obj\Debug\net8.0-windows\PDV.FormasPagamentoNovo.resources
+C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\obj\Debug\net8.0-windows\PDV.ConfirmarPagamento.resources

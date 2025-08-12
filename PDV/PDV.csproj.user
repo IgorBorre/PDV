@@ -13,7 +13,16 @@
     <Compile Update="CadastroGeralNovo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ConfirmarPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormasPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormasPagamentoNovo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GrupoCadastro.cs">

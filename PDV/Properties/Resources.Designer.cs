@@ -193,6 +193,26 @@ namespace PDV.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap payment_method__1_ {
+            get {
+                object obj = ResourceManager.GetObject("payment-method (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap payment_method__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("payment-method (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap publico_alvo__1_ {
             get {
                 object obj = ResourceManager.GetObject("publico-alvo (1)", resourceCulture);

@@ -20,6 +20,7 @@ namespace PDV
         int id = 0;
         double quantidade = 0;
         double total = 0;
+
         public JanelaVenda()
         {
             InitializeComponent();
@@ -136,7 +137,7 @@ namespace PDV
 
         private void F5_Click(object sender, EventArgs e)
         {
-            Venda v = new Venda();
+            /*Venda v = new Venda();
             if (listaProdutos.Count > 0)
             {
                 if (string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text))
@@ -153,6 +154,20 @@ namespace PDV
             }
             else
             {
+                MessageBox.Show("Não é possível finalizar uma venda sem produto!");
+            }*/
+
+            if (listaProdutos.Count > 0)
+            {
+                JanelaPagamento janelaPagamento = new JanelaPagamento();
+                janelaPagamento.Show();
+                janelaPagamento.TopMost = true;
+                janelaPagamento.BringToFront();
+                janelaPagamento.Focus();
+                janelaPagamento.LbTotal.Text = lblTotal.Text;
+                janelaPagamento.LbFalta.Text = lblTotal.Text;
+            }
+            else {
                 MessageBox.Show("Não é possível finalizar uma venda sem produto!");
             }
         }
@@ -215,10 +230,10 @@ namespace PDV
                     quantidade += p.quantidade;
                     total += p.preco * p.quantidade;
 
-                    lblQtd.Text = quantidade.ToString();
+                    lblQtd.Text = quantidade.ToString("N2");
                     lblQtd.Visible = true;
 
-                    lblTotal.Text = total.ToString();
+                    lblTotal.Text = total.ToString("N2");
                     lblTotal.Visible = true;
 
 

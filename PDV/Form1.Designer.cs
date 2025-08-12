@@ -36,12 +36,14 @@
             peçasToolStripMenuItem = new ToolStripMenuItem();
             saídaToolStripMenuItem = new ToolStripMenuItem();
             vendaToolStripMenuItem = new ToolStripMenuItem();
+            caixaToolStripMenuItem = new ToolStripMenuItem();
+            formasDePagamentoToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { cadastroToolStripMenuItem, peçasToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { cadastroToolStripMenuItem, peçasToolStripMenuItem, caixaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1370, 24);
@@ -93,9 +95,23 @@
             // vendaToolStripMenuItem
             // 
             vendaToolStripMenuItem.Name = "vendaToolStripMenuItem";
-            vendaToolStripMenuItem.Size = new Size(180, 22);
+            vendaToolStripMenuItem.Size = new Size(106, 22);
             vendaToolStripMenuItem.Text = "Venda";
             vendaToolStripMenuItem.Click += vendaToolStripMenuItem_Click;
+            // 
+            // caixaToolStripMenuItem
+            // 
+            caixaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { formasDePagamentoToolStripMenuItem });
+            caixaToolStripMenuItem.Name = "caixaToolStripMenuItem";
+            caixaToolStripMenuItem.Size = new Size(47, 20);
+            caixaToolStripMenuItem.Text = "Caixa";
+            // 
+            // formasDePagamentoToolStripMenuItem
+            // 
+            formasDePagamentoToolStripMenuItem.Name = "formasDePagamentoToolStripMenuItem";
+            formasDePagamentoToolStripMenuItem.Size = new Size(193, 22);
+            formasDePagamentoToolStripMenuItem.Text = "Formas de pagamento";
+            formasDePagamentoToolStripMenuItem.Click += formasDePagamentoToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -124,5 +140,7 @@
         private ToolStripMenuItem peçasToolStripMenuItem;
         private ToolStripMenuItem saídaToolStripMenuItem;
         private ToolStripMenuItem vendaToolStripMenuItem;
+        private ToolStripMenuItem caixaToolStripMenuItem;
+        private ToolStripMenuItem formasDePagamentoToolStripMenuItem;
     }
 }

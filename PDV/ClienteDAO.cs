@@ -57,10 +57,6 @@ namespace PDV
                     command.CommandText = "Select @@IDENTITY";
                     c.codigo = Convert.ToInt32(command.ExecuteScalar());
 
-
-
-
-
                 }
                 conexao.FecharConexao();
             }
