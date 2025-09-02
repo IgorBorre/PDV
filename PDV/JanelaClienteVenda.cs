@@ -34,6 +34,7 @@ namespace PDV
                 {
                     tfCodigo.Text = string.Empty;
                     tfNome.Text = string.Empty;
+                    btOk.Enabled = false;
                 }
             }
         }
@@ -79,6 +80,10 @@ namespace PDV
 
         private void JanelaClienteVenda_Load(object sender, EventArgs e)
         {
+
+            this.TopMost = true;
+            this.BringToFront();
+            this.Focus();
             btOk.Enabled = false;
         }
     }

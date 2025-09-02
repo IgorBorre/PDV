@@ -28,6 +28,9 @@ namespace PDV
         private void JanelaDesconto_Load(object sender, EventArgs e)
         {
 
+            this.TopMost = true;
+            this.BringToFront();
+            this.Focus();
         }
 
         private void TfDesconto_TextChanged(object sender, EventArgs e)

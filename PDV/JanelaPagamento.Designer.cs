@@ -107,6 +107,7 @@
             BtCancelar.Text = "Cancelar";
             BtCancelar.TextAlign = ContentAlignment.MiddleLeft;
             BtCancelar.UseVisualStyleBackColor = true;
+            BtCancelar.Click += BtCancelar_Click;
             // 
             // BtLimpar
             // 
@@ -119,6 +120,7 @@
             BtLimpar.Text = "Limpar";
             BtLimpar.TextAlign = ContentAlignment.MiddleLeft;
             BtLimpar.UseVisualStyleBackColor = true;
+            BtLimpar.Click += BtLimpar_Click;
             // 
             // BtFinalizar
             // 
@@ -131,6 +133,7 @@
             BtFinalizar.Text = "Finalizar";
             BtFinalizar.TextAlign = ContentAlignment.MiddleLeft;
             BtFinalizar.UseVisualStyleBackColor = true;
+            BtFinalizar.Click += BtFinalizar_Click;
             // 
             // listBox1
             // 
@@ -282,7 +285,6 @@
         private Button BtConfirmar;
         private Button BtCancelar;
         private Button BtLimpar;
-        private Button BtFinalizar;
         private ListBox listBox1;
         private ListView listView1;
         private ColumnHeader columnHeader1;
@@ -298,5 +300,6 @@
         public Label LbTroco;
         private DataGridViewTextBoxColumn codigo;
         private DataGridViewTextBoxColumn descricao;
+        public Button BtFinalizar;
     }
 }

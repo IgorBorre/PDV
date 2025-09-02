@@ -161,11 +161,8 @@ namespace PDV
             {
                 JanelaPagamento janelaPagamento = new JanelaPagamento();
                 janelaPagamento.Show();
-                janelaPagamento.TopMost = true;
-                janelaPagamento.BringToFront();
-                janelaPagamento.Focus();
                 janelaPagamento.LbTotal.Text = lblTotal.Text;
-                janelaPagamento.LbFalta.Text = lblTotal.Text;
+                janelaPagamento.LbFalta.Text = lblTotal.Text;                
             }
             else {
                 MessageBox.Show("Não é possível finalizar uma venda sem produto!");
@@ -272,18 +269,12 @@ namespace PDV
         {
             JanelaClienteVenda janelaClienteVenda = new JanelaClienteVenda(this);
             janelaClienteVenda.Show();
-            janelaClienteVenda.TopMost = true;
-            janelaClienteVenda.BringToFront();
-            janelaClienteVenda.Focus();
         }
 
         private void F4_Click(object sender, EventArgs e)
         {
             JanelaDesconto janelaDesconto = new JanelaDesconto(this);
             janelaDesconto.Show();
-            janelaDesconto.TopMost = true;
-            janelaDesconto.BringToFront();
-            janelaDesconto.Focus();
             janelaDesconto.TfSubtotal.Text = lblTotal.Text;
             janelaDesconto.TfTotal.Text = lblTotal.Text;
         }

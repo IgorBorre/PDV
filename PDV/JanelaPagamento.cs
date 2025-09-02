@@ -32,20 +32,59 @@ namespace PDV
 
         private void JanelaPagamento_Load(object sender, EventArgs e)
         {
+
+
+            this.TopMost = true;
+            this.BringToFront();
+            this.Focus();
             string c = "SELECT id, descricao FROM formas_pagamento WHERE ativa = 'Sim'";
             formasdePagamentoDAO.ListarFormasdePagamento(c);
             dataGridView1.DataSource = formasdePagamentoDAO.ListarFormasdePagamento(c);
+            BtFinalizar.Enabled = false;
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ConfirmarPagamento confirmarPagamento = new ConfirmarPagamento(this);
-            confirmarPagamento.Show();
-            confirmarPagamento.TopMost = true;
-            confirmarPagamento.BringToFront();
-            confirmarPagamento.Focus();
+            double falta = Convert.ToDouble(LbFalta.Text);
+            if (falta > 0)
+            {
+                ConfirmarPagamento confirmarPagamento = new ConfirmarPagamento(this);
+                confirmarPagamento.Show();
+                //confirmarPagamento.ShowDialog();
+                confirmarPagamento.TopMost = true;
+                confirmarPagamento.BringToFront();
+                confirmarPagamento.Focus();
+                confirmarPagamento.TfValor.Text = LbFalta.Text;
 
-            confirmarPagamento.TfValor.Text = LbFalta.Text;
+                /*if (confirmarPagamento.DialogResult == DialogResult.OK)
+                {
+                    double pago = confirmarPagamento.ValorPago;
+                    int parcelas = confirmarPagamento.Parcelas;
+                }*/
+            }
+            else
+            {
+                MessageBox.Show("Pagamento já efetuado!");
+            }
+
+        }
+
+        private void BtLimpar_Click(object sender, EventArgs e)
+        {
+            LbFalta.Text = LbTotal.Text;
+            LbPago.Text = "0,00";
+            BtFinalizar.Enabled = false;
+            LbTroco.Text = "0,00";
+        }
+
+        private void BtCancelar_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+
+        private void BtFinalizar_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

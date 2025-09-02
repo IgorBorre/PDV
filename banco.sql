@@ -41,7 +41,7 @@ CREATE TABLE `clientes` (
   `cep` varchar(8) DEFAULT NULL,
   `referencia` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -50,7 +50,7 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` VALUES (1,'Cliente Teste','00000000000',NULL,NULL,'normal',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'Igor','17436774727','(24)9928-4148','2002-07-04','normal','Rua','casemiro de abreu','79','terceiro portao de madeira','centro','petropolis','AC','25615002','teste'),(3,'teste','17436774727',NULL,'2002-07-04','normal','Rua','','','','','','AC','',''),(4,'teste','17436774727','(  )    -','2002-07-04','normal','Rua','','','','','','AC','',''),(5,'teste','17436774727','(  )    -','2005-05-04','normal','Rua','','','','','','AC','',''),(6,'teste2','17436774727','(  )    -','2002-07-04','normal','Rua','','','','','','AC','',''),(7,'teste de cadastro','01606661710',NULL,NULL,'normal','Rua','','','','','','AC','',''),(8,'teste 2','17436774727','24992841484',NULL,'normal','Rua','','','','','','AC','',''),(9,'teste 1212','14564656','24992841484','2003-01-26','normal','Rua','casemiro de abreu','79','3° portao de madeira','centro','petropolis','AC','25615002','teste'),(10,'cadastro','17436774727','',NULL,'normal','Rua','','','','','','AC','',''),(11,'cadastro34','01606661710',NULL,NULL,'normal','Rua','','','','','','AC','',''),(12,'teste de cadastro','00379976706','',NULL,'normal','Rua','','','','','','AC','','');
+INSERT INTO `clientes` VALUES (1,'Cliente Teste','00000000000',NULL,NULL,'normal',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'Igor','17436774727','(24)9928-4148','2002-07-04','normal','Rua','casemiro de abreu','79','terceiro portao de madeira','centro','petropolis','AC','25615002','teste'),(3,'teste','17436774727',NULL,'2002-07-04','normal','Rua','','','','','','AC','',''),(4,'teste','17436774727','(  )    -','2002-07-04','normal','Rua','','','','','','AC','',''),(5,'teste','17436774727','(  )    -','2005-05-04','normal','Rua','','','','','','AC','',''),(6,'teste2','17436774727','(  )    -','2002-07-04','normal','Rua','','','','','','AC','',''),(7,'teste de cadastro','01606661710',NULL,NULL,'normal','Rua','','','','','','AC','',''),(8,'teste 2','17436774727','24992841484',NULL,'normal','Rua','','','','','','AC','',''),(9,'teste 1212','14564656','24992841484','2003-01-26','normal','Rua','casemiro de abreu','79','3° portao de madeira','centro','petropolis','AC','25615002','teste'),(10,'cadastro','17436774727','',NULL,'normal','Rua','','','','','','AC','',''),(11,'cadastro34','01606661710',NULL,NULL,'normal','Rua','','','','','','AC','',''),(12,'teste de cadastro','00379976706','',NULL,'normal','Rua','','','','','','AC','',''),(13,'Igor','17436774727','',NULL,'normal','Rua','','','','','','AC','','');
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,9 +64,10 @@ DROP TABLE IF EXISTS `formas_pagamento`;
 CREATE TABLE `formas_pagamento` (
   `id` int NOT NULL AUTO_INCREMENT,
   `descricao` varchar(50) DEFAULT NULL,
-  `ativa` char(1) DEFAULT NULL,
+  `ativa` varchar(3) DEFAULT NULL,
+  `avista` varchar(3) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,6 +76,7 @@ CREATE TABLE `formas_pagamento` (
 
 LOCK TABLES `formas_pagamento` WRITE;
 /*!40000 ALTER TABLE `formas_pagamento` DISABLE KEYS */;
+INSERT INTO `formas_pagamento` VALUES (1,'DINHEIRO','Sim','Sim'),(2,'CARTAO','Sim','Não'),(3,'DÉBITO','Sim','Sim');
 /*!40000 ALTER TABLE `formas_pagamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -199,4 +201,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-06-30 23:25:14
+-- Dump completed on 2025-09-01 23:23:18
