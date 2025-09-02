@@ -49,18 +49,13 @@ namespace PDV
             if (falta > 0)
             {
                 ConfirmarPagamento confirmarPagamento = new ConfirmarPagamento(this);
-                confirmarPagamento.Show();
-                //confirmarPagamento.ShowDialog();
-                confirmarPagamento.TopMost = true;
-                confirmarPagamento.BringToFront();
-                confirmarPagamento.Focus();
-                confirmarPagamento.TfValor.Text = LbFalta.Text;
+                confirmarPagamento.ShowDialog(this);
 
-                /*if (confirmarPagamento.DialogResult == DialogResult.OK)
+                if (confirmarPagamento.DialogResult == DialogResult.OK)
                 {
                     double pago = confirmarPagamento.ValorPago;
                     int parcelas = confirmarPagamento.Parcelas;
-                }*/
+                }
             }
             else
             {

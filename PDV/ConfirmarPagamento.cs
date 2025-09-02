@@ -28,19 +28,19 @@ namespace PDV
 
         private void BtOk_Click(object sender, EventArgs e)
         {
-           
-            double pago = Convert.ToDouble(TfValor.Text);
-            int parcelas = Convert.ToInt32(TfParcelas.Text);
 
-            if (pago > 0 && parcelas > 0)
+            ValorPago = Convert.ToDouble(TfValor.Text);
+            Parcelas = Convert.ToInt32(TfParcelas.Text);
+
+
+            if (ValorPago > 0 && Parcelas > 0)
             {
-                ValorPago = pago;
-                Parcelas = parcelas;
+
                 double aux = Convert.ToDouble(janelaPagamento.LbFalta.Text);
-                double falta = aux - pago;
+                double falta = aux - ValorPago;
 
                 // Atualiza o valor pago na venda
-                janelaPagamento.LbPago.Text = (Convert.ToDouble(janelaPagamento.LbPago.Text) + pago).ToString("F2");
+                janelaPagamento.LbPago.Text = (Convert.ToDouble(janelaPagamento.LbPago.Text) + ValorPago).ToString("F2");
 
 
                 double total = Convert.ToDouble(janelaPagamento.LbTotal.Text);
@@ -73,6 +73,16 @@ namespace PDV
                 MessageBox.Show("Valores inválidos!");
                 TfValor.Focus();
             }
+        }
+
+        private void ConfirmarPagamento_Load(object sender, EventArgs e)
+        {
+            //this.Show();
+            //this.ShowDialog();
+            this.TopMost = true;
+            this.BringToFront();
+            this.Focus();
+            TfValor.Text = janelaPagamento.LbFalta.Text;
         }
     }
 }

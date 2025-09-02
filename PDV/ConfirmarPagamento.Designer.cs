@@ -110,6 +110,7 @@
             Name = "ConfirmarPagamento";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ConfirmarPagamento";
+            Load += ConfirmarPagamento_Load;
             ResumeLayout(false);
             PerformLayout();
         }
