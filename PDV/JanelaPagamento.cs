@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Configuration.Internal;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace PDV
     public partial class JanelaPagamento : Form
     {
         private FormasdePagamentoDAO formasdePagamentoDAO;
+
+        List<FormasdePagamento> listaFormasdePagamento = new List<FormasdePagamento>();
         public JanelaPagamento()
         {
             InitializeComponent();
@@ -53,8 +56,58 @@ namespace PDV
 
                 if (confirmarPagamento.DialogResult == DialogResult.OK)
                 {
+                    FormasdePagamento f = new FormasdePagamento(
+                        Convert.ToInt32(dataGridView1.CurrentRow.Cells["codigo"].Value),
+                        dataGridView1.CurrentRow.Cells["descricao"].Value.ToString(),
+                        confirmarPagamento.Parcelas,
+                        confirmarPagamento.ValorPago
+                        );
+
+                    listaFormasdePagamento.Add(f);
+                    listBox1.Items.Clear();
+
+                    foreach (var formasdepagamento in listaFormasdePagamento) {
+
+                        string linha =
+                        formasdepagamento.id.ToString().PadLeft(0) +
+                        formasdepagamento.descricao.PadLeft(25) +
+                        formasdepagamento.parcelas.ToString().PadLeft(55) +
+                        formasdepagamento.valor.ToString("C", new CultureInfo("pt-BR")).PadLeft(23);
+
+                        listBox1.Items.Add(linha);
+                    }
+
                     double pago = confirmarPagamento.ValorPago;
                     int parcelas = confirmarPagamento.Parcelas;
+
+                    double aux = Convert.ToDouble(LbFalta.Text);
+                    double falta2 = aux - confirmarPagamento.ValorPago;
+
+                    // Atualiza o valor pago na venda
+                    LbPago.Text = (Convert.ToDouble(LbPago.Text) + confirmarPagamento.ValorPago).ToString("F2");
+
+
+                    double total = Convert.ToDouble(LbTotal.Text);
+
+                    // se o valor pago for igual ou maior que o valor total da venda, habilita o botão finalizar
+                    if (Convert.ToDouble(LbPago.Text) >= total)
+                    {
+                        BtFinalizar.Enabled = true;
+                    }
+
+
+                    if (falta2 > 0)
+                    {
+                        // se o valor da variável falta for maior que 0, atualizar a label com o valor da variável falta
+                        LbFalta.Text = falta2.ToString("F2");
+                    }
+                    else
+                    {
+                        // se for menor que 0, a label falta recebe 0 e o valor excedente é mostrado na label troco
+                        LbFalta.Text = "0,00";
+                        double troco = (Convert.ToDouble(LbPago.Text) - total);
+                        LbTroco.Text = troco.ToString("F2");
+                    }
                 }
             }
             else

@@ -240,7 +240,7 @@ namespace PDV
                     {
                         string linha =
                         produtos.codigo.ToString().PadLeft(0) +
-                        produtos.descricao.ToString().PadLeft(33) +
+                        produtos.descricao.PadLeft(33) +
                         produtos.quantidade.ToString().PadLeft(35) +
                         produtos.preco.ToString("C", new CultureInfo("pt-BR")).PadLeft(19);
 

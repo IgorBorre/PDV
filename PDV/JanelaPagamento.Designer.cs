@@ -48,6 +48,7 @@
             LbFalta = new Label();
             label4 = new Label();
             LbTroco = new Label();
+            columnHeader4 = new ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -146,7 +147,7 @@
             // 
             // listView1
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
+            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
             listView1.Location = new Point(349, 0);
             listView1.Name = "listView1";
             listView1.Size = new Size(390, 28);
@@ -157,17 +158,17 @@
             // 
             // columnHeader1
             // 
-            columnHeader1.Text = "Forma de pagamento";
-            columnHeader1.Width = 206;
+            columnHeader1.Text = "Código";
+            columnHeader1.Width = 55;
             // 
             // columnHeader2
             // 
-            columnHeader2.Text = "Parcelas";
+            columnHeader2.Text = "Descrição";
+            columnHeader2.Width = 212;
             // 
             // columnHeader3
             // 
-            columnHeader3.Text = "Valor";
-            columnHeader3.Width = 120;
+            columnHeader3.Text = "Parcelas";
             // 
             // label1
             // 
@@ -250,6 +251,10 @@
             LbTroco.TabIndex = 14;
             LbTroco.Text = "0,00";
             // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "Valor";
+            // 
             // JanelaPagamento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -301,5 +306,6 @@
         private DataGridViewTextBoxColumn codigo;
         private DataGridViewTextBoxColumn descricao;
         public Button BtFinalizar;
+        private ColumnHeader columnHeader4;
     }
 }

@@ -23,11 +23,8 @@ namespace PDV
         private void BtOk_Click(object sender, EventArgs e)
         {
 
-            formaPagamento = new FormasdePagamento();
+            formaPagamento = new FormasdePagamento(TfDescricao.Text, CbAtiva.Text, CbAvista.Text);
 
-            formaPagamento.descricao = TfDescricao.Text;
-            formaPagamento.ativa = CbAtiva.Text;
-            formaPagamento.avista = CbAvista.Text;
 
             if (formasdePagamentoDAO.validacoes(formaPagamento))
             {

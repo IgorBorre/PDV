@@ -3,36 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\confirmarpagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\confirmarpagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\janelapagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\janelapagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\conexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\conexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\pdv\\confirmarpagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\confirmarpagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\pdv\\janelapagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\janelapagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\formasdepagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\formasdepagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\janelavenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\janelavenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\vendadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\vendadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\formasdepagamentodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\formasdepagamentodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\formaspagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,6 +27,26 @@
       "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\formaspagamentonovo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\pdv\\formaspagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\formaspagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\confirmarpagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\confirmarpagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\pdv\\confirmarpagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\confirmarpagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\conexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\conexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\vendadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\vendadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\cadastrogeralnovo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\cadastrogeralnovo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -51,16 +55,8 @@
       "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\cadastrogeral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\pdv\\formaspagamentonovo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\formaspagamentonovo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\pdv\\cadastrogeral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\cadastrogeral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\formasdepagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\formasdepagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -95,44 +91,118 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ConfirmarPagamento.cs",
-              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ConfirmarPagamento.cs",
-              "RelativeDocumentMoniker": "PDV\\ConfirmarPagamento.cs",
-              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ConfirmarPagamento.cs*",
-              "RelativeToolTip": "PDV\\ConfirmarPagamento.cs*",
-              "ViewState": "AgIAADUAAAAAAAAAAAAlwC0AAABlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T17:38:47.492Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ConfirmarPagamento.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ConfirmarPagamento.cs",
-              "RelativeDocumentMoniker": "PDV\\ConfirmarPagamento.cs",
-              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ConfirmarPagamento.cs [Projeto]*",
-              "RelativeToolTip": "PDV\\ConfirmarPagamento.cs [Projeto]*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T17:29:50.444Z",
-              "EditorCaption": " [Projeto]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "JanelaPagamento.cs",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaPagamento.cs",
               "RelativeDocumentMoniker": "PDV\\JanelaPagamento.cs",
-              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaPagamento.cs",
-              "RelativeToolTip": "PDV\\JanelaPagamento.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAowDkAAAARAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaPagamento.cs*",
+              "RelativeToolTip": "PDV\\JanelaPagamento.cs*",
+              "ViewState": "AgIAADcAAAAAAAAAAAAwwEoAAABiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-12T17:22:35.034Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormasPagamento.cs",
+              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\FormasPagamento.cs",
+              "RelativeDocumentMoniker": "PDV\\FormasPagamento.cs",
+              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\FormasPagamento.cs",
+              "RelativeToolTip": "PDV\\FormasPagamento.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAEwB0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T17:57:05.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "JanelaPagamento.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaPagamento.cs",
+              "RelativeDocumentMoniker": "PDV\\JanelaPagamento.cs",
+              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaPagamento.cs [Projeto]*",
+              "RelativeToolTip": "PDV\\JanelaPagamento.cs [Projeto]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T14:54:31.757Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormasdePagamento.cs",
+              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\FormasdePagamento.cs",
+              "RelativeDocumentMoniker": "PDV\\FormasdePagamento.cs",
+              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\FormasdePagamento.cs",
+              "RelativeToolTip": "PDV\\FormasdePagamento.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAEwBkAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T18:09:36.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "JanelaVenda.cs",
+              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaVenda.cs",
+              "RelativeDocumentMoniker": "PDV\\JanelaVenda.cs",
+              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaVenda.cs",
+              "RelativeToolTip": "PDV\\JanelaVenda.cs",
+              "ViewState": "AgIAAOQAAAAAAAAAAAAlwPIAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T18:02:27.815Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormasPagamentoNovo.cs",
+              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\FormasPagamentoNovo.cs",
+              "RelativeDocumentMoniker": "PDV\\FormasPagamentoNovo.cs",
+              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\FormasPagamentoNovo.cs",
+              "RelativeToolTip": "PDV\\FormasPagamentoNovo.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAawBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T21:38:31.539Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "FormasPagamento.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\FormasPagamento.cs",
+              "RelativeDocumentMoniker": "PDV\\FormasPagamento.cs",
+              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\FormasPagamento.cs [Projeto]",
+              "RelativeToolTip": "PDV\\FormasPagamento.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T17:05:10.876Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Conexao.cs",
+              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\Conexao.cs",
+              "RelativeDocumentMoniker": "PDV\\Conexao.cs",
+              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\Conexao.cs",
+              "RelativeToolTip": "PDV\\Conexao.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T13:10:46.313Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ConfirmarPagamento.cs",
+              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ConfirmarPagamento.cs",
+              "RelativeDocumentMoniker": "PDV\\ConfirmarPagamento.cs",
+              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ConfirmarPagamento.cs",
+              "RelativeToolTip": "PDV\\ConfirmarPagamento.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAawCUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T17:38:47.492Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "VendaDAO.cs",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\VendaDAO.cs",
               "RelativeDocumentMoniker": "PDV\\VendaDAO.cs",
@@ -144,57 +214,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Conexao.cs",
-              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\Conexao.cs",
-              "RelativeDocumentMoniker": "PDV\\Conexao.cs",
-              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\Conexao.cs",
-              "RelativeToolTip": "PDV\\Conexao.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABcAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "ConfirmarPagamento.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ConfirmarPagamento.cs",
+              "RelativeDocumentMoniker": "PDV\\ConfirmarPagamento.cs",
+              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ConfirmarPagamento.cs [Projeto]",
+              "RelativeToolTip": "PDV\\ConfirmarPagamento.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-20T13:10:46.313Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-12T17:29:50.444Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "JanelaPagamento.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaPagamento.cs",
-              "RelativeDocumentMoniker": "PDV\\JanelaPagamento.cs",
-              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaPagamento.cs [Design]",
-              "RelativeToolTip": "PDV\\JanelaPagamento.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-20T14:54:31.757Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "JanelaVenda.cs",
-              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaVenda.cs",
-              "RelativeDocumentMoniker": "PDV\\JanelaVenda.cs",
-              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaVenda.cs",
-              "RelativeToolTip": "PDV\\JanelaVenda.cs",
-              "ViewState": "AgIAAI0AAAAAAAAAAAAkwKQAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-09T18:02:27.815Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FormasdePagamentoDAO.cs",
-              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\FormasdePagamentoDAO.cs",
-              "RelativeDocumentMoniker": "PDV\\FormasdePagamentoDAO.cs",
-              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\FormasdePagamentoDAO.cs",
-              "RelativeToolTip": "PDV\\FormasdePagamentoDAO.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAswGgAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T18:11:50.424Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "CadastroGeral.cs",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\CadastroGeral.cs",
               "RelativeDocumentMoniker": "PDV\\CadastroGeral.cs",
@@ -207,32 +238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "FormasPagamentoNovo.cs",
-              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\FormasPagamentoNovo.cs",
-              "RelativeDocumentMoniker": "PDV\\FormasPagamentoNovo.cs",
-              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\FormasPagamentoNovo.cs",
-              "RelativeToolTip": "PDV\\FormasPagamentoNovo.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAowDwAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T21:38:31.539Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "FormasPagamento.cs",
-              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\FormasPagamento.cs",
-              "RelativeDocumentMoniker": "PDV\\FormasPagamento.cs",
-              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\FormasPagamento.cs",
-              "RelativeToolTip": "PDV\\FormasPagamento.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAACAAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T17:57:05.237Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "CadastroGeralNovo.cs",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\CadastroGeralNovo.cs",
               "RelativeDocumentMoniker": "PDV\\CadastroGeralNovo.cs",
@@ -241,17 +247,6 @@
               "ViewState": "AgIAAEsAAAAAAAAAAAAwwFYAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-11T17:35:15.38Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "FormasPagamentoNovo.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\FormasPagamentoNovo.cs",
-              "RelativeDocumentMoniker": "PDV\\FormasPagamentoNovo.cs",
-              "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\FormasPagamentoNovo.cs [Projeto]",
-              "RelativeToolTip": "..\\..\\..\\..\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\FormasPagamentoNovo.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T15:20:39.227Z"
             },
             {
               "$type": "Document",
@@ -267,18 +262,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "FormasdePagamento.cs",
-              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\FormasdePagamento.cs",
-              "RelativeDocumentMoniker": "PDV\\FormasdePagamento.cs",
-              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\FormasdePagamento.cs",
-              "RelativeToolTip": "PDV\\FormasdePagamento.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T18:09:36.33Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\Form1.cs",
               "RelativeDocumentMoniker": "PDV\\Form1.cs",
@@ -291,7 +274,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "Form1.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\Form1.cs",
               "RelativeDocumentMoniker": "PDV\\Form1.cs",
@@ -302,7 +285,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 17,
               "Title": "JanelaDesconto.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaDesconto.cs",
               "RelativeDocumentMoniker": "PDV\\JanelaDesconto.cs",
@@ -313,7 +296,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
               "Title": "JanelaVenda.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaVenda.cs",
               "RelativeDocumentMoniker": "PDV\\JanelaVenda.cs",
@@ -324,7 +307,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 18,
               "Title": "CadastroEstoque.cs",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\CadastroEstoque.cs",
               "RelativeDocumentMoniker": "PDV\\CadastroEstoque.cs",
