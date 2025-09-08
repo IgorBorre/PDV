@@ -10,5 +10,6 @@ namespace PDV
     {
         public int codigo { get; set; }
         public DateTime dataVenda { get; set; }
+        public double valorTotal { get; set; }
     }
 }

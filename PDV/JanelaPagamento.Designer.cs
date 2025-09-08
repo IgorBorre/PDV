@@ -40,6 +40,7 @@
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
             label1 = new Label();
             LbPago = new Label();
             label2 = new Label();
@@ -48,7 +49,6 @@
             LbFalta = new Label();
             label4 = new Label();
             LbTroco = new Label();
-            columnHeader4 = new ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -96,6 +96,7 @@
             BtConfirmar.Text = "Confirmar";
             BtConfirmar.TextAlign = ContentAlignment.MiddleLeft;
             BtConfirmar.UseVisualStyleBackColor = true;
+            BtConfirmar.Click += BtConfirmar_Click;
             // 
             // BtCancelar
             // 
@@ -169,6 +170,10 @@
             // columnHeader3
             // 
             columnHeader3.Text = "Parcelas";
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "Valor";
             // 
             // label1
             // 
@@ -250,10 +255,6 @@
             LbTroco.Size = new Size(33, 17);
             LbTroco.TabIndex = 14;
             LbTroco.Text = "0,00";
-            // 
-            // columnHeader4
-            // 
-            columnHeader4.Text = "Valor";
             // 
             // JanelaPagamento
             // 

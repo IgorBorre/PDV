@@ -16,10 +16,11 @@ namespace PDV
             con = new Conexao();
         }
 
-        public void Venda(Clientes c, Venda v, List<Produtos> produtos) {
-            string comandoSaida = "insert into saida (clienteId, clienteNome, dataSaida) values (@clienteId, @clienteNome, @dataSaida)";
+        public void Venda(Clientes c, Venda v, List<Produtos> produtos, List<FormasdePagamento> formaspag) {
+            string comandoSaida = "insert into saida (clienteId, clienteNome, dataSaida, valortotal) values (@clienteId, @clienteNome, @dataSaida, @valortotal)";
             string comandoSaidaDados = "insert into saidadados (documento, produto, produtoNome, quantidade) values (@documento, @produto, @produtoNome, @quantidade)";
             string updateProdutos = "update produtos set estoque = estoque - @quantidade where codigo = @codigo";
+            string comandoPagsaida = "insert into pagsaida (documento, idpagamento, descpagamento, valor, parcelas) values (@documento, @idpagamento, @descpagamento, @valor, @parcelas)";
 
             v.dataVenda = DateTime.Now.Date;
 
@@ -31,6 +32,7 @@ namespace PDV
                     cmd.Parameters.AddWithValue("@clienteId", c.codigo);
                     cmd.Parameters.AddWithValue("@clienteNome", c.nome);
                     cmd.Parameters.AddWithValue("@dataSaida", v.dataVenda);
+                    cmd.Parameters.AddWithValue("@valortotal", v.valorTotal);
 
                     cmd.ExecuteNonQuery();
 
@@ -58,6 +60,20 @@ namespace PDV
                         cmd.ExecuteNonQuery();
                     }
                 }
+
+                foreach (FormasdePagamento f in formaspag)
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(comandoPagsaida, con.ObterConexao()))
+                    {
+                        cmd.Parameters.AddWithValue("@documento", v.codigo);
+                        cmd.Parameters.AddWithValue("@idpagamento", f.id);
+                        cmd.Parameters.AddWithValue("@descpagamento", f.descricao);
+                        cmd.Parameters.AddWithValue("@valor", f.valor);
+                        cmd.Parameters.AddWithValue("@parcelas", f.parcelas);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                }
                 con.FecharConexao();
                 MessageBox.Show("Documento " + v.codigo.ToString() + " gravado com sucesso!");
             }
@@ -70,10 +86,11 @@ namespace PDV
 
 
 
-        public void Venda(Venda v, List<Produtos> produtos) {
-            string comandoSaida = "insert into saida (dataSaida) values (@dataSaida)";
+        public void Venda(Venda v, List<Produtos> produtos, List<FormasdePagamento> formaspag) {
+            string comandoSaida = "insert into saida (dataSaida, valortotal) values (@dataSaida, @valortotal)";
             string comandoSaidaDados = "insert into saidadados (documento, produto, produtoNome, quantidade) values (@documento, @produto, @produtoNome, @quantidade)";
             string updateProdutos = "update produtos set estoque = estoque - @quantidade where codigo = @codigo";
+            string comandoPagsaida = "insert into pagsaida (documento, idpagamento, descpagamento, valor, parcelas) values (@documento, @idpagamento, @descpagamento, @valor, @parcelas)";
 
             v.dataVenda = DateTime.Now.Date;
 
@@ -84,6 +101,7 @@ namespace PDV
                 using (MySqlCommand cmd = new MySqlCommand(comandoSaida, con.ObterConexao()))
                 {
                     cmd.Parameters.AddWithValue("@dataSaida", v.dataVenda);
+                    cmd.Parameters.AddWithValue("@valortotal", v.valorTotal);
 
                     cmd.ExecuteNonQuery();
 
@@ -111,6 +129,18 @@ namespace PDV
                         cmd.ExecuteNonQuery();
                     }
                 }
+
+                foreach (FormasdePagamento f in formaspag) {
+                    using (MySqlCommand cmd = new MySqlCommand(comandoPagsaida, con.ObterConexao())) { 
+                        cmd.Parameters.AddWithValue("@documento", v.codigo);
+                        cmd.Parameters.AddWithValue("@idpagamento", f.id);
+                        cmd.Parameters.AddWithValue("@descpagamento", f.descricao);
+                        cmd.Parameters.AddWithValue("@valor", f.valor);
+                        cmd.Parameters.AddWithValue("@parcelas", f.parcelas);
+                        cmd.ExecuteNonQuery();
+                    }
+                
+                }
                 con.FecharConexao();
                 MessageBox.Show("Documento " + v.codigo.ToString() + " gravado com sucesso!");
             }
@@ -120,6 +150,7 @@ namespace PDV
                 throw;
             }
         }
+
 
         public bool Validações(double preco, double quantidade) {
             if (preco <= 0) { 

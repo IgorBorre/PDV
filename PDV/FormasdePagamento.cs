@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PDV
 {
-    internal class FormasdePagamento
+    public class FormasdePagamento
     {
         public FormasdePagamento(string descricao, string ativa, string avista)
         {

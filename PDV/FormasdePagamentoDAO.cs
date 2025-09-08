@@ -125,5 +125,30 @@ namespace PDV
             }
             return dt;
         }
+
+        public DataTable ListarAvista(int id)
+        {
+            string c = "SELECT avista FROM formas_pagamento where id = @id";
+
+            DataTable dt = new DataTable();
+            try
+            {
+                conexao.AbrirConexao();
+                using (MySqlCommand command = new MySqlCommand(c, conexao.ObterConexao()))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+                    using (MySqlDataAdapter da = new MySqlDataAdapter(command))
+                    {
+                        da.Fill(dt);
+                    }
+                }
+                conexao.FecharConexao();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return dt;
+        }
     }
 }

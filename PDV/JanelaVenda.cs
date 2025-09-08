@@ -160,13 +160,30 @@ namespace PDV
             if (listaProdutos.Count > 0)
             {
                 JanelaPagamento janelaPagamento = new JanelaPagamento();
-                janelaPagamento.Show();
                 janelaPagamento.LbTotal.Text = lblTotal.Text;
-                janelaPagamento.LbFalta.Text = lblTotal.Text;                
+                janelaPagamento.LbFalta.Text = lblTotal.Text;
+                janelaPagamento.ShowDialog();
+
+                if (janelaPagamento.DialogResult == DialogResult.OK) { 
+                    Venda v = new Venda();
+                    v.valorTotal = double.Parse(lblTotal.Text);
+                    if (string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text))
+                    {
+                        vendaDAO.Venda(v, listaProdutos, janelaPagamento.listaFormasdePagamento);
+                    }
+                    else
+                    {
+                        Clientes c = new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
+                        vendaDAO.Venda(c, v, listaProdutos, janelaPagamento.listaFormasdePagamento);
+                    }
+                    LimparCampos();
+                }
             }
             else {
                 MessageBox.Show("Não é possível finalizar uma venda sem produto!");
             }
+
+            
         }
 
         private void textBox1_Leave(object sender, EventArgs e)

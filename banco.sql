@@ -105,6 +105,36 @@ INSERT INTO `grupos` VALUES (1,'camisa'),(2,'calça'),(3,'tenis');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `pagsaida`
+--
+
+DROP TABLE IF EXISTS `pagsaida`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pagsaida` (
+  `documento` int NOT NULL,
+  `idpagamento` int NOT NULL,
+  `descpagamento` varchar(50) DEFAULT NULL,
+  `parcelas` int DEFAULT NULL,
+  `valor` double DEFAULT NULL,
+  KEY `documento` (`documento`),
+  KEY `idpagamento` (`idpagamento`),
+  CONSTRAINT `pagsaida_ibfk_1` FOREIGN KEY (`documento`) REFERENCES `saida` (`documento`),
+  CONSTRAINT `pagsaida_ibfk_2` FOREIGN KEY (`idpagamento`) REFERENCES `formas_pagamento` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pagsaida`
+--
+
+LOCK TABLES `pagsaida` WRITE;
+/*!40000 ALTER TABLE `pagsaida` DISABLE KEYS */;
+INSERT INTO `pagsaida` VALUES (11,1,'DINHEIRO',1,20),(12,1,'DINHEIRO',1,25),(12,2,'CARTAO',1,25),(13,1,'DINHEIRO',1,20),(14,1,'DINHEIRO',1,50),(14,2,'CARTAO',1,50),(15,2,'CARTAO',4,100);
+/*!40000 ALTER TABLE `pagsaida` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `produtos`
 --
 
@@ -131,7 +161,7 @@ CREATE TABLE `produtos` (
 
 LOCK TABLES `produtos` WRITE;
 /*!40000 ALTER TABLE `produtos` DISABLE KEYS */;
-INSERT INTO `produtos` VALUES (1,'teste','casaco de couro',18,20,NULL,NULL),(2,'teste2','calça de moletom',56,115,NULL,NULL),(4,'teste','calça de moletom',50,28,2,'calça'),(5,'asdjjkjqwkjdakjsdj','tenis vermelho',50,60,3,'tenis'),(6,'','camisa polo',50,25,1,'camisa');
+INSERT INTO `produtos` VALUES (1,'teste','casaco de couro',-1,20,NULL,NULL),(2,'teste2','calça de moletom',55,115,NULL,NULL),(4,'teste','calça de moletom',50,28,2,'calça'),(5,'asdjjkjqwkjdakjsdj','tenis vermelho',50,60,3,'tenis'),(6,'','camisa polo',50,25,1,'camisa');
 /*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -147,10 +177,11 @@ CREATE TABLE `saida` (
   `clienteId` int DEFAULT NULL,
   `clienteNome` varchar(50) DEFAULT NULL,
   `dataSaida` date DEFAULT NULL,
+  `valortotal` double DEFAULT NULL,
   PRIMARY KEY (`documento`),
   KEY `clienteId` (`clienteId`),
   CONSTRAINT `saida_ibfk_1` FOREIGN KEY (`clienteId`) REFERENCES `clientes` (`codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,7 +190,7 @@ CREATE TABLE `saida` (
 
 LOCK TABLES `saida` WRITE;
 /*!40000 ALTER TABLE `saida` DISABLE KEYS */;
-INSERT INTO `saida` VALUES (1,NULL,NULL,'2025-06-09'),(2,NULL,NULL,'2025-06-09'),(3,NULL,NULL,'2025-06-09'),(4,NULL,NULL,'2025-06-20');
+INSERT INTO `saida` VALUES (1,NULL,NULL,'2025-06-09',NULL),(2,NULL,NULL,'2025-06-09',NULL),(3,NULL,NULL,'2025-06-09',NULL),(4,NULL,NULL,'2025-06-20',NULL),(5,NULL,NULL,'2025-09-08',NULL),(6,NULL,NULL,'2025-09-08',NULL),(7,NULL,NULL,'2025-09-08',NULL),(8,NULL,NULL,'2025-09-08',NULL),(9,NULL,NULL,'2025-09-08',NULL),(10,NULL,NULL,'2025-09-08',NULL),(11,NULL,NULL,'2025-09-08',NULL),(12,NULL,NULL,'2025-09-08',NULL),(13,2,'IGOR','2025-09-08',NULL),(14,NULL,NULL,'2025-09-08',100),(15,NULL,NULL,'2025-09-08',100);
 /*!40000 ALTER TABLE `saida` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -188,7 +219,7 @@ CREATE TABLE `saidadados` (
 
 LOCK TABLES `saidadados` WRITE;
 /*!40000 ALTER TABLE `saidadados` DISABLE KEYS */;
-INSERT INTO `saidadados` VALUES (1,1,'CASACO DE COURO',10),(1,2,'CALÇA DE MOLETOM',2),(2,1,'CASACO DE COURO',1),(3,1,'CASACO DE COURO',20),(3,2,'CALÇA DE MOLETOM',2),(4,1,'CASACO DE COURO',1);
+INSERT INTO `saidadados` VALUES (1,1,'CASACO DE COURO',10),(1,2,'CALÇA DE MOLETOM',2),(2,1,'CASACO DE COURO',1),(3,1,'CASACO DE COURO',20),(3,2,'CALÇA DE MOLETOM',2),(4,1,'CASACO DE COURO',1),(5,1,'CASACO DE COURO',1),(6,1,'CASACO DE COURO',1),(7,1,'CASACO DE COURO',1),(8,1,'CASACO DE COURO',1),(9,1,'CASACO DE COURO',1),(10,1,'CASACO DE COURO',1),(11,1,'CASACO DE COURO',1),(12,1,'CASACO DE COURO',1),(12,2,'CALÇA DE MOLETOM',1),(13,1,'CASACO DE COURO',1),(14,1,'CASACO DE COURO',5),(15,1,'CASACO DE COURO',5);
 /*!40000 ALTER TABLE `saidadados` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -201,4 +232,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-09-01 23:23:18
+-- Dump completed on 2025-09-08 15:26:56
