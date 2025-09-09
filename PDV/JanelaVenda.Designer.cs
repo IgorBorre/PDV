@@ -61,7 +61,6 @@
             F5 = new Button();
             label13 = new Label();
             F6 = new Button();
-            LbQuantidade = new Label();
             listView1 = new ListView();
             CÓDIGO = new ColumnHeader();
             DESC = new ColumnHeader();
@@ -72,6 +71,10 @@
             label14 = new Label();
             lbIdCliente = new Label();
             lbNomeCliente = new Label();
+            label15 = new Label();
+            label16 = new Label();
+            lbDesconto = new Label();
+            lbAcrescimo = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -323,7 +326,7 @@
             label8.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(12, 612);
+            label8.Location = new Point(12, 596);
             label8.Name = "label8";
             label8.Size = new Size(127, 30);
             label8.TabIndex = 8;
@@ -334,7 +337,7 @@
             label9.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(77, 642);
+            label9.Location = new Point(77, 686);
             label9.Name = "label9";
             label9.Size = new Size(62, 30);
             label9.TabIndex = 9;
@@ -343,7 +346,7 @@
             // F3
             // 
             F3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            F3.Location = new Point(57, 699);
+            F3.Location = new Point(57, 723);
             F3.Name = "F3";
             F3.Size = new Size(29, 23);
             F3.TabIndex = 10;
@@ -358,7 +361,7 @@
             label10.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.Location = new Point(92, 701);
+            label10.Location = new Point(92, 725);
             label10.Name = "label10";
             label10.Size = new Size(47, 17);
             label10.TabIndex = 5;
@@ -369,7 +372,7 @@
             label11.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.Location = new Point(245, 701);
+            label11.Location = new Point(245, 725);
             label11.Name = "label11";
             label11.Size = new Size(63, 17);
             label11.TabIndex = 11;
@@ -378,7 +381,7 @@
             // F4
             // 
             F4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            F4.Location = new Point(210, 699);
+            F4.Location = new Point(210, 723);
             F4.Name = "F4";
             F4.Size = new Size(29, 23);
             F4.TabIndex = 12;
@@ -392,7 +395,7 @@
             label12.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.Location = new Point(412, 699);
+            label12.Location = new Point(412, 723);
             label12.Name = "label12";
             label12.Size = new Size(55, 17);
             label12.TabIndex = 13;
@@ -402,7 +405,7 @@
             // F5
             // 
             F5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            F5.Location = new Point(377, 697);
+            F5.Location = new Point(377, 721);
             F5.Name = "F5";
             F5.Size = new Size(29, 23);
             F5.TabIndex = 14;
@@ -416,7 +419,7 @@
             label13.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.Location = new Point(588, 699);
+            label13.Location = new Point(588, 723);
             label13.Name = "label13";
             label13.Size = new Size(65, 17);
             label13.TabIndex = 15;
@@ -425,22 +428,13 @@
             // F6
             // 
             F6.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            F6.Location = new Point(553, 697);
+            F6.Location = new Point(553, 721);
             F6.Name = "F6";
             F6.Size = new Size(29, 23);
             F6.TabIndex = 16;
             F6.Text = "F6";
             F6.UseVisualStyleBackColor = true;
             F6.KeyDown += F6_KeyDown;
-            // 
-            // LbQuantidade
-            // 
-            LbQuantidade.AutoSize = true;
-            LbQuantidade.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            LbQuantidade.Location = new Point(145, 612);
-            LbQuantidade.Name = "LbQuantidade";
-            LbQuantidade.Size = new Size(0, 30);
-            LbQuantidade.TabIndex = 17;
             // 
             // listView1
             // 
@@ -477,7 +471,7 @@
             lblQtd.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblQtd.AutoSize = true;
             lblQtd.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblQtd.Location = new Point(136, 614);
+            lblQtd.Location = new Point(136, 597);
             lblQtd.Name = "lblQtd";
             lblQtd.Size = new Size(0, 28);
             lblQtd.TabIndex = 20;
@@ -488,7 +482,7 @@
             lblTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblTotal.AutoSize = true;
             lblTotal.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTotal.Location = new Point(136, 642);
+            lblTotal.Location = new Point(136, 687);
             lblTotal.Name = "lblTotal";
             lblTotal.Size = new Size(0, 28);
             lblTotal.TabIndex = 21;
@@ -527,19 +521,64 @@
             lbNomeCliente.TabIndex = 24;
             lbNomeCliente.Visible = false;
             // 
+            // label15
+            // 
+            label15.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label15.Location = new Point(33, 626);
+            label15.Name = "label15";
+            label15.Size = new Size(106, 30);
+            label15.TabIndex = 25;
+            label15.Text = "Desconto:";
+            // 
+            // label16
+            // 
+            label16.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label16.Location = new Point(25, 656);
+            label16.Name = "label16";
+            label16.Size = new Size(114, 30);
+            label16.TabIndex = 26;
+            label16.Text = "Acréscimo:";
+            // 
+            // lbDesconto
+            // 
+            lbDesconto.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lbDesconto.AutoSize = true;
+            lbDesconto.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbDesconto.Location = new Point(136, 626);
+            lbDesconto.Name = "lbDesconto";
+            lbDesconto.Size = new Size(0, 30);
+            lbDesconto.TabIndex = 27;
+            // 
+            // lbAcrescimo
+            // 
+            lbAcrescimo.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lbAcrescimo.AutoSize = true;
+            lbAcrescimo.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbAcrescimo.Location = new Point(136, 656);
+            lbAcrescimo.Name = "lbAcrescimo";
+            lbAcrescimo.Size = new Size(0, 30);
+            lbAcrescimo.TabIndex = 28;
+            // 
             // JanelaVenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDark;
             ClientSize = new Size(1370, 749);
+            Controls.Add(lbAcrescimo);
+            Controls.Add(lbDesconto);
+            Controls.Add(label16);
+            Controls.Add(label15);
             Controls.Add(lbNomeCliente);
             Controls.Add(lbIdCliente);
             Controls.Add(label14);
             Controls.Add(lblTotal);
             Controls.Add(lblQtd);
             Controls.Add(listView1);
-            Controls.Add(LbQuantidade);
             Controls.Add(label13);
             Controls.Add(F6);
             Controls.Add(label12);
@@ -616,7 +655,10 @@
         private Label label14;
         public Label lbIdCliente;
         public Label lbNomeCliente;
-        public Label LbQuantidade;
         public Label lblTotal;
+        private Label label15;
+        private Label label16;
+        public Label lbDesconto;
+        public Label lbAcrescimo;
     }
 }

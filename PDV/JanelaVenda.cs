@@ -14,6 +14,7 @@ namespace PDV
 {
     public partial class JanelaVenda : Form
     {
+        public double subtotal = 0;
         ProdutoDAO produtoDAO;
         VendaDAO vendaDAO;
         List<Produtos> listaProdutos = new List<Produtos>();
@@ -40,6 +41,8 @@ namespace PDV
 
             lblTotal.Text = string.Empty;
             lblTotal.Visible = false;
+            lbDesconto.Text = string.Empty;
+            lbAcrescimo.Text = string.Empty;
 
             lbDetalhesDesc.Text = string.Empty;
             lbDetalhesDesc.Visible = false;
@@ -137,26 +140,7 @@ namespace PDV
 
         private void F5_Click(object sender, EventArgs e)
         {
-            /*Venda v = new Venda();
-            if (listaProdutos.Count > 0)
-            {
-                if (string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text))
-                {
-                    vendaDAO.Venda(v, listaProdutos);
-                }
-                else
-                {
-                    Clientes c = new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
-                    vendaDAO.Venda(c, v, listaProdutos);
-                }
-
-                LimparCampos();
-            }
-            else
-            {
-                MessageBox.Show("Não é possível finalizar uma venda sem produto!");
-            }*/
-
+        
             if (listaProdutos.Count > 0)
             {
                 JanelaPagamento janelaPagamento = new JanelaPagamento();
@@ -167,6 +151,9 @@ namespace PDV
                 if (janelaPagamento.DialogResult == DialogResult.OK) { 
                     Venda v = new Venda();
                     v.valorTotal = double.Parse(lblTotal.Text);
+                    v.desconto = double.Parse(lbDesconto.Text);
+                    v.acrescimo = double.Parse(lbAcrescimo.Text);
+                    v.subtotal = subtotal;
                     if (string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text))
                     {
                         vendaDAO.Venda(v, listaProdutos, janelaPagamento.listaFormasdePagamento);
@@ -243,6 +230,7 @@ namespace PDV
                     p.quantidade = double.Parse(TfQtd.Text);
                     quantidade += p.quantidade;
                     total += p.preco * p.quantidade;
+                    subtotal += p.preco * p.quantidade;
 
                     lblQtd.Text = quantidade.ToString("N2");
                     lblQtd.Visible = true;
@@ -250,6 +238,9 @@ namespace PDV
                     lblTotal.Text = total.ToString("N2");
                     lblTotal.Visible = true;
 
+
+                    lbDesconto.Text = "0,00";
+                    lbAcrescimo.Text = "0,00";
 
                     listaProdutos.Add(p);
                     listBox1.Items.Clear();
@@ -292,7 +283,7 @@ namespace PDV
         {
             JanelaDesconto janelaDesconto = new JanelaDesconto(this);
             janelaDesconto.Show();
-            janelaDesconto.TfSubtotal.Text = lblTotal.Text;
+            janelaDesconto.TfSubtotal.Text = subtotal.ToString("F2");
             janelaDesconto.TfTotal.Text = lblTotal.Text;
         }
 

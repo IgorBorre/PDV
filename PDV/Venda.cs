@@ -11,5 +11,8 @@ namespace PDV
         public int codigo { get; set; }
         public DateTime dataVenda { get; set; }
         public double valorTotal { get; set; }
+        public double desconto { get; set; }
+        public double acrescimo { get; set; }
+        public double subtotal { get; set; }
     }
 }

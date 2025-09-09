@@ -16,6 +16,8 @@ namespace PDV
         double acrescimo = 0;
         double total = 0;
         double subtotal = 0;
+        double descfinal;
+        double acrescfinal;
         bool atualizandoCampo = false; //variavel para verificar se o campo está sendo atualizado no momento ou não
 
         private JanelaVenda janelaVenda;
@@ -31,7 +33,7 @@ namespace PDV
             this.TopMost = true;
             this.BringToFront();
             this.Focus();
-        }
+                    }
 
         private void TfDesconto_TextChanged(object sender, EventArgs e)
         {
@@ -42,10 +44,11 @@ namespace PDV
                 try
                 {
                     atualizandoCampo = true;
-                    subtotal = Convert.ToDouble(TfSubtotal.Text);
+                    subtotal = Double.Parse(TfSubtotal.Text);
                     desconto = Convert.ToDouble(TfDesconto.Text);
                     total = subtotal - (subtotal * (desconto / 100));
-                    TfTotal.Text = total.ToString();
+                    TfTotal.Text = total.ToString("F2");
+                    TfAcrescimo.Text = "0,00";
                 }
                 catch { }
 
@@ -55,7 +58,7 @@ namespace PDV
             }
             else
             {
-                TfTotal.Text = subtotal.ToString();
+                TfTotal.Text = subtotal.ToString("F2");
             }
         }
 
@@ -68,10 +71,11 @@ namespace PDV
                 try
                 {
                     atualizandoCampo = true;
-                    subtotal = Convert.ToDouble(TfSubtotal.Text);
+                    subtotal = Double.Parse(TfSubtotal.Text);
                     acrescimo = Convert.ToDouble(TfAcrescimo.Text);
                     total = subtotal + (subtotal * (acrescimo / 100));
-                    TfTotal.Text = total.ToString();
+                    TfTotal.Text = total.ToString("F2");
+                    TfDesconto.Text = "0,00";
                 }
                 catch { }
                 finally { 
@@ -80,7 +84,7 @@ namespace PDV
             }
             else
             {
-                TfTotal.Text = subtotal.ToString();
+                TfTotal.Text = subtotal.ToString("F2");
             }
         }
 
@@ -99,13 +103,13 @@ namespace PDV
                     if (total < subtotal)
                     {
                         desconto = ((subtotal - total) / subtotal) * 100;
-                        TfDesconto.Text = desconto.ToString();
+                        TfDesconto.Text = desconto.ToString("F2");
                         TfAcrescimo.Text = "0";
                     }
                     else
                     {
                         acrescimo = ((total - subtotal) / subtotal) * 100;
-                        TfAcrescimo.Text = acrescimo.ToString();
+                        TfAcrescimo.Text = acrescimo.ToString("F2");
                         TfDesconto.Text = "0";
                     }
                 }
@@ -130,6 +134,28 @@ namespace PDV
             {
                 janelaVenda.lblTotal.Text = string.Empty;
                 janelaVenda.lblTotal.Text = TfTotal.Text;
+
+                if (double.Parse(TfAcrescimo.Text) != 0)
+                {
+                    acrescfinal = double.Parse(TfTotal.Text) - double.Parse(TfSubtotal.Text);
+                    janelaVenda.lbAcrescimo.Text = acrescfinal.ToString("F2");
+                }
+                else {
+                    acrescfinal = 0;
+                    janelaVenda.lbAcrescimo.Text = acrescfinal.ToString("F2");
+                }
+
+
+                if (double.Parse(TfDesconto.Text) != 0)
+                {
+                    descfinal = double.Parse(TfSubtotal.Text) - double.Parse(TfTotal.Text);
+                    janelaVenda.lbDesconto.Text = descfinal.ToString("F2");
+                }
+                else {
+                    descfinal = 0;
+                    janelaVenda.lbDesconto.Text = descfinal.ToString("F2");
+                }
+
                 Dispose();
             }
         }
