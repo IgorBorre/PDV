@@ -38,6 +38,8 @@
             vendaToolStripMenuItem = new ToolStripMenuItem();
             caixaToolStripMenuItem = new ToolStripMenuItem();
             formasDePagamentoToolStripMenuItem = new ToolStripMenuItem();
+            entradaToolStripMenuItem = new ToolStripMenuItem();
+            lançamentoDeEntradasToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -80,7 +82,7 @@
             // 
             // peçasToolStripMenuItem
             // 
-            peçasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { saídaToolStripMenuItem });
+            peçasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { saídaToolStripMenuItem, entradaToolStripMenuItem });
             peçasToolStripMenuItem.Name = "peçasToolStripMenuItem";
             peçasToolStripMenuItem.Size = new Size(49, 20);
             peçasToolStripMenuItem.Text = "Peças";
@@ -103,7 +105,7 @@
             // 
             caixaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { formasDePagamentoToolStripMenuItem });
             caixaToolStripMenuItem.Name = "caixaToolStripMenuItem";
-            caixaToolStripMenuItem.Size = new Size(47, 20);
+            caixaToolStripMenuItem.Size = new Size(48, 20);
             caixaToolStripMenuItem.Text = "Caixa";
             // 
             // formasDePagamentoToolStripMenuItem
@@ -112,6 +114,20 @@
             formasDePagamentoToolStripMenuItem.Size = new Size(193, 22);
             formasDePagamentoToolStripMenuItem.Text = "Formas de pagamento";
             formasDePagamentoToolStripMenuItem.Click += formasDePagamentoToolStripMenuItem_Click;
+            // 
+            // entradaToolStripMenuItem
+            // 
+            entradaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { lançamentoDeEntradasToolStripMenuItem });
+            entradaToolStripMenuItem.Name = "entradaToolStripMenuItem";
+            entradaToolStripMenuItem.Size = new Size(180, 22);
+            entradaToolStripMenuItem.Text = "Entrada";
+            // 
+            // lançamentoDeEntradasToolStripMenuItem
+            // 
+            lançamentoDeEntradasToolStripMenuItem.Name = "lançamentoDeEntradasToolStripMenuItem";
+            lançamentoDeEntradasToolStripMenuItem.Size = new Size(204, 22);
+            lançamentoDeEntradasToolStripMenuItem.Text = "Lançamento de entradas";
+            lançamentoDeEntradasToolStripMenuItem.Click += lançamentoDeEntradasToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -142,5 +158,7 @@
         private ToolStripMenuItem vendaToolStripMenuItem;
         private ToolStripMenuItem caixaToolStripMenuItem;
         private ToolStripMenuItem formasDePagamentoToolStripMenuItem;
+        private ToolStripMenuItem entradaToolStripMenuItem;
+        private ToolStripMenuItem lançamentoDeEntradasToolStripMenuItem;
     }
 }

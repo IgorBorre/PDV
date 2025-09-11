@@ -55,6 +55,61 @@ INSERT INTO `clientes` VALUES (1,'Cliente Teste','00000000000',NULL,NULL,'normal
 UNLOCK TABLES;
 
 --
+-- Table structure for table `entrada`
+--
+
+DROP TABLE IF EXISTS `entrada`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `entrada` (
+  `documento` int NOT NULL AUTO_INCREMENT,
+  `dataentrada` date DEFAULT NULL,
+  `idfornecedor` int DEFAULT NULL,
+  `nomefornecedor` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`documento`),
+  KEY `idfornecedor` (`idfornecedor`),
+  CONSTRAINT `entrada_ibfk_1` FOREIGN KEY (`idfornecedor`) REFERENCES `clientes` (`codigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `entrada`
+--
+
+LOCK TABLES `entrada` WRITE;
+/*!40000 ALTER TABLE `entrada` DISABLE KEYS */;
+/*!40000 ALTER TABLE `entrada` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `entradadados`
+--
+
+DROP TABLE IF EXISTS `entradadados`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `entradadados` (
+  `docentrada` int DEFAULT NULL,
+  `idproduto` int DEFAULT NULL,
+  `descproduto` varchar(50) DEFAULT NULL,
+  `quantidade` double DEFAULT NULL,
+  KEY `docentrada` (`docentrada`),
+  KEY `idproduto` (`idproduto`),
+  CONSTRAINT `entradadados_ibfk_1` FOREIGN KEY (`docentrada`) REFERENCES `entrada` (`documento`),
+  CONSTRAINT `entradadados_ibfk_2` FOREIGN KEY (`idproduto`) REFERENCES `produtos` (`codigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `entradadados`
+--
+
+LOCK TABLES `entradadados` WRITE;
+/*!40000 ALTER TABLE `entradadados` DISABLE KEYS */;
+/*!40000 ALTER TABLE `entradadados` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `formas_pagamento`
 --
 
@@ -235,4 +290,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-09-09 14:03:54
+-- Dump completed on 2025-09-11 15:24:35

@@ -37,6 +37,9 @@
     <Compile Update="JanelaDesconto.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="JanelaEntrada.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="JanelaPagamento.cs">
       <SubType>Form</SubType>
     </Compile>

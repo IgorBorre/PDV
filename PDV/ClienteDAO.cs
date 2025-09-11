@@ -150,11 +150,25 @@ namespace PDV
 
             //funcao para fazer o select de todos os campos da tabela cliente de acordo com o codigo
             DataTable dt = new DataTable();
-            string comando = "SELECT * from Clientes where codigo = " + id;
+            string comando = "SELECT * from clientes where codigo = " + id;
 
             //chamando a função de cima que executa o comando passado e armazena os valores em uma DataTable
             return ListarClientes(comando);
 
+        }
+
+        public DataTable NomeById(string id) {
+            DataTable dt = new DataTable();
+            string comando = "SELECT nome from clientes where codigo = " + id;
+
+            return ListarClientes(comando);
+        }
+
+        public DataTable CodigoByNome(string nome) {
+            DataTable dt = new DataTable();
+            string comando = "select codigo, nome from clientes where nome like '%" +nome+"%'";
+
+            return ListarClientes(comando);
         }
 
         public string Criterios(string codigo, string nome, string telefone, string identificacao) {

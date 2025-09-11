@@ -143,5 +143,101 @@ namespace PDV
             return a;
         }
 
+        public void Entrada(Entrada e, Clientes c, List<Produtos> produtos) {
+            string comando = "insert into entrada (idfornecedor, nomefornecedor, dataentrada) values (@idfornecedor, @nomefornecedor, @dataentrada)";
+            string comandoEntrada = "insert into entradadados (docentrada, idproduto, descproduto, quantidade) values (@docentrada, @idproduto, @descproduto, @quantidade)";
+            string atualizaEstoque = "update produtos set estoque = estoque + @quantidade where codigo = @codigo";
+            e.data = DateTime.Now.Date;
+
+            try
+            {
+                conexao.AbrirConexao();
+                using (MySqlCommand cmd = new MySqlCommand(comando, conexao.ObterConexao())) {
+                    cmd.Parameters.AddWithValue("@idfornecedor", c.codigo);
+                    cmd.Parameters.AddWithValue("@nomefornecedor", c.nome);
+                    cmd.Parameters.AddWithValue("@dataentrada", e.data);
+                    cmd.ExecuteNonQuery();
+
+                    cmd.CommandText = "SELECT @@IDENTITY";
+                    e.documento = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+
+                foreach (Produtos p in produtos) {
+                    using (MySqlCommand cmd = new MySqlCommand(comandoEntrada, conexao.ObterConexao())) {
+                        cmd.Parameters.AddWithValue("@docentrada", e.documento);
+                        cmd.Parameters.AddWithValue("@idproduto", p.codigo);
+                        cmd.Parameters.AddWithValue("@descproduto", p.descricao);
+                        cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    using (MySqlCommand cmd = new MySqlCommand(atualizaEstoque, conexao.ObterConexao())) {
+                        cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
+                        cmd.Parameters.AddWithValue("@codigo", p.codigo);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                conexao.FecharConexao();
+                MessageBox.Show("Documento " + e.documento.ToString() + " gravado com sucesso!");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        public void Entrada(Entrada e, List<Produtos> produtos)
+        {
+            string comando = "insert into entrada (dataentrada) values (@dataentrada)";
+            string comandoEntrada = "insert into entradadados (docentrada, idproduto, descproduto, quantidade) values (@docentrada, @idproduto, @descproduto, @quantidade)";
+            string atualizaEstoque = "update produtos set estoque = estoque + @quantidade where codigo = @codigo";
+            e.data = DateTime.Now.Date;
+
+            try
+            {
+                conexao.AbrirConexao();
+                using (MySqlCommand cmd = new MySqlCommand(comando, conexao.ObterConexao()))
+                {
+                    cmd.Parameters.AddWithValue("@dataentrada", e.data);
+                    cmd.ExecuteNonQuery();
+
+                    cmd.CommandText = "SELECT @@IDENTITY";
+                    e.documento = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+
+                foreach (Produtos p in produtos)
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(comandoEntrada, conexao.ObterConexao()))
+                    {
+                        cmd.Parameters.AddWithValue("@docentrada", e.documento);
+                        cmd.Parameters.AddWithValue("@idproduto", p.codigo);
+                        cmd.Parameters.AddWithValue("@descproduto", p.descricao);
+                        cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    using (MySqlCommand cmd = new MySqlCommand(atualizaEstoque, conexao.ObterConexao()))
+                    {
+                        cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
+                        cmd.Parameters.AddWithValue("@codigo", p.codigo);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                conexao.FecharConexao();
+                MessageBox.Show("Documento " + e.documento.ToString() + " gravado com sucesso!");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }
