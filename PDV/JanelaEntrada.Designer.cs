@@ -39,11 +39,15 @@
             label1 = new Label();
             tfFornecedor = new TextBox();
             tfIdFornecedor = new TextBox();
-            listBox1 = new ListBox();
             btConfirmar = new Button();
             btLimpar = new Button();
             btCancelarTudo = new Button();
+            dataGridView1 = new DataGridView();
+            codigo = new DataGridViewTextBoxColumn();
+            descricao = new DataGridViewTextBoxColumn();
+            quantidade = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -154,15 +158,6 @@
             tfIdFornecedor.TabIndex = 0;
             tfIdFornecedor.Leave += tfIdFornecedor_Leave;
             // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(6, 191);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(897, 349);
-            listBox1.TabIndex = 1;
-            // 
             // btConfirmar
             // 
             btConfirmar.Image = Properties.Resources.verifica__2___1_;
@@ -174,6 +169,7 @@
             btConfirmar.Text = "Confirmar";
             btConfirmar.TextAlign = ContentAlignment.MiddleLeft;
             btConfirmar.UseVisualStyleBackColor = true;
+            btConfirmar.Click += btConfirmar_Click;
             // 
             // btLimpar
             // 
@@ -185,6 +181,7 @@
             btLimpar.TabIndex = 9;
             btLimpar.Text = "Limpar";
             btLimpar.UseVisualStyleBackColor = true;
+            btLimpar.Click += btLimpar_Click;
             // 
             // btCancelarTudo
             // 
@@ -197,22 +194,65 @@
             btCancelarTudo.Text = "Cancelar";
             btCancelarTudo.TextAlign = ContentAlignment.MiddleLeft;
             btCancelarTudo.UseVisualStyleBackColor = true;
+            btCancelarTudo.Click += btCancelarTudo_Click;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = SystemColors.MenuBar;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { codigo, descricao, quantidade });
+            dataGridView1.Enabled = false;
+            dataGridView1.Location = new Point(15, 191);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(871, 359);
+            dataGridView1.TabIndex = 11;
+            dataGridView1.DataBindingComplete += dataGridView1_DataBindingComplete;
+            dataGridView1.RowsAdded += dataGridView1_RowsAdded;
+            dataGridView1.Sorted += dataGridView1_Sorted;
+            // 
+            // codigo
+            // 
+            codigo.FillWeight = 23.9733429F;
+            codigo.HeaderText = "Código";
+            codigo.Name = "codigo";
+            codigo.ReadOnly = true;
+            // 
+            // descricao
+            // 
+            descricao.FillWeight = 245.569839F;
+            descricao.HeaderText = "Descrição";
+            descricao.Name = "descricao";
+            descricao.ReadOnly = true;
+            // 
+            // quantidade
+            // 
+            quantidade.FillWeight = 30.4568558F;
+            quantidade.HeaderText = "Quantidade";
+            quantidade.Name = "quantidade";
+            quantidade.ReadOnly = true;
             // 
             // JanelaEntrada
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(924, 591);
+            Controls.Add(dataGridView1);
             Controls.Add(btCancelarTudo);
             Controls.Add(btLimpar);
             Controls.Add(btConfirmar);
-            Controls.Add(listBox1);
             Controls.Add(groupBox1);
             Name = "JanelaEntrada";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "JanelaEntrada";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -229,9 +269,12 @@
         private Label label1;
         private TextBox tfFornecedor;
         private TextBox tfIdFornecedor;
-        private ListBox listBox1;
         private Button btConfirmar;
         private Button btLimpar;
         private Button btCancelarTudo;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn codigo;
+        private DataGridViewTextBoxColumn descricao;
+        private DataGridViewTextBoxColumn quantidade;
     }
 }

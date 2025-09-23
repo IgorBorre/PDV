@@ -51,5 +51,11 @@ namespace PDV
             JanelaEntrada janelaEntrada = new JanelaEntrada();
             janelaEntrada.ShowDialog();
         }
+
+        private void consultaDeSaídasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JanelaConsultaSaidas janelaConsulta = new JanelaConsultaSaidas();
+            janelaConsulta.Show();
+        }
     }
 }
