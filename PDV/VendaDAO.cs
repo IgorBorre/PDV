@@ -169,5 +169,57 @@ namespace PDV
             }
             return true;
         }
+
+        public DataTable ConsultaSaidas(string c)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                con.AbrirConexao();
+                using (MySqlCommand command = new MySqlCommand(c, con.ObterConexao()))
+                {
+                    using (MySqlDataAdapter da = new MySqlDataAdapter(command))
+                    {
+                        da.Fill(dt);
+                    }
+                }
+                con.FecharConexao();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return dt;
+
+        }
+
+       public String Criterios(string documento, string cliente, string data1, string data2) {
+
+            string a = "";
+
+            if (!string.IsNullOrEmpty(documento))
+            {
+                a += " and documento = " + documento;
+            }
+
+            if (!string.IsNullOrEmpty(data1) && !string.IsNullOrEmpty(data2)) { 
+                a += " and dataSaida between" + "'"+data1+"'" + " and "+ "'"+data2+"'";
+            }
+
+            if (!string.IsNullOrEmpty(cliente)) {
+                a += " and clienteNome like '%" + cliente + "%'";
+            }
+
+            if (!string.IsNullOrEmpty(data1) && string.IsNullOrEmpty(data2)) { 
+                a += " and dataSaida >= '" +data1+ "'";
+            }
+
+            if (string.IsNullOrEmpty(data1) && !string.IsNullOrEmpty(data2)) {
+                a += " and dataSaida <= '" + data2 + "'";
+            }
+
+            return a;
+        }
     }
+
 }
