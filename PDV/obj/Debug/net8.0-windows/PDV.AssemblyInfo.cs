@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PDV")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb679daf384d56f11b3444df8fe8d456bd0736f4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ded9c9aff9cebdd6b5fbb034707a55bade6f6f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("PDV")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PDV")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

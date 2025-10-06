@@ -34,14 +34,15 @@
             estoqueToolStripMenuItem = new ToolStripMenuItem();
             gruposToolStripMenuItem = new ToolStripMenuItem();
             peçasToolStripMenuItem = new ToolStripMenuItem();
-            saídaToolStripMenuItem = new ToolStripMenuItem();
-            vendaToolStripMenuItem = new ToolStripMenuItem();
             entradaToolStripMenuItem = new ToolStripMenuItem();
             lançamentoDeEntradasToolStripMenuItem = new ToolStripMenuItem();
+            consultaDeEntradasToolStripMenuItem = new ToolStripMenuItem();
+            saídaToolStripMenuItem = new ToolStripMenuItem();
+            vendaToolStripMenuItem = new ToolStripMenuItem();
+            consultaDeSaídasToolStripMenuItem = new ToolStripMenuItem();
             caixaToolStripMenuItem = new ToolStripMenuItem();
             formasDePagamentoToolStripMenuItem = new ToolStripMenuItem();
-            consultaDeEntradasToolStripMenuItem = new ToolStripMenuItem();
-            consultaDeSaídasToolStripMenuItem = new ToolStripMenuItem();
+            cancelamentoDeSaídasToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -84,24 +85,10 @@
             // 
             // peçasToolStripMenuItem
             // 
-            peçasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { saídaToolStripMenuItem, entradaToolStripMenuItem });
+            peçasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { entradaToolStripMenuItem, saídaToolStripMenuItem });
             peçasToolStripMenuItem.Name = "peçasToolStripMenuItem";
             peçasToolStripMenuItem.Size = new Size(49, 20);
             peçasToolStripMenuItem.Text = "Peças";
-            // 
-            // saídaToolStripMenuItem
-            // 
-            saídaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { vendaToolStripMenuItem, consultaDeSaídasToolStripMenuItem });
-            saídaToolStripMenuItem.Name = "saídaToolStripMenuItem";
-            saídaToolStripMenuItem.Size = new Size(180, 22);
-            saídaToolStripMenuItem.Text = "Saída";
-            // 
-            // vendaToolStripMenuItem
-            // 
-            vendaToolStripMenuItem.Name = "vendaToolStripMenuItem";
-            vendaToolStripMenuItem.Size = new Size(180, 22);
-            vendaToolStripMenuItem.Text = "Venda";
-            vendaToolStripMenuItem.Click += vendaToolStripMenuItem_Click;
             // 
             // entradaToolStripMenuItem
             // 
@@ -117,11 +104,39 @@
             lançamentoDeEntradasToolStripMenuItem.Text = "Lançamento de entradas";
             lançamentoDeEntradasToolStripMenuItem.Click += lançamentoDeEntradasToolStripMenuItem_Click;
             // 
+            // consultaDeEntradasToolStripMenuItem
+            // 
+            consultaDeEntradasToolStripMenuItem.Name = "consultaDeEntradasToolStripMenuItem";
+            consultaDeEntradasToolStripMenuItem.Size = new Size(204, 22);
+            consultaDeEntradasToolStripMenuItem.Text = "Consulta de entradas";
+            consultaDeEntradasToolStripMenuItem.Click += consultaDeEntradasToolStripMenuItem_Click;
+            // 
+            // saídaToolStripMenuItem
+            // 
+            saídaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { vendaToolStripMenuItem, consultaDeSaídasToolStripMenuItem, cancelamentoDeSaídasToolStripMenuItem });
+            saídaToolStripMenuItem.Name = "saídaToolStripMenuItem";
+            saídaToolStripMenuItem.Size = new Size(180, 22);
+            saídaToolStripMenuItem.Text = "Saída";
+            // 
+            // vendaToolStripMenuItem
+            // 
+            vendaToolStripMenuItem.Name = "vendaToolStripMenuItem";
+            vendaToolStripMenuItem.Size = new Size(202, 22);
+            vendaToolStripMenuItem.Text = "Venda";
+            vendaToolStripMenuItem.Click += vendaToolStripMenuItem_Click;
+            // 
+            // consultaDeSaídasToolStripMenuItem
+            // 
+            consultaDeSaídasToolStripMenuItem.Name = "consultaDeSaídasToolStripMenuItem";
+            consultaDeSaídasToolStripMenuItem.Size = new Size(202, 22);
+            consultaDeSaídasToolStripMenuItem.Text = "Consulta de saídas";
+            consultaDeSaídasToolStripMenuItem.Click += consultaDeSaídasToolStripMenuItem_Click;
+            // 
             // caixaToolStripMenuItem
             // 
             caixaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { formasDePagamentoToolStripMenuItem });
             caixaToolStripMenuItem.Name = "caixaToolStripMenuItem";
-            caixaToolStripMenuItem.Size = new Size(48, 20);
+            caixaToolStripMenuItem.Size = new Size(47, 20);
             caixaToolStripMenuItem.Text = "Caixa";
             // 
             // formasDePagamentoToolStripMenuItem
@@ -131,18 +146,11 @@
             formasDePagamentoToolStripMenuItem.Text = "Formas de pagamento";
             formasDePagamentoToolStripMenuItem.Click += formasDePagamentoToolStripMenuItem_Click;
             // 
-            // consultaDeEntradasToolStripMenuItem
+            // cancelamentoDeSaídasToolStripMenuItem
             // 
-            consultaDeEntradasToolStripMenuItem.Name = "consultaDeEntradasToolStripMenuItem";
-            consultaDeEntradasToolStripMenuItem.Size = new Size(204, 22);
-            consultaDeEntradasToolStripMenuItem.Text = "Consulta de entradas";
-            // 
-            // consultaDeSaídasToolStripMenuItem
-            // 
-            consultaDeSaídasToolStripMenuItem.Name = "consultaDeSaídasToolStripMenuItem";
-            consultaDeSaídasToolStripMenuItem.Size = new Size(180, 22);
-            consultaDeSaídasToolStripMenuItem.Text = "Consulta de saídas";
-            consultaDeSaídasToolStripMenuItem.Click += consultaDeSaídasToolStripMenuItem_Click;
+            cancelamentoDeSaídasToolStripMenuItem.Name = "cancelamentoDeSaídasToolStripMenuItem";
+            cancelamentoDeSaídasToolStripMenuItem.Size = new Size(202, 22);
+            cancelamentoDeSaídasToolStripMenuItem.Text = "Cancelamento de saídas";
             // 
             // Form1
             // 
@@ -177,5 +185,6 @@
         private ToolStripMenuItem lançamentoDeEntradasToolStripMenuItem;
         private ToolStripMenuItem consultaDeSaídasToolStripMenuItem;
         private ToolStripMenuItem consultaDeEntradasToolStripMenuItem;
+        private ToolStripMenuItem cancelamentoDeSaídasToolStripMenuItem;
     }
 }

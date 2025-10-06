@@ -143,6 +143,32 @@ namespace PDV
             return a;
         }
 
+        public string CriteriosConsulta(string documento, string fornecedor, string data1, string data2) { 
+            string a = "";
+
+            if (!string.IsNullOrEmpty(documento)) { 
+                a += " and documento = " + documento;
+            }
+
+            if (!string.IsNullOrEmpty(fornecedor)) { 
+                a += " and nomefornecedor like '%" + fornecedor +"%'";
+            }
+
+            if (!string.IsNullOrEmpty(data1) && !string.IsNullOrEmpty(data2)) { 
+                a += " and dataentrada between" + "'"+data1+"'" + " and " + "'"+data2+"'";
+            }
+
+            if (!string.IsNullOrEmpty(data1) && string.IsNullOrEmpty(data2)) { 
+                a += " and dataentrada >=" + "'" + data1 + "'";
+            }
+
+            if (string.IsNullOrEmpty(data1) && !string.IsNullOrEmpty(data2)) { 
+                a += " and dataentrada <=" + "'" + data2 + "'";
+            }
+            return a;
+
+        }
+
         public void Entrada(Entrada e, Clientes c, List<Produtos> produtos) {
             string comando = "insert into entrada (idfornecedor, nomefornecedor, dataentrada) values (@idfornecedor, @nomefornecedor, @dataentrada)";
             string comandoEntrada = "insert into entradadados (docentrada, idproduto, descproduto, quantidade) values (@docentrada, @idproduto, @descproduto, @quantidade)";

@@ -98,3 +98,6 @@ C:\Users\igorT\Documents\Visual Studio 2022\PDV\PDV\obj\Debug\net8.0-windows\PDV
 C:\Users\igorT\Documents\Visual Studio 2022\PDV\PDV\obj\Debug\net8.0-windows\PDV.JanelaPagamento.resources
 C:\Users\igorT\Documents\Visual Studio 2022\PDV\PDV\obj\Debug\net8.0-windows\PDV.JanelaEntrada.resources
 C:\Users\igorT\Documents\Visual Studio 2022\PDV\PDV\obj\Debug\net8.0-windows\PDV.JanelaConsultaSaidas.resources
+C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\obj\Debug\net8.0-windows\PDV.JanelaConsultaSaidas.resources
+C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\obj\Debug\net8.0-windows\PDV.JanelaEntrada.resources
+C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\obj\Debug\net8.0-windows\PDV.ConsultaEntradas.resources
