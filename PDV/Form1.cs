@@ -63,5 +63,11 @@ namespace PDV
             ConsultaEntradas consultaEntradas = new ConsultaEntradas();
             consultaEntradas.Show();
         }
+
+        private void cancelamentoDeSaídasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JanelaCancelamentodeSaidas cancelamento = new JanelaCancelamentodeSaidas();
+            cancelamento.Show();
+        }
     }
 }
