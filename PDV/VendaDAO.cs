@@ -220,6 +220,16 @@ namespace PDV
 
             return a;
         }
+
+        public string Criterios(string documento) {
+            string a = "";
+
+            if (!string.IsNullOrEmpty(documento)) {
+                a += " and documento = " + documento;
+            }
+
+            return a;
+        }
     }
 
 }

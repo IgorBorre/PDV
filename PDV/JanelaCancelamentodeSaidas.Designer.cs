@@ -74,27 +74,24 @@
             LbValor.AutoSize = true;
             LbValor.Location = new Point(80, 65);
             LbValor.Name = "LbValor";
-            LbValor.Size = new Size(25, 15);
+            LbValor.Size = new Size(0, 15);
             LbValor.TabIndex = 5;
-            LbValor.Text = "000";
             // 
             // LbData
             // 
             LbData.AutoSize = true;
             LbData.Location = new Point(80, 41);
             LbData.Name = "LbData";
-            LbData.Size = new Size(65, 15);
+            LbData.Size = new Size(0, 15);
             LbData.TabIndex = 4;
-            LbData.Text = "07/10/2025";
             // 
             // LbDocumento
             // 
             LbDocumento.AutoSize = true;
             LbDocumento.Location = new Point(80, 15);
             LbDocumento.Name = "LbDocumento";
-            LbDocumento.Size = new Size(25, 15);
+            LbDocumento.Size = new Size(0, 15);
             LbDocumento.TabIndex = 3;
-            LbDocumento.Text = "000";
             // 
             // label4
             // 
@@ -158,6 +155,7 @@
             BtProcurar.Text = "Procurar";
             BtProcurar.TextAlign = ContentAlignment.MiddleRight;
             BtProcurar.UseVisualStyleBackColor = true;
+            BtProcurar.Click += BtProcurar_Click;
             // 
             // BtLimpar
             // 
@@ -169,6 +167,7 @@
             BtLimpar.TabIndex = 13;
             BtLimpar.Text = "Limpar";
             BtLimpar.UseVisualStyleBackColor = true;
+            BtLimpar.Click += BtLimpar_Click;
             // 
             // BtConfirmar
             // 
