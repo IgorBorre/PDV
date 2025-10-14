@@ -27,7 +27,7 @@ namespace PDV
             {
 
                 VendaDAO vendaDAO = new VendaDAO();
-                string c = "select documento, dataSaida, valortotal from saida where 1 " +
+                string c = "select documento, dataSaida, valortotal from saida where cancelada = 'N' " +
                     vendaDAO.Criterios(TfDocumento.Text);
                 DataTable dt;
                 dt = vendaDAO.ConsultaSaidas(c);
@@ -67,6 +67,20 @@ namespace PDV
             LbData.Text = string.Empty;
             LbValor.Text = string.Empty;
             TfMotivo.Text = string.Empty;
+        }
+
+        private void BtConfirmar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(LbDocumento.Text)) { 
+                VendaDAO vendaDAO = new VendaDAO();
+                vendaDAO.CancelarVenda(LbDocumento.Text);
+                TfDocumento.Text = string.Empty;
+                LbDocumento.Text = string.Empty;
+                LbData.Text = string.Empty;
+                LbValor.Text = string.Empty;
+                TfMotivo.Text = string.Empty;
+                TfDocumento.Focus();
+            }
         }
     }
 }

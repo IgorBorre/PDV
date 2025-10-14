@@ -36,7 +36,7 @@ namespace PDV
                 data2 = date2.ToString("yyyy-MM-dd");
             }
 
-            string c = "select documento, clienteNome, dataSaida, subtotal, desconto, acrescimo, valortotal from saida where 1" + vendaDAO.Criterios(
+            string c = "select documento, clienteNome, dataSaida, subtotal, desconto, acrescimo, valortotal from saida where cancelada = 'N'" + vendaDAO.Criterios(
                 TfDocumento.Text, TfCliente.Text, data1, data2);
             DataTable dt = vendaDAO.ConsultaSaidas(c);
 

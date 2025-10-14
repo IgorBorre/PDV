@@ -40,6 +40,9 @@
     <Compile Update="JanelaClienteVenda.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="JanelaConsultaCancelamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="JanelaConsultaSaidas.cs">
       <SubType>Form</SubType>
     </Compile>

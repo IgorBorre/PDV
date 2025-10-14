@@ -103,3 +103,4 @@ C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\obj\Debug\net8.0-windows\P
 C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\obj\Debug\net8.0-windows\PDV.ConsultaEntradas.resources
 C:\Users\igorT\Documents\Visual Studio 2022\PDV\PDV\obj\Debug\net8.0-windows\PDV.ConsultaEntradas.resources
 C:\Users\igorT\Documents\Visual Studio 2022\PDV\PDV\obj\Debug\net8.0-windows\PDV.JanelaCancelamentodeSaidas.resources
+C:\Users\igorT\Documents\Visual Studio 2022\PDV\PDV\obj\Debug\net8.0-windows\PDV.JanelaConsultaCancelamento.resources

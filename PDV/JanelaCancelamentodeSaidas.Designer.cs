@@ -180,6 +180,7 @@
             BtConfirmar.Text = "Confirmar";
             BtConfirmar.TextAlign = ContentAlignment.MiddleRight;
             BtConfirmar.UseVisualStyleBackColor = true;
+            BtConfirmar.Click += BtConfirmar_Click;
             // 
             // BtCancelar
             // 

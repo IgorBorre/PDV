@@ -230,6 +230,50 @@ namespace PDV
 
             return a;
         }
+
+        public void CancelarVenda(string documento)
+        {
+            string comando = "update saida set cancelada = 'S' where documento = @documento";
+            string selectSaidadados = "select produto, quantidade from saidadados where documento = " + documento;
+            string updateProdutos = "update produtos set estoque = estoque + @quantidade where codigo = @codigo";
+
+            DataTable dt = ConsultaSaidas(selectSaidadados);         
+
+            try
+            {
+
+                con.AbrirConexao();
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    Produtos p = new Produtos();
+                    p.codigo = Convert.ToInt32(row["produto"]);
+                    p.quantidade = Convert.ToDouble(row["quantidade"]);
+
+
+                    using (MySqlCommand cmd = new MySqlCommand(updateProdutos, con.ObterConexao()))
+                    {
+                        cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
+                        cmd.Parameters.AddWithValue("@codigo", p.codigo);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                using (MySqlCommand cmd = new MySqlCommand(comando, con.ObterConexao()))
+                {
+                    cmd.Parameters.AddWithValue("@documento", documento);
+
+
+                    cmd.ExecuteNonQuery();
+                }
+                con.FecharConexao();
+                MessageBox.Show("Documento " + documento + " cancelado com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 
 }
