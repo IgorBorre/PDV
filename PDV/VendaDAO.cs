@@ -231,11 +231,12 @@ namespace PDV
             return a;
         }
 
-        public void CancelarVenda(string documento)
+        public void CancelarVenda(string documento, string motivo)
         {
             string comando = "update saida set cancelada = 'S' where documento = @documento";
             string selectSaidadados = "select produto, quantidade from saidadados where documento = " + documento;
             string updateProdutos = "update produtos set estoque = estoque + @quantidade where codigo = @codigo";
+            string cancelamentoLog = "insert into cancelamentoLog(documento, motivo, dataCancelamento) values(@documento, @motivo, @dataCancelamento)";
 
             DataTable dt = ConsultaSaidas(selectSaidadados);         
 
@@ -266,13 +267,40 @@ namespace PDV
 
                     cmd.ExecuteNonQuery();
                 }
-                con.FecharConexao();
+
+                using (MySqlCommand cmd = new MySqlCommand(cancelamentoLog, con.ObterConexao())) { 
+                    cmd.Parameters.AddWithValue("@documento", documento);
+                    cmd.Parameters.AddWithValue("@motivo", motivo);
+                    cmd.Parameters.AddWithValue("@dataCancelamento", DateTime.Now.Date);
+
+                    cmd.ExecuteNonQuery();
+                }
+                    con.FecharConexao();
                 MessageBox.Show("Documento " + documento + " cancelado com sucesso!");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        public string Validacoes(string documento, string data1, string data2) { 
+            string a = "";
+
+            if (!string.IsNullOrEmpty(documento)) { 
+                a += " and documento = "+documento;
+            }
+            if (!string.IsNullOrEmpty(data1) && !string.IsNullOrEmpty(data2)) { 
+                a += " and dataCancelamento between" + "'" + data1 + "'" + " and " + "'" + data2 + "'";
+            }
+            if (!string.IsNullOrEmpty(data1) && string.IsNullOrEmpty(data2)) { 
+                a += " and dataCancelamento >= '" + data1 + "'";
+            }
+            if (string.IsNullOrEmpty(data1) && !string.IsNullOrEmpty(data2)) { 
+                a += " and dataCancelamento <= '" + data2 + "'";
+            }
+
+            return a;
         }
     }
 

@@ -71,15 +71,19 @@ namespace PDV
 
         private void BtConfirmar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(LbDocumento.Text)) { 
+            if (!string.IsNullOrEmpty(LbDocumento.Text) && !string.IsNullOrEmpty(TfMotivo.Text) && TfMotivo.Text.Length > 15)
+            {
                 VendaDAO vendaDAO = new VendaDAO();
-                vendaDAO.CancelarVenda(LbDocumento.Text);
+                vendaDAO.CancelarVenda(LbDocumento.Text, TfMotivo.Text);
                 TfDocumento.Text = string.Empty;
                 LbDocumento.Text = string.Empty;
                 LbData.Text = string.Empty;
                 LbValor.Text = string.Empty;
                 TfMotivo.Text = string.Empty;
                 TfDocumento.Focus();
+            }
+            else { 
+                MessageBox.Show("Informe um número de documento e um motivo de pelo menos 15 caracteres para cancelar a saída!");
             }
         }
     }

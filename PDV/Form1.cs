@@ -75,5 +75,11 @@ namespace PDV
             JanelaConsultaCancelamento janelaConsultaCancelamento = new JanelaConsultaCancelamento();
             janelaConsultaCancelamento.Show();
         }
+
+        private void cancelamentoDeEntradasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JanelaCancelamentodeEntradas janelaCancelamentodeEntradas = new JanelaCancelamentodeEntradas();
+            janelaCancelamentodeEntradas.Show();
+        }
     }
 }

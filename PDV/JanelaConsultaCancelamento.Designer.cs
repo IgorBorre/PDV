@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            label1 = new Label();
-            TfDocumento = new TextBox();
-            Data = new Label();
-            TfData1 = new MaskedTextBox();
-            label2 = new Label();
-            TfData2 = new MaskedTextBox();
-            BtProcurar = new Button();
             BtLimpar = new Button();
+            BtProcurar = new Button();
+            TfData2 = new MaskedTextBox();
+            label2 = new Label();
+            TfData1 = new MaskedTextBox();
+            Data = new Label();
+            TfDocumento = new TextBox();
+            label1 = new Label();
             dataGridView1 = new DataGridView();
             Documento = new DataGridViewTextBoxColumn();
             date = new DataGridViewTextBoxColumn();
@@ -62,57 +62,17 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Filtros";
             // 
-            // label1
+            // BtLimpar
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(7, 20);
-            label1.Name = "label1";
-            label1.Size = new Size(70, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Documento";
-            // 
-            // TfDocumento
-            // 
-            TfDocumento.Location = new Point(10, 41);
-            TfDocumento.Name = "TfDocumento";
-            TfDocumento.Size = new Size(100, 23);
-            TfDocumento.TabIndex = 1;
-            // 
-            // Data
-            // 
-            Data.AutoSize = true;
-            Data.Location = new Point(178, 20);
-            Data.Name = "Data";
-            Data.Size = new Size(31, 15);
-            Data.TabIndex = 2;
-            Data.Text = "Data";
-            // 
-            // TfData1
-            // 
-            TfData1.Location = new Point(178, 38);
-            TfData1.Mask = "00/00/0000";
-            TfData1.Name = "TfData1";
-            TfData1.Size = new Size(70, 23);
-            TfData1.TabIndex = 7;
-            TfData1.ValidatingType = typeof(DateTime);
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(254, 42);
-            label2.Name = "label2";
-            label2.Size = new Size(13, 15);
-            label2.TabIndex = 8;
-            label2.Text = "a";
-            // 
-            // TfData2
-            // 
-            TfData2.Location = new Point(273, 38);
-            TfData2.Mask = "00/00/0000";
-            TfData2.Name = "TfData2";
-            TfData2.Size = new Size(70, 23);
-            TfData2.TabIndex = 9;
-            TfData2.ValidatingType = typeof(DateTime);
+            BtLimpar.Image = Properties.Resources.lixeira_de_reciclagem__1_;
+            BtLimpar.ImageAlign = ContentAlignment.MiddleLeft;
+            BtLimpar.Location = new Point(714, 51);
+            BtLimpar.Name = "BtLimpar";
+            BtLimpar.Size = new Size(75, 23);
+            BtLimpar.TabIndex = 11;
+            BtLimpar.Text = "   Limpar";
+            BtLimpar.UseVisualStyleBackColor = true;
+            BtLimpar.Click += BtLimpar_Click;
             // 
             // BtProcurar
             // 
@@ -125,17 +85,59 @@
             BtProcurar.Text = "Procurar";
             BtProcurar.TextAlign = ContentAlignment.MiddleRight;
             BtProcurar.UseVisualStyleBackColor = true;
+            BtProcurar.Click += BtProcurar_Click;
             // 
-            // BtLimpar
+            // TfData2
             // 
-            BtLimpar.Image = Properties.Resources.lixeira_de_reciclagem__1_;
-            BtLimpar.ImageAlign = ContentAlignment.MiddleLeft;
-            BtLimpar.Location = new Point(714, 51);
-            BtLimpar.Name = "BtLimpar";
-            BtLimpar.Size = new Size(75, 23);
-            BtLimpar.TabIndex = 11;
-            BtLimpar.Text = "   Limpar";
-            BtLimpar.UseVisualStyleBackColor = true;
+            TfData2.Location = new Point(273, 38);
+            TfData2.Mask = "00/00/0000";
+            TfData2.Name = "TfData2";
+            TfData2.Size = new Size(70, 23);
+            TfData2.TabIndex = 9;
+            TfData2.ValidatingType = typeof(DateTime);
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(254, 42);
+            label2.Name = "label2";
+            label2.Size = new Size(13, 15);
+            label2.TabIndex = 8;
+            label2.Text = "a";
+            // 
+            // TfData1
+            // 
+            TfData1.Location = new Point(178, 38);
+            TfData1.Mask = "00/00/0000";
+            TfData1.Name = "TfData1";
+            TfData1.Size = new Size(70, 23);
+            TfData1.TabIndex = 7;
+            TfData1.ValidatingType = typeof(DateTime);
+            // 
+            // Data
+            // 
+            Data.AutoSize = true;
+            Data.Location = new Point(178, 20);
+            Data.Name = "Data";
+            Data.Size = new Size(31, 15);
+            Data.TabIndex = 2;
+            Data.Text = "Data";
+            // 
+            // TfDocumento
+            // 
+            TfDocumento.Location = new Point(10, 41);
+            TfDocumento.Name = "TfDocumento";
+            TfDocumento.Size = new Size(100, 23);
+            TfDocumento.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(7, 20);
+            label1.Name = "label1";
+            label1.Size = new Size(70, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Documento";
             // 
             // dataGridView1
             // 
@@ -155,7 +157,7 @@
             // Documento
             // 
             Documento.DataPropertyName = "documento";
-            Documento.FillWeight = 61.182045F;
+            Documento.FillWeight = 48.1123543F;
             Documento.HeaderText = "Documento";
             Documento.Name = "Documento";
             Documento.ReadOnly = true;
@@ -163,15 +165,15 @@
             // date
             // 
             date.DataPropertyName = "dataCancelamento";
-            date.FillWeight = 68.527916F;
-            date.HeaderText = "Data";
+            date.FillWeight = 60.9137039F;
+            date.HeaderText = "Data do cancelamento";
             date.Name = "date";
             date.ReadOnly = true;
             // 
             // Motivo
             // 
             Motivo.DataPropertyName = "motivo";
-            Motivo.FillWeight = 170.290039F;
+            Motivo.FillWeight = 190.973938F;
             Motivo.HeaderText = "Motivo";
             Motivo.Name = "Motivo";
             Motivo.ReadOnly = true;
@@ -186,6 +188,7 @@
             Name = "JanelaConsultaCancelamento";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "JanelaConsultaCancelamento";
+            Load += JanelaConsultaCancelamento_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

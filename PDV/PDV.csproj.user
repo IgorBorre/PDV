@@ -34,6 +34,9 @@
     <Compile Update="GrupoCadastroNovo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="JanelaCancelamentodeEntradas.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="JanelaCancelamentodeSaidas.cs">
       <SubType>Form</SubType>
     </Compile>
