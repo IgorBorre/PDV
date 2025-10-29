@@ -265,5 +265,49 @@ namespace PDV
             }
         }
 
+        public void CancelarEntrada(string documento, string motivo) {
+            string comando = "update entrada set cancelada = 'S' where documento = @documento";
+            string selectEntrada = "select idproduto, quantidade from entradadados where docentrada = " + documento;
+            string atualizaEstoque = "update produtos p set estoque = estoque - @quantidade where codigo = @codigo";
+            string cancelamentoentradalog = "insert into cancelamentoentradalog (documento, motivo , dataCancelamento) values (@documento, @motivo ,@dataCancelamento)";
+            DataTable dt = ListarProdutos(selectEntrada);
+
+            try
+            {
+                conexao.AbrirConexao();
+
+                foreach (DataRow row in dt.Rows) { 
+                    Produtos p = new Produtos();
+                    p.codigo = Convert.ToInt32(row["idproduto"]);
+                    p.quantidade = Convert.ToDouble(row["quantidade"]);
+
+                    using (MySqlCommand cmd = new MySqlCommand(atualizaEstoque, conexao.ObterConexao())) { 
+                        cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
+                        cmd.Parameters.AddWithValue("@codigo", p.codigo);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                using (MySqlCommand cmd = new MySqlCommand(comando, conexao.ObterConexao())) {
+                    cmd.Parameters.AddWithValue("@documento", documento);
+                    cmd.ExecuteNonQuery();
+                }
+
+                using (MySqlCommand cmd = new MySqlCommand(cancelamentoentradalog, conexao.ObterConexao()))
+                {
+                    cmd.Parameters.AddWithValue("@documento", documento);
+                    cmd.Parameters.AddWithValue("@motivo", motivo);
+                    cmd.Parameters.AddWithValue("@dataCancelamento", DateTime.Now);
+                    cmd.ExecuteNonQuery();
+                }
+                conexao.FecharConexao();
+                MessageBox.Show("Entrada cancelada com sucesso!");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Erro ao cancelar entrada: " + e);
+            }
+        }
+
     }
 }

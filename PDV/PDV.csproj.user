@@ -16,6 +16,9 @@
     <Compile Update="ConfirmarPagamento.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ConsultaCancelamentoEntrada.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ConsultaEntradas.cs">
       <SubType>Form</SubType>
     </Compile>

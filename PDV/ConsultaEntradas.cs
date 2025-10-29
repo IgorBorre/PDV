@@ -42,7 +42,7 @@ namespace PDV
                 data2 = date2.ToString("yyyy-MM-dd");
             }
 
-            string c = "select documento, nomefornecedor, dataentrada from entrada where 1" + produtoDAO.CriteriosConsulta(TfDocumento.Text, TfFornecedor.Text, data1,
+            string c = "select documento, nomefornecedor, dataentrada from entrada where cancelada = 'N'" + produtoDAO.CriteriosConsulta(TfDocumento.Text, TfFornecedor.Text, data1,
                 data2);
 
             DataTable dt = produtoDAO.ListarProdutos(c);
@@ -55,6 +55,8 @@ namespace PDV
             else
             {
                 MessageBox.Show("Nenhuma entrada encontrada nessas condições!");
+                TfDocumento.Focus();
+                dataGridView1.DataSource = null;
             }
 
         }

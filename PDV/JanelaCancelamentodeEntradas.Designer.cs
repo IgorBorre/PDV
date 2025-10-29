@@ -29,10 +29,13 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox1 = new TextBox();
+            TfDocumento = new TextBox();
             BtProcurar = new Button();
             BtLimpar = new Button();
             groupBox1 = new GroupBox();
+            lbFornecedor = new Label();
+            lbData = new Label();
+            lbDocumento = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
@@ -52,12 +55,12 @@
             label1.TabIndex = 0;
             label1.Text = "Documento";
             // 
-            // textBox1
+            // TfDocumento
             // 
-            textBox1.Location = new Point(6, 28);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(79, 23);
-            textBox1.TabIndex = 1;
+            TfDocumento.Location = new Point(6, 28);
+            TfDocumento.Name = "TfDocumento";
+            TfDocumento.Size = new Size(79, 23);
+            TfDocumento.TabIndex = 1;
             // 
             // BtProcurar
             // 
@@ -70,6 +73,7 @@
             BtProcurar.Text = "Procurar";
             BtProcurar.TextAlign = ContentAlignment.MiddleRight;
             BtProcurar.UseVisualStyleBackColor = true;
+            BtProcurar.Click += BtProcurar_Click;
             // 
             // BtLimpar
             // 
@@ -84,6 +88,9 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(lbFornecedor);
+            groupBox1.Controls.Add(lbData);
+            groupBox1.Controls.Add(lbDocumento);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
@@ -92,6 +99,30 @@
             groupBox1.Size = new Size(265, 106);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
+            // 
+            // lbFornecedor
+            // 
+            lbFornecedor.AutoSize = true;
+            lbFornecedor.Location = new Point(89, 75);
+            lbFornecedor.Name = "lbFornecedor";
+            lbFornecedor.Size = new Size(0, 15);
+            lbFornecedor.TabIndex = 5;
+            // 
+            // lbData
+            // 
+            lbData.AutoSize = true;
+            lbData.Location = new Point(88, 50);
+            lbData.Name = "lbData";
+            lbData.Size = new Size(0, 15);
+            lbData.TabIndex = 4;
+            // 
+            // lbDocumento
+            // 
+            lbDocumento.AutoSize = true;
+            lbDocumento.Location = new Point(88, 24);
+            lbDocumento.Name = "lbDocumento";
+            lbDocumento.Size = new Size(0, 15);
+            lbDocumento.TabIndex = 3;
             // 
             // label4
             // 
@@ -148,6 +179,7 @@
             BtConfirmar.Text = "Confirmar";
             BtConfirmar.TextAlign = ContentAlignment.MiddleRight;
             BtConfirmar.UseVisualStyleBackColor = true;
+            BtConfirmar.Click += BtConfirmar_Click;
             // 
             // BtCancelar
             // 
@@ -173,7 +205,7 @@
             Controls.Add(groupBox1);
             Controls.Add(BtLimpar);
             Controls.Add(BtProcurar);
-            Controls.Add(textBox1);
+            Controls.Add(TfDocumento);
             Controls.Add(label1);
             Name = "JanelaCancelamentodeEntradas";
             StartPosition = FormStartPosition.CenterScreen;
@@ -187,7 +219,7 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
+        private TextBox TfDocumento;
         private Button BtProcurar;
         private Button BtLimpar;
         private GroupBox groupBox1;
@@ -198,5 +230,8 @@
         private Label label5;
         private Button BtConfirmar;
         private Button BtCancelar;
+        private Label lbFornecedor;
+        private Label lbData;
+        private Label lbDocumento;
     }
 }

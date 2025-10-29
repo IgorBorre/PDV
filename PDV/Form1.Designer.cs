@@ -37,6 +37,7 @@
             entradaToolStripMenuItem = new ToolStripMenuItem();
             lançamentoDeEntradasToolStripMenuItem = new ToolStripMenuItem();
             consultaDeEntradasToolStripMenuItem = new ToolStripMenuItem();
+            cancelamentoDeEntradasToolStripMenuItem = new ToolStripMenuItem();
             saídaToolStripMenuItem = new ToolStripMenuItem();
             vendaToolStripMenuItem = new ToolStripMenuItem();
             consultaDeSaídasToolStripMenuItem = new ToolStripMenuItem();
@@ -44,7 +45,7 @@
             consultaDeCancelamentosToolStripMenuItem = new ToolStripMenuItem();
             caixaToolStripMenuItem = new ToolStripMenuItem();
             formasDePagamentoToolStripMenuItem = new ToolStripMenuItem();
-            cancelamentoDeEntradasToolStripMenuItem = new ToolStripMenuItem();
+            consultaDeCancelamentosToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -94,7 +95,7 @@
             // 
             // entradaToolStripMenuItem
             // 
-            entradaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { lançamentoDeEntradasToolStripMenuItem, consultaDeEntradasToolStripMenuItem, cancelamentoDeEntradasToolStripMenuItem });
+            entradaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { lançamentoDeEntradasToolStripMenuItem, consultaDeEntradasToolStripMenuItem, cancelamentoDeEntradasToolStripMenuItem, consultaDeCancelamentosToolStripMenuItem1 });
             entradaToolStripMenuItem.Name = "entradaToolStripMenuItem";
             entradaToolStripMenuItem.Size = new Size(180, 22);
             entradaToolStripMenuItem.Text = "Entrada";
@@ -102,16 +103,23 @@
             // lançamentoDeEntradasToolStripMenuItem
             // 
             lançamentoDeEntradasToolStripMenuItem.Name = "lançamentoDeEntradasToolStripMenuItem";
-            lançamentoDeEntradasToolStripMenuItem.Size = new Size(215, 22);
+            lançamentoDeEntradasToolStripMenuItem.Size = new Size(220, 22);
             lançamentoDeEntradasToolStripMenuItem.Text = "Lançamento de entradas";
             lançamentoDeEntradasToolStripMenuItem.Click += lançamentoDeEntradasToolStripMenuItem_Click;
             // 
             // consultaDeEntradasToolStripMenuItem
             // 
             consultaDeEntradasToolStripMenuItem.Name = "consultaDeEntradasToolStripMenuItem";
-            consultaDeEntradasToolStripMenuItem.Size = new Size(215, 22);
+            consultaDeEntradasToolStripMenuItem.Size = new Size(220, 22);
             consultaDeEntradasToolStripMenuItem.Text = "Consulta de entradas";
             consultaDeEntradasToolStripMenuItem.Click += consultaDeEntradasToolStripMenuItem_Click;
+            // 
+            // cancelamentoDeEntradasToolStripMenuItem
+            // 
+            cancelamentoDeEntradasToolStripMenuItem.Name = "cancelamentoDeEntradasToolStripMenuItem";
+            cancelamentoDeEntradasToolStripMenuItem.Size = new Size(220, 22);
+            cancelamentoDeEntradasToolStripMenuItem.Text = "Cancelamento de entradas";
+            cancelamentoDeEntradasToolStripMenuItem.Click += cancelamentoDeEntradasToolStripMenuItem_Click;
             // 
             // saídaToolStripMenuItem
             // 
@@ -162,12 +170,12 @@
             formasDePagamentoToolStripMenuItem.Text = "Formas de pagamento";
             formasDePagamentoToolStripMenuItem.Click += formasDePagamentoToolStripMenuItem_Click;
             // 
-            // cancelamentoDeEntradasToolStripMenuItem
+            // consultaDeCancelamentosToolStripMenuItem1
             // 
-            cancelamentoDeEntradasToolStripMenuItem.Name = "cancelamentoDeEntradasToolStripMenuItem";
-            cancelamentoDeEntradasToolStripMenuItem.Size = new Size(215, 22);
-            cancelamentoDeEntradasToolStripMenuItem.Text = "Cancelamento de entradas";
-            cancelamentoDeEntradasToolStripMenuItem.Click += cancelamentoDeEntradasToolStripMenuItem_Click;
+            consultaDeCancelamentosToolStripMenuItem1.Name = "consultaDeCancelamentosToolStripMenuItem1";
+            consultaDeCancelamentosToolStripMenuItem1.Size = new Size(220, 22);
+            consultaDeCancelamentosToolStripMenuItem1.Text = "Consulta de cancelamentos";
+            consultaDeCancelamentosToolStripMenuItem1.Click += consultaDeCancelamentosToolStripMenuItem1_Click;
             // 
             // Form1
             // 
@@ -205,5 +213,6 @@
         private ToolStripMenuItem cancelamentoDeSaídasToolStripMenuItem;
         private ToolStripMenuItem consultaDeCancelamentosToolStripMenuItem;
         private ToolStripMenuItem cancelamentoDeEntradasToolStripMenuItem;
+        private ToolStripMenuItem consultaDeCancelamentosToolStripMenuItem1;
     }
 }
