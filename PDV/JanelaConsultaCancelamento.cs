@@ -49,6 +49,7 @@ namespace PDV
                 dataGridView1.DataSource = null;
                 TfDocumento.Focus();
             }
+            dataGridView1.ClearSelection();
         }
 
         private void JanelaConsultaCancelamento_Load(object sender, EventArgs e)

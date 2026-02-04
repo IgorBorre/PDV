@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            dataGridView1 = new DataGridView();
+            Documento = new DataGridViewTextBoxColumn();
+            date = new DataGridViewTextBoxColumn();
+            Motivo = new DataGridViewTextBoxColumn();
             groupBox1 = new GroupBox();
             BtLimpar = new Button();
             BtProcurar = new Button();
@@ -37,13 +41,48 @@
             Data = new Label();
             TfDocumento = new TextBox();
             label1 = new Label();
-            dataGridView1 = new DataGridView();
-            Documento = new DataGridViewTextBoxColumn();
-            date = new DataGridViewTextBoxColumn();
-            Motivo = new DataGridViewTextBoxColumn();
-            groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = SystemColors.Control;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Documento, date, Motivo });
+            dataGridView1.Location = new Point(3, 136);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(859, 366);
+            dataGridView1.TabIndex = 1;
+            // 
+            // Documento
+            // 
+            Documento.DataPropertyName = "documento";
+            Documento.FillWeight = 48.1123543F;
+            Documento.HeaderText = "Documento";
+            Documento.Name = "Documento";
+            Documento.ReadOnly = true;
+            // 
+            // date
+            // 
+            date.DataPropertyName = "dataCancelamento";
+            date.FillWeight = 60.9137039F;
+            date.HeaderText = "Data do cancelamento";
+            date.Name = "date";
+            date.ReadOnly = true;
+            // 
+            // Motivo
+            // 
+            Motivo.DataPropertyName = "motivo";
+            Motivo.FillWeight = 190.973938F;
+            Motivo.HeaderText = "Motivo";
+            Motivo.Name = "Motivo";
+            Motivo.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -139,45 +178,6 @@
             label1.TabIndex = 0;
             label1.Text = "Documento";
             // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = SystemColors.Control;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Documento, date, Motivo });
-            dataGridView1.Location = new Point(3, 136);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(859, 366);
-            dataGridView1.TabIndex = 1;
-            // 
-            // Documento
-            // 
-            Documento.DataPropertyName = "documento";
-            Documento.FillWeight = 48.1123543F;
-            Documento.HeaderText = "Documento";
-            Documento.Name = "Documento";
-            Documento.ReadOnly = true;
-            // 
-            // date
-            // 
-            date.DataPropertyName = "dataCancelamento";
-            date.FillWeight = 60.9137039F;
-            date.HeaderText = "Data do cancelamento";
-            date.Name = "date";
-            date.ReadOnly = true;
-            // 
-            // Motivo
-            // 
-            Motivo.DataPropertyName = "motivo";
-            Motivo.FillWeight = 190.973938F;
-            Motivo.HeaderText = "Motivo";
-            Motivo.Name = "Motivo";
-            Motivo.ReadOnly = true;
-            // 
             // JanelaConsultaCancelamento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -189,9 +189,9 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "JanelaConsultaCancelamento";
             Load += JanelaConsultaCancelamento_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
