@@ -139,6 +139,7 @@
             TfCliente.Name = "TfCliente";
             TfCliente.Size = new Size(239, 23);
             TfCliente.TabIndex = 4;
+            TfCliente.Leave += TfCliente_Leave;
             // 
             // TfIdCliente
             // 

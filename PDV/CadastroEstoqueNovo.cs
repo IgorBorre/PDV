@@ -115,11 +115,15 @@ namespace PDV
                     TfIdGrupo.Text = row["id"].ToString();
                     TfGrupo.Text = row["nome"].ToString();
                 }
-                else {
+                else
+                {
                     MessageBox.Show("Grupo não encontado!");
                     TfIdGrupo.Text = string.Empty;
                     TfGrupo.Focus();
                 }
+            }
+            else {
+                TfIdGrupo.Text = string.Empty;
             }
             
         }
@@ -140,11 +144,15 @@ namespace PDV
                     row = dt.Rows[0];
                     TfGrupo.Text = row["nome"].ToString();
                 }
-                else {
+                else
+                {
                     MessageBox.Show("Grupo não encontrado!");
                     TfIdGrupo.Focus();
-                    TfGrupo.Text= string.Empty;
+                    TfGrupo.Text = string.Empty;
                 }
+            }
+            else { 
+                TfGrupo.Text = string.Empty;
             }
         }
     }

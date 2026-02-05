@@ -35,6 +35,12 @@ namespace PDV
                     textBox.Text = string.Empty;
                 }
             }
+
+            if (dataGridView1.Rows.Count > 0)
+            {
+                DataTable dt = (DataTable)dataGridView1.DataSource;
+                dt.Rows.Clear();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)

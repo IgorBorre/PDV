@@ -62,6 +62,10 @@ namespace PDV
                     maskedTextBox.Text = string.Empty;
                 }
             }
+            if (dataGridView1.Rows.Count > 0) { 
+                DataTable dt = (DataTable)dataGridView1.DataSource;
+                dt.Rows.Clear();
+            }
         }
 
 

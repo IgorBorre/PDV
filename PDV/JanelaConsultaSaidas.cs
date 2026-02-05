@@ -31,7 +31,8 @@ namespace PDV
                 data1 = date.ToString("yyyy-MM-dd");
             }
 
-            if (TfData2.MaskCompleted) { 
+            if (TfData2.MaskCompleted)
+            {
                 DateTime date2 = DateTime.ParseExact(TfData2.Text, "dd/MM/yyyy", null);
                 data2 = date2.ToString("yyyy-MM-dd");
             }
@@ -80,11 +81,23 @@ namespace PDV
             TfCliente.Text = string.Empty;
             TfDocumento.Text = string.Empty;
 
-            dataGridView1.DataSource = null;
+            DataTable dt = (DataTable)dataGridView1.DataSource;
+            dt.Rows.Clear();
             TfDocumento.Focus();
 
-            TfData1.Text = DateTime.Now.ToString();
-            TfData2.Text = DateTime.Now.ToString();
+        }
+
+        private void TfCliente_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(TfIdCliente.Text) && !string.IsNullOrEmpty(TfCliente.Text)) { 
+                ClienteDAO clienteDAO = new ClienteDAO();
+                DataTable dt = clienteDAO.CodigoByNome(TfCliente.Text);
+                DataRow row = null;
+                row = dt.Rows[0];
+
+                TfIdCliente.Text = row["codigo"].ToString();
+                TfCliente.Text = row["nome"].ToString();
+            }
         }
     }
 }

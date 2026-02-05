@@ -56,7 +56,11 @@ namespace PDV
             {
                 MessageBox.Show("Nenhuma entrada encontrada nessas condições!");
                 TfDocumento.Focus();
-                dataGridView1.DataSource = null;
+                if (dataGridView1.Rows.Count > 0)
+                {
+                    DataTable dt1 = (DataTable)dataGridView1.DataSource;
+                    dt1.Rows.Clear();
+                }
             }
 
         }
@@ -75,7 +79,8 @@ namespace PDV
 
                     TfFornecedor.Text = row["nome"].ToString();
                 }
-                else {
+                else
+                {
                     MessageBox.Show("Fornecedor não encontrado!");
                     TfIdFornecedor.Text = string.Empty;
                     TfFornecedor.Text = string.Empty;
@@ -90,7 +95,8 @@ namespace PDV
 
         private void TfFornecedor_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(TfIdFornecedor.Text)) { 
+            if (string.IsNullOrEmpty(TfIdFornecedor.Text) && !string.IsNullOrEmpty(TfFornecedor.Text))
+            {
                 ClienteDAO clienteDAO = new ClienteDAO();
                 DataTable dt = clienteDAO.CodigoByNome(TfFornecedor.Text);
 
@@ -102,13 +108,34 @@ namespace PDV
                     TfIdFornecedor.Text = row["codigo"].ToString();
                     TfFornecedor.Text = row["nome"].ToString();
                 }
-                else { 
+                else
+                {
                     MessageBox.Show("Fornecedor não encontrado!");
                     TfIdFornecedor.Text = string.Empty;
                     TfFornecedor.Text = string.Empty;
                     TfFornecedor.Focus();
                 }
             }
+            if (string.IsNullOrEmpty(TfFornecedor.Text))
+            {
+                TfIdFornecedor.Text = string.Empty;
+            }
+        }
+
+        private void BtLimpar_Click(object sender, EventArgs e)
+        {
+            TfDocumento.Text = string.Empty;
+            TfFornecedor.Text = string.Empty;
+            TfIdFornecedor.Text = string.Empty;
+
+            TfDocumento.Focus();
+
+            DataTable dt = (DataTable)dataGridView1.DataSource;
+            dt.Rows.Clear();
+        }
+
+        private void TfFornecedor_Enter(object sender, EventArgs e)
+        {
         }
     }
 }

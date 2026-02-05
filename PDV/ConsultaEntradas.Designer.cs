@@ -79,6 +79,7 @@
             BtLimpar.Text = "Limpar";
             BtLimpar.TextAlign = ContentAlignment.MiddleRight;
             BtLimpar.UseVisualStyleBackColor = true;
+            BtLimpar.Click += BtLimpar_Click;
             // 
             // BtProcurar
             // 
@@ -99,6 +100,7 @@
             TfFornecedor.Name = "TfFornecedor";
             TfFornecedor.Size = new Size(234, 23);
             TfFornecedor.TabIndex = 12;
+            TfFornecedor.Enter += TfFornecedor_Enter;
             TfFornecedor.Leave += TfFornecedor_Leave;
             // 
             // TfIdFornecedor

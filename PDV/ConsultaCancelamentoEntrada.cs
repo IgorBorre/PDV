@@ -63,7 +63,8 @@ namespace PDV
         private void BtLimpar_Click(object sender, EventArgs e)
         {
             TfDocumento.Text = string.Empty;
-            dataGridView1.DataSource = null;
+            DataTable dt = (DataTable)dataGridView1.DataSource;
+            dt.Rows.Clear();
             TfDocumento.Focus();
         }
     }
