@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\janeladevolucao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\janeladevolucao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\pdv\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\janelaconsultasaidas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\janelaconsultasaidas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\consultaentradas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\consultaentradas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\clientedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -13,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\pdv\\janelaconsultasaidas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\janelaconsultasaidas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\consultaentradas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\consultaentradas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\pdv\\consultaentradas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -55,10 +63,6 @@
       "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\janelacancelamentodeentradas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\pdv\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igort\\documents\\visual studio 2022\\pdv\\pdv\\vendadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\vendadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -78,33 +82,52 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ClienteDAO.cs",
-              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ClienteDAO.cs",
-              "RelativeDocumentMoniker": "PDV\\ClienteDAO.cs",
-              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ClienteDAO.cs",
-              "RelativeToolTip": "PDV\\ClienteDAO.cs",
-              "ViewState": "AgIAAJYAAAAAAAAAAAAawAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "JanelaDevolucao.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaDevolucao.cs",
+              "RelativeDocumentMoniker": "PDV\\JanelaDevolucao.cs",
+              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaDevolucao.cs [Projeto]",
+              "RelativeToolTip": "PDV\\JanelaDevolucao.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-05T18:43:57.427Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-10T15:00:00.196Z",
+              "EditorCaption": " [Projeto]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "JanelaConsultaSaidas.cs",
+              "DocumentIndex": 6,
+              "Title": "ConsultaEntradas.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ConsultaEntradas.cs",
+              "RelativeDocumentMoniker": "PDV\\ConsultaEntradas.cs",
+              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ConsultaEntradas.cs [Projeto]",
+              "RelativeToolTip": "PDV\\ConsultaEntradas.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T17:13:27.233Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "JanelaConsultaSaidas.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaConsultaSaidas.cs",
               "RelativeDocumentMoniker": "PDV\\JanelaConsultaSaidas.cs",
-              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaConsultaSaidas.cs",
-              "RelativeToolTip": "PDV\\JanelaConsultaSaidas.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAkwGIAAAA4AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaConsultaSaidas.cs [Projeto]",
+              "RelativeToolTip": "PDV\\JanelaConsultaSaidas.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T16:29:23.475Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T18:14:11.472Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\Form1.cs",
+              "RelativeDocumentMoniker": "PDV\\Form1.cs",
+              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\Form1.cs [Projeto]",
+              "RelativeToolTip": "PDV\\Form1.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T14:08:34.771Z"
             },
             {
               "$type": "Document",
@@ -114,38 +137,37 @@
               "RelativeDocumentMoniker": "PDV\\ConsultaEntradas.cs",
               "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ConsultaEntradas.cs",
               "RelativeToolTip": "PDV\\ConsultaEntradas.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAawGEAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAlwGEAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T17:19:46.868Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ConsultaEntradas.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ConsultaEntradas.cs",
-              "RelativeDocumentMoniker": "PDV\\ConsultaEntradas.cs",
-              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ConsultaEntradas.cs [Projeto]",
-              "RelativeToolTip": "PDV\\ConsultaEntradas.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T17:13:27.233Z",
-              "EditorCaption": " [Projeto]"
+              "WhenOpened": "2025-10-06T17:19:46.868Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "JanelaConsultaSaidas.cs [Projeto]",
+              "Title": "JanelaConsultaSaidas.cs",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaConsultaSaidas.cs",
               "RelativeDocumentMoniker": "PDV\\JanelaConsultaSaidas.cs",
-              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaConsultaSaidas.cs [Projeto]",
-              "RelativeToolTip": "PDV\\JanelaConsultaSaidas.cs [Projeto]",
+              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaConsultaSaidas.cs",
+              "RelativeToolTip": "PDV\\JanelaConsultaSaidas.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAkwGAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T18:14:11.472Z",
-              "EditorCaption": " [Projeto]"
+              "WhenOpened": "2025-10-16T16:29:23.475Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
+              "Title": "ClienteDAO.cs",
+              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ClienteDAO.cs",
+              "RelativeDocumentMoniker": "PDV\\ClienteDAO.cs",
+              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ClienteDAO.cs",
+              "RelativeToolTip": "PDV\\ClienteDAO.cs",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAawAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-05T18:43:57.427Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "JanelaConsultaCancelamento.cs",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaConsultaCancelamento.cs",
               "RelativeDocumentMoniker": "PDV\\JanelaConsultaCancelamento.cs",
@@ -158,7 +180,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "JanelaConsultaCancelamento.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaConsultaCancelamento.cs",
               "RelativeDocumentMoniker": "PDV\\JanelaConsultaCancelamento.cs",
@@ -169,19 +191,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "ConsultaCancelamentoEntrada.cs [Design]",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ConsultaCancelamentoEntrada.cs",
               "RelativeDocumentMoniker": "PDV\\ConsultaCancelamentoEntrada.cs",
               "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ConsultaCancelamentoEntrada.cs [Design]",
               "RelativeToolTip": "PDV\\ConsultaCancelamentoEntrada.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T17:56:02.467Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-02-04T17:56:02.467Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "ConsultaCancelamentoEntrada.cs",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ConsultaCancelamentoEntrada.cs",
               "RelativeDocumentMoniker": "PDV\\ConsultaCancelamentoEntrada.cs",
@@ -189,12 +210,11 @@
               "RelativeToolTip": "PDV\\ConsultaCancelamentoEntrada.cs",
               "ViewState": "AgIAADMAAAAAAAAAAAAEwEAAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T16:12:40.326Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-04T16:12:40.326Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "ProdutoDAO.cs",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\ProdutoDAO.cs",
               "RelativeDocumentMoniker": "PDV\\ProdutoDAO.cs",
@@ -206,7 +226,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "JanelaCancelamentodeEntradas.cs",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaCancelamentodeEntradas.cs",
               "RelativeDocumentMoniker": "PDV\\JanelaCancelamentodeEntradas.cs",
@@ -219,7 +239,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "JanelaCancelamentodeEntradas.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaCancelamentodeEntradas.cs",
               "RelativeDocumentMoniker": "PDV\\JanelaCancelamentodeEntradas.cs",
@@ -230,7 +250,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "JanelaCancelamentodeSaidas.cs",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaCancelamentodeSaidas.cs",
               "RelativeDocumentMoniker": "PDV\\JanelaCancelamentodeSaidas.cs",
@@ -243,18 +263,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Form1.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\Form1.cs",
-              "RelativeDocumentMoniker": "PDV\\Form1.cs",
-              "ToolTip": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\Form1.cs [Projeto]",
-              "RelativeToolTip": "PDV\\Form1.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T14:08:34.771Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "VendaDAO.cs",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\VendaDAO.cs",
               "RelativeDocumentMoniker": "PDV\\VendaDAO.cs",
@@ -266,7 +275,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "JanelaCancelamentodeSaidas.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaCancelamentodeSaidas.cs",
               "RelativeDocumentMoniker": "PDV\\JanelaCancelamentodeSaidas.cs",
@@ -277,7 +286,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "JanelaEntrada.cs",
               "DocumentMoniker": "C:\\Users\\igorT\\Documents\\Visual Studio 2022\\PDV\\PDV\\JanelaEntrada.cs",
               "RelativeDocumentMoniker": "PDV\\JanelaEntrada.cs",

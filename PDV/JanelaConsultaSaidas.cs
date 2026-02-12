@@ -98,6 +98,9 @@ namespace PDV
                 TfIdCliente.Text = row["codigo"].ToString();
                 TfCliente.Text = row["nome"].ToString();
             }
+            if (string.IsNullOrEmpty(TfCliente.Text)) { 
+                TfIdCliente.Text = string.Empty;
+            }
         }
     }
 }

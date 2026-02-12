@@ -38,6 +38,7 @@
             lançamentoDeEntradasToolStripMenuItem = new ToolStripMenuItem();
             consultaDeEntradasToolStripMenuItem = new ToolStripMenuItem();
             cancelamentoDeEntradasToolStripMenuItem = new ToolStripMenuItem();
+            consultaDeCancelamentosToolStripMenuItem1 = new ToolStripMenuItem();
             saídaToolStripMenuItem = new ToolStripMenuItem();
             vendaToolStripMenuItem = new ToolStripMenuItem();
             consultaDeSaídasToolStripMenuItem = new ToolStripMenuItem();
@@ -45,7 +46,10 @@
             consultaDeCancelamentosToolStripMenuItem = new ToolStripMenuItem();
             caixaToolStripMenuItem = new ToolStripMenuItem();
             formasDePagamentoToolStripMenuItem = new ToolStripMenuItem();
-            consultaDeCancelamentosToolStripMenuItem1 = new ToolStripMenuItem();
+            devoluçãoToolStripMenuItem = new ToolStripMenuItem();
+            devoluçãoTrocaToolStripMenuItem = new ToolStripMenuItem();
+            consultaDeDevoluçõesToolStripMenuItem = new ToolStripMenuItem();
+            cancelamentoToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -121,9 +125,16 @@
             cancelamentoDeEntradasToolStripMenuItem.Text = "Cancelamento de entradas";
             cancelamentoDeEntradasToolStripMenuItem.Click += cancelamentoDeEntradasToolStripMenuItem_Click;
             // 
+            // consultaDeCancelamentosToolStripMenuItem1
+            // 
+            consultaDeCancelamentosToolStripMenuItem1.Name = "consultaDeCancelamentosToolStripMenuItem1";
+            consultaDeCancelamentosToolStripMenuItem1.Size = new Size(220, 22);
+            consultaDeCancelamentosToolStripMenuItem1.Text = "Consulta de cancelamentos";
+            consultaDeCancelamentosToolStripMenuItem1.Click += consultaDeCancelamentosToolStripMenuItem1_Click;
+            // 
             // saídaToolStripMenuItem
             // 
-            saídaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { vendaToolStripMenuItem, consultaDeSaídasToolStripMenuItem, cancelamentoDeSaídasToolStripMenuItem, consultaDeCancelamentosToolStripMenuItem });
+            saídaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { vendaToolStripMenuItem, consultaDeSaídasToolStripMenuItem, cancelamentoDeSaídasToolStripMenuItem, consultaDeCancelamentosToolStripMenuItem, devoluçãoToolStripMenuItem });
             saídaToolStripMenuItem.Name = "saídaToolStripMenuItem";
             saídaToolStripMenuItem.Size = new Size(180, 22);
             saídaToolStripMenuItem.Text = "Saída";
@@ -170,12 +181,30 @@
             formasDePagamentoToolStripMenuItem.Text = "Formas de pagamento";
             formasDePagamentoToolStripMenuItem.Click += formasDePagamentoToolStripMenuItem_Click;
             // 
-            // consultaDeCancelamentosToolStripMenuItem1
+            // devoluçãoToolStripMenuItem
             // 
-            consultaDeCancelamentosToolStripMenuItem1.Name = "consultaDeCancelamentosToolStripMenuItem1";
-            consultaDeCancelamentosToolStripMenuItem1.Size = new Size(220, 22);
-            consultaDeCancelamentosToolStripMenuItem1.Text = "Consulta de cancelamentos";
-            consultaDeCancelamentosToolStripMenuItem1.Click += consultaDeCancelamentosToolStripMenuItem1_Click;
+            devoluçãoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { devoluçãoTrocaToolStripMenuItem, consultaDeDevoluçõesToolStripMenuItem, cancelamentoToolStripMenuItem });
+            devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
+            devoluçãoToolStripMenuItem.Size = new Size(220, 22);
+            devoluçãoToolStripMenuItem.Text = "Devolução";
+            // 
+            // devoluçãoTrocaToolStripMenuItem
+            // 
+            devoluçãoTrocaToolStripMenuItem.Name = "devoluçãoTrocaToolStripMenuItem";
+            devoluçãoTrocaToolStripMenuItem.Size = new Size(200, 22);
+            devoluçãoTrocaToolStripMenuItem.Text = "Devolução/Troca";
+            // 
+            // consultaDeDevoluçõesToolStripMenuItem
+            // 
+            consultaDeDevoluçõesToolStripMenuItem.Name = "consultaDeDevoluçõesToolStripMenuItem";
+            consultaDeDevoluçõesToolStripMenuItem.Size = new Size(200, 22);
+            consultaDeDevoluçõesToolStripMenuItem.Text = "Consulta de devoluções";
+            // 
+            // cancelamentoToolStripMenuItem
+            // 
+            cancelamentoToolStripMenuItem.Name = "cancelamentoToolStripMenuItem";
+            cancelamentoToolStripMenuItem.Size = new Size(200, 22);
+            cancelamentoToolStripMenuItem.Text = "Cancelamento";
             // 
             // Form1
             // 
@@ -214,5 +243,9 @@
         private ToolStripMenuItem consultaDeCancelamentosToolStripMenuItem;
         private ToolStripMenuItem cancelamentoDeEntradasToolStripMenuItem;
         private ToolStripMenuItem consultaDeCancelamentosToolStripMenuItem1;
+        private ToolStripMenuItem devoluçãoToolStripMenuItem;
+        private ToolStripMenuItem devoluçãoTrocaToolStripMenuItem;
+        private ToolStripMenuItem consultaDeDevoluçõesToolStripMenuItem;
+        private ToolStripMenuItem cancelamentoToolStripMenuItem;
     }
 }
