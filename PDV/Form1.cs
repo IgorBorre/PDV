@@ -87,5 +87,11 @@ namespace PDV
             ConsultaCancelamentoEntrada consulta = new ConsultaCancelamentoEntrada();
             consulta.Show();
         }
+
+        private void devoluçãoTrocaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JanelaDevolucao janela = new JanelaDevolucao();
+            janela.Show();
+        }
     }
 }

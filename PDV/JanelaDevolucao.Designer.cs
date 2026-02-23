@@ -32,6 +32,8 @@
             TfDocumento = new TextBox();
             BtProcurar = new Button();
             groupBox1 = new GroupBox();
+            LbTotal = new Label();
+            label6 = new Label();
             LbDesc = new Label();
             label5 = new Label();
             LbSubtotal = new Label();
@@ -40,14 +42,14 @@
             label3 = new Label();
             LbCliente = new Label();
             label2 = new Label();
-            label6 = new Label();
-            LbTotal = new Label();
             radioButton1 = new RadioButton();
             radioButton2 = new RadioButton();
             radioButton3 = new RadioButton();
             BtConfirmar = new Button();
-            button1 = new Button();
+            BtCancelar = new Button();
+            groupBox2 = new GroupBox();
             groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -70,13 +72,14 @@
             // 
             BtProcurar.Image = Properties.Resources.lupa_de_pesquisa__1___1___1_;
             BtProcurar.ImageAlign = ContentAlignment.MiddleRight;
-            BtProcurar.Location = new Point(202, 32);
+            BtProcurar.Location = new Point(202, 31);
             BtProcurar.Name = "BtProcurar";
             BtProcurar.Size = new Size(75, 23);
             BtProcurar.TabIndex = 2;
             BtProcurar.Text = "Procurar";
             BtProcurar.TextAlign = ContentAlignment.MiddleLeft;
             BtProcurar.UseVisualStyleBackColor = true;
+            BtProcurar.Click += BtProcurar_Click;
             // 
             // groupBox1
             // 
@@ -97,14 +100,32 @@
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             // 
+            // LbTotal
+            // 
+            LbTotal.AutoSize = true;
+            LbTotal.Location = new Point(78, 133);
+            LbTotal.Name = "LbTotal";
+            LbTotal.Size = new Size(28, 15);
+            LbTotal.TabIndex = 9;
+            LbTotal.Text = "0,00";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(29, 133);
+            label6.Name = "label6";
+            label6.Size = new Size(36, 15);
+            label6.TabIndex = 8;
+            label6.Text = "Total:";
+            // 
             // LbDesc
             // 
             LbDesc.AutoSize = true;
             LbDesc.Location = new Point(78, 106);
             LbDesc.Name = "LbDesc";
-            LbDesc.Size = new Size(38, 15);
+            LbDesc.Size = new Size(28, 15);
             LbDesc.TabIndex = 7;
-            LbDesc.Text = "label6";
+            LbDesc.Text = "0,00";
             // 
             // label5
             // 
@@ -120,9 +141,9 @@
             LbSubtotal.AutoSize = true;
             LbSubtotal.Location = new Point(78, 74);
             LbSubtotal.Name = "LbSubtotal";
-            LbSubtotal.Size = new Size(38, 15);
+            LbSubtotal.Size = new Size(28, 15);
             LbSubtotal.TabIndex = 5;
-            LbSubtotal.Text = "label5";
+            LbSubtotal.Text = "0,00";
             // 
             // label4
             // 
@@ -138,9 +159,8 @@
             LbData.AutoSize = true;
             LbData.Location = new Point(78, 46);
             LbData.Name = "LbData";
-            LbData.Size = new Size(38, 15);
+            LbData.Size = new Size(0, 15);
             LbData.TabIndex = 3;
-            LbData.Text = "label4";
             // 
             // label3
             // 
@@ -156,9 +176,8 @@
             LbCliente.AutoSize = true;
             LbCliente.Location = new Point(78, 16);
             LbCliente.Name = "LbCliente";
-            LbCliente.Size = new Size(38, 15);
+            LbCliente.Size = new Size(0, 15);
             LbCliente.TabIndex = 1;
-            LbCliente.Text = "label3";
             // 
             // label2
             // 
@@ -169,30 +188,12 @@
             label2.TabIndex = 0;
             label2.Text = "Cliente:";
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(29, 133);
-            label6.Name = "label6";
-            label6.Size = new Size(35, 15);
-            label6.TabIndex = 8;
-            label6.Text = "Total:";
-            // 
-            // LbTotal
-            // 
-            LbTotal.AutoSize = true;
-            LbTotal.Location = new Point(78, 133);
-            LbTotal.Name = "LbTotal";
-            LbTotal.Size = new Size(38, 15);
-            LbTotal.TabIndex = 9;
-            LbTotal.Text = "label7";
-            // 
             // radioButton1
             // 
             radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(12, 291);
+            radioButton1.Location = new Point(6, 31);
             radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(53, 19);
+            radioButton1.Size = new Size(54, 19);
             radioButton1.TabIndex = 4;
             radioButton1.TabStop = true;
             radioButton1.Text = "Troca";
@@ -201,7 +202,7 @@
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(12, 316);
+            radioButton2.Location = new Point(6, 56);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(119, 19);
             radioButton2.TabIndex = 5;
@@ -212,7 +213,7 @@
             // radioButton3
             // 
             radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(12, 341);
+            radioButton3.Location = new Point(6, 81);
             radioButton3.Name = "radioButton3";
             radioButton3.Size = new Size(108, 19);
             radioButton3.TabIndex = 6;
@@ -232,36 +233,50 @@
             BtConfirmar.TextAlign = ContentAlignment.MiddleLeft;
             BtConfirmar.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // BtCancelar
             // 
-            button1.Image = Properties.Resources.cancelar__1_;
-            button1.ImageAlign = ContentAlignment.MiddleRight;
-            button1.Location = new Point(114, 408);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 8;
-            button1.Text = "Cancelar";
-            button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.UseVisualStyleBackColor = true;
+            BtCancelar.Image = Properties.Resources.cancelar__1_;
+            BtCancelar.ImageAlign = ContentAlignment.MiddleRight;
+            BtCancelar.Location = new Point(114, 408);
+            BtCancelar.Name = "BtCancelar";
+            BtCancelar.Size = new Size(75, 23);
+            BtCancelar.TabIndex = 8;
+            BtCancelar.Text = "Cancelar";
+            BtCancelar.TextAlign = ContentAlignment.MiddleLeft;
+            BtCancelar.UseVisualStyleBackColor = true;
+            BtCancelar.Click += button1_Click;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(radioButton1);
+            groupBox2.Controls.Add(radioButton2);
+            groupBox2.Controls.Add(radioButton3);
+            groupBox2.Location = new Point(8, 280);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(200, 113);
+            groupBox2.TabIndex = 9;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Tipo de devolução";
             // 
             // JanelaDevolucao
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(357, 450);
-            Controls.Add(button1);
+            Controls.Add(groupBox2);
+            Controls.Add(BtCancelar);
             Controls.Add(BtConfirmar);
-            Controls.Add(radioButton3);
-            Controls.Add(radioButton2);
-            Controls.Add(radioButton1);
             Controls.Add(groupBox1);
             Controls.Add(BtProcurar);
             Controls.Add(TfDocumento);
             Controls.Add(label1);
             Name = "JanelaDevolucao";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "JanelaDevolucao";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -286,6 +301,7 @@
         private RadioButton radioButton2;
         private RadioButton radioButton3;
         private Button BtConfirmar;
-        private Button button1;
+        private Button BtCancelar;
+        private GroupBox groupBox2;
     }
 }

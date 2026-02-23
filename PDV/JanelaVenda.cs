@@ -178,7 +178,7 @@ namespace PDV
             if (!string.IsNullOrEmpty(TfId.Text.ToString()))
             {
                 //tenta converter o texto do campo TfId em int para fazer a pesquisa no banco
-                //, se nao conseguir, joga uma mensagem de erro ao procurar o produto
+                //se nao conseguir, joga uma mensagem de erro ao procurar o produto
                 try
                 {
                     id = int.Parse(TfId.Text.ToString());

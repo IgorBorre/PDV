@@ -44,12 +44,12 @@
             consultaDeSaídasToolStripMenuItem = new ToolStripMenuItem();
             cancelamentoDeSaídasToolStripMenuItem = new ToolStripMenuItem();
             consultaDeCancelamentosToolStripMenuItem = new ToolStripMenuItem();
-            caixaToolStripMenuItem = new ToolStripMenuItem();
-            formasDePagamentoToolStripMenuItem = new ToolStripMenuItem();
             devoluçãoToolStripMenuItem = new ToolStripMenuItem();
             devoluçãoTrocaToolStripMenuItem = new ToolStripMenuItem();
             consultaDeDevoluçõesToolStripMenuItem = new ToolStripMenuItem();
             cancelamentoToolStripMenuItem = new ToolStripMenuItem();
+            caixaToolStripMenuItem = new ToolStripMenuItem();
+            formasDePagamentoToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -167,20 +167,6 @@
             consultaDeCancelamentosToolStripMenuItem.Text = "Consulta de cancelamentos";
             consultaDeCancelamentosToolStripMenuItem.Click += consultaDeCancelamentosToolStripMenuItem_Click;
             // 
-            // caixaToolStripMenuItem
-            // 
-            caixaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { formasDePagamentoToolStripMenuItem });
-            caixaToolStripMenuItem.Name = "caixaToolStripMenuItem";
-            caixaToolStripMenuItem.Size = new Size(48, 20);
-            caixaToolStripMenuItem.Text = "Caixa";
-            // 
-            // formasDePagamentoToolStripMenuItem
-            // 
-            formasDePagamentoToolStripMenuItem.Name = "formasDePagamentoToolStripMenuItem";
-            formasDePagamentoToolStripMenuItem.Size = new Size(193, 22);
-            formasDePagamentoToolStripMenuItem.Text = "Formas de pagamento";
-            formasDePagamentoToolStripMenuItem.Click += formasDePagamentoToolStripMenuItem_Click;
-            // 
             // devoluçãoToolStripMenuItem
             // 
             devoluçãoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { devoluçãoTrocaToolStripMenuItem, consultaDeDevoluçõesToolStripMenuItem, cancelamentoToolStripMenuItem });
@@ -193,6 +179,7 @@
             devoluçãoTrocaToolStripMenuItem.Name = "devoluçãoTrocaToolStripMenuItem";
             devoluçãoTrocaToolStripMenuItem.Size = new Size(200, 22);
             devoluçãoTrocaToolStripMenuItem.Text = "Devolução/Troca";
+            devoluçãoTrocaToolStripMenuItem.Click += devoluçãoTrocaToolStripMenuItem_Click;
             // 
             // consultaDeDevoluçõesToolStripMenuItem
             // 
@@ -205,6 +192,20 @@
             cancelamentoToolStripMenuItem.Name = "cancelamentoToolStripMenuItem";
             cancelamentoToolStripMenuItem.Size = new Size(200, 22);
             cancelamentoToolStripMenuItem.Text = "Cancelamento";
+            // 
+            // caixaToolStripMenuItem
+            // 
+            caixaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { formasDePagamentoToolStripMenuItem });
+            caixaToolStripMenuItem.Name = "caixaToolStripMenuItem";
+            caixaToolStripMenuItem.Size = new Size(47, 20);
+            caixaToolStripMenuItem.Text = "Caixa";
+            // 
+            // formasDePagamentoToolStripMenuItem
+            // 
+            formasDePagamentoToolStripMenuItem.Name = "formasDePagamentoToolStripMenuItem";
+            formasDePagamentoToolStripMenuItem.Size = new Size(193, 22);
+            formasDePagamentoToolStripMenuItem.Text = "Formas de pagamento";
+            formasDePagamentoToolStripMenuItem.Click += formasDePagamentoToolStripMenuItem_Click;
             // 
             // Form1
             // 
