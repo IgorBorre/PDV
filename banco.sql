@@ -39,7 +39,7 @@ CREATE TABLE `cancelamentoentradalog` (
 
 LOCK TABLES `cancelamentoentradalog` WRITE;
 /*!40000 ALTER TABLE `cancelamentoentradalog` DISABLE KEYS */;
-INSERT INTO `cancelamentoentradalog` VALUES (9,'teste de cancelamento','2025-10-29');
+INSERT INTO `cancelamentoentradalog` VALUES (9,'teste de cancelamento','2025-10-29'),(6,'teste de cancelamento','2026-02-04'),(10,'teste de cancelamento','2026-02-04');
 /*!40000 ALTER TABLE `cancelamentoentradalog` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -107,6 +107,34 @@ INSERT INTO `clientes` VALUES (1,'Cliente Teste','00000000000',NULL,NULL,'normal
 UNLOCK TABLES;
 
 --
+-- Table structure for table `devolucao`
+--
+
+DROP TABLE IF EXISTS `devolucao`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `devolucao` (
+  `documento` int NOT NULL AUTO_INCREMENT,
+  `idCliente` int DEFAULT NULL,
+  `nomeCliente` varchar(50) DEFAULT NULL,
+  `dataDevolucao` date DEFAULT NULL,
+  `cancelada` char(1) DEFAULT 'N',
+  PRIMARY KEY (`documento`),
+  KEY `idCliente` (`idCliente`),
+  CONSTRAINT `devolucao_ibfk_1` FOREIGN KEY (`idCliente`) REFERENCES `clientes` (`codigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `devolucao`
+--
+
+LOCK TABLES `devolucao` WRITE;
+/*!40000 ALTER TABLE `devolucao` DISABLE KEYS */;
+/*!40000 ALTER TABLE `devolucao` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `entrada`
 --
 
@@ -119,10 +147,14 @@ CREATE TABLE `entrada` (
   `idfornecedor` int DEFAULT NULL,
   `nomefornecedor` varchar(50) DEFAULT NULL,
   `cancelada` char(1) DEFAULT 'N',
+  `doc_original` int DEFAULT NULL,
+  `tipo` char(1) DEFAULT 'N',
   PRIMARY KEY (`documento`),
   KEY `idfornecedor` (`idfornecedor`),
-  CONSTRAINT `entrada_ibfk_1` FOREIGN KEY (`idfornecedor`) REFERENCES `clientes` (`codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `doc_original` (`doc_original`),
+  CONSTRAINT `entrada_ibfk_1` FOREIGN KEY (`idfornecedor`) REFERENCES `clientes` (`codigo`),
+  CONSTRAINT `entrada_ibfk_2` FOREIGN KEY (`doc_original`) REFERENCES `devolucao` (`documento`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,7 +163,7 @@ CREATE TABLE `entrada` (
 
 LOCK TABLES `entrada` WRITE;
 /*!40000 ALTER TABLE `entrada` DISABLE KEYS */;
-INSERT INTO `entrada` VALUES (1,'2025-09-17',NULL,NULL,'N'),(2,'2025-09-17',2,'IGOR','N'),(3,'2025-09-17',NULL,NULL,'N'),(4,'2025-09-17',NULL,NULL,'N'),(5,'2025-10-14',NULL,NULL,'N'),(6,'2025-10-16',NULL,NULL,'N'),(7,'2025-10-29',1,'CLIENTE TESTE','S'),(8,'2025-10-29',NULL,NULL,'S'),(9,'2025-10-29',2,'IGOR','S');
+INSERT INTO `entrada` VALUES (1,'2025-09-17',NULL,NULL,'N',NULL,'N'),(2,'2025-09-17',2,'IGOR','N',NULL,'N'),(3,'2025-09-17',NULL,NULL,'N',NULL,'N'),(4,'2025-09-17',NULL,NULL,'N',NULL,'N'),(5,'2025-10-14',NULL,NULL,'N',NULL,'N'),(6,'2025-10-16',NULL,NULL,'S',NULL,'N'),(7,'2025-10-29',1,'CLIENTE TESTE','S',NULL,'N'),(8,'2025-10-29',NULL,NULL,'S',NULL,'N'),(9,'2025-10-29',2,'IGOR','S',NULL,'N'),(10,'2026-02-04',NULL,NULL,'S',NULL,'N');
 /*!40000 ALTER TABLE `entrada` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -160,7 +192,7 @@ CREATE TABLE `entradadados` (
 
 LOCK TABLES `entradadados` WRITE;
 /*!40000 ALTER TABLE `entradadados` DISABLE KEYS */;
-INSERT INTO `entradadados` VALUES (1,1,'CASACO DE COURO',3),(1,2,'CALÇA DE MOLETOM',2),(2,2,'CALÇA DE MOLETOM',9),(3,1,'CASACO DE COURO',10),(4,1,'CASACO DE COURO',-1),(5,1,'CASACO DE COURO',6),(6,1,'CASACO DE COURO',8),(7,1,'CASACO DE COURO',11),(8,1,'CASACO DE COURO',11),(9,1,'CASACO DE COURO',11);
+INSERT INTO `entradadados` VALUES (1,1,'CASACO DE COURO',3),(1,2,'CALÇA DE MOLETOM',2),(2,2,'CALÇA DE MOLETOM',9),(3,1,'CASACO DE COURO',10),(4,1,'CASACO DE COURO',-1),(5,1,'CASACO DE COURO',6),(6,1,'CASACO DE COURO',8),(7,1,'CASACO DE COURO',11),(8,1,'CASACO DE COURO',11),(9,1,'CASACO DE COURO',11),(10,1,'CASACO DE COURO',9);
 /*!40000 ALTER TABLE `entradadados` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -271,7 +303,7 @@ CREATE TABLE `produtos` (
 
 LOCK TABLES `produtos` WRITE;
 /*!40000 ALTER TABLE `produtos` DISABLE KEYS */;
-INSERT INTO `produtos` VALUES (1,'teste','casaco de couro',29,20,NULL,NULL),(2,'teste2','calça de moletom',56,115,NULL,NULL),(4,'teste','calça de moletom',50,28,2,'calça'),(5,'asdjjkjqwkjdakjsdj','tenis vermelho',50,60,3,'tenis'),(6,'','camisa polo',50,25,1,'camisa');
+INSERT INTO `produtos` VALUES (1,'teste','casaco de couro',21,20,NULL,NULL),(2,'teste2','calça de moletom',56,115,NULL,NULL),(4,'teste','calça de moletom',50,28,2,'calça'),(5,'asdjjkjqwkjdakjsdj','tenis vermelho',50,60,3,'tenis'),(6,'','camisa polo',50,25,1,'camisa');
 /*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -292,9 +324,13 @@ CREATE TABLE `saida` (
   `acrescimo` decimal(10,2) DEFAULT NULL,
   `subtotal` decimal(10,2) DEFAULT NULL,
   `cancelada` char(1) DEFAULT 'N',
+  `tipo` char(1) DEFAULT 'N',
+  `doc_original` int DEFAULT NULL,
   PRIMARY KEY (`documento`),
   KEY `clienteId` (`clienteId`),
-  CONSTRAINT `saida_ibfk_1` FOREIGN KEY (`clienteId`) REFERENCES `clientes` (`codigo`)
+  KEY `doc_original` (`doc_original`),
+  CONSTRAINT `saida_ibfk_1` FOREIGN KEY (`clienteId`) REFERENCES `clientes` (`codigo`),
+  CONSTRAINT `saida_ibfk_2` FOREIGN KEY (`doc_original`) REFERENCES `devolucao` (`documento`)
 ) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -304,7 +340,7 @@ CREATE TABLE `saida` (
 
 LOCK TABLES `saida` WRITE;
 /*!40000 ALTER TABLE `saida` DISABLE KEYS */;
-INSERT INTO `saida` VALUES (1,NULL,NULL,'2025-06-09',NULL,NULL,NULL,NULL,'S'),(2,NULL,NULL,'2025-06-09',NULL,NULL,NULL,NULL,'N'),(3,NULL,NULL,'2025-06-09',NULL,NULL,NULL,NULL,'N'),(4,NULL,NULL,'2025-06-20',NULL,NULL,NULL,NULL,'N'),(5,NULL,NULL,'2025-09-08',NULL,NULL,NULL,NULL,'N'),(6,NULL,NULL,'2025-09-08',NULL,NULL,NULL,NULL,'N'),(7,NULL,NULL,'2025-09-08',NULL,NULL,NULL,NULL,'N'),(8,NULL,NULL,'2025-09-08',NULL,NULL,NULL,NULL,'N'),(9,NULL,NULL,'2025-09-08',NULL,NULL,NULL,NULL,'N'),(10,NULL,NULL,'2025-09-08',NULL,NULL,NULL,NULL,'N'),(11,NULL,NULL,'2025-09-08',NULL,NULL,NULL,NULL,'N'),(12,NULL,NULL,'2025-09-08',NULL,NULL,NULL,NULL,'N'),(13,2,'IGOR','2025-09-08',NULL,NULL,NULL,NULL,'N'),(14,NULL,NULL,'2025-09-08',100.00,NULL,NULL,NULL,'N'),(15,NULL,NULL,'2025-09-08',100.00,NULL,NULL,NULL,'N'),(16,NULL,NULL,'2025-09-09',17.00,3.00,0.00,NULL,'N'),(17,NULL,NULL,'2025-09-09',85.00,15.00,0.00,NULL,'N'),(18,NULL,NULL,'2025-09-09',75.00,25.00,0.00,100.00,'N'),(19,2,'IGOR','2025-09-09',115.00,0.00,15.00,100.00,'N'),(20,1,'CLIENTE TESTE','2025-10-02',100.00,0.00,0.00,100.00,'S'),(21,NULL,NULL,'2025-10-08',90.00,10.00,0.00,100.00,'S'),(22,NULL,NULL,'2025-10-14',40.00,0.00,0.00,40.00,'S'),(23,NULL,NULL,'2025-10-14',40.00,0.00,0.00,40.00,'S'),(24,NULL,NULL,'2025-10-14',40.00,0.00,0.00,40.00,'S'),(25,NULL,NULL,'2025-10-14',160.00,0.00,0.00,490.00,'S'),(26,NULL,NULL,'2025-10-14',100.00,0.00,0.00,100.00,'S'),(27,NULL,NULL,'2025-10-16',200.00,0.00,0.00,200.00,'S'),(28,NULL,NULL,'2025-10-16',20.00,0.00,0.00,20.00,'N'),(29,2,'IGOR','2025-10-16',45.00,5.00,0.00,50.00,'N');
+INSERT INTO `saida` VALUES (1,NULL,NULL,'2025-06-09',NULL,NULL,NULL,NULL,'S','N',NULL),(2,NULL,NULL,'2025-06-09',NULL,NULL,NULL,NULL,'N','N',NULL),(3,NULL,NULL,'2025-06-09',NULL,NULL,NULL,NULL,'N','N',NULL),(4,NULL,NULL,'2025-06-20',NULL,NULL,NULL,NULL,'N','N',NULL),(5,NULL,NULL,'2025-09-08',NULL,NULL,NULL,NULL,'N','N',NULL),(6,NULL,NULL,'2025-09-08',NULL,NULL,NULL,NULL,'N','N',NULL),(7,NULL,NULL,'2025-09-08',NULL,NULL,NULL,NULL,'N','N',NULL),(8,NULL,NULL,'2025-09-08',NULL,NULL,NULL,NULL,'N','N',NULL),(9,NULL,NULL,'2025-09-08',NULL,NULL,NULL,NULL,'N','N',NULL),(10,NULL,NULL,'2025-09-08',NULL,NULL,NULL,NULL,'N','N',NULL),(11,NULL,NULL,'2025-09-08',NULL,NULL,NULL,NULL,'N','N',NULL),(12,NULL,NULL,'2025-09-08',NULL,NULL,NULL,NULL,'N','N',NULL),(13,2,'IGOR','2025-09-08',NULL,NULL,NULL,NULL,'N','N',NULL),(14,NULL,NULL,'2025-09-08',100.00,NULL,NULL,NULL,'N','N',NULL),(15,NULL,NULL,'2025-09-08',100.00,NULL,NULL,NULL,'N','N',NULL),(16,NULL,NULL,'2025-09-09',17.00,3.00,0.00,NULL,'N','N',NULL),(17,NULL,NULL,'2025-09-09',85.00,15.00,0.00,NULL,'N','N',NULL),(18,NULL,NULL,'2025-09-09',75.00,25.00,0.00,100.00,'N','N',NULL),(19,2,'IGOR','2025-09-09',115.00,0.00,15.00,100.00,'N','N',NULL),(20,1,'CLIENTE TESTE','2025-10-02',100.00,0.00,0.00,100.00,'S','N',NULL),(21,NULL,NULL,'2025-10-08',90.00,10.00,0.00,100.00,'S','N',NULL),(22,NULL,NULL,'2025-10-14',40.00,0.00,0.00,40.00,'S','N',NULL),(23,NULL,NULL,'2025-10-14',40.00,0.00,0.00,40.00,'S','N',NULL),(24,NULL,NULL,'2025-10-14',40.00,0.00,0.00,40.00,'S','N',NULL),(25,NULL,NULL,'2025-10-14',160.00,0.00,0.00,490.00,'S','N',NULL),(26,NULL,NULL,'2025-10-14',100.00,0.00,0.00,100.00,'S','N',NULL),(27,NULL,NULL,'2025-10-16',200.00,0.00,0.00,200.00,'S','N',NULL),(28,NULL,NULL,'2025-10-16',20.00,0.00,0.00,20.00,'N','N',NULL),(29,2,'IGOR','2025-10-16',45.00,5.00,0.00,50.00,'N','N',NULL);
 /*!40000 ALTER TABLE `saida` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -346,4 +382,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-10-29 15:30:10
+-- Dump completed on 2026-02-24 15:36:28
