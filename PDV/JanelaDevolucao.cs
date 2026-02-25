@@ -44,6 +44,8 @@ namespace PDV
                     string acrescimo = row["acrescimo"].ToString();
                     float acrescimo1 = float.Parse(acrescimo);
 
+                    LbDocumento.Text = TfDocumento.Text;
+
                     if (desconto1 > 0)
                     {
                         LbDesc.Text = row["desconto"].ToString();
@@ -58,7 +60,7 @@ namespace PDV
                 }
                 else
                 {
-                    MessageBox.Show("Documento não existente ou já foi dedolvido!");
+                    MessageBox.Show("Documento não existente ou já foi devolvido!");
                     TfDocumento.Focus();
                 }
             }
@@ -86,6 +88,25 @@ namespace PDV
                 TfDocumento.Focus();
             }
 
+        }
+
+        private void JanelaDevolucao_Load(object sender, EventArgs e)
+        {
+            RbTroca.Checked = true;
+        }
+
+        private void BtConfirmar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(LbDocumento.Text))
+            {
+                LancamentodeDevolucao lancamento = new LancamentodeDevolucao();
+                lancamento.Show();
+            }
+            else
+            {
+                MessageBox.Show("Informe um documento de venda para realizar uma devolução/troca!");
+                TfDocumento.Focus();
+            }
         }
     }
 }

@@ -42,12 +42,13 @@
             label3 = new Label();
             LbCliente = new Label();
             label2 = new Label();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton3 = new RadioButton();
+            RbTroca = new RadioButton();
+            RbDevolucaoparcial = new RadioButton();
+            RbDevolucaototal = new RadioButton();
             BtConfirmar = new Button();
             BtCancelar = new Button();
             groupBox2 = new GroupBox();
+            LbDocumento = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -94,9 +95,9 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(LbCliente);
             groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(8, 89);
+            groupBox1.Location = new Point(8, 100);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(269, 176);
+            groupBox1.Size = new Size(269, 157);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             // 
@@ -114,7 +115,7 @@
             label6.AutoSize = true;
             label6.Location = new Point(29, 133);
             label6.Name = "label6";
-            label6.Size = new Size(36, 15);
+            label6.Size = new Size(35, 15);
             label6.TabIndex = 8;
             label6.Text = "Total:";
             // 
@@ -188,56 +189,57 @@
             label2.TabIndex = 0;
             label2.Text = "Cliente:";
             // 
-            // radioButton1
+            // RbTroca
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(6, 31);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(54, 19);
-            radioButton1.TabIndex = 4;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Troca";
-            radioButton1.UseVisualStyleBackColor = true;
+            RbTroca.AutoSize = true;
+            RbTroca.Location = new Point(6, 31);
+            RbTroca.Name = "RbTroca";
+            RbTroca.Size = new Size(264, 19);
+            RbTroca.TabIndex = 4;
+            RbTroca.TabStop = true;
+            RbTroca.Text = "Troca (Abre janela de saída após a devolução)";
+            RbTroca.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // RbDevolucaoparcial
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(6, 56);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(119, 19);
-            radioButton2.TabIndex = 5;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Devolução parcial";
-            radioButton2.UseVisualStyleBackColor = true;
+            RbDevolucaoparcial.AutoSize = true;
+            RbDevolucaoparcial.Location = new Point(6, 56);
+            RbDevolucaoparcial.Name = "RbDevolucaoparcial";
+            RbDevolucaoparcial.Size = new Size(119, 19);
+            RbDevolucaoparcial.TabIndex = 5;
+            RbDevolucaoparcial.TabStop = true;
+            RbDevolucaoparcial.Text = "Devolução parcial";
+            RbDevolucaoparcial.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // RbDevolucaototal
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(6, 81);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(108, 19);
-            radioButton3.TabIndex = 6;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "Devolução total";
-            radioButton3.UseVisualStyleBackColor = true;
+            RbDevolucaototal.AutoSize = true;
+            RbDevolucaototal.Location = new Point(6, 81);
+            RbDevolucaototal.Name = "RbDevolucaototal";
+            RbDevolucaototal.Size = new Size(108, 19);
+            RbDevolucaototal.TabIndex = 6;
+            RbDevolucaototal.TabStop = true;
+            RbDevolucaototal.Text = "Devolução total";
+            RbDevolucaototal.UseVisualStyleBackColor = true;
             // 
             // BtConfirmar
             // 
             BtConfirmar.Image = Properties.Resources.verifica__2___1_;
             BtConfirmar.ImageAlign = ContentAlignment.MiddleRight;
-            BtConfirmar.Location = new Point(8, 408);
+            BtConfirmar.Location = new Point(8, 404);
             BtConfirmar.Name = "BtConfirmar";
             BtConfirmar.Size = new Size(84, 23);
             BtConfirmar.TabIndex = 7;
             BtConfirmar.Text = "Confirmar";
             BtConfirmar.TextAlign = ContentAlignment.MiddleLeft;
             BtConfirmar.UseVisualStyleBackColor = true;
+            BtConfirmar.Click += BtConfirmar_Click;
             // 
             // BtCancelar
             // 
             BtCancelar.Image = Properties.Resources.cancelar__1_;
             BtCancelar.ImageAlign = ContentAlignment.MiddleRight;
-            BtCancelar.Location = new Point(114, 408);
+            BtCancelar.Location = new Point(114, 404);
             BtCancelar.Name = "BtCancelar";
             BtCancelar.Size = new Size(75, 23);
             BtCancelar.TabIndex = 8;
@@ -248,21 +250,31 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(radioButton1);
-            groupBox2.Controls.Add(radioButton2);
-            groupBox2.Controls.Add(radioButton3);
-            groupBox2.Location = new Point(8, 280);
+            groupBox2.Controls.Add(RbTroca);
+            groupBox2.Controls.Add(RbDevolucaoparcial);
+            groupBox2.Controls.Add(RbDevolucaototal);
+            groupBox2.Location = new Point(8, 276);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(200, 113);
+            groupBox2.Size = new Size(269, 113);
             groupBox2.TabIndex = 9;
             groupBox2.TabStop = false;
             groupBox2.Text = "Tipo de devolução";
+            // 
+            // LbDocumento
+            // 
+            LbDocumento.AutoSize = true;
+            LbDocumento.Location = new Point(10, 71);
+            LbDocumento.Name = "LbDocumento";
+            LbDocumento.Size = new Size(0, 15);
+            LbDocumento.TabIndex = 10;
+            LbDocumento.Visible = false;
             // 
             // JanelaDevolucao
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(357, 450);
+            ClientSize = new Size(357, 438);
+            Controls.Add(LbDocumento);
             Controls.Add(groupBox2);
             Controls.Add(BtCancelar);
             Controls.Add(BtConfirmar);
@@ -273,6 +285,7 @@
             Name = "JanelaDevolucao";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "JanelaDevolucao";
+            Load += JanelaDevolucao_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -297,11 +310,12 @@
         private Label label5;
         private Label LbTotal;
         private Label label6;
-        private RadioButton radioButton1;
-        private RadioButton radioButton2;
-        private RadioButton radioButton3;
+        private RadioButton RbTroca;
+        private RadioButton RbDevolucaoparcial;
+        private RadioButton RbDevolucaototal;
         private Button BtConfirmar;
         private Button BtCancelar;
         private GroupBox groupBox2;
+        public Label LbDocumento;
     }
 }
