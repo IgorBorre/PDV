@@ -62,36 +62,36 @@ namespace PDV
         {
             ConsultaEntradas consultaEntradas = new ConsultaEntradas();
             consultaEntradas.Show();
-        }
-
-        private void cancelamentoDeSaídasToolStripMenuItem_Click(object sender, EventArgs e)
+        }     
+              
+        private void devoluçãoTrocaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            JanelaCancelamentodeSaidas cancelamento = new JanelaCancelamentodeSaidas();
-            cancelamento.Show();
+            JanelaDevolucao janela = new JanelaDevolucao();
+            janela.Show();
         }
 
-        private void consultaDeCancelamentosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            JanelaConsultaCancelamento janelaConsultaCancelamento = new JanelaConsultaCancelamento();
-            janelaConsultaCancelamento.Show();
-        }
-
-        private void cancelamentoDeEntradasToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cancelamentoDeEntradasToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             JanelaCancelamentodeEntradas janelaCancelamentodeEntradas = new JanelaCancelamentodeEntradas();
             janelaCancelamentodeEntradas.Show();
         }
 
-        private void consultaDeCancelamentosToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void consultaDeCancelamentosToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
             ConsultaCancelamentoEntrada consulta = new ConsultaCancelamentoEntrada();
             consulta.Show();
         }
 
-        private void devoluçãoTrocaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cancelamentoDeSaídasToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            JanelaDevolucao janela = new JanelaDevolucao();
-            janela.Show();
+            JanelaCancelamentodeSaidas cancelamento = new JanelaCancelamentodeSaidas();
+            cancelamento.Show();
+        }
+
+        private void consultaDeCancelamentosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            JanelaConsultaCancelamento janelaConsultaCancelamento = new JanelaConsultaCancelamento();
+            janelaConsultaCancelamento.Show();
         }
     }
 }

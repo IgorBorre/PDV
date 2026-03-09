@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            TfQuantidade = new TextBox();
+            BtProcura = new Button();
+            LbDocumento = new Label();
             LbDescricao = new Label();
             LbReferencia = new Label();
             LbCodigo = new Label();
@@ -36,10 +39,9 @@
             label4 = new Label();
             label3 = new Label();
             BtConfirmar = new Button();
-            TfQuantidade = new TextBox();
-            label2 = new Label();
-            BtProcura = new Button();
             TfProduto = new TextBox();
+            label2 = new Label();
+            TfId = new TextBox();
             label1 = new Label();
             dataGridView1 = new DataGridView();
             codigo = new DataGridViewTextBoxColumn();
@@ -56,6 +58,9 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(TfQuantidade);
+            groupBox1.Controls.Add(BtProcura);
+            groupBox1.Controls.Add(LbDocumento);
             groupBox1.Controls.Add(LbDescricao);
             groupBox1.Controls.Add(LbReferencia);
             groupBox1.Controls.Add(LbCodigo);
@@ -63,10 +68,9 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(BtConfirmar);
-            groupBox1.Controls.Add(TfQuantidade);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(BtProcura);
             groupBox1.Controls.Add(TfProduto);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(TfId);
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(3, 6);
             groupBox1.Name = "groupBox1";
@@ -74,6 +78,33 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Informações do item da devolução";
+            // 
+            // TfQuantidade
+            // 
+            TfQuantidade.Location = new Point(408, 44);
+            TfQuantidade.Name = "TfQuantidade";
+            TfQuantidade.Size = new Size(87, 23);
+            TfQuantidade.TabIndex = 14;
+            // 
+            // BtProcura
+            // 
+            BtProcura.Image = Properties.Resources.lupa_de_pesquisa__1___1___1_;
+            BtProcura.Location = new Point(359, 43);
+            BtProcura.Name = "BtProcura";
+            BtProcura.Size = new Size(25, 23);
+            BtProcura.TabIndex = 13;
+            BtProcura.UseVisualStyleBackColor = true;
+            BtProcura.Click += BtProcura_Click;
+            // 
+            // LbDocumento
+            // 
+            LbDocumento.AutoSize = true;
+            LbDocumento.Location = new Point(752, 35);
+            LbDocumento.Name = "LbDocumento";
+            LbDocumento.Size = new Size(38, 15);
+            LbDocumento.TabIndex = 12;
+            LbDocumento.Text = "label6";
+            LbDocumento.Visible = false;
             // 
             // LbDescricao
             // 
@@ -138,12 +169,12 @@
             BtConfirmar.TextAlign = ContentAlignment.MiddleLeft;
             BtConfirmar.UseVisualStyleBackColor = true;
             // 
-            // TfQuantidade
+            // TfProduto
             // 
-            TfQuantidade.Location = new Point(408, 43);
-            TfQuantidade.Name = "TfQuantidade";
-            TfQuantidade.Size = new Size(100, 23);
-            TfQuantidade.TabIndex = 4;
+            TfProduto.Location = new Point(77, 43);
+            TfProduto.Name = "TfProduto";
+            TfProduto.Size = new Size(266, 23);
+            TfProduto.TabIndex = 4;
             // 
             // label2
             // 
@@ -154,21 +185,13 @@
             label2.TabIndex = 3;
             label2.Text = "Quantidade";
             // 
-            // BtProcura
+            // TfId
             // 
-            BtProcura.Image = Properties.Resources.lupa_de_pesquisa__1___1___1_;
-            BtProcura.Location = new Point(359, 40);
-            BtProcura.Name = "BtProcura";
-            BtProcura.Size = new Size(32, 26);
-            BtProcura.TabIndex = 2;
-            BtProcura.UseVisualStyleBackColor = true;
-            // 
-            // TfProduto
-            // 
-            TfProduto.Location = new Point(10, 43);
-            TfProduto.Name = "TfProduto";
-            TfProduto.Size = new Size(343, 23);
-            TfProduto.TabIndex = 1;
+            TfId.Location = new Point(10, 43);
+            TfId.Name = "TfId";
+            TfId.Size = new Size(57, 23);
+            TfId.TabIndex = 1;
+            TfId.Leave += TfId_Leave;
             // 
             // label1
             // 
@@ -189,34 +212,44 @@
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { codigo, referencia, descricao, quantidade });
             dataGridView1.Location = new Point(3, 144);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(891, 327);
             dataGridView1.TabIndex = 1;
+            dataGridView1.Sorted += dataGridView1_Sorted;
             // 
             // codigo
             // 
+            codigo.DataPropertyName = "codigo";
             codigo.FillWeight = 56.1634941F;
             codigo.HeaderText = "Código";
             codigo.Name = "codigo";
+            codigo.ReadOnly = true;
             // 
             // referencia
             // 
+            referencia.DataPropertyName = "referencia";
             referencia.FillWeight = 121.8274F;
             referencia.HeaderText = "Referência";
             referencia.Name = "referencia";
+            referencia.ReadOnly = true;
             // 
             // descricao
             // 
+            descricao.DataPropertyName = "descricao";
             descricao.FillWeight = 165.682327F;
             descricao.HeaderText = "Descrição";
             descricao.Name = "descricao";
+            descricao.ReadOnly = true;
             // 
             // quantidade
             // 
+            quantidade.DataPropertyName = "quantidade";
             quantidade.FillWeight = 56.3267632F;
             quantidade.HeaderText = "Quantidade";
             quantidade.Name = "quantidade";
+            quantidade.ReadOnly = true;
             // 
             // BtFinalizar
             // 
@@ -229,6 +262,7 @@
             BtFinalizar.Text = "Finalizar";
             BtFinalizar.TextAlign = ContentAlignment.MiddleLeft;
             BtFinalizar.UseVisualStyleBackColor = true;
+            BtFinalizar.Click += BtFinalizar_Click;
             // 
             // BtOriginais
             // 
@@ -241,6 +275,7 @@
             BtOriginais.Text = "Itens originais";
             BtOriginais.TextAlign = ContentAlignment.MiddleLeft;
             BtOriginais.UseVisualStyleBackColor = true;
+            BtOriginais.Click += BtOriginais_Click;
             // 
             // BtLimpar
             // 
@@ -279,6 +314,7 @@
             Name = "LancamentodeDevolucao";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LancamentodeDevolucao";
+            Load += LancamentodeDevolucao_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -288,26 +324,28 @@
         #endregion
 
         private GroupBox groupBox1;
-        private Button BtProcura;
-        private TextBox TfProduto;
         private Label label1;
         private Label label2;
-        private TextBox TfQuantidade;
-        private Button BtConfirmar;
         private Label LbDescricao;
         private Label LbReferencia;
         private Label LbCodigo;
         private Label label5;
         private Label label4;
         private Label label3;
-        private DataGridView dataGridView1;
         private Button BtFinalizar;
-        private Button BtOriginais;
         private Button BtLimpar;
         private Button BtCancelar;
+        public Label LbDocumento;
+        public DataGridView dataGridView1;
         private DataGridViewTextBoxColumn codigo;
         private DataGridViewTextBoxColumn referencia;
         private DataGridViewTextBoxColumn descricao;
         private DataGridViewTextBoxColumn quantidade;
+        public Button BtConfirmar;
+        public TextBox TfId;
+        public TextBox TfProduto;
+        public Button BtProcura;
+        public TextBox TfQuantidade;
+        public Button BtOriginais;
     }
 }

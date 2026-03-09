@@ -100,6 +100,24 @@ namespace PDV
             if (!string.IsNullOrEmpty(LbDocumento.Text))
             {
                 LancamentodeDevolucao lancamento = new LancamentodeDevolucao();
+                lancamento.LbDocumento.Text = LbDocumento.Text;
+
+                string c = "select codigo, referencia, descricao, quantidade from produtos join saidadados on produtos.codigo = saidadados.produto " +
+                        "where saidadados.documento = " + LbDocumento.Text;
+                VendaDAO v = new VendaDAO();
+                DataTable dt = v.ConsultaSaidas(c);
+                lancamento.LbDocumento.Text = LbDocumento.Text;
+
+                if (RbDevolucaototal.Checked) { 
+                    
+                    lancamento.dataGridView1.DataSource = dt;
+                    lancamento.TfId.Enabled = false;
+                    lancamento.TfProduto.Enabled = false;
+                    lancamento.BtProcura.Enabled = false;
+                    lancamento.TfQuantidade.Enabled = false;
+                    lancamento.BtOriginais.Enabled = false;
+                    lancamento.BtConfirmar.Enabled = false;
+                }
                 lancamento.Show();
             }
             else

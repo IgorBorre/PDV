@@ -149,6 +149,7 @@
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Documento, Data, Motivo });
             dataGridView1.Location = new Point(12, 134);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(787, 360);
@@ -160,6 +161,7 @@
             Documento.FillWeight = 72.1381F;
             Documento.HeaderText = "Documento";
             Documento.Name = "Documento";
+            Documento.ReadOnly = true;
             // 
             // Data
             // 
@@ -167,6 +169,7 @@
             Data.FillWeight = 60.9137F;
             Data.HeaderText = "Data do cancelamento";
             Data.Name = "Data";
+            Data.ReadOnly = true;
             // 
             // Motivo
             // 
@@ -174,6 +177,7 @@
             Motivo.FillWeight = 166.948166F;
             Motivo.HeaderText = "Motivo";
             Motivo.Name = "Motivo";
+            Motivo.ReadOnly = true;
             // 
             // ConsultaCancelamentoEntrada
             // 
