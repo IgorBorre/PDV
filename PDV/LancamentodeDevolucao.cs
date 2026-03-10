@@ -12,6 +12,10 @@ namespace PDV
 {
     public partial class LancamentodeDevolucao : Form
     {
+        double quantidadeOriginal = 0;
+        double quantidadeRestante = 0;
+        double quantidadeDevolvida = 0;
+        List<Produtos> produtos = new List<Produtos>();
         public LancamentodeDevolucao()
         {
             InitializeComponent();
@@ -63,7 +67,7 @@ namespace PDV
                 }
 
 
-                string c = "select descricao from saidadados s join produtos p on p.codigo = s.produto where documento = " + LbDocumento.Text + " and s.produto = " + TfId.Text;
+                string c = "select codigo, referencia, descricao, quantidade from saidadados s join produtos p on p.codigo = s.produto where documento = " + LbDocumento.Text + " and s.produto = " + TfId.Text;
                 VendaDAO v = new VendaDAO();
                 DataTable dt = v.ConsultaSaidas(c);
 
@@ -73,6 +77,7 @@ namespace PDV
                     DataRow row = null;
                     row = dt.Rows[0];
                     TfProduto.Text = row["descricao"].ToString();
+                    quantidadeOriginal = double.Parse(row["quantidade"].ToString());
 
                 }
                 else
@@ -104,7 +109,7 @@ namespace PDV
                 }
 
 
-                string c = "select descricao from saidadados s join produtos p on p.codigo = s.produto where documento = " + LbDocumento.Text + " and s.produto = " + TfId.Text;
+                string c = "select codigo, referencia, descricao, quantidade from saidadados s join produtos p on p.codigo = s.produto where documento = " + LbDocumento.Text + " and s.produto = " + TfId.Text;
                 VendaDAO v = new VendaDAO();
                 DataTable dt = v.ConsultaSaidas(c);
 
@@ -120,10 +125,63 @@ namespace PDV
                 {
                     MessageBox.Show("Esse produto não pertence à venda original!");
                     TfId.Focus();
-                    if (!string.IsNullOrEmpty(TfProduto.Text)) { 
+                    if (!string.IsNullOrEmpty(TfProduto.Text))
+                    {
                         TfProduto.Text = string.Empty;
                     }
                 }
+            }
+        }
+
+        private void TfQuantidade_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TfQuantidade.Text))
+            {
+                try
+                {
+                    double quantidade = 0;
+                    quantidade = double.Parse(TfQuantidade.Text);
+
+                    if (quantidade > quantidadeOriginal)
+                    {
+                        MessageBox.Show("A quantidade devolvida não pode ser maior que a quantidade original!");
+                        TfQuantidade.Text = string.Empty;
+                        TfQuantidade.Focus();
+                    }
+                }
+                catch
+                {
+
+                    MessageBox.Show("Digite uma quantidade válida!");
+                    TfQuantidade.Text = string.Empty;
+                    TfQuantidade.Focus();
+                }
+
+            }
+        }
+
+        private void BtConfirmar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TfId.Text) && !string.IsNullOrEmpty(TfQuantidade.Text))
+            {
+                Produtos p = new Produtos();
+                p.codigo = int.Parse(TfId.Text);
+                p.descricao = TfProduto.Text;
+                p.quantidade = double.Parse(TfQuantidade.Text);
+
+                produtos.Add(p);
+
+                quantidadeDevolvida += p.quantidade;
+                quantidadeOriginal -= p.quantidade;
+
+                dataGridView1.Rows.Add(p.codigo, p.descricao, p.quantidade);
+                TfId.Text = string.Empty;
+                TfProduto.Text = string.Empty;
+                TfQuantidade.Text = string.Empty;
+                TfId.Focus();
+            }
+            else { 
+                MessageBox.Show("Preencha o código do produto e a quantidade para confirmar a devolução!");
             }
         }
     }

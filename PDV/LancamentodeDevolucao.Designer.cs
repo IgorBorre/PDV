@@ -85,6 +85,7 @@
             TfQuantidade.Name = "TfQuantidade";
             TfQuantidade.Size = new Size(87, 23);
             TfQuantidade.TabIndex = 14;
+            TfQuantidade.Leave += TfQuantidade_Leave;
             // 
             // BtProcura
             // 
@@ -168,6 +169,7 @@
             BtConfirmar.Text = "Confirmar";
             BtConfirmar.TextAlign = ContentAlignment.MiddleLeft;
             BtConfirmar.UseVisualStyleBackColor = true;
+            BtConfirmar.Click += BtConfirmar_Click;
             // 
             // TfProduto
             // 
