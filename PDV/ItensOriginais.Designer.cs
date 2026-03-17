@@ -33,6 +33,7 @@
             descricao = new DataGridViewTextBoxColumn();
             referencia = new DataGridViewTextBoxColumn();
             quantidade = new DataGridViewTextBoxColumn();
+            devolvido = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -43,7 +44,7 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.Menu;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { codigo, descricao, referencia, quantidade });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { codigo, descricao, referencia, quantidade, devolvido });
             dataGridView1.Location = new Point(3, 1);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -51,11 +52,12 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(912, 413);
             dataGridView1.TabIndex = 0;
+            dataGridView1.Sorted += dataGridView1_Sorted;
             // 
             // codigo
             // 
             codigo.DataPropertyName = "codigo";
-            codigo.FillWeight = 43.9803543F;
+            codigo.FillWeight = 40.45066F;
             codigo.HeaderText = "Código";
             codigo.Name = "codigo";
             codigo.ReadOnly = true;
@@ -63,7 +65,7 @@
             // descricao
             // 
             descricao.DataPropertyName = "descricao";
-            descricao.FillWeight = 162.436554F;
+            descricao.FillWeight = 149.400024F;
             descricao.HeaderText = "Descrição";
             descricao.Name = "descricao";
             descricao.ReadOnly = true;
@@ -71,7 +73,7 @@
             // referencia
             // 
             referencia.DataPropertyName = "referencia";
-            referencia.FillWeight = 126.831093F;
+            referencia.FillWeight = 116.652122F;
             referencia.HeaderText = "Referência";
             referencia.Name = "referencia";
             referencia.ReadOnly = true;
@@ -79,10 +81,16 @@
             // quantidade
             // 
             quantidade.DataPropertyName = "quantidade";
-            quantidade.FillWeight = 66.75202F;
+            quantidade.FillWeight = 101.522842F;
             quantidade.HeaderText = "Quantidade";
             quantidade.Name = "quantidade";
             quantidade.ReadOnly = true;
+            // 
+            // devolvido
+            // 
+            devolvido.HeaderText = "Devolvido";
+            devolvido.Name = "devolvido";
+            devolvido.ReadOnly = true;
             // 
             // ItensOriginais
             // 
@@ -99,10 +107,11 @@
         }
 
         #endregion
+        public DataGridView dataGridView1;
         private DataGridViewTextBoxColumn codigo;
         private DataGridViewTextBoxColumn descricao;
         private DataGridViewTextBoxColumn referencia;
         private DataGridViewTextBoxColumn quantidade;
-        public DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn devolvido;
     }
 }

@@ -28,7 +28,7 @@ namespace PDV
 
         private void dataGridView1_Sorted(object sender, EventArgs e)
         {
-            dataGridView1.ClearSelection();
+
         }
 
         private void BtFinalizar_Click(object sender, EventArgs e)
@@ -45,6 +45,7 @@ namespace PDV
                         "where saidadados.documento = " + LbDocumento.Text;
             VendaDAO v = new VendaDAO();
             DataTable dt = v.ConsultaSaidas(c);
+            itens.dataGridView1.AutoGenerateColumns = false;
             itens.dataGridView1.DataSource = dt;
 
             itens.ShowDialog();
@@ -164,25 +165,38 @@ namespace PDV
         {
             if (!string.IsNullOrEmpty(TfId.Text) && !string.IsNullOrEmpty(TfQuantidade.Text))
             {
+                string c = "select referencia from produtos where codigo = " + TfId.Text;
+                ProdutoDAO pDAO = new ProdutoDAO();
+                DataTable dt = pDAO.ListarProdutos(c);
+                DataRow row = null;
+                row = dt.Rows[0];
+
                 Produtos p = new Produtos();
                 p.codigo = int.Parse(TfId.Text);
                 p.descricao = TfProduto.Text;
+                p.referencia = row["referencia"].ToString();
                 p.quantidade = double.Parse(TfQuantidade.Text);
 
                 produtos.Add(p);
 
                 quantidadeDevolvida += p.quantidade;
-                quantidadeOriginal -= p.quantidade;
+                MessageBox.Show("Quantidade devolvida: " + quantidadeDevolvida + " / Quantidade original: " + quantidadeOriginal);
 
-                dataGridView1.Rows.Add(p.codigo, p.descricao, p.quantidade);
+                dataGridView1.Rows.Add(p.codigo, p.descricao, p.referencia, p.quantidade);
                 TfId.Text = string.Empty;
                 TfProduto.Text = string.Empty;
                 TfQuantidade.Text = string.Empty;
                 TfId.Focus();
             }
-            else { 
+            else
+            {
                 MessageBox.Show("Preencha o código do produto e a quantidade para confirmar a devolução!");
             }
+        }
+
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            dataGridView1.ClearSelection();
         }
     }
 }

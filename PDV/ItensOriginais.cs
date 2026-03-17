@@ -21,5 +21,10 @@ namespace PDV
         {
             dataGridView1.ClearSelection();
         }
+
+        private void dataGridView1_Sorted(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
