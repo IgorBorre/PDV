@@ -33,7 +33,6 @@
             descricao = new DataGridViewTextBoxColumn();
             referencia = new DataGridViewTextBoxColumn();
             quantidade = new DataGridViewTextBoxColumn();
-            devolvido = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -44,7 +43,7 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.Menu;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { codigo, descricao, referencia, quantidade, devolvido });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { codigo, descricao, referencia, quantidade });
             dataGridView1.Location = new Point(3, 1);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -86,12 +85,6 @@
             quantidade.Name = "quantidade";
             quantidade.ReadOnly = true;
             // 
-            // devolvido
-            // 
-            devolvido.HeaderText = "Devolvido";
-            devolvido.Name = "devolvido";
-            devolvido.ReadOnly = true;
-            // 
             // ItensOriginais
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -112,6 +105,5 @@
         private DataGridViewTextBoxColumn descricao;
         private DataGridViewTextBoxColumn referencia;
         private DataGridViewTextBoxColumn quantidade;
-        private DataGridViewTextBoxColumn devolvido;
     }
 }

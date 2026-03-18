@@ -13,12 +13,12 @@ namespace PDV
     public partial class LancamentodeDevolucao : Form
     {
         double quantidadeOriginal = 0;
-        double quantidadeRestante = 0;
-        double quantidadeDevolvida = 0;
         List<Produtos> produtos = new List<Produtos>();
+        ItensOriginais itens;
         public LancamentodeDevolucao()
         {
             InitializeComponent();
+            itens = new ItensOriginais();
         }
 
         private void LancamentodeDevolucao_Load(object sender, EventArgs e)
@@ -40,13 +40,16 @@ namespace PDV
 
         private void BtOriginais_Click(object sender, EventArgs e)
         {
-            ItensOriginais itens = new ItensOriginais();
+
             string c = "select codigo, referencia, descricao, quantidade from produtos join saidadados on produtos.codigo = saidadados.produto " +
                         "where saidadados.documento = " + LbDocumento.Text;
+
             VendaDAO v = new VendaDAO();
             DataTable dt = v.ConsultaSaidas(c);
+
             itens.dataGridView1.AutoGenerateColumns = false;
             itens.dataGridView1.DataSource = dt;
+
 
             itens.ShowDialog();
         }
@@ -79,6 +82,9 @@ namespace PDV
                     row = dt.Rows[0];
                     TfProduto.Text = row["descricao"].ToString();
                     quantidadeOriginal = double.Parse(row["quantidade"].ToString());
+                    LbCodigo.Text = row["codigo"].ToString();
+                    LbDescricao.Text = row["descricao"].ToString();
+                    LbReferencia.Text = row["referencia"].ToString();
 
                 }
                 else
@@ -90,6 +96,13 @@ namespace PDV
                         TfProduto.Text = string.Empty;
                     }
                 }
+            }
+            else
+            {
+                TfProduto.Text = string.Empty;
+                LbCodigo.Text = string.Empty;
+                LbDescricao.Text = string.Empty;
+                LbReferencia.Text = string.Empty;
             }
         }
 
@@ -120,6 +133,9 @@ namespace PDV
                     DataRow row = null;
                     row = dt.Rows[0];
                     TfProduto.Text = row["descricao"].ToString();
+                    LbCodigo.Text = row["codigo"].ToString();
+                    LbDescricao.Text = row["descricao"].ToString();
+                    LbReferencia.Text = row["referencia"].ToString();
 
                 }
                 else
@@ -141,7 +157,10 @@ namespace PDV
                 try
                 {
                     double quantidade = 0;
-                    quantidade = double.Parse(TfQuantidade.Text);
+                    var produto = produtos.FirstOrDefault(p => p.codigo == Convert.ToInt32(TfId.Text));
+                    var quantidadeProduto = produto != null ? produto.quantidade : 0;
+                    quantidade = double.Parse(TfQuantidade.Text) + quantidadeProduto;
+
 
                     if (quantidade > quantidadeOriginal)
                     {
@@ -165,6 +184,8 @@ namespace PDV
         {
             if (!string.IsNullOrEmpty(TfId.Text) && !string.IsNullOrEmpty(TfQuantidade.Text))
             {
+                double soma = 0;
+
                 string c = "select referencia from produtos where codigo = " + TfId.Text;
                 ProdutoDAO pDAO = new ProdutoDAO();
                 DataTable dt = pDAO.ListarProdutos(c);
@@ -177,12 +198,35 @@ namespace PDV
                 p.referencia = row["referencia"].ToString();
                 p.quantidade = double.Parse(TfQuantidade.Text);
 
-                produtos.Add(p);
+                var produto = produtos.FirstOrDefault(p => p.codigo == Convert.ToInt32(TfId.Text));
+                if (produto != null)
+                {
+                    produto.quantidade += p.quantidade;
+                    foreach (DataGridViewRow row1 in dataGridView1.Rows)
+                    {
+                        int codigo = Convert.ToInt32(row1.Cells["codigo"].Value);
+                        if (codigo == produto.codigo)
+                        {
+                            row1.Cells["quantidade"].Value = produto.quantidade;
+                            LbCodigo.Text = string.Empty;
+                            LbDescricao.Text = string.Empty;
+                            LbReferencia.Text = string.Empty;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    produtos.Add(p);
 
-                quantidadeDevolvida += p.quantidade;
-                MessageBox.Show("Quantidade devolvida: " + quantidadeDevolvida + " / Quantidade original: " + quantidadeOriginal);
+                    dataGridView1.Rows.Add(p.codigo, p.descricao, p.referencia, p.quantidade);
+                    LbCodigo.Text = string.Empty;
+                    LbDescricao.Text = string.Empty;
+                    LbReferencia.Text = string.Empty;
+                }
 
-                dataGridView1.Rows.Add(p.codigo, p.descricao, p.referencia, p.quantidade);
+                quantidadeOriginal -= p.quantidade;
+
                 TfId.Text = string.Empty;
                 TfProduto.Text = string.Empty;
                 TfQuantidade.Text = string.Empty;
@@ -197,6 +241,34 @@ namespace PDV
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             dataGridView1.ClearSelection();
+        }
+
+        private void BtCancelar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0)
+            {
+                DialogResult resultado = MessageBox.Show("Deseja cancelar essa devolução?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    Dispose();
+                }
+            }
+            else
+            {
+                Dispose();
+            }
+        }
+
+        private void BtLimpar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0) { 
+                dataGridView1.Rows.Clear();
+                produtos.Clear();
+            }
+            TfId.Text = string.Empty;
+            TfProduto.Text= string.Empty;
+            TfQuantidade.Text = string.Empty;
         }
     }
 }

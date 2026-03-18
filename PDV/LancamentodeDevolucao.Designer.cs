@@ -290,6 +290,7 @@
             BtLimpar.TabIndex = 4;
             BtLimpar.Text = "Limpar";
             BtLimpar.UseVisualStyleBackColor = true;
+            BtLimpar.Click += BtLimpar_Click;
             // 
             // BtCancelar
             // 
@@ -302,6 +303,7 @@
             BtCancelar.Text = "Cancelar";
             BtCancelar.TextAlign = ContentAlignment.MiddleLeft;
             BtCancelar.UseVisualStyleBackColor = true;
+            BtCancelar.Click += BtCancelar_Click;
             // 
             // LancamentodeDevolucao
             // 
