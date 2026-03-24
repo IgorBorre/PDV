@@ -111,6 +111,15 @@ namespace PDV
                 if (RbDevolucaototal.Checked) { 
                     
                     lancamento.dataGridView1.DataSource = dt;
+                    foreach (DataRow row in dt.Rows) { 
+                        Produtos p = new Produtos();
+                        p.codigo = Convert.ToInt32(row["codigo"]);
+                        p.referencia = row["referencia"].ToString();
+                        p.descricao = row["descricao"].ToString();
+                        p.quantidade = Convert.ToDouble(row["quantidade"]);
+                        lancamento.produtos.Add(p);
+                    }
+
                     lancamento.TfId.Enabled = false;
                     lancamento.TfProduto.Enabled = false;
                     lancamento.BtProcura.Enabled = false;

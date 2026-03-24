@@ -13,7 +13,9 @@ namespace PDV
     public partial class LancamentodeDevolucao : Form
     {
         double quantidadeOriginal = 0;
-        List<Produtos> produtos = new List<Produtos>();
+        
+        public List<Produtos> produtos = new List<Produtos>();
+        
         ItensOriginais itens;
         public LancamentodeDevolucao()
         {
@@ -33,9 +35,18 @@ namespace PDV
 
         private void BtFinalizar_Click(object sender, EventArgs e)
         {
-            //if (dataGridView1.Rows.Count > 0) { 
+            if (dataGridView1.Rows.Count <= 0)
+            {
+                MessageBox.Show("Não é possível realizar uma devolução/troca sem produtos!");
+            }
+            else { 
+                ProdutoDAO p = new ProdutoDAO();
+                Devolucao d = new Devolucao();
+                Entrada entrada = new Entrada();
 
-            //}
+                p.Devolucao(d, entrada, produtos, LbDocumento.Text);
+
+            }
         }
 
         private void BtOriginais_Click(object sender, EventArgs e)

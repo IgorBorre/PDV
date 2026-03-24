@@ -265,6 +265,82 @@ namespace PDV
             }
         }
 
+        public void Entrada(Entrada e, List<Produtos> produtos, int doc_original)
+        {
+            string comando = "insert into entrada (dataentrada, doc_original, tipo) values (@dataentrada, @doc_original, 'D')";
+            string comandoEntrada = "insert into entradadados (docentrada, idproduto, descproduto, quantidade) values (@docentrada, @idproduto, @descproduto, @quantidade)";
+            string atualizaEstoque = "update produtos set estoque = estoque + @quantidade where codigo = @codigo";
+            e.data = DateTime.Now.Date;
+            e.doc_original = doc_original;
+
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand(comando, conexao.ObterConexao()))
+                {
+                    cmd.Parameters.AddWithValue("@dataentrada", e.data);
+                    cmd.Parameters.AddWithValue("@doc_original", e.doc_original);
+                    cmd.ExecuteNonQuery();
+
+                    cmd.CommandText = "SELECT @@IDENTITY";
+                    e.documento = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+
+                foreach (Produtos p in produtos)
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(comandoEntrada, conexao.ObterConexao()))
+                    {
+                        cmd.Parameters.AddWithValue("@docentrada", e.documento);
+                        cmd.Parameters.AddWithValue("@idproduto", p.codigo);
+                        cmd.Parameters.AddWithValue("@descproduto", p.descricao.ToUpper());
+                        cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    using (MySqlCommand cmd = new MySqlCommand(atualizaEstoque, conexao.ObterConexao()))
+                    {
+                        cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
+                        cmd.Parameters.AddWithValue("@codigo", p.codigo);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                conexao.FecharConexao();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void Devolucao(Devolucao d,Entrada e ,List<Produtos> produtos, string doc_original) {
+            string c = "insert into devolucao (dataDevolucao, doc_original) values (@dataDevolucao, @doc_original)";
+            d.data = DateTime.Now.Date;
+
+            try
+            {
+                conexao.AbrirConexao();
+                using (MySqlCommand cmd = new MySqlCommand(c, conexao.ObterConexao())) {
+                    cmd.Parameters.AddWithValue("@dataDevolucao", d.data);
+                    cmd.Parameters.AddWithValue("@doc_original", doc_original);
+                    cmd.ExecuteNonQuery();
+
+                    cmd.CommandText = "SELECT @@IDENTITY";
+                    d.documento = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    Entrada(e, produtos, d.documento);
+                }
+                conexao.FecharConexao();
+                MessageBox.Show("Devolução " + d.documento.ToString() + " gravada com sucesso!");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public void CancelarEntrada(string documento, string motivo) {
             string comando = "update entrada set cancelada = 'S' where documento = @documento";
             string selectEntrada = "select idproduto, quantidade from entradadados where docentrada = " + documento;

@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace PDV
 {
-    public class Entrada
+    public class Devolucao
     {
         public int documento { get; set; }
         public DateTime data { get; set; }
-        public int doc_original { get; set; }
     }
 }

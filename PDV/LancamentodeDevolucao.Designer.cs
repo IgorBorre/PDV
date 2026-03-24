@@ -52,6 +52,7 @@
             BtOriginais = new Button();
             BtLimpar = new Button();
             BtCancelar = new Button();
+            LbTroca = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -305,11 +306,22 @@
             BtCancelar.UseVisualStyleBackColor = true;
             BtCancelar.Click += BtCancelar_Click;
             // 
+            // LbTroca
+            // 
+            LbTroca.AutoSize = true;
+            LbTroca.Location = new Point(514, 495);
+            LbTroca.Name = "LbTroca";
+            LbTroca.Size = new Size(38, 15);
+            LbTroca.TabIndex = 6;
+            LbTroca.Text = "label6";
+            LbTroca.Visible = false;
+            // 
             // LancamentodeDevolucao
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(895, 524);
+            Controls.Add(LbTroca);
             Controls.Add(BtCancelar);
             Controls.Add(BtLimpar);
             Controls.Add(BtOriginais);
@@ -324,6 +336,7 @@
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -352,5 +365,6 @@
         public Button BtProcura;
         public TextBox TfQuantidade;
         public Button BtOriginais;
+        public Label LbTroca;
     }
 }
