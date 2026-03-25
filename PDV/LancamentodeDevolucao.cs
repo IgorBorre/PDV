@@ -44,7 +44,16 @@ namespace PDV
                 Devolucao d = new Devolucao();
                 Entrada entrada = new Entrada();
 
-                p.Devolucao(d, entrada, produtos, LbDocumento.Text);
+                if (string.IsNullOrEmpty(LbIdCliente.Text))
+                {
+                    p.Devolucao(d, entrada, produtos, LbDocumento.Text);
+                }
+                else { 
+                    Clientes c = new Clientes();
+                    c.codigo = int.Parse(LbIdCliente.Text);
+                    c.nome = LbNomeCliente.Text;
+                    p.Devolucao(d, entrada, produtos, LbDocumento.Text, c);
+                }
 
             }
         }

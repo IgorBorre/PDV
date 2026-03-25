@@ -341,6 +341,38 @@ namespace PDV
             }
         }
 
+        public void Devolucao(Devolucao d, Entrada e, List<Produtos> produtos, string doc_original, Clientes c)
+        {
+            string comando = "insert into devolucao (dataDevolucao, doc_original, idCliente, nomeCliente) " +
+                "values (@dataDevolucao, @doc_original, @idCliente, @nomeCliente)";
+            d.data = DateTime.Now.Date;
+
+            try
+            {
+                conexao.AbrirConexao();
+                using (MySqlCommand cmd = new MySqlCommand(comando, conexao.ObterConexao()))
+                {
+                    cmd.Parameters.AddWithValue("@dataDevolucao", d.data);
+                    cmd.Parameters.AddWithValue("@doc_original", doc_original);
+                    cmd.Parameters.AddWithValue("@idCliente", c.codigo);
+                    cmd.Parameters.AddWithValue("@nomeCliente", c.nome);
+                    cmd.ExecuteNonQuery();
+
+                    cmd.CommandText = "SELECT @@IDENTITY";
+                    d.documento = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    Entrada(e, produtos, d.documento);
+                }
+                conexao.FecharConexao();
+                MessageBox.Show("Devolução " + d.documento.ToString() + " gravada com sucesso!");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public void CancelarEntrada(string documento, string motivo) {
             string comando = "update entrada set cancelada = 'S' where documento = @documento";
             string selectEntrada = "select idproduto, quantidade from entradadados where docentrada = " + documento;
