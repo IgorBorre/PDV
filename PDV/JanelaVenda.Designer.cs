@@ -646,7 +646,6 @@
         private ColumnHeader DESC;
         private ColumnHeader QTD;
         private ColumnHeader PREÇO;
-        private Label lblQtd;
         private Label lbDetalhesCodigo;
         private Label lbDetalhesPreco;
         private Label lbDetalhesEstoque;
@@ -660,5 +659,6 @@
         private Label label16;
         public Label lbDesconto;
         public Label lbAcrescimo;
+        public Label lblQtd;
     }
 }

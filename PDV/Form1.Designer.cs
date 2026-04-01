@@ -202,6 +202,7 @@
             consultaDeDevoluçõesToolStripMenuItem.Name = "consultaDeDevoluçõesToolStripMenuItem";
             consultaDeDevoluçõesToolStripMenuItem.Size = new Size(200, 22);
             consultaDeDevoluçõesToolStripMenuItem.Text = "Consulta de devoluções";
+            consultaDeDevoluçõesToolStripMenuItem.Click += consultaDeDevoluçõesToolStripMenuItem_Click;
             // 
             // cancelamentoToolStripMenuItem
             // 

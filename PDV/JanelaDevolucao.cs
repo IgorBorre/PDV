@@ -114,7 +114,7 @@ namespace PDV
         {
             if (!string.IsNullOrEmpty(LbDocumento.Text))
             {
-                LancamentodeDevolucao lancamento = new LancamentodeDevolucao();
+                LancamentodeDevolucao lancamento = new LancamentodeDevolucao(this);
                 lancamento.LbDocumento.Text = LbDocumento.Text;
 
                 string c = "select codigo, referencia, descricao, quantidade from produtos join saidadados on produtos.codigo = saidadados.produto " +
@@ -136,7 +136,8 @@ namespace PDV
                 if (RbDevolucaototal.Checked) { 
                     
                     lancamento.dataGridView1.DataSource = dt;
-                    
+                    lancamento.BtLimpar.Enabled = false;
+
                     foreach (DataRow row in dt.Rows) { 
                         Produtos p = new Produtos();
                         p.codigo = Convert.ToInt32(row["codigo"]);
@@ -153,6 +154,10 @@ namespace PDV
                     lancamento.BtOriginais.Enabled = false;
                     lancamento.BtConfirmar.Enabled = false;
                 }
+                if (RbTroca.Checked) {
+                    lancamento.LbTroca.Text = "Troca";
+                }
+
                 lancamento.Show();
             }
             else

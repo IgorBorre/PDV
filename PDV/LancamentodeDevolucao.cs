@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,11 +16,14 @@ namespace PDV
         double quantidadeOriginal = 0;
         
         public List<Produtos> produtos = new List<Produtos>();
+
+        private JanelaDevolucao janela;
         
         ItensOriginais itens;
-        public LancamentodeDevolucao()
+        public LancamentodeDevolucao(JanelaDevolucao janela)
         {
             InitializeComponent();
+            this.janela = janela;
             itens = new ItensOriginais();
         }
 
@@ -47,12 +51,44 @@ namespace PDV
                 if (string.IsNullOrEmpty(LbIdCliente.Text))
                 {
                     p.Devolucao(d, entrada, produtos, LbDocumento.Text);
+                    Dispose();
+                    if (LbTroca.Text == "Troca")
+                    {
+                        JanelaVenda janelaVenda = new JanelaVenda();
+                        //janelaVenda.lblTotal.Text =
+                        janelaVenda.Show();
+                    }
+
+                    janela.LbCliente.Text = string.Empty;
+                    janela.LbData.Text = string.Empty;
+                    janela.LbDesc.Text = "0,00";
+                    janela.LbSubtotal.Text = "0,00";
+                    janela.LbTotal.Text = "0,00";
+                    janela.LbDocumento.Text = string.Empty;
+                    janela.TfDocumento.Text = string.Empty;
+                    janela.TfDocumento.Focus();
                 }
                 else { 
                     Clientes c = new Clientes();
                     c.codigo = int.Parse(LbIdCliente.Text);
                     c.nome = LbNomeCliente.Text;
                     p.Devolucao(d, entrada, produtos, LbDocumento.Text, c);
+                    Dispose();
+                    if (LbTroca.Text == "Troca")
+                    {
+                        JanelaVenda janelaVenda = new JanelaVenda();
+                        //janelaVenda.lblTotal.Text =
+                        janelaVenda.Show();
+                    }
+
+                    janela.LbCliente.Text = string.Empty;
+                    janela.LbData.Text = string.Empty;
+                    janela.LbDesc.Text = "0,00";
+                    janela.LbSubtotal.Text = "0,00";
+                    janela.LbTotal.Text = "0,00";
+                    janela.LbDocumento.Text = string.Empty;
+                    janela.TfDocumento.Text = string.Empty;
+                    janela.TfDocumento.Focus();
                 }
 
             }
@@ -289,6 +325,8 @@ namespace PDV
             TfId.Text = string.Empty;
             TfProduto.Text= string.Empty;
             TfQuantidade.Text = string.Empty;
+            LbIdCliente.Text = string.Empty;
+            LbNomeCliente.Text = string.Empty;
         }
     }
 }

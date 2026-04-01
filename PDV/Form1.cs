@@ -62,8 +62,8 @@ namespace PDV
         {
             ConsultaEntradas consultaEntradas = new ConsultaEntradas();
             consultaEntradas.Show();
-        }     
-              
+        }
+
         private void devoluçãoTrocaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             JanelaDevolucao janela = new JanelaDevolucao();
@@ -92,6 +92,12 @@ namespace PDV
         {
             JanelaConsultaCancelamento janelaConsultaCancelamento = new JanelaConsultaCancelamento();
             janelaConsultaCancelamento.Show();
+        }
+
+        private void consultaDeDevoluçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JanelaConsultaDevolucao consultaDevolucao = new JanelaConsultaDevolucao();
+            consultaDevolucao.Show();
         }
     }
 }

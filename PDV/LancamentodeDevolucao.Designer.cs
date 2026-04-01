@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            LbNomeCliente = new Label();
+            LbIdCliente = new Label();
+            label6 = new Label();
             TfQuantidade = new TextBox();
             BtProcura = new Button();
             LbDocumento = new Label();
@@ -53,9 +56,6 @@
             BtLimpar = new Button();
             BtCancelar = new Button();
             LbTroca = new Label();
-            label6 = new Label();
-            LbIdCliente = new Label();
-            LbNomeCliente = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -85,6 +85,33 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Informações do item da devolução";
+            // 
+            // LbNomeCliente
+            // 
+            LbNomeCliente.AutoSize = true;
+            LbNomeCliente.Location = new Point(457, 81);
+            LbNomeCliente.Name = "LbNomeCliente";
+            LbNomeCliente.Size = new Size(32, 15);
+            LbNomeCliente.TabIndex = 17;
+            LbNomeCliente.Text = "label";
+            // 
+            // LbIdCliente
+            // 
+            LbIdCliente.AutoSize = true;
+            LbIdCliente.Location = new Point(408, 81);
+            LbIdCliente.Name = "LbIdCliente";
+            LbIdCliente.Size = new Size(32, 15);
+            LbIdCliente.TabIndex = 16;
+            LbIdCliente.Text = "label";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(359, 81);
+            label6.Name = "label6";
+            label6.Size = new Size(47, 15);
+            label6.TabIndex = 15;
+            label6.Text = "Cliente:";
             // 
             // TfQuantidade
             // 
@@ -322,33 +349,6 @@
             LbTroca.Text = "label6";
             LbTroca.Visible = false;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(359, 81);
-            label6.Name = "label6";
-            label6.Size = new Size(47, 15);
-            label6.TabIndex = 15;
-            label6.Text = "Cliente:";
-            // 
-            // LbIdCliente
-            // 
-            LbIdCliente.AutoSize = true;
-            LbIdCliente.Location = new Point(408, 81);
-            LbIdCliente.Name = "LbIdCliente";
-            LbIdCliente.Size = new Size(32, 15);
-            LbIdCliente.TabIndex = 16;
-            LbIdCliente.Text = "label";
-            // 
-            // LbNomeCliente
-            // 
-            LbNomeCliente.AutoSize = true;
-            LbNomeCliente.Location = new Point(457, 81);
-            LbNomeCliente.Name = "LbNomeCliente";
-            LbNomeCliente.Size = new Size(32, 15);
-            LbNomeCliente.TabIndex = 17;
-            LbNomeCliente.Text = "label";
-            // 
             // LancamentodeDevolucao
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -384,7 +384,6 @@
         private Label label4;
         private Label label3;
         private Button BtFinalizar;
-        private Button BtLimpar;
         private Button BtCancelar;
         public Label LbDocumento;
         public DataGridView dataGridView1;
@@ -402,5 +401,6 @@
         private Label label6;
         public Label LbNomeCliente;
         public Label LbIdCliente;
+        public Button BtLimpar;
     }
 }

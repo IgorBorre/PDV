@@ -115,7 +115,7 @@
             label6.AutoSize = true;
             label6.Location = new Point(29, 133);
             label6.Name = "label6";
-            label6.Size = new Size(35, 15);
+            label6.Size = new Size(36, 15);
             label6.TabIndex = 8;
             label6.Text = "Total:";
             // 
@@ -194,7 +194,7 @@
             RbTroca.AutoSize = true;
             RbTroca.Location = new Point(6, 31);
             RbTroca.Name = "RbTroca";
-            RbTroca.Size = new Size(264, 19);
+            RbTroca.Size = new Size(265, 19);
             RbTroca.TabIndex = 4;
             RbTroca.TabStop = true;
             RbTroca.Text = "Troca (Abre janela de saída após a devolução)";
@@ -297,18 +297,12 @@
         #endregion
 
         private Label label1;
-        private TextBox TfDocumento;
         private Button BtProcurar;
         private GroupBox groupBox1;
-        private Label LbCliente;
         private Label label2;
-        private Label LbSubtotal;
         private Label label4;
-        private Label LbData;
         private Label label3;
-        private Label LbDesc;
         private Label label5;
-        private Label LbTotal;
         private Label label6;
         private RadioButton RbTroca;
         private RadioButton RbDevolucaoparcial;
@@ -317,5 +311,11 @@
         private Button BtCancelar;
         private GroupBox groupBox2;
         public Label LbDocumento;
+        public Label LbCliente;
+        public Label LbData;
+        public TextBox TfDocumento;
+        public Label LbSubtotal;
+        public Label LbDesc;
+        public Label LbTotal;
     }
 }
