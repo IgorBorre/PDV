@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            label1 = new Label();
-            TfDocumento = new TextBox();
-            TfData1 = new MaskedTextBox();
-            Data = new Label();
-            label2 = new Label();
-            TfData2 = new MaskedTextBox();
-            label3 = new Label();
-            TfIdCliente = new TextBox();
-            TfCliente = new TextBox();
-            BtProcura = new Button();
             BtLimpar = new Button();
+            BtProcura = new Button();
+            TfCliente = new TextBox();
+            TfIdCliente = new TextBox();
+            label3 = new Label();
+            TfData2 = new MaskedTextBox();
+            label2 = new Label();
+            Data = new Label();
+            TfData1 = new MaskedTextBox();
+            TfDocumento = new TextBox();
+            label1 = new Label();
             dataGridView1 = new DataGridView();
             documento = new DataGridViewTextBoxColumn();
             nomeCliente = new DataGridViewTextBoxColumn();
@@ -69,80 +69,17 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Filtros";
             // 
-            // label1
+            // BtLimpar
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(6, 19);
-            label1.Name = "label1";
-            label1.Size = new Size(70, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Documento";
-            // 
-            // TfDocumento
-            // 
-            TfDocumento.Location = new Point(6, 37);
-            TfDocumento.Name = "TfDocumento";
-            TfDocumento.Size = new Size(100, 23);
-            TfDocumento.TabIndex = 1;
-            // 
-            // TfData1
-            // 
-            TfData1.Location = new Point(157, 37);
-            TfData1.Mask = "00/00/0000";
-            TfData1.Name = "TfData1";
-            TfData1.Size = new Size(70, 23);
-            TfData1.TabIndex = 7;
-            TfData1.ValidatingType = typeof(DateTime);
-            // 
-            // Data
-            // 
-            Data.AutoSize = true;
-            Data.Location = new Point(157, 19);
-            Data.Name = "Data";
-            Data.Size = new Size(31, 15);
-            Data.TabIndex = 8;
-            Data.Text = "Data";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(233, 40);
-            label2.Name = "label2";
-            label2.Size = new Size(13, 15);
-            label2.TabIndex = 9;
-            label2.Text = "a";
-            // 
-            // TfData2
-            // 
-            TfData2.Location = new Point(252, 37);
-            TfData2.Mask = "00/00/0000";
-            TfData2.Name = "TfData2";
-            TfData2.Size = new Size(70, 23);
-            TfData2.TabIndex = 10;
-            TfData2.ValidatingType = typeof(DateTime);
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(6, 79);
-            label3.Name = "label3";
-            label3.Size = new Size(44, 15);
-            label3.TabIndex = 11;
-            label3.Text = "Cliente";
-            // 
-            // TfIdCliente
-            // 
-            TfIdCliente.Location = new Point(6, 97);
-            TfIdCliente.Name = "TfIdCliente";
-            TfIdCliente.Size = new Size(44, 23);
-            TfIdCliente.TabIndex = 12;
-            // 
-            // TfCliente
-            // 
-            TfCliente.Location = new Point(56, 97);
-            TfCliente.Name = "TfCliente";
-            TfCliente.Size = new Size(265, 23);
-            TfCliente.TabIndex = 13;
+            BtLimpar.Image = Properties.Resources.lixeira_de_reciclagem__1_;
+            BtLimpar.ImageAlign = ContentAlignment.MiddleLeft;
+            BtLimpar.Location = new Point(838, 79);
+            BtLimpar.Name = "BtLimpar";
+            BtLimpar.Size = new Size(75, 23);
+            BtLimpar.TabIndex = 15;
+            BtLimpar.Text = "  Limpar";
+            BtLimpar.UseVisualStyleBackColor = true;
+            BtLimpar.Click += BtLimpar_Click;
             // 
             // BtProcura
             // 
@@ -155,17 +92,84 @@
             BtProcura.Text = "Procurar";
             BtProcura.TextAlign = ContentAlignment.MiddleRight;
             BtProcura.UseVisualStyleBackColor = true;
+            BtProcura.Click += BtProcura_Click;
             // 
-            // BtLimpar
+            // TfCliente
             // 
-            BtLimpar.Image = Properties.Resources.lixeira_de_reciclagem__1_;
-            BtLimpar.ImageAlign = ContentAlignment.MiddleLeft;
-            BtLimpar.Location = new Point(838, 79);
-            BtLimpar.Name = "BtLimpar";
-            BtLimpar.Size = new Size(75, 23);
-            BtLimpar.TabIndex = 15;
-            BtLimpar.Text = "  Limpar";
-            BtLimpar.UseVisualStyleBackColor = true;
+            TfCliente.Location = new Point(56, 97);
+            TfCliente.Name = "TfCliente";
+            TfCliente.Size = new Size(265, 23);
+            TfCliente.TabIndex = 13;
+            TfCliente.Leave += TfCliente_Leave;
+            // 
+            // TfIdCliente
+            // 
+            TfIdCliente.Location = new Point(6, 97);
+            TfIdCliente.Name = "TfIdCliente";
+            TfIdCliente.Size = new Size(44, 23);
+            TfIdCliente.TabIndex = 12;
+            TfIdCliente.Leave += TfIdCliente_Leave;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(6, 79);
+            label3.Name = "label3";
+            label3.Size = new Size(44, 15);
+            label3.TabIndex = 11;
+            label3.Text = "Cliente";
+            // 
+            // TfData2
+            // 
+            TfData2.Location = new Point(252, 37);
+            TfData2.Mask = "00/00/0000";
+            TfData2.Name = "TfData2";
+            TfData2.Size = new Size(70, 23);
+            TfData2.TabIndex = 10;
+            TfData2.ValidatingType = typeof(DateTime);
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(233, 40);
+            label2.Name = "label2";
+            label2.Size = new Size(13, 15);
+            label2.TabIndex = 9;
+            label2.Text = "a";
+            // 
+            // Data
+            // 
+            Data.AutoSize = true;
+            Data.Location = new Point(157, 19);
+            Data.Name = "Data";
+            Data.Size = new Size(31, 15);
+            Data.TabIndex = 8;
+            Data.Text = "Data";
+            // 
+            // TfData1
+            // 
+            TfData1.Location = new Point(157, 37);
+            TfData1.Mask = "00/00/0000";
+            TfData1.Name = "TfData1";
+            TfData1.Size = new Size(70, 23);
+            TfData1.TabIndex = 7;
+            TfData1.ValidatingType = typeof(DateTime);
+            // 
+            // TfDocumento
+            // 
+            TfDocumento.Location = new Point(6, 37);
+            TfDocumento.Name = "TfDocumento";
+            TfDocumento.Size = new Size(100, 23);
+            TfDocumento.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(6, 19);
+            label1.Name = "label1";
+            label1.Size = new Size(70, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Documento";
             // 
             // dataGridView1
             // 
@@ -184,6 +188,7 @@
             // 
             // documento
             // 
+            documento.DataPropertyName = "documento";
             documento.FillWeight = 48.1980362F;
             documento.HeaderText = "Documento";
             documento.Name = "documento";
@@ -191,6 +196,7 @@
             // 
             // nomeCliente
             // 
+            nomeCliente.DataPropertyName = "nomeCliente";
             nomeCliente.FillWeight = 204.825439F;
             nomeCliente.HeaderText = "Cliente";
             nomeCliente.Name = "nomeCliente";
@@ -198,6 +204,7 @@
             // 
             // dataDevolucao
             // 
+            dataDevolucao.DataPropertyName = "dataDevolucao";
             dataDevolucao.FillWeight = 86.06286F;
             dataDevolucao.HeaderText = "Data";
             dataDevolucao.Name = "dataDevolucao";
@@ -205,6 +212,7 @@
             // 
             // doc_original
             // 
+            doc_original.DataPropertyName = "doc_original";
             doc_original.FillWeight = 60.9137154F;
             doc_original.HeaderText = "Documento Original";
             doc_original.Name = "doc_original";
@@ -219,7 +227,7 @@
             Controls.Add(groupBox1);
             Name = "JanelaConsultaDevolucao";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "JanelaConsultaDevolucao";
+            Text = "Consulta de Devoluções";
             Load += JanelaConsultaDevolucao_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

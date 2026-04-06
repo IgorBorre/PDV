@@ -231,6 +231,39 @@ namespace PDV
             return a;
         }
 
+        public String CriteriosDevolucao(string documento, string cliente, string data1, string data2)
+        {
+
+            string a = "";
+
+            if (!string.IsNullOrEmpty(documento))
+            {
+                a += " and documento = " + documento;
+            }
+
+            if (!string.IsNullOrEmpty(data1) && !string.IsNullOrEmpty(data2))
+            {
+                a += " and dataDevolucao between" + "'" + data1 + "'" + " and " + "'" + data2 + "'";
+            }
+
+            if (!string.IsNullOrEmpty(cliente))
+            {
+                a += " and idCliente = " + cliente;
+            }
+
+            if (!string.IsNullOrEmpty(data1) && string.IsNullOrEmpty(data2))
+            {
+                a += " and dataDevolucao >= '" + data1 + "'";
+            }
+
+            if (string.IsNullOrEmpty(data1) && !string.IsNullOrEmpty(data2))
+            {
+                a += " and dataDevolucao <= '" + data2 + "'";
+            }
+
+            return a;
+        }
+
         public void CancelarVenda(string documento, string motivo)
         {
             string comando = "update saida set cancelada = 'S' where documento = @documento";
