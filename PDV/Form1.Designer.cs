@@ -209,6 +209,7 @@
             cancelamentoToolStripMenuItem.Name = "cancelamentoToolStripMenuItem";
             cancelamentoToolStripMenuItem.Size = new Size(200, 22);
             cancelamentoToolStripMenuItem.Text = "Cancelamento";
+            cancelamentoToolStripMenuItem.Click += cancelamentoToolStripMenuItem_Click;
             // 
             // caixaToolStripMenuItem
             // 

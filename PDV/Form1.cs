@@ -99,5 +99,11 @@ namespace PDV
             JanelaConsultaDevolucao consultaDevolucao = new JanelaConsultaDevolucao();
             consultaDevolucao.Show();
         }
+
+        private void cancelamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CancelamentoDeDevolucao cancelamento = new CancelamentoDeDevolucao();
+            cancelamento.Show();
+        }
     }
 }

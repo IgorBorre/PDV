@@ -417,6 +417,39 @@ namespace PDV
             }
         }
 
+
+
+        public void CancelarDevolucao(string documento) {
+            string c = "update devolucao set cancelada = 'S' where documento = @documento";
+            string selectEntrada = "select documento from entrada where doc_original = " + documento;
+            string docEntrada;
+
+            DataTable dt = ListarProdutos(selectEntrada);
+            DataRow row = null;
+            row = dt.Rows[0];
+            docEntrada = row["documento"].ToString();
+
+            try
+            {
+                conexao.AbrirConexao();
+                using (MySqlCommand cmd = new MySqlCommand(c, conexao.ObterConexao()))
+                {
+                    cmd.Parameters.AddWithValue("@documento", documento);
+                    cmd.ExecuteNonQuery();
+
+                    
+                }
+                conexao.FecharConexao();
+                CancelarEntrada(docEntrada, "Cancelamento de devolução");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Erro ao cancelar devolução: " + e);
+            }
+        }
+
+
+
         public String CriteriosConsultaCancelamentoEntrada(string documento, string data1, string data2) { 
             string a = "";
 
