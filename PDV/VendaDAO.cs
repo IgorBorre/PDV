@@ -18,7 +18,7 @@ namespace PDV
 
         public void Venda(Clientes c, Venda v, List<Produtos> produtos, List<FormasdePagamento> formaspag) {
             string comandoSaida = "insert into saida (clienteId, clienteNome, dataSaida, valortotal, desconto, acrescimo, subtotal) values (@clienteId, @clienteNome, @dataSaida, @valortotal, @desconto, @acrescimo, @subtotal)";
-            string comandoSaidaDados = "insert into saidadados (documento, produto, produtoNome, quantidade) values (@documento, @produto, @produtoNome, @quantidade)";
+            string comandoSaidaDados = "insert into saidadados (documento, produto, produtoNome, quantidade, valor) values (@documento, @produto, @produtoNome, @quantidade, @valor)";
             string updateProdutos = "update produtos set estoque = estoque - @quantidade where codigo = @codigo";
             string comandoPagsaida = "insert into pagsaida (documento, idpagamento, descpagamento, valor, parcelas) values (@documento, @idpagamento, @descpagamento, @valor, @parcelas)";
 
@@ -52,6 +52,7 @@ namespace PDV
                         cmd.Parameters.AddWithValue("@produto", p.codigo);
                         cmd.Parameters.AddWithValue("@produtoNome", p.descricao);
                         cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
+                        cmd.Parameters.AddWithValue("@valor", p.preco);
 
                         cmd.ExecuteNonQuery();
 
@@ -92,7 +93,7 @@ namespace PDV
 
         public void Venda(Venda v, List<Produtos> produtos, List<FormasdePagamento> formaspag) {
             string comandoSaida = "insert into saida (dataSaida, valortotal, desconto, acrescimo, subtotal) values (@dataSaida, @valortotal, @desconto, @acrescimo, @subtotal)";
-            string comandoSaidaDados = "insert into saidadados (documento, produto, produtoNome, quantidade) values (@documento, @produto, @produtoNome, @quantidade)";
+            string comandoSaidaDados = "insert into saidadados (documento, produto, produtoNome, quantidade, valor) values (@documento, @produto, @produtoNome, @quantidade, @valor)";
             string updateProdutos = "update produtos set estoque = estoque - @quantidade where codigo = @codigo";
             string comandoPagsaida = "insert into pagsaida (documento, idpagamento, descpagamento, valor, parcelas) values (@documento, @idpagamento, @descpagamento, @valor, @parcelas)";
 
@@ -124,6 +125,7 @@ namespace PDV
                         cmd.Parameters.AddWithValue("@produto", p.codigo);
                         cmd.Parameters.AddWithValue("@produtoNome", p.descricao);
                         cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
+                        cmd.Parameters.AddWithValue("@valor", p.preco);
                         cmd.ExecuteNonQuery();
 
                     }

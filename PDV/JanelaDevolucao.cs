@@ -100,6 +100,7 @@ namespace PDV
                 LbSubtotal.Text = "0,00";
                 LbDesc.Text = "0,00";
                 LbTotal.Text = "0,00";
+                LbDocumento.Text = string.Empty;
                 TfDocumento.Focus();
             }
 

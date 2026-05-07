@@ -96,7 +96,7 @@ namespace PDV
                     }
                 }
             }
-            else { 
+            if (!string.IsNullOrEmpty(TfIdCliente.Text) && string.IsNullOrEmpty(TfCliente.Text)) { 
                 TfIdCliente.Text = string.Empty;
             }
         }

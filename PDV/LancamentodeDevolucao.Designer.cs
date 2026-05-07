@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            label7 = new Label();
+            TfValor = new TextBox();
             LbNomeCliente = new Label();
             LbIdCliente = new Label();
             label6 = new Label();
@@ -62,6 +64,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(TfValor);
             groupBox1.Controls.Add(LbNomeCliente);
             groupBox1.Controls.Add(LbIdCliente);
             groupBox1.Controls.Add(label6);
@@ -85,6 +89,22 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Informações do item da devolução";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(522, 25);
+            label7.Name = "label7";
+            label7.Size = new Size(77, 15);
+            label7.TabIndex = 19;
+            label7.Text = "Valor unitário";
+            // 
+            // TfValor
+            // 
+            TfValor.Location = new Point(522, 44);
+            TfValor.Name = "TfValor";
+            TfValor.Size = new Size(100, 23);
+            TfValor.TabIndex = 18;
             // 
             // LbNomeCliente
             // 
@@ -134,7 +154,7 @@
             // LbDocumento
             // 
             LbDocumento.AutoSize = true;
-            LbDocumento.Location = new Point(752, 35);
+            LbDocumento.Location = new Point(842, 25);
             LbDocumento.Name = "LbDocumento";
             LbDocumento.Size = new Size(38, 15);
             LbDocumento.TabIndex = 12;
@@ -196,7 +216,7 @@
             // 
             BtConfirmar.Image = Properties.Resources.verifica__2___1_;
             BtConfirmar.ImageAlign = ContentAlignment.MiddleRight;
-            BtConfirmar.Location = new Point(539, 42);
+            BtConfirmar.Location = new Point(681, 42);
             BtConfirmar.Name = "BtConfirmar";
             BtConfirmar.Size = new Size(84, 23);
             BtConfirmar.TabIndex = 5;
@@ -402,5 +422,7 @@
         public Label LbNomeCliente;
         public Label LbIdCliente;
         public Button BtLimpar;
+        private Label label7;
+        public TextBox TfValor;
     }
 }

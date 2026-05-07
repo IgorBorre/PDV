@@ -16,7 +16,6 @@ namespace PDV
         public double estoque { get; set; }
         public double preco { get; set; }
         public double quantidade { get; set; }
-        public double subtotal { get; set; }
 
     }
 }

@@ -97,7 +97,7 @@ namespace PDV
         private void BtOriginais_Click(object sender, EventArgs e)
         {
 
-            string c = "select codigo, referencia, descricao, quantidade from produtos join saidadados on produtos.codigo = saidadados.produto " +
+            string c = "select codigo, referencia, descricao, quantidade, valor from produtos join saidadados on produtos.codigo = saidadados.produto " +
                         "where saidadados.documento = " + LbDocumento.Text;
 
             VendaDAO v = new VendaDAO();
@@ -127,7 +127,7 @@ namespace PDV
                 }
 
 
-                string c = "select codigo, referencia, descricao, quantidade from saidadados s join produtos p on p.codigo = s.produto where documento = " + LbDocumento.Text + " and s.produto = " + TfId.Text;
+                string c = "select codigo, referencia, descricao, quantidade, valor from saidadados s join produtos p on p.codigo = s.produto where documento = " + LbDocumento.Text + " and s.produto = " + TfId.Text;
                 VendaDAO v = new VendaDAO();
                 DataTable dt = v.ConsultaSaidas(c);
 
@@ -141,6 +141,7 @@ namespace PDV
                     LbCodigo.Text = row["codigo"].ToString();
                     LbDescricao.Text = row["descricao"].ToString();
                     LbReferencia.Text = row["referencia"].ToString();
+                    TfValor.Text = row["valor"].ToString();
 
                 }
                 else
@@ -179,7 +180,7 @@ namespace PDV
                 }
 
 
-                string c = "select codigo, referencia, descricao, quantidade from saidadados s join produtos p on p.codigo = s.produto where documento = " + LbDocumento.Text + " and s.produto = " + TfId.Text;
+                string c = "select codigo, referencia, descricao, quantidade, valor from saidadados s join produtos p on p.codigo = s.produto where documento = " + LbDocumento.Text + " and s.produto = " + TfId.Text;
                 VendaDAO v = new VendaDAO();
                 DataTable dt = v.ConsultaSaidas(c);
 
@@ -192,6 +193,7 @@ namespace PDV
                     LbCodigo.Text = row["codigo"].ToString();
                     LbDescricao.Text = row["descricao"].ToString();
                     LbReferencia.Text = row["referencia"].ToString();
+                    TfValor.Text = row["valor"].ToString();
 
                 }
                 else
@@ -253,6 +255,7 @@ namespace PDV
                 p.descricao = TfProduto.Text;
                 p.referencia = row["referencia"].ToString();
                 p.quantidade = double.Parse(TfQuantidade.Text);
+                p.preco = double.Parse(TfValor.Text);
 
                 var produto = produtos.FirstOrDefault(p => p.codigo == Convert.ToInt32(TfId.Text));
                 if (produto != null)

@@ -72,7 +72,8 @@ namespace PDV
         {
             if (e.KeyCode == Keys.Escape)
             {
-                if (string.IsNullOrEmpty(TfId.Text.ToString()) && string.IsNullOrEmpty(TfQtd.Text.ToString()) && string.IsNullOrEmpty(TfPreco.Text.ToString()) && listBox1.Items.Count <= 0 && string.IsNullOrEmpty(lbIdCliente.Text))
+                if (string.IsNullOrEmpty(TfId.Text.ToString()) && string.IsNullOrEmpty(TfQtd.Text.ToString()) && string.IsNullOrEmpty(TfPreco.Text.ToString())
+                    && listBox1.Items.Count <= 0 && string.IsNullOrEmpty(lbIdCliente.Text))
                 {
                     this.Close();
                 }
@@ -167,7 +168,7 @@ namespace PDV
                 }
             }
             else {
-                MessageBox.Show("Não é possível finalizar uma venda sem produto!");
+                MessageBox.Show("Não é possível finalizar uma saída sem produto!");
             }
 
             
