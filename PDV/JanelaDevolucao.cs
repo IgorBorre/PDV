@@ -154,6 +154,7 @@ namespace PDV
                     lancamento.TfQuantidade.Enabled = false;
                     lancamento.BtOriginais.Enabled = false;
                     lancamento.BtConfirmar.Enabled = false;
+                    lancamento.TfValor.Enabled = false;
                 }
                 if (RbTroca.Checked) {
                     lancamento.LbTroca.Text = "Troca";
