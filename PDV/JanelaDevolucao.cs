@@ -118,7 +118,7 @@ namespace PDV
                 LancamentodeDevolucao lancamento = new LancamentodeDevolucao(this);
                 lancamento.LbDocumento.Text = LbDocumento.Text;
 
-                string c = "select codigo, referencia, descricao, quantidade from produtos join saidadados on produtos.codigo = saidadados.produto " +
+                string c = "select codigo, referencia, descricao, quantidade, valor from produtos join saidadados on produtos.codigo = saidadados.produto " +
                       "where saidadados.documento = " + LbDocumento.Text;
 
                 VendaDAO v = new VendaDAO();
@@ -138,6 +138,7 @@ namespace PDV
                     
                     lancamento.dataGridView1.DataSource = dt;
                     lancamento.BtLimpar.Enabled = false;
+                    double total = 0;
 
                     foreach (DataRow row in dt.Rows) { 
                         Produtos p = new Produtos();
@@ -145,6 +146,8 @@ namespace PDV
                         p.referencia = row["referencia"].ToString();
                         p.descricao = row["descricao"].ToString();
                         p.quantidade = Convert.ToDouble(row["quantidade"]);
+                        p.preco = Convert.ToDouble(row["valor"]);
+                        total += p.quantidade * p.preco;
                         lancamento.produtos.Add(p);
                     }
 
@@ -155,6 +158,7 @@ namespace PDV
                     lancamento.BtOriginais.Enabled = false;
                     lancamento.BtConfirmar.Enabled = false;
                     lancamento.TfValor.Enabled = false;
+                    lancamento.LbTotal.Text = total.ToString();
                 }
                 if (RbTroca.Checked) {
                     lancamento.LbTroca.Text = "Troca";

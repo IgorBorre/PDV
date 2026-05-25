@@ -315,7 +315,7 @@ namespace PDV
         }
 
         public void Devolucao(Devolucao d,Entrada e ,List<Produtos> produtos, string doc_original) {
-            string c = "insert into devolucao (dataDevolucao, doc_original) values (@dataDevolucao, @doc_original)";
+            string c = "insert into devolucao (dataDevolucao, doc_original, valor) values (@dataDevolucao, @doc_original, @valor)";
             d.data = DateTime.Now.Date;
 
             try
@@ -324,6 +324,7 @@ namespace PDV
                 using (MySqlCommand cmd = new MySqlCommand(c, conexao.ObterConexao())) {
                     cmd.Parameters.AddWithValue("@dataDevolucao", d.data);
                     cmd.Parameters.AddWithValue("@doc_original", doc_original);
+                    cmd.Parameters.AddWithValue("@valor", d.valor);
                     cmd.ExecuteNonQuery();
 
                     cmd.CommandText = "SELECT @@IDENTITY";
@@ -343,8 +344,8 @@ namespace PDV
 
         public void Devolucao(Devolucao d, Entrada e, List<Produtos> produtos, string doc_original, Clientes c)
         {
-            string comando = "insert into devolucao (dataDevolucao, doc_original, idCliente, nomeCliente) " +
-                "values (@dataDevolucao, @doc_original, @idCliente, @nomeCliente)";
+            string comando = "insert into devolucao (dataDevolucao, doc_original, valor, idCliente, nomeCliente) " +
+                "values (@dataDevolucao, @doc_original, @valor, @idCliente, @nomeCliente)";
             d.data = DateTime.Now.Date;
 
             try
@@ -354,6 +355,7 @@ namespace PDV
                 {
                     cmd.Parameters.AddWithValue("@dataDevolucao", d.data);
                     cmd.Parameters.AddWithValue("@doc_original", doc_original);
+                    cmd.Parameters.AddWithValue("@valor", d.valor);
                     cmd.Parameters.AddWithValue("@idCliente", c.codigo);
                     cmd.Parameters.AddWithValue("@nomeCliente", c.nome);
                     cmd.ExecuteNonQuery();

@@ -53,11 +53,14 @@
             referencia = new DataGridViewTextBoxColumn();
             descricao = new DataGridViewTextBoxColumn();
             quantidade = new DataGridViewTextBoxColumn();
+            valor = new DataGridViewTextBoxColumn();
             BtFinalizar = new Button();
             BtOriginais = new Button();
             BtLimpar = new Button();
             BtCancelar = new Button();
             LbTroca = new Label();
+            label8 = new Label();
+            LbTotal = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -103,6 +106,7 @@
             // 
             TfValor.Location = new Point(522, 44);
             TfValor.Name = "TfValor";
+            TfValor.ReadOnly = true;
             TfValor.Size = new Size(100, 23);
             TfValor.TabIndex = 18;
             // 
@@ -265,7 +269,7 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { codigo, referencia, descricao, quantidade });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { codigo, referencia, descricao, quantidade, valor });
             dataGridView1.Location = new Point(3, 144);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -279,7 +283,7 @@
             // codigo
             // 
             codigo.DataPropertyName = "codigo";
-            codigo.FillWeight = 56.1634941F;
+            codigo.FillWeight = 61.29518F;
             codigo.HeaderText = "Código";
             codigo.Name = "codigo";
             codigo.ReadOnly = true;
@@ -287,7 +291,7 @@
             // referencia
             // 
             referencia.DataPropertyName = "referencia";
-            referencia.FillWeight = 121.8274F;
+            referencia.FillWeight = 132.958847F;
             referencia.HeaderText = "Referência";
             referencia.Name = "referencia";
             referencia.ReadOnly = true;
@@ -295,7 +299,7 @@
             // descricao
             // 
             descricao.DataPropertyName = "descricao";
-            descricao.FillWeight = 165.682327F;
+            descricao.FillWeight = 180.820816F;
             descricao.HeaderText = "Descrição";
             descricao.Name = "descricao";
             descricao.ReadOnly = true;
@@ -303,10 +307,18 @@
             // quantidade
             // 
             quantidade.DataPropertyName = "quantidade";
-            quantidade.FillWeight = 56.3267632F;
+            quantidade.FillWeight = 61.47337F;
             quantidade.HeaderText = "Quantidade";
             quantidade.Name = "quantidade";
             quantidade.ReadOnly = true;
+            // 
+            // valor
+            // 
+            valor.DataPropertyName = "valor";
+            valor.FillWeight = 63.45177F;
+            valor.HeaderText = "Valor unitário";
+            valor.Name = "valor";
+            valor.ReadOnly = true;
             // 
             // BtFinalizar
             // 
@@ -362,18 +374,40 @@
             // LbTroca
             // 
             LbTroca.AutoSize = true;
-            LbTroca.Location = new Point(514, 495);
+            LbTroca.Location = new Point(845, 495);
             LbTroca.Name = "LbTroca";
             LbTroca.Size = new Size(38, 15);
             LbTroca.TabIndex = 6;
             LbTroca.Text = "label6";
             LbTroca.Visible = false;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(484, 493);
+            label8.Name = "label8";
+            label8.Size = new Size(39, 17);
+            label8.TabIndex = 7;
+            label8.Text = "Total:";
+            // 
+            // LbTotal
+            // 
+            LbTotal.AutoSize = true;
+            LbTotal.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LbTotal.Location = new Point(525, 493);
+            LbTotal.Name = "LbTotal";
+            LbTotal.Size = new Size(15, 17);
+            LbTotal.TabIndex = 8;
+            LbTotal.Text = "0";
+            // 
             // LancamentodeDevolucao
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(895, 524);
+            Controls.Add(LbTotal);
+            Controls.Add(label8);
             Controls.Add(LbTroca);
             Controls.Add(BtCancelar);
             Controls.Add(BtLimpar);
@@ -407,10 +441,6 @@
         private Button BtCancelar;
         public Label LbDocumento;
         public DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn codigo;
-        private DataGridViewTextBoxColumn referencia;
-        private DataGridViewTextBoxColumn descricao;
-        private DataGridViewTextBoxColumn quantidade;
         public Button BtConfirmar;
         public TextBox TfId;
         public TextBox TfProduto;
@@ -424,5 +454,12 @@
         public Button BtLimpar;
         private Label label7;
         public TextBox TfValor;
+        private DataGridViewTextBoxColumn codigo;
+        private DataGridViewTextBoxColumn referencia;
+        private DataGridViewTextBoxColumn descricao;
+        private DataGridViewTextBoxColumn quantidade;
+        private DataGridViewTextBoxColumn valor;
+        private Label label8;
+        public Label LbTotal;
     }
 }

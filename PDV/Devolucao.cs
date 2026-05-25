@@ -10,5 +10,6 @@ namespace PDV
     {
         public int documento { get; set; }
         public DateTime data { get; set; }
+        public double valor { get; set; }
     }
 }

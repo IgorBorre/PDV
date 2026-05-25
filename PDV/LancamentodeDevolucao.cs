@@ -46,6 +46,7 @@ namespace PDV
             else { 
                 ProdutoDAO p = new ProdutoDAO();
                 Devolucao d = new Devolucao();
+                d.valor = double.Parse(LbTotal.Text);
                 Entrada entrada = new Entrada();
 
                 if (string.IsNullOrEmpty(LbIdCliente.Text))
@@ -55,7 +56,8 @@ namespace PDV
                     if (LbTroca.Text == "Troca")
                     {
                         JanelaVenda janelaVenda = new JanelaVenda();
-                        //janelaVenda.lblTotal.Text =
+                        //janelaVenda.lblTotal.Text = (double.Parse(LbTotal.Text) * -1).ToString();
+                        //janelaVenda.lblTotal.Visible = true;
                         janelaVenda.Show();
                     }
 
@@ -77,7 +79,7 @@ namespace PDV
                     if (LbTroca.Text == "Troca")
                     {
                         JanelaVenda janelaVenda = new JanelaVenda();
-                        //janelaVenda.lblTotal.Text =
+                        janelaVenda.lblTotal.Text = (double.Parse(LbTotal.Text) * -1).ToString();
                         janelaVenda.Show();
                     }
 
@@ -267,9 +269,11 @@ namespace PDV
                         if (codigo == produto.codigo)
                         {
                             row1.Cells["quantidade"].Value = produto.quantidade;
+                            LbTotal.Text = (double.Parse(LbTotal.Text) + (p.quantidade * p.preco)).ToString();
                             LbCodigo.Text = string.Empty;
                             LbDescricao.Text = string.Empty;
                             LbReferencia.Text = string.Empty;
+                            TfValor.Text = string.Empty;
                             break;
                         }
                     }
@@ -278,10 +282,12 @@ namespace PDV
                 {
                     produtos.Add(p);
 
-                    dataGridView1.Rows.Add(p.codigo, p.descricao, p.referencia, p.quantidade);
+                    dataGridView1.Rows.Add(p.codigo, p.descricao, p.referencia, p.quantidade, p.preco);
                     LbCodigo.Text = string.Empty;
                     LbDescricao.Text = string.Empty;
                     LbReferencia.Text = string.Empty;
+                    TfValor.Text = string.Empty;
+                    LbTotal.Text = (double.Parse(LbTotal.Text) + (p.quantidade * p.preco)).ToString();
                 }
 
                 quantidadeOriginal -= p.quantidade;
@@ -330,6 +336,8 @@ namespace PDV
             TfQuantidade.Text = string.Empty;
             LbIdCliente.Text = string.Empty;
             LbNomeCliente.Text = string.Empty;
+            TfValor.Text = string.Empty;
+            LbTotal.Text = "0";
         }
     }
 }
