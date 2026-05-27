@@ -75,6 +75,8 @@
             label16 = new Label();
             lbDesconto = new Label();
             lbAcrescimo = new Label();
+            LbDocumento = new Label();
+            LbTeste = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -563,12 +565,31 @@
             lbAcrescimo.Size = new Size(0, 30);
             lbAcrescimo.TabIndex = 28;
             // 
+            // LbDocumento
+            // 
+            LbDocumento.AutoSize = true;
+            LbDocumento.Location = new Point(1188, 710);
+            LbDocumento.Name = "LbDocumento";
+            LbDocumento.Size = new Size(0, 15);
+            LbDocumento.TabIndex = 29;
+            // 
+            // LbTeste
+            // 
+            LbTeste.AutoSize = true;
+            LbTeste.Location = new Point(1051, 582);
+            LbTeste.Name = "LbTeste";
+            LbTeste.Size = new Size(44, 15);
+            LbTeste.TabIndex = 30;
+            LbTeste.Text = "label17";
+            // 
             // JanelaVenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDark;
             ClientSize = new Size(1370, 749);
+            Controls.Add(LbTeste);
+            Controls.Add(LbDocumento);
             Controls.Add(lbAcrescimo);
             Controls.Add(lbDesconto);
             Controls.Add(label16);
@@ -660,5 +681,7 @@
         public Label lbDesconto;
         public Label lbAcrescimo;
         public Label lblQtd;
+        public Label LbDocumento;
+        public Label LbTeste;
     }
 }

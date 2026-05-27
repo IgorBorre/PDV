@@ -293,6 +293,25 @@ namespace PDV
         private void JanelaVenda_Load(object sender, EventArgs e)
         {
 
-        }
-    }
-}
+            if (!string.IsNullOrEmpty(LbDocumento.Text)) {
+                string c = "select valor from devolucao where documento = " + LbDocumento.Text;
+                DataTable dt;
+                dt = vendaDAO.ConsultaSaidas(c);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow row = null;
+                    row = dt.Rows[0];
+
+                    double total = 0;
+                    total = (Convert.ToDouble(row["valor"])) * -1;
+
+                    lblTotal.Text = total.ToString("F2");
+                    lblTotal.Visible = true;
+                }
+            }
+
+
+            
+        } 
+    } 
+} 

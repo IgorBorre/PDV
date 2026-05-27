@@ -56,8 +56,7 @@ namespace PDV
                     if (LbTroca.Text == "Troca")
                     {
                         JanelaVenda janelaVenda = new JanelaVenda();
-                        //janelaVenda.lblTotal.Text = (double.Parse(LbTotal.Text) * -1).ToString();
-                        //janelaVenda.lblTotal.Visible = true;
+                        janelaVenda.LbDocumento.Text = d.documento.ToString();
                         janelaVenda.Show();
                     }
 
