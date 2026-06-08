@@ -14,5 +14,6 @@ namespace PDV
         public double desconto { get; set; }
         public double acrescimo { get; set; }
         public double subtotal { get; set; }
+        public int docDevolucao { get; set; }
     }
 }

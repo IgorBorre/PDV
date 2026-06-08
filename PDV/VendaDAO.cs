@@ -161,6 +161,158 @@ namespace PDV
         }
 
 
+        public void Venda(Venda v, List<Produtos> produtos, List<FormasdePagamento> formaspag, string docDevolucao)
+        {
+            string comandoSaida = "insert into saida (dataSaida, valortotal, desconto, acrescimo, subtotal, tipo, doc_original) values (@dataSaida, @valortotal, @desconto, @acrescimo, @subtotal, 'T', @docDevolucao)";
+            string comandoSaidaDados = "insert into saidadados (documento, produto, produtoNome, quantidade, valor) values (@documento, @produto, @produtoNome, @quantidade, @valor)";
+            string updateProdutos = "update produtos set estoque = estoque - @quantidade where codigo = @codigo";
+            string comandoPagsaida = "insert into pagsaida (documento, idpagamento, descpagamento, valor, parcelas) values (@documento, @idpagamento, @descpagamento, @valor, @parcelas)";
+
+            v.dataVenda = DateTime.Now.Date;
+
+            try
+            {
+                con.AbrirConexao();
+
+                using (MySqlCommand cmd = new MySqlCommand(comandoSaida, con.ObterConexao()))
+                {
+                    cmd.Parameters.AddWithValue("@dataSaida", v.dataVenda);
+                    cmd.Parameters.AddWithValue("@valortotal", v.valorTotal);
+                    cmd.Parameters.AddWithValue("@desconto", v.desconto);
+                    cmd.Parameters.AddWithValue("@acrescimo", v.acrescimo);
+                    cmd.Parameters.AddWithValue("@subtotal", v.subtotal);
+                    cmd.Parameters.AddWithValue("@docDevolucao", docDevolucao);
+
+                    cmd.ExecuteNonQuery();
+
+                    cmd.CommandText = "SELECT @@IDENTITY";
+                    v.codigo = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+
+                foreach (Produtos p in produtos)
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(comandoSaidaDados, con.ObterConexao()))
+                    {
+                        cmd.Parameters.AddWithValue("@documento", v.codigo);
+                        cmd.Parameters.AddWithValue("@produto", p.codigo);
+                        cmd.Parameters.AddWithValue("@produtoNome", p.descricao);
+                        cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
+                        cmd.Parameters.AddWithValue("@valor", p.preco);
+                        cmd.ExecuteNonQuery();
+
+                    }
+
+                    using (MySqlCommand cmd = new MySqlCommand(updateProdutos, con.ObterConexao()))
+                    {
+                        cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
+                        cmd.Parameters.AddWithValue("@codigo", p.codigo);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                foreach (FormasdePagamento f in formaspag)
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(comandoPagsaida, con.ObterConexao()))
+                    {
+                        cmd.Parameters.AddWithValue("@documento", v.codigo);
+                        cmd.Parameters.AddWithValue("@idpagamento", f.id);
+                        cmd.Parameters.AddWithValue("@descpagamento", f.descricao);
+                        cmd.Parameters.AddWithValue("@valor", f.valor);
+                        cmd.Parameters.AddWithValue("@parcelas", f.parcelas);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                }
+                con.FecharConexao();
+                MessageBox.Show("Documento " + v.codigo.ToString() + " gravado com sucesso!");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        public void Venda(Clientes c, Venda v, List<Produtos> produtos, List<FormasdePagamento> formaspag, string docDevolucao)
+        {
+            string comandoSaida = "insert into saida (clienteId, clienteNome, dataSaida, valortotal, desconto, acrescimo, subtotal, tipo, doc_original) values (@clienteId, @clienteNome, @dataSaida, @valortotal, @desconto, @acrescimo, @subtotal, 'T', @docDevolucao)";
+            string comandoSaidaDados = "insert into saidadados (documento, produto, produtoNome, quantidade, valor) values (@documento, @produto, @produtoNome, @quantidade, @valor)";
+            string updateProdutos = "update produtos set estoque = estoque - @quantidade where codigo = @codigo";
+            string comandoPagsaida = "insert into pagsaida (documento, idpagamento, descpagamento, valor, parcelas) values (@documento, @idpagamento, @descpagamento, @valor, @parcelas)";
+
+            v.dataVenda = DateTime.Now.Date;
+
+            try
+            {
+                con.AbrirConexao();
+
+                using (MySqlCommand cmd = new MySqlCommand(comandoSaida, con.ObterConexao()))
+                {
+                    cmd.Parameters.AddWithValue("@clienteId", c.codigo);
+                    cmd.Parameters.AddWithValue("@clienteNome", c.nome);
+                    cmd.Parameters.AddWithValue("@dataSaida", v.dataVenda);
+                    cmd.Parameters.AddWithValue("@valortotal", v.valorTotal);
+                    cmd.Parameters.AddWithValue("@desconto", v.desconto);
+                    cmd.Parameters.AddWithValue("@acrescimo", v.acrescimo);
+                    cmd.Parameters.AddWithValue("@subtotal", v.subtotal);
+                    cmd.Parameters.AddWithValue("@docDevolucao", docDevolucao);
+
+
+                    cmd.ExecuteNonQuery();
+
+                    cmd.CommandText = "SELECT @@IDENTITY";
+                    v.codigo = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+
+                foreach (Produtos p in produtos)
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(comandoSaidaDados, con.ObterConexao()))
+                    {
+                        cmd.Parameters.AddWithValue("@documento", v.codigo);
+                        cmd.Parameters.AddWithValue("@produto", p.codigo);
+                        cmd.Parameters.AddWithValue("@produtoNome", p.descricao);
+                        cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
+                        cmd.Parameters.AddWithValue("@valor", p.preco);
+
+                        cmd.ExecuteNonQuery();
+
+                    }
+
+                    using (MySqlCommand cmd = new MySqlCommand(updateProdutos, con.ObterConexao()))
+                    {
+                        cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
+                        cmd.Parameters.AddWithValue("@codigo", p.codigo);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                foreach (FormasdePagamento f in formaspag)
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(comandoPagsaida, con.ObterConexao()))
+                    {
+                        cmd.Parameters.AddWithValue("@documento", v.codigo);
+                        cmd.Parameters.AddWithValue("@idpagamento", f.id);
+                        cmd.Parameters.AddWithValue("@descpagamento", f.descricao);
+                        cmd.Parameters.AddWithValue("@valor", f.valor);
+                        cmd.Parameters.AddWithValue("@parcelas", f.parcelas);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                }
+                con.FecharConexao();
+                MessageBox.Show("Documento " + v.codigo.ToString() + " gravado com sucesso!");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
         public bool Validações(double preco, double quantidade) {
             if (preco <= 0) { 
                 MessageBox.Show("Não é permitido inserir um produto sem valor ou com valor negativo");

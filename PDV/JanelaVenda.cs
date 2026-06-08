@@ -20,7 +20,8 @@ namespace PDV
         List<Produtos> listaProdutos = new List<Produtos>();
         int id = 0;
         double quantidade = 0;
-        double total = 0;
+        double total;
+        double troca = 0;
 
         public JanelaVenda()
         {
@@ -36,13 +37,11 @@ namespace PDV
             TfPreco.Text = string.Empty;
             listBox1.Items.Clear();
             listaProdutos.Clear();
-            lblQtd.Text = string.Empty;
-            lblQtd.Visible = false;
+            lblQtd.Text = "0,00";
 
-            lblTotal.Text = string.Empty;
-            lblTotal.Visible = false;
-            lbDesconto.Text = string.Empty;
-            lbAcrescimo.Text = string.Empty;
+            lblTotal.Text = troca.ToString("F2");
+            lbDesconto.Text = "0,00";
+            lbAcrescimo.Text = "0,00";
 
             lbDetalhesDesc.Text = string.Empty;
             lbDetalhesDesc.Visible = false;
@@ -144,28 +143,87 @@ namespace PDV
         
             if (listaProdutos.Count > 0)
             {
-                JanelaPagamento janelaPagamento = new JanelaPagamento();
-                janelaPagamento.LbTotal.Text = lblTotal.Text;
-                janelaPagamento.LbFalta.Text = lblTotal.Text;
-                janelaPagamento.ShowDialog();
+                if (string.IsNullOrEmpty(LbDocumento.Text))
+                {
+                    JanelaPagamento janelaPagamento = new JanelaPagamento();
+                    janelaPagamento.LbTotal.Text = lblTotal.Text;
+                    janelaPagamento.LbFalta.Text = lblTotal.Text;
+                    janelaPagamento.ShowDialog();
 
-                if (janelaPagamento.DialogResult == DialogResult.OK) { 
-                    Venda v = new Venda();
-                    v.valorTotal = double.Parse(lblTotal.Text);
-                    v.desconto = double.Parse(lbDesconto.Text);
-                    v.acrescimo = double.Parse(lbAcrescimo.Text);
-                    v.subtotal = subtotal;
-                    if (string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text))
+                    if (janelaPagamento.DialogResult == DialogResult.OK)
                     {
-                        vendaDAO.Venda(v, listaProdutos, janelaPagamento.listaFormasdePagamento);
+                        Venda v = new Venda();
+                        v.valorTotal = double.Parse(lblTotal.Text);
+                        v.desconto = double.Parse(lbDesconto.Text);
+                        v.acrescimo = double.Parse(lbAcrescimo.Text);
+                        v.subtotal = subtotal;
+                        if (string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text))
+                        {
+                            vendaDAO.Venda(v, listaProdutos, janelaPagamento.listaFormasdePagamento);
+                        }
+                        else
+                        {
+                            Clientes c = new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
+                            vendaDAO.Venda(c, v, listaProdutos, janelaPagamento.listaFormasdePagamento);
+                        }
+                        LimparCampos();
                     }
-                    else
-                    {
-                        Clientes c = new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
-                        vendaDAO.Venda(c, v, listaProdutos, janelaPagamento.listaFormasdePagamento);
-                    }
-                    LimparCampos();
                 }
+                else {
+                    if (total > 0)
+                    {
+                        JanelaPagamento janelaPagamento = new JanelaPagamento();
+                        janelaPagamento.LbTotal.Text = lblTotal.Text;
+                        janelaPagamento.LbFalta.Text = lblTotal.Text;
+                        janelaPagamento.ShowDialog();
+
+                        if (janelaPagamento.DialogResult == DialogResult.OK)
+                        {
+                            Venda v = new Venda();
+                            v.valorTotal = double.Parse(lblTotal.Text);
+                            v.desconto = double.Parse(lbDesconto.Text);
+                            v.acrescimo = double.Parse(lbAcrescimo.Text);
+                            v.subtotal = subtotal;
+                            if (string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text))
+                            {
+                                vendaDAO.Venda(v, listaProdutos, janelaPagamento.listaFormasdePagamento, LbDocumento.Text);
+                            }
+                            else
+                            {
+                                Clientes c = new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
+                                vendaDAO.Venda(c, v, listaProdutos, janelaPagamento.listaFormasdePagamento, LbDocumento.Text);
+                            }
+                            Dispose();
+
+                        }
+
+                    }
+                    /*else if (total == 0) {
+                        MessageBox.Show("Não há valor a parcelar!");
+
+                        Venda v = new Venda();
+                        v.valorTotal = double.Parse(lblTotal.Text);
+                        v.desconto = double.Parse(lbDesconto.Text);
+                        v.acrescimo = double.Parse(lbAcrescimo.Text);
+                        v.subtotal = subtotal;
+                        if (string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text))
+                        {
+                            vendaDAO.Venda(v, listaProdutos, janelaPagamento.listaFormasdePagamento, LbDocumento.Text);
+                        }
+                        else
+                        {
+                            Clientes c = new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
+                            vendaDAO.Venda(c, v, listaProdutos, janelaPagamento.listaFormasdePagamento, LbDocumento.Text);
+                        }
+                        LimparCampos();
+
+                    }*/
+
+                
+                }
+                
+
+
             }
             else {
                 MessageBox.Show("Não é possível finalizar uma saída sem produto!");
@@ -221,11 +279,13 @@ namespace PDV
 
         private void TfPreco_KeyDown(object sender, KeyEventArgs e)
         {
+            total = double.Parse(lblTotal.Text);
 
             if (e.KeyCode == Keys.Enter)
             {
                 if (vendaDAO.Validações(Convert.ToDouble(TfPreco.Text), Convert.ToDouble(TfQtd.Text)))
                 {
+
                     Produtos p = new Produtos();
                     p.codigo = id;
                     p.descricao = TfId.Text.ToString();
@@ -292,26 +352,22 @@ namespace PDV
 
         private void JanelaVenda_Load(object sender, EventArgs e)
         {
-
+            
             if (!string.IsNullOrEmpty(LbDocumento.Text)) {
                 string c = "select valor from devolucao where documento = " + LbDocumento.Text;
                 DataTable dt;
                 dt = vendaDAO.ConsultaSaidas(c);
                 if (dt.Rows.Count > 0)
                 {
-                    DataRow row = null;
-                    row = dt.Rows[0];
+                    DataRow row = dt.Rows[0];
+                    
+                    troca = (Convert.ToDouble(row["valor"])) * -1;
 
-                    double total = 0;
-                    total = (Convert.ToDouble(row["valor"])) * -1;
-
-                    lblTotal.Text = total.ToString("F2");
+                    lblTotal.Text = troca.ToString("F2");
                     lblTotal.Visible = true;
                 }
             }
-
-
-            
+                                
         } 
     } 
 } 

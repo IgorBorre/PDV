@@ -58,6 +58,7 @@ namespace PDV
                         JanelaVenda janelaVenda = new JanelaVenda();
                         janelaVenda.LbDocumento.Text = d.documento.ToString();
                         janelaVenda.Show();
+                        janelaVenda.TfId.Focus();
                     }
 
                     janela.LbCliente.Text = string.Empty;
@@ -78,8 +79,9 @@ namespace PDV
                     if (LbTroca.Text == "Troca")
                     {
                         JanelaVenda janelaVenda = new JanelaVenda();
-                        janelaVenda.lblTotal.Text = (double.Parse(LbTotal.Text) * -1).ToString();
+                        janelaVenda.LbDocumento.Text = d.documento.ToString();
                         janelaVenda.Show();
+                        janelaVenda.TfId.Focus();
                     }
 
                     janela.LbCliente.Text = string.Empty;
@@ -243,13 +245,11 @@ namespace PDV
         {
             if (!string.IsNullOrEmpty(TfId.Text) && !string.IsNullOrEmpty(TfQuantidade.Text))
             {
-                double soma = 0;
 
                 string c = "select referencia from produtos where codigo = " + TfId.Text;
                 ProdutoDAO pDAO = new ProdutoDAO();
                 DataTable dt = pDAO.ListarProdutos(c);
-                DataRow row = null;
-                row = dt.Rows[0];
+                DataRow row = dt.Rows[0];
 
                 Produtos p = new Produtos();
                 p.codigo = int.Parse(TfId.Text);

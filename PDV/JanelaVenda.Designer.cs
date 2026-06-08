@@ -76,7 +76,6 @@
             lbDesconto = new Label();
             lbAcrescimo = new Label();
             LbDocumento = new Label();
-            LbTeste = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -475,9 +474,9 @@
             lblQtd.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblQtd.Location = new Point(136, 597);
             lblQtd.Name = "lblQtd";
-            lblQtd.Size = new Size(0, 28);
+            lblQtd.Size = new Size(49, 28);
             lblQtd.TabIndex = 20;
-            lblQtd.Visible = false;
+            lblQtd.Text = "0,00";
             // 
             // lblTotal
             // 
@@ -486,9 +485,9 @@
             lblTotal.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTotal.Location = new Point(136, 687);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(0, 28);
+            lblTotal.Size = new Size(49, 28);
             lblTotal.TabIndex = 21;
-            lblTotal.Visible = false;
+            lblTotal.Text = "0,00";
             // 
             // label14
             // 
@@ -552,8 +551,9 @@
             lbDesconto.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbDesconto.Location = new Point(136, 626);
             lbDesconto.Name = "lbDesconto";
-            lbDesconto.Size = new Size(0, 30);
+            lbDesconto.Size = new Size(51, 30);
             lbDesconto.TabIndex = 27;
+            lbDesconto.Text = "0,00";
             // 
             // lbAcrescimo
             // 
@@ -562,8 +562,9 @@
             lbAcrescimo.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbAcrescimo.Location = new Point(136, 656);
             lbAcrescimo.Name = "lbAcrescimo";
-            lbAcrescimo.Size = new Size(0, 30);
+            lbAcrescimo.Size = new Size(51, 30);
             lbAcrescimo.TabIndex = 28;
+            lbAcrescimo.Text = "0,00";
             // 
             // LbDocumento
             // 
@@ -572,15 +573,7 @@
             LbDocumento.Name = "LbDocumento";
             LbDocumento.Size = new Size(0, 15);
             LbDocumento.TabIndex = 29;
-            // 
-            // LbTeste
-            // 
-            LbTeste.AutoSize = true;
-            LbTeste.Location = new Point(1051, 582);
-            LbTeste.Name = "LbTeste";
-            LbTeste.Size = new Size(44, 15);
-            LbTeste.TabIndex = 30;
-            LbTeste.Text = "label17";
+            LbDocumento.Visible = false;
             // 
             // JanelaVenda
             // 
@@ -588,7 +581,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDark;
             ClientSize = new Size(1370, 749);
-            Controls.Add(LbTeste);
             Controls.Add(LbDocumento);
             Controls.Add(lbAcrescimo);
             Controls.Add(lbDesconto);
@@ -633,8 +625,6 @@
         }
 
         #endregion
-
-        private TextBox TfId;
         private Label Produto;
         private TextBox TfQtd;
         private Label label1;
@@ -682,6 +672,6 @@
         public Label lbAcrescimo;
         public Label lblQtd;
         public Label LbDocumento;
-        public Label LbTeste;
+        public TextBox TfId;
     }
 }
