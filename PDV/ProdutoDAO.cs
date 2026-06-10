@@ -138,7 +138,7 @@ namespace PDV
                 a += " and descricao like '%" + descricao + "%'";
             }
             if (!string.IsNullOrEmpty(grupo)) { 
-                a += " and grupo like '%" + grupo + "%'";
+                a += " and idGrupo like '%" + grupo + "%'";
             }
             return a;
         }

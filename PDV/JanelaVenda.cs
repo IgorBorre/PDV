@@ -197,8 +197,7 @@ namespace PDV
 
                         }
 
-                    }
-                    /*else if (total == 0) {
+                    }else{
                         MessageBox.Show("Não há valor a parcelar!");
 
                         Venda v = new Venda();
@@ -208,16 +207,16 @@ namespace PDV
                         v.subtotal = subtotal;
                         if (string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text))
                         {
-                            vendaDAO.Venda(v, listaProdutos, janelaPagamento.listaFormasdePagamento, LbDocumento.Text);
+                            vendaDAO.Venda(v, listaProdutos, LbDocumento.Text);
                         }
                         else
                         {
                             Clientes c = new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
-                            vendaDAO.Venda(c, v, listaProdutos, janelaPagamento.listaFormasdePagamento, LbDocumento.Text);
+                            vendaDAO.Venda(c, v, listaProdutos, LbDocumento.Text);
                         }
-                        LimparCampos();
+                        Dispose();
 
-                    }*/
+                    }
 
                 
                 }
@@ -354,7 +353,7 @@ namespace PDV
         {
             
             if (!string.IsNullOrEmpty(LbDocumento.Text)) {
-                string c = "select valor from devolucao where documento = " + LbDocumento.Text;
+                string c = "select idCliente, nomeCliente, valor from devolucao where documento = " + LbDocumento.Text;
                 DataTable dt;
                 dt = vendaDAO.ConsultaSaidas(c);
                 if (dt.Rows.Count > 0)
@@ -365,6 +364,10 @@ namespace PDV
 
                     lblTotal.Text = troca.ToString("F2");
                     lblTotal.Visible = true;
+                    lbIdCliente.Text = row["idCliente"].ToString();
+                    lbIdCliente.Visible = true;
+                    lbNomeCliente.Text = row["nomeCliente"].ToString();
+                    lbNomeCliente.Visible = true;
                 }
             }
                                 
