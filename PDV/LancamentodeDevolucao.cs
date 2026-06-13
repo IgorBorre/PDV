@@ -15,16 +15,19 @@ namespace PDV
     {
         double quantidadeOriginal = 0;
         
-        public List<Produtos> produtos = new List<Produtos>();
+        public List<Produtos> produtos = [];
 
-        private JanelaDevolucao janela;
-        
-        ItensOriginais itens;
-        public LancamentodeDevolucao(JanelaDevolucao janela)
+        private readonly JanelaDevolucao janela;
+
+       private readonly ItensOriginais itens;
+
+        private readonly VendaDAO _vendaDAO;
+        public LancamentodeDevolucao(JanelaDevolucao janela, VendaDAO vendaDAO)
         {
             InitializeComponent();
             this.janela = janela;
             itens = new ItensOriginais();
+            _vendaDAO = vendaDAO;
         }
 
         private void LancamentodeDevolucao_Load(object sender, EventArgs e)
@@ -55,7 +58,7 @@ namespace PDV
                     Dispose();
                     if (LbTroca.Text == "Troca")
                     {
-                        JanelaVenda janelaVenda = new JanelaVenda();
+                        JanelaVenda janelaVenda = new JanelaVenda(_vendaDAO);
                         janelaVenda.LbDocumento.Text = d.documento.ToString();
                         janelaVenda.Show();
                         janelaVenda.TfId.Focus();
@@ -78,7 +81,7 @@ namespace PDV
                     Dispose();
                     if (LbTroca.Text == "Troca")
                     {
-                        JanelaVenda janelaVenda = new JanelaVenda();
+                        JanelaVenda janelaVenda = new JanelaVenda(_vendaDAO);
                         janelaVenda.LbDocumento.Text = d.documento.ToString();
                         janelaVenda.Show();
                         janelaVenda.TfId.Focus();

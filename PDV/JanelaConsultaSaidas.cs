@@ -12,18 +12,18 @@ namespace PDV
 {
     public partial class JanelaConsultaSaidas : Form
     {
-        public VendaDAO vendaDAO;
-        public JanelaConsultaSaidas()
+        private readonly VendaDAO _vendaDAO;
+        public JanelaConsultaSaidas(VendaDAO vendaDAO)
         {
             InitializeComponent();
-            vendaDAO = new VendaDAO();
+            _vendaDAO = vendaDAO;
         }
 
         private void btProcurar_Click(object sender, EventArgs e)
         {
 
-            string data1 = null;
-            string data2 = null;
+            string? data1 = null;
+            string? data2 = null;
 
             if (TfData1.MaskCompleted)
             {
@@ -37,9 +37,9 @@ namespace PDV
                 data2 = date2.ToString("yyyy-MM-dd");
             }
 
-            string c = "select documento, clienteNome, dataSaida, subtotal, desconto, acrescimo, valortotal from saida where cancelada = 'N'" + vendaDAO.Criterios(
-                TfDocumento.Text, TfCliente.Text, data1, data2);
-            DataTable dt = vendaDAO.ConsultaSaidas(c);
+            string c = "select documento, clienteNome, dataSaida, subtotal, desconto, acrescimo, valortotal from saida where cancelada = 'N'" + _vendaDAO.Criterios(
+                TfDocumento.Text, false, TfCliente.Text, data1, data2);
+            DataTable dt = _vendaDAO.ConsultaSaidas(c);
 
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -64,7 +64,7 @@ namespace PDV
             {
                 ClienteDAO clienteDAO = new ClienteDAO();
                 DataTable dt = clienteDAO.ClienteByID(TfIdCliente.Text);
-                DataRow row = null;
+                DataRow row;
                 row = dt.Rows[0];
 
                 TfCliente.Text = row["nome"].ToString();
@@ -92,7 +92,7 @@ namespace PDV
             if (string.IsNullOrEmpty(TfIdCliente.Text) && !string.IsNullOrEmpty(TfCliente.Text)) { 
                 ClienteDAO clienteDAO = new ClienteDAO();
                 DataTable dt = clienteDAO.CodigoByNome(TfCliente.Text);
-                DataRow row = null;
+                DataRow row;
                 row = dt.Rows[0];
 
                 TfIdCliente.Text = row["codigo"].ToString();

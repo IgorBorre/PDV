@@ -4,11 +4,14 @@ namespace PDV
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private readonly VendaDAO _vendaDAO;
+
+        public Form1(VendaDAO vendaDAO)
         {
             InitializeComponent();
             Conexao conexao = new Conexao();
             conexao.AbrirConexao();
+            _vendaDAO = vendaDAO;
         }
 
         private void cadastroGeralToolStripMenuItem_Click(object sender, EventArgs e)
@@ -36,7 +39,7 @@ namespace PDV
 
         private void vendaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            JanelaVenda janelaVenda = new JanelaVenda();
+            JanelaVenda janelaVenda = new JanelaVenda(_vendaDAO);
             janelaVenda.ShowDialog();
         }
 
@@ -54,7 +57,7 @@ namespace PDV
 
         private void consultaDeSaídasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            JanelaConsultaSaidas janelaConsulta = new JanelaConsultaSaidas();
+            JanelaConsultaSaidas janelaConsulta = new(_vendaDAO);
             janelaConsulta.Show();
         }
 
@@ -66,7 +69,7 @@ namespace PDV
 
         private void devoluçãoTrocaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            JanelaDevolucao janela = new JanelaDevolucao();
+            JanelaDevolucao janela = new(_vendaDAO);
             janela.Show();
         }
 
@@ -90,13 +93,13 @@ namespace PDV
 
         private void consultaDeCancelamentosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            JanelaConsultaCancelamento janelaConsultaCancelamento = new JanelaConsultaCancelamento();
+            JanelaConsultaCancelamento janelaConsultaCancelamento = new(_vendaDAO);
             janelaConsultaCancelamento.Show();
         }
 
         private void consultaDeDevoluçõesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            JanelaConsultaDevolucao consultaDevolucao = new JanelaConsultaDevolucao();
+            JanelaConsultaDevolucao consultaDevolucao = new(_vendaDAO);
             consultaDevolucao.Show();
         }
 

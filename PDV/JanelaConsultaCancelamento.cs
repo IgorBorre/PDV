@@ -12,15 +12,18 @@ namespace PDV
 {
     public partial class JanelaConsultaCancelamento : Form
     {
-        public JanelaConsultaCancelamento()
+        private readonly VendaDAO _vendaDAO;
+        public JanelaConsultaCancelamento(VendaDAO vendaDAO)
         {
+
+            _vendaDAO = vendaDAO;
             InitializeComponent();
         }
 
         private void BtProcurar_Click(object sender, EventArgs e)
         {
-            string data1 = null;
-            string data2 = null;
+            string? data1 = null;
+            string? data2 = null;
 
             if (TfData1.MaskCompleted)
             {
@@ -34,11 +37,10 @@ namespace PDV
                 data2 = date.ToString("yyyy-MM-dd");
             }
 
-            VendaDAO vendaDAO = new VendaDAO();
-            string c = "select * from cancelamentoLog where 1" + vendaDAO.Validacoes(TfDocumento.Text, data1, data2);
+            string c = "select * from cancelamentoLog where 1" + _vendaDAO.Validacoes(TfDocumento.Text, data1, data2);
 
             DataTable dt;
-            dt = vendaDAO.ConsultaSaidas(c);
+            dt = _vendaDAO.ConsultaSaidas(c);
             if (dt.Rows.Count > 0)
             {
                 dataGridView1.DataSource = dt;

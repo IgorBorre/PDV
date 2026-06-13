@@ -13,27 +13,26 @@ namespace PDV
 {
     public partial class JanelaDevolucao : Form
     {
-        public JanelaDevolucao()
+        private readonly VendaDAO _vendaDAO;
+        public JanelaDevolucao(VendaDAO vendaDAO)
         {
             InitializeComponent();
+            _vendaDAO = vendaDAO;
         }
 
         private void BtProcurar_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(TfDocumento.Text))
             {
-                VendaDAO vendaDao = new VendaDAO();
                 string c = "select clienteNome, dataSaida, subtotal, desconto, acrescimo, valortotal from saida where cancelada = 'N' " +
-                    vendaDao.Criterios(TfDocumento.Text);
+                    _vendaDAO.Criterios(TfDocumento.Text, false);
 
                 string comando = "select * from saida s join devolucao d on s.documento = d.doc_original " +
                     "where s.documento = " + TfDocumento.Text;
 
-                DataTable dt1;
-                dt1 = vendaDao.ConsultaSaidas(comando);
+                DataTable dt1 = _vendaDAO.ConsultaSaidas(comando);
 
-                DataTable dt;
-                dt = vendaDao.ConsultaSaidas(c);
+                DataTable dt = _vendaDAO.ConsultaSaidas(c);
 
                 if (dt1.Rows.Count <= 0)
                 {
@@ -115,23 +114,23 @@ namespace PDV
         {
             if (!string.IsNullOrEmpty(LbDocumento.Text))
             {
-                LancamentodeDevolucao lancamento = new LancamentodeDevolucao(this);
+                LancamentodeDevolucao lancamento = new LancamentodeDevolucao(this, _vendaDAO);
                 lancamento.LbDocumento.Text = LbDocumento.Text;
 
                 string c = "select codigo, referencia, descricao, quantidade, valor from produtos join saidadados on produtos.codigo = saidadados.produto " +
                       "where saidadados.documento = " + LbDocumento.Text;
 
-                VendaDAO v = new VendaDAO();
+                
                 string comando = "select clienteId, clienteNome from saida where documento = "+LbDocumento.Text ;
 
-                DataTable dt1 = v.ConsultaSaidas(comando);
+                DataTable dt1 = _vendaDAO.ConsultaSaidas(comando);
                 DataRow row1 = null;
                 row1 = dt1.Rows[0];
 
                 lancamento.LbIdCliente.Text = row1["clienteId"].ToString();
                 lancamento.LbNomeCliente.Text = row1["clienteNome"].ToString();
 
-                DataTable dt = v.ConsultaSaidas(c);
+                DataTable dt = _vendaDAO.ConsultaSaidas(c);
                 lancamento.LbDocumento.Text = LbDocumento.Text;
 
                 if (RbDevolucaototal.Checked) { 

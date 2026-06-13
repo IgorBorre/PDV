@@ -16,18 +16,18 @@ namespace PDV
     {
         public double subtotal = 0;
         ProdutoDAO produtoDAO;
-        VendaDAO vendaDAO;
-        List<Produtos> listaProdutos = new List<Produtos>();
+        private readonly VendaDAO _vendaDAO;
+        List<Produtos> listaProdutos = [];
         int id = 0;
         double quantidade = 0;
         double total;
         double troca = 0;
 
-        public JanelaVenda()
+        public JanelaVenda(VendaDAO vendaDAO)
         {
             InitializeComponent();
             produtoDAO = new ProdutoDAO();
-            vendaDAO = new VendaDAO();
+            vendaDAO = _vendaDAO;
         }
 
         private void LimparCampos()
@@ -152,19 +152,21 @@ namespace PDV
 
                     if (janelaPagamento.DialogResult == DialogResult.OK)
                     {
-                        Venda v = new Venda();
-                        v.valorTotal = double.Parse(lblTotal.Text);
-                        v.desconto = double.Parse(lbDesconto.Text);
-                        v.acrescimo = double.Parse(lbAcrescimo.Text);
-                        v.subtotal = subtotal;
+                        Venda v = new()
+                        {
+                            valorTotal = double.Parse(lblTotal.Text),
+                            desconto = double.Parse(lbDesconto.Text),
+                            acrescimo = double.Parse(lbAcrescimo.Text),
+                            subtotal = subtotal
+                        };
                         if (string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text))
                         {
-                            vendaDAO.Venda(v, listaProdutos, janelaPagamento.listaFormasdePagamento);
+                            _vendaDAO.Venda(v, listaProdutos, null, janelaPagamento.listaFormasdePagamento);
                         }
                         else
                         {
                             Clientes c = new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
-                            vendaDAO.Venda(c, v, listaProdutos, janelaPagamento.listaFormasdePagamento);
+                            _vendaDAO.Venda(v, listaProdutos, c, janelaPagamento.listaFormasdePagamento);
                         }
                         LimparCampos();
                     }
@@ -186,12 +188,12 @@ namespace PDV
                             v.subtotal = subtotal;
                             if (string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text))
                             {
-                                vendaDAO.Venda(v, listaProdutos, janelaPagamento.listaFormasdePagamento, LbDocumento.Text);
+                                _vendaDAO.Venda(v, listaProdutos, null, janelaPagamento.listaFormasdePagamento, LbDocumento.Text);
                             }
                             else
                             {
                                 Clientes c = new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
-                                vendaDAO.Venda(c, v, listaProdutos, janelaPagamento.listaFormasdePagamento, LbDocumento.Text);
+                                _vendaDAO.Venda(v, listaProdutos, c, janelaPagamento.listaFormasdePagamento, LbDocumento.Text);
                             }
                             Dispose();
 
@@ -207,12 +209,12 @@ namespace PDV
                         v.subtotal = subtotal;
                         if (string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text))
                         {
-                            vendaDAO.Venda(v, listaProdutos, LbDocumento.Text);
+                            _vendaDAO.Venda(v, listaProdutos, null, null, LbDocumento.Text);
                         }
                         else
                         {
                             Clientes c = new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
-                            vendaDAO.Venda(c, v, listaProdutos, LbDocumento.Text);
+                            _vendaDAO.Venda(v, listaProdutos, c, null, LbDocumento.Text);
                         }
                         Dispose();
 
@@ -282,7 +284,7 @@ namespace PDV
 
             if (e.KeyCode == Keys.Enter)
             {
-                if (vendaDAO.Validações(Convert.ToDouble(TfPreco.Text), Convert.ToDouble(TfQtd.Text)))
+                if (_vendaDAO.Validações(Convert.ToDouble(TfPreco.Text), Convert.ToDouble(TfQtd.Text)))
                 {
 
                     Produtos p = new Produtos();
@@ -355,7 +357,7 @@ namespace PDV
             if (!string.IsNullOrEmpty(LbDocumento.Text)) {
                 string c = "select idCliente, nomeCliente, valor from devolucao where documento = " + LbDocumento.Text;
                 DataTable dt;
-                dt = vendaDAO.ConsultaSaidas(c);
+                dt = _vendaDAO.ConsultaSaidas(c);
                 if (dt.Rows.Count > 0)
                 {
                     DataRow row = dt.Rows[0];

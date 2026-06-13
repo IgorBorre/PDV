@@ -613,6 +613,7 @@
             FormBorderStyle = FormBorderStyle.None;
             KeyPreview = true;
             Name = "JanelaVenda";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "JanelaVenda";
             TopMost = true;
             WindowState = FormWindowState.Maximized;

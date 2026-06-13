@@ -28,7 +28,7 @@ namespace PDV
 
                 VendaDAO vendaDAO = new VendaDAO();
                 string c = "select documento, dataSaida, valortotal from saida where cancelada = 'N' " +
-                    vendaDAO.Criterios(TfDocumento.Text);
+                    vendaDAO.Criterios(TfDocumento.Text, false);
                 DataTable dt;
                 dt = vendaDAO.ConsultaSaidas(c);
                 if (dt.Rows.Count > 0)

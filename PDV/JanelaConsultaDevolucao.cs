@@ -12,11 +12,11 @@ namespace PDV
 {
     public partial class JanelaConsultaDevolucao : Form
     {
-        VendaDAO vendaDAO;
-        public JanelaConsultaDevolucao()
+        private readonly VendaDAO _vendaDAO;
+        public JanelaConsultaDevolucao(VendaDAO vendaDAO)
         {
             InitializeComponent();
-            vendaDAO = new VendaDAO();
+            _vendaDAO = vendaDAO;
         }
 
         private void JanelaConsultaDevolucao_Load(object sender, EventArgs e)
@@ -27,12 +27,12 @@ namespace PDV
 
         private void BtProcura_Click(object sender, EventArgs e)
         {
-            string data1 = TfData1.MaskCompleted ? data1 = DateTime.Parse(TfData1.Text).ToString("yyyy-MM-dd") : data1 = null;
-            string data2 = TfData2.MaskCompleted ? data2 = DateTime.Parse(TfData2.Text).ToString("yyyy-MM-dd") : data2 = null;
+            string? data1 = TfData1.MaskCompleted ? DateTime.Parse(TfData1.Text).ToString("yyyy-MM-dd") : null;
+            string? data2 = TfData2.MaskCompleted ? DateTime.Parse(TfData2.Text).ToString("yyyy-MM-dd") : null;
 
             string c = "select documento, nomeCliente, dataDevolucao, doc_original from devolucao where 1" +
-                vendaDAO.CriteriosDevolucao(TfDocumento.Text, TfIdCliente.Text, data1, data2);
-            DataTable dt = vendaDAO.ConsultaSaidas(c);
+                _vendaDAO.Criterios(TfDocumento.Text, true, TfIdCliente.Text, data1, data2);
+            DataTable dt = _vendaDAO.ConsultaSaidas(c);
             if (dt.Rows.Count > 0)
             {
                 dataGridView1.DataSource = dt;
@@ -49,7 +49,7 @@ namespace PDV
             if (!string.IsNullOrEmpty(TfIdCliente.Text))
             {
                 string c = "select nome from clientes where codigo = " + TfIdCliente.Text;
-                DataTable dt = vendaDAO.ConsultaSaidas(c);
+                DataTable dt = _vendaDAO.ConsultaSaidas(c);
                 if (dt.Rows.Count > 0)
                 {
                     DataRow row = null;
@@ -78,7 +78,7 @@ namespace PDV
             {
                 string c = "select codigo, nome from clientes where nome like '%" + TfCliente.Text + "%'";
 
-                DataTable dt = vendaDAO.ConsultaSaidas(c);
+                DataTable dt = _vendaDAO.ConsultaSaidas(c);
                 if (dt.Rows.Count > 0)
                 {
                     DataRow row = null;
