@@ -52,6 +52,7 @@
             cancelamentoToolStripMenuItem = new ToolStripMenuItem();
             caixaToolStripMenuItem = new ToolStripMenuItem();
             formasDePagamentoToolStripMenuItem = new ToolStripMenuItem();
+            saídaDeDevoluçãoTrocaToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -185,7 +186,7 @@
             // 
             // devoluçãoToolStripMenuItem
             // 
-            devoluçãoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { devoluçãoTrocaToolStripMenuItem, consultaDeDevoluçõesToolStripMenuItem, cancelamentoToolStripMenuItem });
+            devoluçãoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { devoluçãoTrocaToolStripMenuItem, consultaDeDevoluçõesToolStripMenuItem, cancelamentoToolStripMenuItem, saídaDeDevoluçãoTrocaToolStripMenuItem });
             devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
             devoluçãoToolStripMenuItem.Size = new Size(180, 22);
             devoluçãoToolStripMenuItem.Text = "Devolução";
@@ -193,21 +194,21 @@
             // devoluçãoTrocaToolStripMenuItem
             // 
             devoluçãoTrocaToolStripMenuItem.Name = "devoluçãoTrocaToolStripMenuItem";
-            devoluçãoTrocaToolStripMenuItem.Size = new Size(200, 22);
+            devoluçãoTrocaToolStripMenuItem.Size = new Size(216, 22);
             devoluçãoTrocaToolStripMenuItem.Text = "Devolução/Troca";
             devoluçãoTrocaToolStripMenuItem.Click += devoluçãoTrocaToolStripMenuItem_Click;
             // 
             // consultaDeDevoluçõesToolStripMenuItem
             // 
             consultaDeDevoluçõesToolStripMenuItem.Name = "consultaDeDevoluçõesToolStripMenuItem";
-            consultaDeDevoluçõesToolStripMenuItem.Size = new Size(200, 22);
+            consultaDeDevoluçõesToolStripMenuItem.Size = new Size(216, 22);
             consultaDeDevoluçõesToolStripMenuItem.Text = "Consulta de devoluções";
             consultaDeDevoluçõesToolStripMenuItem.Click += consultaDeDevoluçõesToolStripMenuItem_Click;
             // 
             // cancelamentoToolStripMenuItem
             // 
             cancelamentoToolStripMenuItem.Name = "cancelamentoToolStripMenuItem";
-            cancelamentoToolStripMenuItem.Size = new Size(200, 22);
+            cancelamentoToolStripMenuItem.Size = new Size(216, 22);
             cancelamentoToolStripMenuItem.Text = "Cancelamento";
             cancelamentoToolStripMenuItem.Click += cancelamentoToolStripMenuItem_Click;
             // 
@@ -224,6 +225,13 @@
             formasDePagamentoToolStripMenuItem.Size = new Size(193, 22);
             formasDePagamentoToolStripMenuItem.Text = "Formas de pagamento";
             formasDePagamentoToolStripMenuItem.Click += formasDePagamentoToolStripMenuItem_Click;
+            // 
+            // saídaDeDevoluçãoTrocaToolStripMenuItem
+            // 
+            saídaDeDevoluçãoTrocaToolStripMenuItem.Name = "saídaDeDevoluçãoTrocaToolStripMenuItem";
+            saídaDeDevoluçãoTrocaToolStripMenuItem.Size = new Size(216, 22);
+            saídaDeDevoluçãoTrocaToolStripMenuItem.Text = "Saída de devolução (Troca)";
+            saídaDeDevoluçãoTrocaToolStripMenuItem.Click += saídaDeDevoluçãoTrocaToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -268,5 +276,6 @@
         private ToolStripMenuItem cancelamentoToolStripMenuItem2;
         private ToolStripMenuItem cancelamentoDeSaídasToolStripMenuItem;
         private ToolStripMenuItem consultaDeCancelamentosToolStripMenuItem;
+        private ToolStripMenuItem saídaDeDevoluçãoTrocaToolStripMenuItem;
     }
 }

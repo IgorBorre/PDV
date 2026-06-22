@@ -221,7 +221,6 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
         private GroupBox groupBox1;
         private Label label2;
         private Label LbValor;
@@ -229,9 +228,7 @@
         private Label LbDocumento;
         private Label label4;
         private Label label3;
-        private TextBox textBox2;
         private Label label5;
-        private Button Bt;
         private TextBox TfDocumento;
         private TextBox TfMotivo;
         private Button BtProcurar;

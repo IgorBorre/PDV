@@ -62,7 +62,7 @@ namespace PDV
         {
             if (!string.IsNullOrEmpty(TfIdCliente.Text))
             {
-                ClienteDAO clienteDAO = new ClienteDAO();
+                ClienteDAO clienteDAO = new();
                 DataTable dt = clienteDAO.ClienteByID(TfIdCliente.Text);
                 DataRow row;
                 row = dt.Rows[0];
@@ -90,7 +90,7 @@ namespace PDV
         private void TfCliente_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(TfIdCliente.Text) && !string.IsNullOrEmpty(TfCliente.Text)) { 
-                ClienteDAO clienteDAO = new ClienteDAO();
+                ClienteDAO clienteDAO = new();
                 DataTable dt = clienteDAO.CodigoByNome(TfCliente.Text);
                 DataRow row;
                 row = dt.Rows[0];

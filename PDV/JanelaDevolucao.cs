@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography.Xml;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 
 namespace PDV
 {
@@ -28,7 +19,7 @@ namespace PDV
                     _vendaDAO.Criterios(TfDocumento.Text, false);
 
                 string comando = "select * from saida s join devolucao d on s.documento = d.doc_original " +
-                    "where s.documento = " + TfDocumento.Text;
+                    "where s.documento = " + TfDocumento.Text + " and d.cancelada = 'N'";
 
                 DataTable dt1 = _vendaDAO.ConsultaSaidas(comando);
 
@@ -39,18 +30,17 @@ namespace PDV
 
                     if (dt.Rows.Count > 0)
                     {
-                        DataRow row = null;
-                        row = dt.Rows[0];
+                        DataRow row = dt.Rows[0];
 
                         LbCliente.Text = row["clienteNome"].ToString();
                         DateTime data = Convert.ToDateTime(row["dataSaida"]);
                         LbData.Text = data.ToString("dd/MM/yyyy");
                         LbSubtotal.Text = row["subtotal"].ToString();
 
-                        string desconto = row["desconto"].ToString();
+                        string desconto = row["desconto"].ToString() ?? "0.00";
                         float desconto1 = float.Parse(desconto);
 
-                        string acrescimo = row["acrescimo"].ToString();
+                        string acrescimo = row["acrescimo"].ToString() ?? "0.00";
                         float acrescimo1 = float.Parse(acrescimo);
 
                         LbDocumento.Text = TfDocumento.Text;
@@ -85,7 +75,7 @@ namespace PDV
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
 
             DialogResult resultado = MessageBox.Show("Deseja cancelar essa operação?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -114,7 +104,7 @@ namespace PDV
         {
             if (!string.IsNullOrEmpty(LbDocumento.Text))
             {
-                LancamentodeDevolucao lancamento = new LancamentodeDevolucao(this, _vendaDAO);
+                LancamentodeDevolucao lancamento = new (this, _vendaDAO);
                 lancamento.LbDocumento.Text = LbDocumento.Text;
 
                 string c = "select codigo, referencia, descricao, quantidade, valor from produtos join saidadados on produtos.codigo = saidadados.produto " +
@@ -124,8 +114,7 @@ namespace PDV
                 string comando = "select clienteId, clienteNome from saida where documento = "+LbDocumento.Text ;
 
                 DataTable dt1 = _vendaDAO.ConsultaSaidas(comando);
-                DataRow row1 = null;
-                row1 = dt1.Rows[0];
+                DataRow row1 = dt1.Rows[0];
 
                 lancamento.LbIdCliente.Text = row1["clienteId"].ToString();
                 lancamento.LbNomeCliente.Text = row1["clienteNome"].ToString();
@@ -139,13 +128,15 @@ namespace PDV
                     lancamento.BtLimpar.Enabled = false;
                     double total = 0;
 
-                    foreach (DataRow row in dt.Rows) { 
-                        Produtos p = new Produtos();
-                        p.codigo = Convert.ToInt32(row["codigo"]);
-                        p.referencia = row["referencia"].ToString();
-                        p.descricao = row["descricao"].ToString();
-                        p.quantidade = Convert.ToDouble(row["quantidade"]);
-                        p.preco = Convert.ToDouble(row["valor"]);
+                    foreach (DataRow row in dt.Rows) {
+                        Produtos p = new()
+                        {
+                            codigo = Convert.ToInt32(row["codigo"]),
+                            referencia = row["referencia"].ToString() ?? "Sem referência",
+                            descricao = row["descricao"].ToString() ?? "Sem descrição",
+                            quantidade = Convert.ToDouble(row["quantidade"]),
+                            preco = Convert.ToDouble(row["valor"])
+                        };
                         total += p.quantidade * p.preco;
                         lancamento.produtos.Add(p);
                     }

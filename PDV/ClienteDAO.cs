@@ -1,18 +1,12 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PDV
 {
     public class ClienteDAO
     {
 
-        private Conexao conexao;
+        private readonly Conexao conexao;
 
         public ClienteDAO()
         {
@@ -30,7 +24,7 @@ namespace PDV
             {
                 conexao.AbrirConexao();
 
-                using (MySqlCommand command = new MySqlCommand(comando, conexao.ObterConexao()))
+                using (MySqlCommand command = new(comando, conexao.ObterConexao()))
                 {
                     //passando os atributos da classe para o insert no banco
                     command.Parameters.AddWithValue("@nome", c.nome);
@@ -79,7 +73,7 @@ namespace PDV
             try
             {
                 conexao.AbrirConexao();
-                using (MySqlCommand command = new MySqlCommand(comando, conexao.ObterConexao()))
+                using (MySqlCommand command = new(comando, conexao.ObterConexao()))
                 {
 
                     //passando os atributos da classe para o update no banco
@@ -124,16 +118,14 @@ namespace PDV
         public DataTable ListarClientes(string c)
         {
             //funcao para fazer o select no banco, que vai ser chamada em outras partes do codigo
-            DataTable dt = new DataTable();
+            DataTable dt = new();
             try
             {
                 conexao.AbrirConexao();
-                using (MySqlCommand command = new MySqlCommand(c, conexao.ObterConexao()))
+                using (MySqlCommand command = new(c, conexao.ObterConexao()))
                 {
-                    using (MySqlDataAdapter da = new MySqlDataAdapter(command))
-                    {
-                        da.Fill(dt);
-                    }
+                    using MySqlDataAdapter da = new(command);
+                    da.Fill(dt);
                 }
                 conexao.FecharConexao();
             }
@@ -149,7 +141,7 @@ namespace PDV
         public DataTable ClienteByID(string id) {
 
             //funcao para fazer o select de todos os campos da tabela cliente de acordo com o codigo
-            DataTable dt = new DataTable();
+            
             string comando = "SELECT * from clientes where codigo = " + id;
 
             //chamando a função de cima que executa o comando passado e armazena os valores em uma DataTable
@@ -158,14 +150,14 @@ namespace PDV
         }
 
         public DataTable NomeById(string id) {
-            DataTable dt = new DataTable();
+            
             string comando = "SELECT nome from clientes where codigo = " + id;
 
             return ListarClientes(comando);
         }
 
         public DataTable CodigoByNome(string nome) {
-            DataTable dt = new DataTable();
+            
             string comando = "select codigo, nome from clientes where nome like '%" +nome+"%'";
 
             return ListarClientes(comando);

@@ -1,4 +1,3 @@
-using MySql.Data.MySqlClient;
 
 namespace PDV
 {
@@ -9,20 +8,20 @@ namespace PDV
         public Form1(VendaDAO vendaDAO)
         {
             InitializeComponent();
-            Conexao conexao = new Conexao();
+            Conexao conexao = new();
             conexao.AbrirConexao();
             _vendaDAO = vendaDAO;
         }
 
         private void cadastroGeralToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CadastroGeral form = new CadastroGeral();
+            CadastroGeral form = new();
             form.ShowDialog();
         }
 
         private void estoqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CadastroEstoque formEstoque = new CadastroEstoque();
+            CadastroEstoque formEstoque = new();
             formEstoque.ShowDialog();
         }
 
@@ -33,25 +32,25 @@ namespace PDV
 
         private void gruposToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GrupoCadastro grupo = new GrupoCadastro();
+            GrupoCadastro grupo = new();
             grupo.ShowDialog();
         }
 
         private void vendaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            JanelaVenda janelaVenda = new JanelaVenda(_vendaDAO);
+            JanelaVenda janelaVenda = new(_vendaDAO);
             janelaVenda.ShowDialog();
         }
 
         private void formasDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormasPagamento formasPagamento = new FormasPagamento();
+            FormasPagamento formasPagamento = new();
             formasPagamento.ShowDialog();
         }
 
         private void lançamentoDeEntradasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            JanelaEntrada janelaEntrada = new JanelaEntrada();
+            JanelaEntrada janelaEntrada = new();
             janelaEntrada.ShowDialog();
         }
 
@@ -63,7 +62,7 @@ namespace PDV
 
         private void consultaDeEntradasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConsultaEntradas consultaEntradas = new ConsultaEntradas();
+            ConsultaEntradas consultaEntradas = new();
             consultaEntradas.Show();
         }
 
@@ -75,19 +74,19 @@ namespace PDV
 
         private void cancelamentoDeEntradasToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            JanelaCancelamentodeEntradas janelaCancelamentodeEntradas = new JanelaCancelamentodeEntradas();
+            JanelaCancelamentodeEntradas janelaCancelamentodeEntradas = new();
             janelaCancelamentodeEntradas.Show();
         }
 
         private void consultaDeCancelamentosToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-            ConsultaCancelamentoEntrada consulta = new ConsultaCancelamentoEntrada();
+            ConsultaCancelamentoEntrada consulta = new();
             consulta.Show();
         }
 
         private void cancelamentoDeSaídasToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            JanelaCancelamentodeSaidas cancelamento = new JanelaCancelamentodeSaidas();
+            JanelaCancelamentodeSaidas cancelamento = new();
             cancelamento.Show();
         }
 
@@ -105,8 +104,14 @@ namespace PDV
 
         private void cancelamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CancelamentoDeDevolucao cancelamento = new CancelamentoDeDevolucao();
+            CancelamentoDeDevolucao cancelamento = new();
             cancelamento.Show();
+        }
+
+        private void saídaDeDevoluçãoTrocaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaidaDeTroca s = new();
+            s.Show();
         }
     }
 }

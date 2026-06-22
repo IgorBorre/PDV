@@ -246,7 +246,7 @@
             BtCancelar.Text = "Cancelar";
             BtCancelar.TextAlign = ContentAlignment.MiddleLeft;
             BtCancelar.UseVisualStyleBackColor = true;
-            BtCancelar.Click += button1_Click;
+            BtCancelar.Click += Button1_Click;
             // 
             // groupBox2
             // 

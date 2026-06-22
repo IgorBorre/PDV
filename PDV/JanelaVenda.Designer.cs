@@ -87,7 +87,7 @@
             TfId.Name = "TfId";
             TfId.Size = new Size(1134, 25);
             TfId.TabIndex = 0;
-            TfId.Leave += textBox1_Leave;
+            TfId.Leave += TextBox1_Leave;
             // 
             // Produto
             // 
@@ -175,7 +175,6 @@
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
             groupBox1.Text = "Detalhes do produto";
-            groupBox1.Enter += groupBox1_Enter;
             // 
             // lbDetalhesPreco
             // 
@@ -354,8 +353,6 @@
             F3.Text = "F3";
             F3.UseVisualStyleBackColor = true;
             F3.Click += F3_Click;
-            F3.KeyDown += button1_KeyDown;
-            F3.KeyPress += button1_KeyPress;
             // 
             // label10
             // 
@@ -389,7 +386,6 @@
             F4.Text = "F4";
             F4.UseVisualStyleBackColor = true;
             F4.Click += F4_Click;
-            F4.KeyDown += F4_KeyDown;
             // 
             // label12
             // 
@@ -401,7 +397,6 @@
             label12.Size = new Size(55, 17);
             label12.TabIndex = 13;
             label12.Text = "Finalizar";
-            label12.Click += label12_Click;
             // 
             // F5
             // 
@@ -413,7 +408,6 @@
             F5.Text = "F5";
             F5.UseVisualStyleBackColor = true;
             F5.Click += F5_Click;
-            F5.KeyDown += F5_KeyDown;
             // 
             // label13
             // 
@@ -435,7 +429,6 @@
             F6.TabIndex = 16;
             F6.Text = "F6";
             F6.UseVisualStyleBackColor = true;
-            F6.KeyDown += F6_KeyDown;
             // 
             // listView1
             // 

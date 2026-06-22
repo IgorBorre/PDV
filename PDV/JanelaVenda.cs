@@ -1,23 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 using System.Globalization;
-using static System.Windows.Forms.LinkLabel;
 
 namespace PDV
 {
     public partial class JanelaVenda : Form
     {
         public double subtotal = 0;
-        ProdutoDAO produtoDAO;
+        private readonly ProdutoDAO produtoDAO;
         private readonly VendaDAO _vendaDAO;
-        List<Produtos> listaProdutos = [];
+        private readonly List<Produtos> listaProdutos = [];
         int id = 0;
         double quantidade = 0;
         double total;
@@ -27,7 +18,7 @@ namespace PDV
         {
             InitializeComponent();
             produtoDAO = new ProdutoDAO();
-            vendaDAO = _vendaDAO;
+            _vendaDAO = vendaDAO;
         }
 
         private void LimparCampos()
@@ -60,11 +51,6 @@ namespace PDV
             TfId.Focus();
             quantidade = 0;
             total = 0;
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void JanelaVenda_KeyDown(object sender, KeyEventArgs e)
@@ -110,31 +96,14 @@ namespace PDV
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private JanelaPagamento ValidarJanelaPagamento()
         {
+            JanelaPagamento janelaPagamento = new();
+            janelaPagamento.LbTotal.Text = lblTotal.Text;
+            janelaPagamento.LbFalta.Text = lblTotal.Text;
+            janelaPagamento.ShowDialog();
 
-        }
-
-        private void button1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-        }
-
-        private void button1_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void F4_KeyDown(object sender, KeyEventArgs e)
-        {
-        }
-
-        private void F5_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void F6_KeyDown(object sender, KeyEventArgs e)
-        {
+            return janelaPagamento;
 
         }
 
@@ -145,11 +114,7 @@ namespace PDV
             {
                 if (string.IsNullOrEmpty(LbDocumento.Text))
                 {
-                    JanelaPagamento janelaPagamento = new JanelaPagamento();
-                    janelaPagamento.LbTotal.Text = lblTotal.Text;
-                    janelaPagamento.LbFalta.Text = lblTotal.Text;
-                    janelaPagamento.ShowDialog();
-
+                    var janelaPagamento = ValidarJanelaPagamento();
                     if (janelaPagamento.DialogResult == DialogResult.OK)
                     {
                         Venda v = new()
@@ -159,72 +124,55 @@ namespace PDV
                             acrescimo = double.Parse(lbAcrescimo.Text),
                             subtotal = subtotal
                         };
-                        if (string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text))
-                        {
-                            _vendaDAO.Venda(v, listaProdutos, null, janelaPagamento.listaFormasdePagamento);
-                        }
-                        else
-                        {
-                            Clientes c = new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
-                            _vendaDAO.Venda(v, listaProdutos, c, janelaPagamento.listaFormasdePagamento);
-                        }
+                        var clientes = string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text) 
+                            ? null : new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
+                        _vendaDAO.Venda(v, listaProdutos, clientes, janelaPagamento.listaFormasdePagamento, null);
                         LimparCampos();
                     }
                 }
-                else {
+                else 
+                {
                     if (total > 0)
                     {
-                        JanelaPagamento janelaPagamento = new JanelaPagamento();
-                        janelaPagamento.LbTotal.Text = lblTotal.Text;
-                        janelaPagamento.LbFalta.Text = lblTotal.Text;
-                        janelaPagamento.ShowDialog();
-
+                        var janelaPagamento = ValidarJanelaPagamento();
                         if (janelaPagamento.DialogResult == DialogResult.OK)
                         {
-                            Venda v = new Venda();
-                            v.valorTotal = double.Parse(lblTotal.Text);
-                            v.desconto = double.Parse(lbDesconto.Text);
-                            v.acrescimo = double.Parse(lbAcrescimo.Text);
-                            v.subtotal = subtotal;
-                            if (string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text))
+                            Venda v = new()
                             {
-                                _vendaDAO.Venda(v, listaProdutos, null, janelaPagamento.listaFormasdePagamento, LbDocumento.Text);
-                            }
-                            else
-                            {
-                                Clientes c = new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
-                                _vendaDAO.Venda(v, listaProdutos, c, janelaPagamento.listaFormasdePagamento, LbDocumento.Text);
-                            }
+                                valorTotal = double.Parse(lblTotal.Text),
+                                desconto = double.Parse(lbDesconto.Text),
+                                acrescimo = double.Parse(lbAcrescimo.Text),
+                                subtotal = subtotal
+                            };
+                            var clientes = string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text)
+                            ? null : new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
+                            _vendaDAO.Venda(v, listaProdutos, clientes, janelaPagamento.listaFormasdePagamento, LbDocumento.Text);
                             Dispose();
 
                         }
 
-                    }else{
+                    }
+                    else
+                    {
                         MessageBox.Show("Não há valor a parcelar!");
 
-                        Venda v = new Venda();
-                        v.valorTotal = double.Parse(lblTotal.Text);
-                        v.desconto = double.Parse(lbDesconto.Text);
-                        v.acrescimo = double.Parse(lbAcrescimo.Text);
-                        v.subtotal = subtotal;
-                        if (string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text))
+                        Venda v = new()
                         {
-                            _vendaDAO.Venda(v, listaProdutos, null, null, LbDocumento.Text);
-                        }
-                        else
-                        {
-                            Clientes c = new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
-                            _vendaDAO.Venda(v, listaProdutos, c, null, LbDocumento.Text);
-                        }
+                            valorTotal = double.Parse(lblTotal.Text),
+                            desconto = double.Parse(lbDesconto.Text),
+                            acrescimo = double.Parse(lbAcrescimo.Text),
+                            subtotal = subtotal
+                        };
+                        var clientes = string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text)
+                            ? null : new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
+                        _vendaDAO.Venda(v, listaProdutos, clientes, null, LbDocumento.Text);
                         Dispose();
 
                     }
 
                 
                 }
-                
-
-
+               
             }
             else {
                 MessageBox.Show("Não é possível finalizar uma saída sem produto!");
@@ -233,15 +181,15 @@ namespace PDV
             
         }
 
-        private void textBox1_Leave(object sender, EventArgs e)
+        private void TextBox1_Leave(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(TfId.Text.ToString()))
+            if (!string.IsNullOrEmpty(TfId.Text))
             {
                 //tenta converter o texto do campo TfId em int para fazer a pesquisa no banco
                 //se nao conseguir, joga uma mensagem de erro ao procurar o produto
                 try
                 {
-                    id = int.Parse(TfId.Text.ToString());
+                    id = int.Parse(TfId.Text);
                 }
                 catch
                 {
@@ -249,17 +197,17 @@ namespace PDV
                     TfId.Focus();
                     return;
                 }
-                DataTable dt = produtoDAO.ListarNomeById(TfId.Text.ToString());
+                DataTable dt = produtoDAO.ListarNomeById(TfId.Text);
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    DataRow row = null;
-                    row = dt.Rows[0];
-                    TfId.Text = row["descricao"].ToString().ToUpper();
+                    DataRow row = dt.Rows[0];
+                    var descricao = row["descricao"]?.ToString()?.ToUpper() ?? "Sem descrição";              
+                    TfId.Text = descricao;
                     TfQtd.Text = "1,0";
                     TfPreco.Text = row["preco"].ToString();
                     lbDetalhesCodigo.Text = id.ToString();
-                    lbDetalhesDesc.Text = row["descricao"].ToString().ToUpper();
-                    lbDetalhesReferencia.Text = row["referencia"].ToString().ToUpper();
+                    lbDetalhesDesc.Text = descricao;
+                    lbDetalhesReferencia.Text = row["referencia"]?.ToString()?.ToUpper() ?? "Sem referência";
                     lbDetalhesPreco.Text = row["preco"].ToString();
                     lbDetalhesEstoque.Text = row["estoque"].ToString();
 
@@ -287,11 +235,13 @@ namespace PDV
                 if (_vendaDAO.Validações(Convert.ToDouble(TfPreco.Text), Convert.ToDouble(TfQtd.Text)))
                 {
 
-                    Produtos p = new Produtos();
-                    p.codigo = id;
-                    p.descricao = TfId.Text.ToString();
-                    p.preco = double.Parse(TfPreco.Text);
-                    p.quantidade = double.Parse(TfQtd.Text);
+                    Produtos p = new()
+                    {
+                        codigo = id,
+                        descricao = TfId.Text.ToString(),
+                        preco = double.Parse(TfPreco.Text),
+                        quantidade = double.Parse(TfQtd.Text)
+                    };
                     quantidade += p.quantidade;
                     total += p.preco * p.quantidade;
                     subtotal += p.preco * p.quantidade;
@@ -339,13 +289,13 @@ namespace PDV
 
         private void F3_Click(object sender, EventArgs e)
         {
-            JanelaClienteVenda janelaClienteVenda = new JanelaClienteVenda(this);
+            JanelaClienteVenda janelaClienteVenda = new(this);
             janelaClienteVenda.Show();
         }
 
         private void F4_Click(object sender, EventArgs e)
         {
-            JanelaDesconto janelaDesconto = new JanelaDesconto(this);
+            JanelaDesconto janelaDesconto = new(this);
             janelaDesconto.Show();
             janelaDesconto.TfSubtotal.Text = subtotal.ToString("F2");
             janelaDesconto.TfTotal.Text = lblTotal.Text;
@@ -356,8 +306,7 @@ namespace PDV
             
             if (!string.IsNullOrEmpty(LbDocumento.Text)) {
                 string c = "select idCliente, nomeCliente, valor from devolucao where documento = " + LbDocumento.Text;
-                DataTable dt;
-                dt = _vendaDAO.ConsultaSaidas(c);
+                DataTable dt = _vendaDAO.ConsultaSaidas(c);
                 if (dt.Rows.Count > 0)
                 {
                     DataRow row = dt.Rows[0];

@@ -25,7 +25,7 @@ namespace PDV
             con = new Conexao();
         }
 
-        public void Venda(Venda v, List<Produtos> produtos, Clientes? c, List<FormasdePagamento>? formaspag, string? docDevolucao = null) { 
+        public void Venda(Venda v, List<Produtos> produtos, Clientes? c, List<FormasdePagamento>? formaspag, string? docDevolucao) { 
             
             con.AbrirConexao();
 

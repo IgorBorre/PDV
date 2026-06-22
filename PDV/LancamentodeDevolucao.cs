@@ -19,14 +19,13 @@ namespace PDV
 
         private readonly JanelaDevolucao janela;
 
-       private readonly ItensOriginais itens;
+       private readonly ItensOriginais itens = new();
 
         private readonly VendaDAO _vendaDAO;
         public LancamentodeDevolucao(JanelaDevolucao janela, VendaDAO vendaDAO)
         {
             InitializeComponent();
             this.janela = janela;
-            itens = new ItensOriginais();
             _vendaDAO = vendaDAO;
         }
 
@@ -35,10 +34,6 @@ namespace PDV
             dataGridView1.ClearSelection();
         }
 
-        private void dataGridView1_Sorted(object sender, EventArgs e)
-        {
-
-        }
 
         private void BtFinalizar_Click(object sender, EventArgs e)
         {
@@ -47,10 +42,12 @@ namespace PDV
                 MessageBox.Show("Não é possível realizar uma devolução/troca sem produtos!");
             }
             else { 
-                ProdutoDAO p = new ProdutoDAO();
-                Devolucao d = new Devolucao();
-                d.valor = double.Parse(LbTotal.Text);
-                Entrada entrada = new Entrada();
+                ProdutoDAO p = new();
+                Devolucao d = new()
+                {
+                    valor = double.Parse(LbTotal.Text)
+                };
+                Entrada entrada = new();
 
                 if (string.IsNullOrEmpty(LbIdCliente.Text))
                 {
@@ -58,7 +55,7 @@ namespace PDV
                     Dispose();
                     if (LbTroca.Text == "Troca")
                     {
-                        JanelaVenda janelaVenda = new JanelaVenda(_vendaDAO);
+                        JanelaVenda janelaVenda = new(_vendaDAO);
                         janelaVenda.LbDocumento.Text = d.documento.ToString();
                         janelaVenda.Show();
                         janelaVenda.TfId.Focus();
@@ -73,15 +70,17 @@ namespace PDV
                     janela.TfDocumento.Text = string.Empty;
                     janela.TfDocumento.Focus();
                 }
-                else { 
-                    Clientes c = new Clientes();
-                    c.codigo = int.Parse(LbIdCliente.Text);
-                    c.nome = LbNomeCliente.Text;
+                else {
+                    Clientes c = new()
+                    {
+                        codigo = int.Parse(LbIdCliente.Text),
+                        nome = LbNomeCliente.Text
+                    };
                     p.Devolucao(d, entrada, produtos, LbDocumento.Text, c);
                     Dispose();
                     if (LbTroca.Text == "Troca")
                     {
-                        JanelaVenda janelaVenda = new JanelaVenda(_vendaDAO);
+                        JanelaVenda janelaVenda = new(_vendaDAO);
                         janelaVenda.LbDocumento.Text = d.documento.ToString();
                         janelaVenda.Show();
                         janelaVenda.TfId.Focus();
@@ -106,7 +105,7 @@ namespace PDV
             string c = "select codigo, referencia, descricao, quantidade, valor from produtos join saidadados on produtos.codigo = saidadados.produto " +
                         "where saidadados.documento = " + LbDocumento.Text;
 
-            VendaDAO v = new VendaDAO();
+            VendaDAO v = new();
             DataTable dt = v.ConsultaSaidas(c);
 
             itens.dataGridView1.AutoGenerateColumns = false;
@@ -134,16 +133,15 @@ namespace PDV
 
 
                 string c = "select codigo, referencia, descricao, quantidade, valor from saidadados s join produtos p on p.codigo = s.produto where documento = " + LbDocumento.Text + " and s.produto = " + TfId.Text;
-                VendaDAO v = new VendaDAO();
+                VendaDAO v = new();
                 DataTable dt = v.ConsultaSaidas(c);
 
                 if (dt.Rows.Count > 0)
                 {
 
-                    DataRow row = null;
-                    row = dt.Rows[0];
+                    DataRow row = dt.Rows[0];
                     TfProduto.Text = row["descricao"].ToString();
-                    quantidadeOriginal = double.Parse(row["quantidade"].ToString());
+                    quantidadeOriginal = double.Parse(row["quantidade"].ToString() ?? "0");
                     LbCodigo.Text = row["codigo"].ToString();
                     LbDescricao.Text = row["descricao"].ToString();
                     LbReferencia.Text = row["referencia"].ToString();
@@ -187,14 +185,13 @@ namespace PDV
 
 
                 string c = "select codigo, referencia, descricao, quantidade, valor from saidadados s join produtos p on p.codigo = s.produto where documento = " + LbDocumento.Text + " and s.produto = " + TfId.Text;
-                VendaDAO v = new VendaDAO();
+                VendaDAO v = new();
                 DataTable dt = v.ConsultaSaidas(c);
 
                 if (dt.Rows.Count > 0)
                 {
 
-                    DataRow row = null;
-                    row = dt.Rows[0];
+                    DataRow row = dt.Rows[0];
                     TfProduto.Text = row["descricao"].ToString();
                     LbCodigo.Text = row["codigo"].ToString();
                     LbDescricao.Text = row["descricao"].ToString();
@@ -250,16 +247,18 @@ namespace PDV
             {
 
                 string c = "select referencia from produtos where codigo = " + TfId.Text;
-                ProdutoDAO pDAO = new ProdutoDAO();
+                ProdutoDAO pDAO = new();
                 DataTable dt = pDAO.ListarProdutos(c);
                 DataRow row = dt.Rows[0];
 
-                Produtos p = new Produtos();
-                p.codigo = int.Parse(TfId.Text);
-                p.descricao = TfProduto.Text;
-                p.referencia = row["referencia"].ToString();
-                p.quantidade = double.Parse(TfQuantidade.Text);
-                p.preco = double.Parse(TfValor.Text);
+                Produtos p = new()
+                {
+                    codigo = int.Parse(TfId.Text),
+                    descricao = TfProduto.Text,
+                    referencia = row["referencia"].ToString() ?? "Sem referência",
+                    quantidade = double.Parse(TfQuantidade.Text),
+                    preco = double.Parse(TfValor.Text)
+                };
 
                 var produto = produtos.FirstOrDefault(p => p.codigo == Convert.ToInt32(TfId.Text));
                 if (produto != null)
@@ -305,7 +304,7 @@ namespace PDV
             }
         }
 
-        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        private void DataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             dataGridView1.ClearSelection();
         }

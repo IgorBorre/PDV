@@ -21,18 +21,18 @@ namespace PDV
         {
             if (!string.IsNullOrEmpty(TfDocumento.Text))
             {
-                string c = "select documento, nomeCliente, dataDevolucao from devolucao where cancelada = 'N' and documento = " + TfDocumento.Text;
-                VendaDAO vendaDAO = new VendaDAO();
+                string c = "select documento, nomeCliente, dataDevolucao, valor from devolucao where cancelada = 'N' and documento = " + TfDocumento.Text;
+                VendaDAO vendaDAO = new();
                 DataTable dt = vendaDAO.ConsultaSaidas(c);
                 if (dt.Rows.Count > 0)
                 {
-                    DataRow row = null;
-                    row = dt.Rows[0];
+                    DataRow row = dt.Rows[0];
 
                     LbCliente.Text = row["nomeCliente"].ToString();
                     DateTime data = Convert.ToDateTime(row["dataDevolucao"].ToString());
                     LbData.Text = data.ToString("dd/MM/yyyy");
                     LbDocumento.Text = row["documento"].ToString();
+                    LbTotal.Text = Convert.ToDouble(row["valor"]).ToString("F2");
 
                 }
                 else
@@ -51,7 +51,7 @@ namespace PDV
         private void BtExecutar_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(LbDocumento.Text)) {
-                ProdutoDAO p = new ProdutoDAO();
+                ProdutoDAO p = new();
                 p.CancelarDevolucao(LbDocumento.Text);
                 TfDocumento.Text = string.Empty;
                 LbDocumento.Text = string.Empty;

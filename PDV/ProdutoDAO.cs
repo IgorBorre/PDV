@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace PDV
 {
     public class ProdutoDAO
     {
-        private Conexao conexao;
+        private readonly Conexao conexao;
 
         public ProdutoDAO()
         {
@@ -25,7 +20,7 @@ namespace PDV
             {
                 conexao.AbrirConexao();
 
-                using (MySqlCommand cmd = new MySqlCommand(comando, conexao.ObterConexao()))
+                using (MySqlCommand cmd = new(comando, conexao.ObterConexao()))
                 {
                     cmd.Parameters.AddWithValue("@referencia", p.referencia);
                     cmd.Parameters.AddWithValue("@descricao", p.descricao);
@@ -56,7 +51,7 @@ namespace PDV
             try
             {
                 conexao.AbrirConexao();
-                using (MySqlCommand cmd = new MySqlCommand(comando, conexao.ObterConexao()))
+                using (MySqlCommand cmd = new(comando, conexao.ObterConexao()))
                 {
                     cmd.Parameters.AddWithValue("@referencia", p.referencia);
                     cmd.Parameters.AddWithValue("@descricao", p.descricao);
@@ -78,16 +73,14 @@ namespace PDV
 
         public DataTable ListarProdutos(string c)
         {
-            DataTable dt = new DataTable();
+            DataTable dt = new();
             try
             {
                 conexao.AbrirConexao();
-                using (MySqlCommand command = new MySqlCommand(c, conexao.ObterConexao()))
+                using (MySqlCommand command = new(c, conexao.ObterConexao()))
                 {
-                    using (MySqlDataAdapter da = new MySqlDataAdapter(command))
-                    {
-                        da.Fill(dt);
-                    }
+                    using MySqlDataAdapter da = new(command);
+                    da.Fill(dt);
                 }
                 conexao.FecharConexao();
             }
@@ -178,7 +171,7 @@ namespace PDV
             try
             {
                 conexao.AbrirConexao();
-                using (MySqlCommand cmd = new MySqlCommand(comando, conexao.ObterConexao())) {
+                using (MySqlCommand cmd = new(comando, conexao.ObterConexao())) {
                     cmd.Parameters.AddWithValue("@idfornecedor", c.codigo);
                     cmd.Parameters.AddWithValue("@nomefornecedor", c.nome);
                     cmd.Parameters.AddWithValue("@dataentrada", e.data);
@@ -189,7 +182,7 @@ namespace PDV
                 }
 
                 foreach (Produtos p in produtos) {
-                    using (MySqlCommand cmd = new MySqlCommand(comandoEntrada, conexao.ObterConexao())) {
+                    using (MySqlCommand cmd = new(comandoEntrada, conexao.ObterConexao())) {
                         cmd.Parameters.AddWithValue("@docentrada", e.documento);
                         cmd.Parameters.AddWithValue("@idproduto", p.codigo);
                         cmd.Parameters.AddWithValue("@descproduto", p.descricao);
@@ -198,7 +191,7 @@ namespace PDV
                         cmd.ExecuteNonQuery();
                     }
 
-                    using (MySqlCommand cmd = new MySqlCommand(atualizaEstoque, conexao.ObterConexao())) {
+                    using (MySqlCommand cmd = new(atualizaEstoque, conexao.ObterConexao())) {
                         cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
                         cmd.Parameters.AddWithValue("@codigo", p.codigo);
 
@@ -226,7 +219,7 @@ namespace PDV
             try
             {
                 conexao.AbrirConexao();
-                using (MySqlCommand cmd = new MySqlCommand(comando, conexao.ObterConexao()))
+                using (MySqlCommand cmd = new(comando, conexao.ObterConexao()))
                 {
                     cmd.Parameters.AddWithValue("@dataentrada", e.data);
                     cmd.ExecuteNonQuery();
@@ -237,7 +230,7 @@ namespace PDV
 
                 foreach (Produtos p in produtos)
                 {
-                    using (MySqlCommand cmd = new MySqlCommand(comandoEntrada, conexao.ObterConexao()))
+                    using (MySqlCommand cmd = new(comandoEntrada, conexao.ObterConexao()))
                     {
                         cmd.Parameters.AddWithValue("@docentrada", e.documento);
                         cmd.Parameters.AddWithValue("@idproduto", p.codigo);
@@ -247,7 +240,7 @@ namespace PDV
                         cmd.ExecuteNonQuery();
                     }
 
-                    using (MySqlCommand cmd = new MySqlCommand(atualizaEstoque, conexao.ObterConexao()))
+                    using (MySqlCommand cmd = new(atualizaEstoque, conexao.ObterConexao()))
                     {
                         cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
                         cmd.Parameters.AddWithValue("@codigo", p.codigo);
@@ -275,7 +268,7 @@ namespace PDV
 
             try
             {
-                using (MySqlCommand cmd = new MySqlCommand(comando, conexao.ObterConexao()))
+                using (MySqlCommand cmd = new(comando, conexao.ObterConexao()))
                 {
                     cmd.Parameters.AddWithValue("@dataentrada", e.data);
                     cmd.Parameters.AddWithValue("@doc_original", e.doc_original);
@@ -287,7 +280,7 @@ namespace PDV
 
                 foreach (Produtos p in produtos)
                 {
-                    using (MySqlCommand cmd = new MySqlCommand(comandoEntrada, conexao.ObterConexao()))
+                    using (MySqlCommand cmd = new(comandoEntrada, conexao.ObterConexao()))
                     {
                         cmd.Parameters.AddWithValue("@docentrada", e.documento);
                         cmd.Parameters.AddWithValue("@idproduto", p.codigo);
@@ -297,7 +290,7 @@ namespace PDV
                         cmd.ExecuteNonQuery();
                     }
 
-                    using (MySqlCommand cmd = new MySqlCommand(atualizaEstoque, conexao.ObterConexao()))
+                    using (MySqlCommand cmd = new(atualizaEstoque, conexao.ObterConexao()))
                     {
                         cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
                         cmd.Parameters.AddWithValue("@codigo", p.codigo);
@@ -321,7 +314,7 @@ namespace PDV
             try
             {
                 conexao.AbrirConexao();
-                using (MySqlCommand cmd = new MySqlCommand(c, conexao.ObterConexao())) {
+                using (MySqlCommand cmd = new(c, conexao.ObterConexao())) {
                     cmd.Parameters.AddWithValue("@dataDevolucao", d.data);
                     cmd.Parameters.AddWithValue("@doc_original", doc_original);
                     cmd.Parameters.AddWithValue("@valor", d.valor);
@@ -351,7 +344,7 @@ namespace PDV
             try
             {
                 conexao.AbrirConexao();
-                using (MySqlCommand cmd = new MySqlCommand(comando, conexao.ObterConexao()))
+                using (MySqlCommand cmd = new(comando, conexao.ObterConexao()))
                 {
                     cmd.Parameters.AddWithValue("@dataDevolucao", d.data);
                     cmd.Parameters.AddWithValue("@doc_original", doc_original);
@@ -386,24 +379,25 @@ namespace PDV
             {
                 conexao.AbrirConexao();
 
-                foreach (DataRow row in dt.Rows) { 
-                    Produtos p = new Produtos();
-                    p.codigo = Convert.ToInt32(row["idproduto"]);
-                    p.quantidade = Convert.ToDouble(row["quantidade"]);
+                foreach (DataRow row in dt.Rows) {
+                    Produtos p = new()
+                    {
+                        codigo = Convert.ToInt32(row["idproduto"]),
+                        quantidade = Convert.ToDouble(row["quantidade"])
+                    };
 
-                    using (MySqlCommand cmd = new MySqlCommand(atualizaEstoque, conexao.ObterConexao())) { 
-                        cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
-                        cmd.Parameters.AddWithValue("@codigo", p.codigo);
-                        cmd.ExecuteNonQuery();
-                    }
+                    using MySqlCommand cmd = new(atualizaEstoque, conexao.ObterConexao());
+                    cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
+                    cmd.Parameters.AddWithValue("@codigo", p.codigo);
+                    cmd.ExecuteNonQuery();
                 }
 
-                using (MySqlCommand cmd = new MySqlCommand(comando, conexao.ObterConexao())) {
+                using (MySqlCommand cmd = new(comando, conexao.ObterConexao())) {
                     cmd.Parameters.AddWithValue("@documento", documento);
                     cmd.ExecuteNonQuery();
                 }
 
-                using (MySqlCommand cmd = new MySqlCommand(cancelamentoentradalog, conexao.ObterConexao()))
+                using (MySqlCommand cmd = new(cancelamentoentradalog, conexao.ObterConexao()))
                 {
                     cmd.Parameters.AddWithValue("@documento", documento);
                     cmd.Parameters.AddWithValue("@motivo", motivo);
@@ -427,14 +421,13 @@ namespace PDV
             string docEntrada;
 
             DataTable dt = ListarProdutos(selectEntrada);
-            DataRow row = null;
-            row = dt.Rows[0];
-            docEntrada = row["documento"].ToString();
+            DataRow row = dt.Rows[0];
+            docEntrada = row["documento"].ToString() ?? "Sem documento";
 
             try
             {
                 conexao.AbrirConexao();
-                using (MySqlCommand cmd = new MySqlCommand(c, conexao.ObterConexao()))
+                using (MySqlCommand cmd = new(c, conexao.ObterConexao()))
                 {
                     cmd.Parameters.AddWithValue("@documento", documento);
                     cmd.ExecuteNonQuery();
@@ -452,7 +445,7 @@ namespace PDV
 
 
 
-        public String CriteriosConsultaCancelamentoEntrada(string documento, string data1, string data2) { 
+        public string CriteriosConsultaCancelamentoEntrada(string documento, string data1, string data2) { 
             string a = "";
 
             if (!string.IsNullOrEmpty(documento)) { 
