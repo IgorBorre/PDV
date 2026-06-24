@@ -32,14 +32,14 @@
             BtLimpar = new Button();
             BtProcurar = new Button();
             label1 = new Label();
-            textBox1 = new TextBox();
+            TfDocumento = new TextBox();
             groupBox2 = new GroupBox();
-            label2 = new Label();
-            LbCliente = new Label();
-            label3 = new Label();
-            LbData = new Label();
+            LbTotal = new Label();
             label4 = new Label();
-            LbTroca = new Label();
+            LbData = new Label();
+            label3 = new Label();
+            LbCliente = new Label();
+            label2 = new Label();
             BtConfirmar = new Button();
             BtCancelar = new Button();
             LbDocumento = new Label();
@@ -52,7 +52,7 @@
             groupBox1.Controls.Add(BtLimpar);
             groupBox1.Controls.Add(BtProcurar);
             groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(TfDocumento);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(428, 81);
@@ -71,6 +71,7 @@
             BtLimpar.Text = "Limpar";
             BtLimpar.TextAlign = ContentAlignment.MiddleLeft;
             BtLimpar.UseVisualStyleBackColor = true;
+            BtLimpar.Click += BtLimpar_Click;
             // 
             // BtProcurar
             // 
@@ -83,6 +84,7 @@
             BtProcurar.Text = "Procurar";
             BtProcurar.TextAlign = ContentAlignment.MiddleLeft;
             BtProcurar.UseVisualStyleBackColor = true;
+            BtProcurar.Click += BtProcurar_Click;
             // 
             // label1
             // 
@@ -93,16 +95,16 @@
             label1.TabIndex = 1;
             label1.Text = "Documento";
             // 
-            // textBox1
+            // TfDocumento
             // 
-            textBox1.Location = new Point(6, 37);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(112, 23);
-            textBox1.TabIndex = 0;
+            TfDocumento.Location = new Point(6, 37);
+            TfDocumento.Name = "TfDocumento";
+            TfDocumento.Size = new Size(112, 23);
+            TfDocumento.TabIndex = 0;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(LbTroca);
+            groupBox2.Controls.Add(LbTotal);
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(LbData);
             groupBox2.Controls.Add(label3);
@@ -115,39 +117,14 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Informações";
             // 
-            // label2
+            // LbTotal
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(6, 19);
-            label2.Name = "label2";
-            label2.Size = new Size(47, 15);
-            label2.TabIndex = 0;
-            label2.Text = "Cliente:";
-            // 
-            // LbCliente
-            // 
-            LbCliente.AutoSize = true;
-            LbCliente.Location = new Point(59, 19);
-            LbCliente.Name = "LbCliente";
-            LbCliente.Size = new Size(0, 15);
-            LbCliente.TabIndex = 1;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(19, 44);
-            label3.Name = "label3";
-            label3.Size = new Size(34, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Data:";
-            // 
-            // LbData
-            // 
-            LbData.AutoSize = true;
-            LbData.Location = new Point(59, 44);
-            LbData.Name = "LbData";
-            LbData.Size = new Size(0, 15);
-            LbData.TabIndex = 3;
+            LbTotal.AutoSize = true;
+            LbTotal.Location = new Point(59, 69);
+            LbTotal.Name = "LbTotal";
+            LbTotal.Size = new Size(28, 15);
+            LbTotal.TabIndex = 5;
+            LbTotal.Text = "0,00";
             // 
             // label4
             // 
@@ -158,13 +135,39 @@
             label4.TabIndex = 4;
             label4.Text = "Total:";
             // 
-            // LbTroca
+            // LbData
             // 
-            LbTroca.AutoSize = true;
-            LbTroca.Location = new Point(59, 69);
-            LbTroca.Name = "LbTroca";
-            LbTroca.Size = new Size(0, 15);
-            LbTroca.TabIndex = 5;
+            LbData.AutoSize = true;
+            LbData.Location = new Point(59, 44);
+            LbData.Name = "LbData";
+            LbData.Size = new Size(0, 15);
+            LbData.TabIndex = 3;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(19, 44);
+            label3.Name = "label3";
+            label3.Size = new Size(34, 15);
+            label3.TabIndex = 2;
+            label3.Text = "Data:";
+            // 
+            // LbCliente
+            // 
+            LbCliente.AutoSize = true;
+            LbCliente.Location = new Point(59, 19);
+            LbCliente.Name = "LbCliente";
+            LbCliente.Size = new Size(0, 15);
+            LbCliente.TabIndex = 1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(6, 19);
+            label2.Name = "label2";
+            label2.Size = new Size(47, 15);
+            label2.TabIndex = 0;
+            label2.Text = "Cliente:";
             // 
             // BtConfirmar
             // 
@@ -177,6 +180,7 @@
             BtConfirmar.Text = "Confirmar";
             BtConfirmar.TextAlign = ContentAlignment.MiddleLeft;
             BtConfirmar.UseVisualStyleBackColor = true;
+            BtConfirmar.Click += BtConfirmar_Click;
             // 
             // BtCancelar
             // 
@@ -226,10 +230,10 @@
         private Button BtLimpar;
         private Button BtProcurar;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox TfDocumento;
         private GroupBox groupBox2;
         private Label label2;
-        private Label LbTroca;
+        private Label LbTotal;
         private Label label4;
         private Label LbData;
         private Label label3;

@@ -110,7 +110,7 @@ namespace PDV
 
         private void saídaDeDevoluçãoTrocaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaidaDeTroca s = new();
+            SaidaDeTroca s = new(_vendaDAO);
             s.Show();
         }
     }

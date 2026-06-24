@@ -128,6 +128,7 @@ namespace PDV
                             ? null : new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
                         _vendaDAO.Venda(v, listaProdutos, clientes, janelaPagamento.listaFormasdePagamento, null);
                         LimparCampos();
+                        subtotal = 0;
                     }
                 }
                 else 
