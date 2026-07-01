@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\janelavenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\janelavenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\saidadetroca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\saidadetroca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\janelavenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\janelavenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\pdv\\saidadetroca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -158,17 +158,29 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "SaidaDeTroca.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\SaidaDeTroca.cs",
+              "RelativeDocumentMoniker": "PDV\\SaidaDeTroca.cs",
+              "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\SaidaDeTroca.cs [Projeto]*",
+              "RelativeToolTip": "PDV\\SaidaDeTroca.cs [Projeto]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-22T21:01:26.596Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "SaidaDeTroca.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\SaidaDeTroca.cs",
               "RelativeDocumentMoniker": "PDV\\SaidaDeTroca.cs",
-              "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\SaidaDeTroca.cs",
-              "RelativeToolTip": "PDV\\SaidaDeTroca.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAiwDcAAAAwAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\SaidaDeTroca.cs*",
+              "RelativeToolTip": "PDV\\SaidaDeTroca.cs*",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAowFwAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-24T14:31:40.33Z",
               "EditorCaption": ""
@@ -235,28 +247,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "JanelaVenda.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\JanelaVenda.cs",
               "RelativeDocumentMoniker": "PDV\\JanelaVenda.cs",
               "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\JanelaVenda.cs",
               "RelativeToolTip": "PDV\\JanelaVenda.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIQAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAowIQAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-13T19:17:37.644Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SaidaDeTroca.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\SaidaDeTroca.cs",
-              "RelativeDocumentMoniker": "PDV\\SaidaDeTroca.cs",
-              "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\SaidaDeTroca.cs [Projeto]",
-              "RelativeToolTip": "PDV\\SaidaDeTroca.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-22T21:01:26.596Z",
-              "EditorCaption": " [Projeto]"
             },
             {
               "$type": "Document",
@@ -280,8 +280,7 @@
               "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Form1.cs [Projeto]",
               "RelativeToolTip": "PDV\\Form1.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-22T20:59:51.584Z",
-              "EditorCaption": " [Projeto]"
+              "WhenOpened": "2026-06-22T20:59:51.584Z"
             },
             {
               "$type": "Document",

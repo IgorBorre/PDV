@@ -71,9 +71,30 @@ namespace PDV
                 LbData.Text = string.Empty;
                 LbTotal.Text = "0,00";
             }
-            else {
+            else
+            {
                 MessageBox.Show("Informe um documento de devolução!!");
                 TfDocumento.Focus();
+            }
+        }
+
+        private void BtCancelar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TfDocumento.Text) || !string.IsNullOrEmpty(LbDocumento.Text))
+            {
+                DialogResult resultado = MessageBox.Show("Cancelar operação?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (resultado == DialogResult.Yes)
+                {
+                    TfDocumento.Text = string.Empty;
+                    LbDocumento.Text = string.Empty;
+                    LbCliente.Text = string.Empty;
+                    LbData.Text = string.Empty;
+                    LbTotal.Text = "0,00";
+                    TfDocumento.Focus();
+                }
+            }
+            else {
+                Dispose();
             }
         }
     }

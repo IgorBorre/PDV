@@ -193,6 +193,7 @@
             BtCancelar.Text = "Cancelar";
             BtCancelar.TextAlign = ContentAlignment.MiddleLeft;
             BtCancelar.UseVisualStyleBackColor = true;
+            BtCancelar.Click += BtCancelar_Click;
             // 
             // LbDocumento
             // 
