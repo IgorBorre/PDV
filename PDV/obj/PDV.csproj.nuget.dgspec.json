@@ -53,6 +53,10 @@
             "MySql.Data": {
               "target": "Package",
               "version": "[9.2.0, )"
+            },
+            "QuestPDF": {
+              "target": "Package",
+              "version": "[2026.7.2, )"
             }
           },
           "imports": [

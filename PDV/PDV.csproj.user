@@ -1,85 +1,85 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="CadastroEstoque.cs">
+    <Compile Update="Telas\CadastroEstoque.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="CadastroEstoqueNovo.cs">
+    <Compile Update="Telas\CadastroEstoqueNovo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="CadastroGeral.cs">
+    <Compile Update="Telas\CadastroGeral.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="CadastroGeralNovo.cs">
+    <Compile Update="Telas\CadastroGeralNovo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="CancelamentoDeDevolucao.cs">
+    <Compile Update="Telas\CancelamentoDeDevolucao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ConfirmarPagamento.cs">
+    <Compile Update="Telas\ConfirmarPagamento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ConsultaCancelamentoEntrada.cs">
+    <Compile Update="Telas\ConsultaCancelamentoEntrada.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="JanelaConsultaDevolucao.cs">
+    <Compile Update="Telas\JanelaConsultaDevolucao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ConsultaEntradas.cs">
+    <Compile Update="Telas\ConsultaEntradas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form1.cs">
+    <Compile Update="Telas\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormasPagamento.cs">
+    <Compile Update="Telas\FormasPagamento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormasPagamentoNovo.cs">
+    <Compile Update="Telas\FormasPagamentoNovo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GrupoCadastro.cs">
+    <Compile Update="Telas\GrupoCadastro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GrupoCadastroNovo.cs">
+    <Compile Update="Telas\GrupoCadastroNovo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ItensOriginais.cs">
+    <Compile Update="Telas\ItensOriginais.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="JanelaCancelamentodeEntradas.cs">
+    <Compile Update="Telas\JanelaCancelamentodeEntradas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="JanelaCancelamentodeSaidas.cs">
+    <Compile Update="Telas\JanelaCancelamentodeSaidas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="JanelaClienteVenda.cs">
+    <Compile Update="Telas\JanelaClienteVenda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="JanelaConsultaCancelamento.cs">
+    <Compile Update="Telas\JanelaConsultaCancelamento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="JanelaConsultaSaidas.cs">
+    <Compile Update="Telas\JanelaConsultaSaidas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="JanelaDesconto.cs">
+    <Compile Update="Telas\JanelaDesconto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="JanelaDevolucao.cs">
+    <Compile Update="Telas\JanelaDevolucao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="JanelaEntrada.cs">
+    <Compile Update="Telas\JanelaEntrada.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="JanelaPagamento.cs">
+    <Compile Update="Telas\JanelaPagamento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="JanelaVenda.cs">
+    <Compile Update="Telas\JanelaVenda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="LancamentodeDevolucao.cs">
+    <Compile Update="Telas\LancamentodeDevolucao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="SaidaDeTroca.cs">
+    <Compile Update="Telas\SaidaDeTroca.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
