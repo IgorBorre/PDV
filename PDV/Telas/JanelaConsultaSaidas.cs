@@ -1,14 +1,6 @@
 ﻿using PDV.Relatórios;
 using QuestPDF.Fluent;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PDV
 {
@@ -109,8 +101,14 @@ namespace PDV
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var documento = new DocumentoVenda();
+            string doc = dataGridView1.SelectedRows[0].Cells[0].Value.ToString() ?? "sem documento";
+            var documento = new RelatorioVenda(doc, _vendaDAO.GetListProdutos(doc), _vendaDAO.GetListPagamento(doc));
             documento.GeneratePdfAndShow();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            BtPDF.Enabled = dataGridView1.SelectedRows.Count > 0;
         }
     }
 }

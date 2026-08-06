@@ -188,6 +188,44 @@ namespace PDV
 
         }
 
+        public List <Produtos> GetListProdutos(string documento) {
+            string c = $"select produto, produtoNome, quantidade, valor from saidadados where documento = {documento}";
+            DataTable dt = ConsultaSaidas(c);
+            List <Produtos> produtos = [];
+
+            foreach (DataRow row in dt.Rows) {
+                Produtos p = new()
+                {
+                    codigo = (int)row["produto"],
+                    descricao = (string)row["produtoNome"],
+                    quantidade = double.Parse(row["quantidade"].ToString() ?? "sem quantidade"),
+                    preco = double.Parse(row["valor"].ToString() ?? "sem valor")
+                };
+                produtos.Add(p);
+            }
+
+            return produtos;
+        }
+
+        public List<FormasdePagamento> GetListPagamento(string documento)
+        {
+            string c = $"select descpagamento, valor from pagsaida where documento = {documento}";
+            DataTable dt = ConsultaSaidas(c);
+            List<FormasdePagamento> forma = [];
+
+            foreach (DataRow row in dt.Rows)
+            {
+                FormasdePagamento f = new()
+                {
+                    descricao = (string)row["descpagamento"],
+                    valor = double.Parse(row["valor"].ToString() ?? "sem valor")
+                };
+                forma.Add(f);
+            }
+
+            return forma;
+        }
+
         public bool Validações(double preco, double quantidade)
         {
             if (preco <= 0)

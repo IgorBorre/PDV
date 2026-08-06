@@ -48,7 +48,7 @@
             desconto = new DataGridViewTextBoxColumn();
             acrescimo = new DataGridViewTextBoxColumn();
             valortotal = new DataGridViewTextBoxColumn();
-            button1 = new Button();
+            BtPDF = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -190,6 +190,7 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(845, 355);
             dataGridView1.TabIndex = 1;
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             // 
             // documento
             // 
@@ -246,22 +247,23 @@
             valortotal.Name = "valortotal";
             valortotal.ReadOnly = true;
             // 
-            // button1
+            // BtPDF
             // 
-            button1.Location = new Point(387, 541);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 2;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            BtPDF.Enabled = false;
+            BtPDF.Location = new Point(387, 541);
+            BtPDF.Name = "BtPDF";
+            BtPDF.Size = new Size(75, 23);
+            BtPDF.TabIndex = 2;
+            BtPDF.Text = "PDF";
+            BtPDF.UseVisualStyleBackColor = true;
+            BtPDF.Click += button1_Click;
             // 
             // JanelaConsultaSaidas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(859, 587);
-            Controls.Add(button1);
+            Controls.Add(BtPDF);
             Controls.Add(dataGridView1);
             Controls.Add(groupBox1);
             Name = "JanelaConsultaSaidas";
@@ -296,6 +298,6 @@
         private DataGridViewTextBoxColumn desconto;
         private DataGridViewTextBoxColumn acrescimo;
         private DataGridViewTextBoxColumn valortotal;
-        private Button button1;
+        private Button BtPDF;
     }
 }

@@ -1,11 +1,22 @@
-﻿using QuestPDF.Fluent;
+﻿using PDV.Classes;
+using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 
 namespace PDV.Relatórios
 {
-    internal class DocumentoVenda : IDocument
+    internal class RelatorioVenda : IDocument
     {
+
+        private readonly List<Produtos> _produtos;
+        private readonly List<FormasdePagamento>? _formas;
+        private readonly string _documento;
+        public RelatorioVenda(string documento, List<Produtos> produtos, List<FormasdePagamento>? formas)
+        {
+            _produtos = produtos;
+            _formas = formas;
+            _documento = documento;
+        }
 
         public void Compose(IDocumentContainer container)
         {
@@ -17,12 +28,13 @@ namespace PDV.Relatórios
                 page.DefaultTextStyle(x => x.FontSize(20));
                 page.Header()
                     .Text("Documento Auxiliar de Venda")
-                    .Bold().FontSize(32).AlignCenter();                
+                    .Bold().FontSize(32).AlignCenter(); 
                 page.Content()
                     .PaddingVertical(1, Unit.Centimetre)
                     .Column(column =>
                     {
                         column.Spacing(20);
+                        column.Item().Text($"Documento: {_documento}").FontSize(15).Bold().AlignLeft();
                         column.Item().Table(table =>
                         { 
                             table.ColumnsDefinition(columns =>
@@ -43,20 +55,17 @@ namespace PDV.Relatórios
                                 header.Cell().BorderBottom(1).PaddingBottom(3).Text("Total").Bold().FontSize(16);
                             });
 
-                            table.Cell().Text("1");
-                            table.Cell().Text("Produto A");
-                            table.Cell().Text("2");
-                            table.Cell().Text("$10.00");
-                            table.Cell().Text("$20.00");
 
-                            table.Cell().Text("2");
-                            table.Cell().Text("Produto B");
-                            table.Cell().Text("1");
-                            table.Cell().Text("$15.00");
-                            table.Cell().Text("$15.00");
+                            foreach (Produtos p in _produtos)
+                            {
+                                table.Cell().Text(p.codigo.ToString());
+                                table.Cell().Text(p.descricao);
+                                table.Cell().Text(p.quantidade.ToString());
+                                table.Cell().Text(p.preco.ToString("F2"));
+                                table.Cell().Text((p.preco * p.quantidade).ToString("F2"));
+                            }
                         });
 
-                        //column.Item().PaddingTop(400).Text("Formas de pagamento").Bold().FontSize(16);
                         column.Item().PaddingTop(400).Table(table =>
                         {
                             table.ColumnsDefinition(columns =>
@@ -72,11 +81,14 @@ namespace PDV.Relatórios
 
                             });
 
-                            table.Cell().Text("Dinheiro");
-                            table.Cell().Text("$20.00");
 
-                            table.Cell().Text("Cartão");
-                            table.Cell().Text("$15.00");
+                            if (_formas != null) { 
+                                foreach (FormasdePagamento f in _formas)
+                                {
+                                    table.Cell().Text(f.descricao);
+                                    table.Cell().Text(f.valor.ToString("F2"));
+                                }
+                            }
 
                         });
                     });
