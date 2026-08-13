@@ -102,7 +102,7 @@ namespace PDV
         private void button1_Click(object sender, EventArgs e)
         {
             string doc = dataGridView1.SelectedRows[0].Cells[0].Value.ToString() ?? "sem documento";
-            var documento = new RelatorioVenda(doc, _vendaDAO.GetListProdutos(doc), _vendaDAO.GetListPagamento(doc));
+            var documento = new RelatorioVenda(doc, _vendaDAO.GetListProdutos(doc), _vendaDAO.GetListPagamento(doc), _vendaDAO.GetCliente(doc));
             documento.GeneratePdfAndShow();
         }
 

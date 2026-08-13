@@ -226,6 +226,23 @@ namespace PDV
             return forma;
         }
 
+        public Clientes? GetCliente(string documento) { 
+            string c = $"select clienteNome from saida where documento = {documento}";
+            Clientes cliente = new();
+
+            DataTable dt = ConsultaSaidas(c);
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+
+                cliente.nome = row["clienteNome"].ToString() ?? "Sem nome";
+
+                return cliente;
+            }
+            return null;
+        }
+
         public bool Validações(double preco, double quantidade)
         {
             if (preco <= 0)
