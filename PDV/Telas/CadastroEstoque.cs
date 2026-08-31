@@ -45,7 +45,7 @@ namespace PDV
 
         private void button3_Click(object sender, EventArgs e)
         {
-            CadastroEstoqueNovo cadastroEstoqueNovo = new CadastroEstoqueNovo();
+            CadastroEstoqueNovo cadastroEstoqueNovo = new CadastroEstoqueNovo(this);
             cadastroEstoqueNovo.ShowDialog();
         }
 
@@ -80,7 +80,7 @@ namespace PDV
         {
             //duplo clique na linha da tabela abre a janela de cadastro de produtos com o código do produto
             //selecionado
-            CadastroEstoqueNovo cadastroEstoqueNovo = new CadastroEstoqueNovo();
+            CadastroEstoqueNovo cadastroEstoqueNovo = new CadastroEstoqueNovo(this);
 
             cadastroEstoqueNovo.TfCodigo.Text = dataGridView1.CurrentRow.Cells["Código"].Value.ToString();
 

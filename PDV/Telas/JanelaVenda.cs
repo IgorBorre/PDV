@@ -1,4 +1,6 @@
 ﻿using PDV.Classes;
+using PDV.Relatórios;
+using QuestPDF.Fluent;
 using System.Data;
 using System.Globalization;
 
@@ -125,9 +127,19 @@ namespace PDV
                             acrescimo = double.Parse(lbAcrescimo.Text),
                             subtotal = subtotal
                         };
+
                         var clientes = string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text) 
                             ? null : new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
+
                         _vendaDAO.Venda(v, listaProdutos, clientes, janelaPagamento.listaFormasdePagamento, null);
+
+                        var result = MessageBox.Show("Deseja visualizar o documento da saída?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes) {
+                            var documento = new RelatorioSaida(v.codigo.ToString(), _vendaDAO.GetListProdutos(v.codigo.ToString()), _vendaDAO.GetListPagamento(v.codigo.ToString()),
+                                _vendaDAO.GetCliente(v.codigo.ToString()));
+                            documento.GeneratePdfAndShow();
+                        }
+
                         LimparCampos();
                         subtotal = 0;
                     }
@@ -149,6 +161,15 @@ namespace PDV
                             var clientes = string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text)
                             ? null : new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
                             _vendaDAO.Venda(v, listaProdutos, clientes, janelaPagamento.listaFormasdePagamento, LbDocumento.Text);
+
+                            var result = MessageBox.Show("Deseja visualizar o documento da saída?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
+                            {
+                                var documento = new RelatorioSaida(v.codigo.ToString(), _vendaDAO.GetListProdutos(v.codigo.ToString()), _vendaDAO.GetListPagamento(v.codigo.ToString()),
+                                    _vendaDAO.GetCliente(v.codigo.ToString()));
+                                documento.GeneratePdfAndShow();
+                            }
+
                             Dispose();
 
                         }
@@ -168,6 +189,15 @@ namespace PDV
                         var clientes = string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text)
                             ? null : new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
                         _vendaDAO.Venda(v, listaProdutos, clientes, null, LbDocumento.Text);
+
+                        var result = MessageBox.Show("Deseja visualizar o documento da saída?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            var documento = new RelatorioSaida(v.codigo.ToString(), _vendaDAO.GetListProdutos(v.codigo.ToString()), _vendaDAO.GetListPagamento(v.codigo.ToString()),
+                                _vendaDAO.GetCliente(v.codigo.ToString()));
+                            documento.GeneratePdfAndShow();
+                        }
+
                         Dispose();
 
                     }

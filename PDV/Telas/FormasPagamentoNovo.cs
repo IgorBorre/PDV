@@ -8,17 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZstdSharp.Unsafe;
 
 namespace PDV
 {
     public partial class FormasPagamentoNovo : Form
     {
-        FormasdePagamento formaPagamento;
-        FormasdePagamentoDAO formasdePagamentoDAO;
-        public FormasPagamentoNovo()
+        private FormasdePagamento formaPagamento;
+        private readonly FormasdePagamentoDAO formasdePagamentoDAO;
+        private readonly FormasPagamento _forma;
+        public FormasPagamentoNovo(FormasPagamento forma)
         {
             formasdePagamentoDAO = new FormasdePagamentoDAO();
             InitializeComponent();
+            _forma = forma;
         }
 
         private void BtOk_Click(object sender, EventArgs e)
@@ -29,15 +32,47 @@ namespace PDV
 
             if (formasdePagamentoDAO.validacoes(formaPagamento))
             {
+                string c = "";
                 if (string.IsNullOrEmpty(TfCodigo.Text))
                 {
                     formasdePagamentoDAO.incluirFormadePagamento(formaPagamento);
                     TfCodigo.Text = formaPagamento.id.ToString();
+
+                    if (_forma.RbTodas.Checked)
+                    {
+                        c = "SELECT id, descricao, ativa from formas_pagamento where 1";
+                    }else if (_forma.RbAtivas.Checked)
+                    {
+                        c = "SELECT id, descricao, ativa from formas_pagamento where ativa = 'Sim'";
+                    }
+                    else if (_forma.RbInativas.Checked)
+                    {
+                        c = "SELECT id, descricao, ativa from formas_pagamento where ativa = 'Não'";
+                    }
+                    formasdePagamentoDAO.ListarFormasdePagamento(c);
+                    _forma.dataGridView1.DataSource = formasdePagamentoDAO.ListarFormasdePagamento(c);
+                    _forma. dataGridView1.ClearSelection();
                 }
                 else
                 {
                     formaPagamento.id = Convert.ToInt32(TfCodigo.Text);
                     formasdePagamentoDAO.atualizarFormadePagamento(formaPagamento);
+
+                    if (_forma.RbTodas.Checked)
+                    {
+                        c = "SELECT id, descricao, ativa from formas_pagamento where 1";
+                    }
+                    else if (_forma.RbAtivas.Checked)
+                    {
+                        c = "SELECT id, descricao, ativa from formas_pagamento where ativa = 'Sim'";
+                    }
+                    else if (_forma.RbInativas.Checked)
+                    {
+                        c = "SELECT id, descricao, ativa from formas_pagamento where ativa = 'Não'";
+                    }
+                    formasdePagamentoDAO.ListarFormasdePagamento(c);
+                    _forma.dataGridView1.DataSource = formasdePagamentoDAO.ListarFormasdePagamento(c);
+                    _forma.dataGridView1.ClearSelection();
                 }
             }
         }
@@ -51,8 +86,7 @@ namespace PDV
         {
             if (!string.IsNullOrEmpty(TfCodigo.Text)) {
                DataTable dt = formasdePagamentoDAO.ListarFormasdePagamentoPorId(Convert.ToInt32(TfCodigo.Text));
-               DataRow row = null;
-               row = dt.Rows[0];
+               DataRow row = dt.Rows[0];
 
                TfDescricao.Text = row["descricao"].ToString();
                CbAtiva.Text = row["ativa"].ToString();

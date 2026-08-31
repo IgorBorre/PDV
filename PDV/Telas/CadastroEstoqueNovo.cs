@@ -15,11 +15,13 @@ namespace PDV
     {
         ProdutoDAO produtoDAO;
         GrupoDAO grupoDAO;
-        public CadastroEstoqueNovo()
+        private readonly CadastroEstoque _cadastroEstoque;
+        public CadastroEstoqueNovo(CadastroEstoque cadastroEstoque)
         {
             InitializeComponent();
             produtoDAO = new ProdutoDAO();
             grupoDAO = new GrupoDAO();
+            _cadastroEstoque = cadastroEstoque;
         }
 
         private void CadastroEstoqueNovo_Load(object sender, EventArgs e)
@@ -29,8 +31,7 @@ namespace PDV
                 /*se o campo TfCodigo estiver preenchido ao abrir a janela, a função de listar produtos 
                 pelo id é chamada*/
                 DataTable dt = produtoDAO.ListarProdutoByiD(TfCodigo.Text);
-                DataRow row = null;
-                row = dt.Rows[0];
+                DataRow row = dt.Rows[0];
 
                 //preenchendo os campos com os valores das linhas da tabela dt
                 TfDescricao.Text = row["descricao"].ToString();
@@ -50,10 +51,11 @@ namespace PDV
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Produtos p = new Produtos();
-            p.referencia = TfReferencia.Text;
-            p.descricao = TfDescricao.Text;
-
+            Produtos p = new()
+            {
+                referencia = TfReferencia.Text,
+                descricao = TfDescricao.Text
+            };
             /*se o campo TfIdGrupo estiver preenchido, o id é convertido para int para inserção no banco,
             e o atributo grupo na classe Produtos é preenchido com o valor do campo TfGrupo*/
             if (!string.IsNullOrEmpty(TfIdGrupo.Text))
@@ -62,30 +64,25 @@ namespace PDV
                 p.grupo = TfGrupo.Text;
             }
 
-
             if (produtoDAO.Validacoes(TfDescricao.Text, TfEstoque.Text, TfPreco.Text))
             {
-
-
                 p.estoque = double.Parse(TfEstoque.Text);
                 p.preco = double.Parse(TfPreco.Text);
 
                 //se o campo TfCodigo estiver vazio, o código chamado será o de inserção no banco
                 if (string.IsNullOrEmpty(TfCodigo.Text))
                 {
-
                     produtoDAO.InserirProduto(p);
                     TfCodigo.Text = p.codigo.ToString();
-
+                    _cadastroEstoque.dataGridView1.DataSource = null;
+                    _cadastroEstoque.dataGridView1.Rows.Add(p.codigo, p.referencia, p.descricao, p.estoque, p.preco);
+                    _cadastroEstoque.dataGridView1.ClearSelection();
                 }
                 //se não, o código chamado será o de atualização das informações no banco
                 else
                 {
-
                     p.codigo = int.Parse(TfCodigo.Text);
                     produtoDAO.AtualizarProduto(p);
-
-
                 }
             }
         }
@@ -111,8 +108,7 @@ namespace PDV
                 DataTable dt = grupoDAO.BuscarIdGrupo(TfGrupo.Text);
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    DataRow row = null;
-                    row = dt.Rows[0];
+                    DataRow row = dt.Rows[0];
                     TfIdGrupo.Text = row["id"].ToString();
                     TfGrupo.Text = row["nome"].ToString();
                 }
@@ -141,8 +137,7 @@ namespace PDV
                 DataTable dt = grupoDAO.BuscarNomeGrupo(TfIdGrupo.Text);
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    DataRow row = null;
-                    row = dt.Rows[0];
+                    DataRow row = dt.Rows[0];
                     TfGrupo.Text = row["nome"].ToString();
                 }
                 else

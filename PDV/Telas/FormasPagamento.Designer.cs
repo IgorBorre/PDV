@@ -165,13 +165,13 @@
         #endregion
 
         private GroupBox groupBox1;
-        private RadioButton RbAtivas;
-        private RadioButton RbTodas;
-        private RadioButton RbInativas;
         private Button btIncluir;
-        private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn codigo;
         private DataGridViewTextBoxColumn descricao;
         private DataGridViewTextBoxColumn ativa;
+        public DataGridView dataGridView1;
+        public RadioButton RbAtivas;
+        public RadioButton RbTodas;
+        public RadioButton RbInativas;
     }
 }

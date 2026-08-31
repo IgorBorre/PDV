@@ -247,7 +247,6 @@
         private TextBox TfGrupo;
         private Label label4;
         private TextBox TfReferencia;
-        private DataGridView dataGridView1;
         private Button button1;
         private Button button2;
         private Button button3;
@@ -256,5 +255,6 @@
         private DataGridViewTextBoxColumn Descrição;
         private DataGridViewTextBoxColumn Estoque;
         private DataGridViewTextBoxColumn Preço;
+        public DataGridView dataGridView1;
     }
 }

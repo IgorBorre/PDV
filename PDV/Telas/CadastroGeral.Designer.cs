@@ -241,11 +241,11 @@
         private MaskedTextBox TFTelefone;
         private Button button1;
         private Button button2;
-        private DataGridView dataGridView1;
         private Button button3;
         private DataGridViewTextBoxColumn Código;
         private DataGridViewTextBoxColumn Nome;
         private DataGridViewTextBoxColumn CPF;
         private DataGridViewTextBoxColumn Telefone;
+        public DataGridView dataGridView1;
     }
 }

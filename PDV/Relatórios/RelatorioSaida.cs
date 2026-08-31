@@ -5,14 +5,14 @@ using QuestPDF.Infrastructure;
 
 namespace PDV.Relatórios
 {
-    internal class RelatorioVenda : IDocument
+    internal class RelatorioSaida : IDocument
     {
 
         private readonly List<Produtos> _produtos;
         private readonly List<FormasdePagamento>? _formas;
         private readonly string _documento;
         private readonly Clientes? _c;
-        public RelatorioVenda(string documento, List<Produtos> produtos, List<FormasdePagamento>? formas, Clientes? c)
+        public RelatorioSaida(string documento, List<Produtos> produtos, List<FormasdePagamento>? formas, Clientes? c)
         {
             _produtos = produtos;
             _formas = formas;

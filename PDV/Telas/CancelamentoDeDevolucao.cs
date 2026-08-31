@@ -21,24 +21,37 @@ namespace PDV
         {
             if (!string.IsNullOrEmpty(TfDocumento.Text))
             {
+                string c1 = "select s.documento, s.valortotal, s.cancelada from saida s join devolucao d on s.doc_original = d.documento" +
+                    $" where s.doc_original = {TfDocumento.Text} and s.cancelada = 'N'";
                 string c = "select documento, nomeCliente, dataDevolucao, valor from devolucao where cancelada = 'N' and documento = " + TfDocumento.Text;
+
                 VendaDAO vendaDAO = new();
-                DataTable dt = vendaDAO.ConsultaSaidas(c);
-                if (dt.Rows.Count > 0)
+
+                DataTable dt1 = vendaDAO.ConsultaSaidas(c1);
+                if (dt1.Rows.Count > 0)
                 {
-                    DataRow row = dt.Rows[0];
-
-                    LbCliente.Text = row["nomeCliente"].ToString();
-                    DateTime data = Convert.ToDateTime(row["dataDevolucao"].ToString());
-                    LbData.Text = data.ToString("dd/MM/yyyy");
-                    LbDocumento.Text = row["documento"].ToString();
-                    LbTotal.Text = Convert.ToDouble(row["valor"]).ToString("F2");
-
+                    MessageBox.Show("Essa devolução possui uma saída vinculada à ela, para cancelar essa devolução cancele primeiro a saída dessa devolução!");
+                    TfDocumento.Focus();
                 }
                 else
                 {
-                    MessageBox.Show("Devolução não existe ou já cancelada!");
-                    TfDocumento.Focus();
+                    DataTable dt = vendaDAO.ConsultaSaidas(c);
+                    if (dt.Rows.Count > 0)
+                    {
+                        DataRow row = dt.Rows[0];
+
+                        LbCliente.Text = row["nomeCliente"].ToString();
+                        DateTime data = Convert.ToDateTime(row["dataDevolucao"].ToString());
+                        LbData.Text = data.ToString("dd/MM/yyyy");
+                        LbDocumento.Text = row["documento"].ToString();
+                        LbTotal.Text = Convert.ToDouble(row["valor"]).ToString("F2");
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Devolução não existe ou já cancelada!");
+                        TfDocumento.Focus();
+                    }
                 }
             }
             else

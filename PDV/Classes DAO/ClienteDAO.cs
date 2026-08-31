@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using PDV.Classes;
+using PDV.Conexão;
 using System.Data;
 
 namespace PDV

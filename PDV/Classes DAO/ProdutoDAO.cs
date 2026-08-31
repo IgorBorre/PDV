@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using MySql.Data.MySqlClient;
 using PDV.Classes;
+using PDV.Conexão;
 
 namespace PDV
 {
@@ -23,7 +24,7 @@ namespace PDV
 
                 using (MySqlCommand cmd = new(comando, conexao.ObterConexao()))
                 {
-                    cmd.Parameters.AddWithValue("@referencia", p.referencia);
+                    cmd.Parameters.AddWithValue("@referencia", string.IsNullOrEmpty(p.referencia) ? (object)DBNull.Value : p.referencia);
                     cmd.Parameters.AddWithValue("@descricao", p.descricao);
                     cmd.Parameters.AddWithValue("@estoque", p.estoque);
                     cmd.Parameters.AddWithValue("@preco", p.preco);

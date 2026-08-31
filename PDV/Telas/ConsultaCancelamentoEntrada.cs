@@ -19,8 +19,8 @@ namespace PDV
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string data1 = null;
-            string data2 = null;
+            string? data1 = null;
+            string? data2 = null;
 
             if (TfData1.MaskCompleted)
             {
@@ -35,7 +35,7 @@ namespace PDV
             }
 
             ProdutoDAO produtoDAO = new ProdutoDAO();
-            string c = "select * from cancelamentoentradalog where 1" + produtoDAO.CriteriosConsultaCancelamentoEntrada(TfDocumento.Text, data1, data2);
+            string c = "select * from cancelamentoentradalog where 1" + produtoDAO.CriteriosConsultaCancelamentoEntrada(TfDocumento.Text, data1 ?? "Sem data", data2 ?? "Sem data");
 
 
             DataTable dt;

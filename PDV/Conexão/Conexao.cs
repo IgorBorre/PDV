@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
-using Mysqlx.Connection;
+﻿using MySql.Data.MySqlClient;
 
-namespace PDV.Classes
+namespace PDV.Conexão
 {
     public class Conexao
     {
-        private string str = "server=localhost;uid=root;pwd=masterkey;database=pdv";
-        private MySqlConnection conexao;
+        private readonly string str = "server=localhost;uid=root;pwd=masterkey;database=pdv";
+        private readonly MySqlConnection conexao;
 
         public Conexao()
         {
-            conexao = new MySqlConnection(str);
+            conexao = new(str);
         }
 
         public void AbrirConexao()

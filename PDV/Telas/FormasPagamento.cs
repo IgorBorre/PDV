@@ -12,7 +12,7 @@ namespace PDV
 {
     public partial class FormasPagamento : Form
     {
-        private FormasdePagamentoDAO formasdePagamentoDAO;
+        private readonly FormasdePagamentoDAO formasdePagamentoDAO;
         public FormasPagamento()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace PDV
 
         private void btIncluir_Click(object sender, EventArgs e)
         {
-            FormasPagamentoNovo formasPagamentoNovo = new FormasPagamentoNovo();
+            FormasPagamentoNovo formasPagamentoNovo = new FormasPagamentoNovo(this);
             formasPagamentoNovo.ShowDialog();
         }
 
@@ -62,7 +62,7 @@ namespace PDV
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            FormasPagamentoNovo formasPagamentoNovo = new FormasPagamentoNovo();
+            FormasPagamentoNovo formasPagamentoNovo = new FormasPagamentoNovo(this);
             formasPagamentoNovo.TfCodigo.Text = dataGridView1.CurrentRow.Cells["Codigo"].Value.ToString();
             formasPagamentoNovo.ShowDialog();
         }

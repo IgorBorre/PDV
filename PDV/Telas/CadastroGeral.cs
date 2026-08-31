@@ -77,7 +77,7 @@ namespace PDV
 
         private void button3_Click(object sender, EventArgs e)
         {
-            CadastroGeralNovo cadastro = new CadastroGeralNovo();
+            CadastroGeralNovo cadastro = new CadastroGeralNovo(this);
             cadastro.ShowDialog();
         }
 
@@ -90,7 +90,7 @@ namespace PDV
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //abre a janela de cadastro preenchendo o código do cliente na célula selecionada
-            CadastroGeralNovo form = new CadastroGeralNovo();
+            CadastroGeralNovo form = new CadastroGeralNovo(this);
 
             form.TfCodigo.Text = dataGridView1.CurrentRow.Cells["Código"].Value.ToString();
 

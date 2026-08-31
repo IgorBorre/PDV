@@ -1,5 +1,4 @@
-
-using PDV.Classes;
+using PDV.Conexão;
 
 namespace PDV
 {

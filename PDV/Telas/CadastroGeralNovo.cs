@@ -13,11 +13,13 @@ namespace PDV
 {
     public partial class CadastroGeralNovo : Form
     {
-        private ClienteDAO clientedao;
-        public CadastroGeralNovo()
+        private readonly ClienteDAO clientedao;
+        private readonly CadastroGeral _cadastroGeral;
+        public CadastroGeralNovo(CadastroGeral cadastroGeral)
         {
             InitializeComponent();
             clientedao = new ClienteDAO();
+            _cadastroGeral = cadastroGeral;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -28,7 +30,7 @@ namespace PDV
         private void BtOK_Click(object sender, EventArgs e)
         {
 
-            Clientes c = new Clientes();
+            Clientes c = new();
 
             c.nome = TfNome.Text;
             TfTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
@@ -38,7 +40,6 @@ namespace PDV
 
                 TfNascimento.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals; 
             }
-
             /*atribui os valores dos campos para os atributos da classe para que sejam passados nas 
             funções de insert e update*/
             c.telefone = TfTelefone.Text;
@@ -62,6 +63,8 @@ namespace PDV
                 {
                     clientedao.InserirCliente(c);
                     TfCodigo.Text = c.codigo.ToString();
+                    _cadastroGeral.dataGridView1.Rows.Add(c.codigo, c.nome, c.identificacao, c.telefone);
+                    _cadastroGeral.dataGridView1.ClearSelection();
                 }
 
             }
@@ -89,8 +92,7 @@ namespace PDV
             com as informações do cliente buscando pelo id*/
             if (!string.IsNullOrEmpty(TfCodigo.Text)) { 
                 DataTable dt = clientedao.ClienteByID(TfCodigo.Text);
-                DataRow row = null;
-                row = dt.Rows[0];
+                DataRow row = dt.Rows[0];
 
                 //preenche os campos com as informações das linhas da tabela que vai ser criada com o select
                 TfNome.Text = row["nome"].ToString();
