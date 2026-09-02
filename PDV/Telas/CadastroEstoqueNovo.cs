@@ -1,27 +1,19 @@
 ﻿using PDV.Classes;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PDV
 {
     public partial class CadastroEstoqueNovo : Form
     {
-        ProdutoDAO produtoDAO;
-        GrupoDAO grupoDAO;
+        readonly GrupoDAO grupoDAO;
         private readonly CadastroEstoque _cadastroEstoque;
-        public CadastroEstoqueNovo(CadastroEstoque cadastroEstoque)
+        private readonly ProdutoDAO _produtoDAO;
+        public CadastroEstoqueNovo(CadastroEstoque cadastroEstoque, ProdutoDAO produtoDAO)
         {
             InitializeComponent();
-            produtoDAO = new ProdutoDAO();
-            grupoDAO = new GrupoDAO();
+            grupoDAO = new();
             _cadastroEstoque = cadastroEstoque;
+            _produtoDAO = produtoDAO;
         }
 
         private void CadastroEstoqueNovo_Load(object sender, EventArgs e)
@@ -30,7 +22,7 @@ namespace PDV
             {
                 /*se o campo TfCodigo estiver preenchido ao abrir a janela, a função de listar produtos 
                 pelo id é chamada*/
-                DataTable dt = produtoDAO.ListarProdutoByiD(TfCodigo.Text);
+                DataTable dt = _produtoDAO.ListarProdutoByiD(TfCodigo.Text);
                 DataRow row = dt.Rows[0];
 
                 //preenchendo os campos com os valores das linhas da tabela dt
@@ -64,7 +56,7 @@ namespace PDV
                 p.grupo = TfGrupo.Text;
             }
 
-            if (produtoDAO.Validacoes(TfDescricao.Text, TfEstoque.Text, TfPreco.Text))
+            if (_produtoDAO.Validacoes(TfDescricao.Text, TfEstoque.Text, TfPreco.Text))
             {
                 p.estoque = double.Parse(TfEstoque.Text);
                 p.preco = double.Parse(TfPreco.Text);
@@ -72,17 +64,46 @@ namespace PDV
                 //se o campo TfCodigo estiver vazio, o código chamado será o de inserção no banco
                 if (string.IsNullOrEmpty(TfCodigo.Text))
                 {
-                    produtoDAO.InserirProduto(p);
+                    _produtoDAO.InserirProduto(p);
                     TfCodigo.Text = p.codigo.ToString();
-                    _cadastroEstoque.dataGridView1.DataSource = null;
-                    _cadastroEstoque.dataGridView1.Rows.Add(p.codigo, p.referencia, p.descricao, p.estoque, p.preco);
-                    _cadastroEstoque.dataGridView1.ClearSelection();
+                    if (!string.IsNullOrEmpty(_cadastroEstoque.c))
+                    {
+                        DataTable dt = _produtoDAO.ListarProdutos(_cadastroEstoque.c);
+                        _cadastroEstoque.dataGridView1.DataSource = dt;
+                        _cadastroEstoque.dataGridView1.ClearSelection();
+                    }
+                    else
+                    {
+                        DataTable dt = new();
+
+                        dt.Columns.Add("codigo");
+                        dt.Columns.Add("referencia");
+                        dt.Columns.Add("descricao");
+                        dt.Columns.Add("estoque");
+                        dt.Columns.Add("preco");
+
+                        DataRow row = dt.NewRow();
+
+                        row["codigo"] = p.codigo;
+                        row["referencia"] = p.referencia;
+                        row["descricao"] = p.descricao;
+                        row["estoque"] = p.estoque;
+                        row["preco"] = p.preco.ToString("F2");
+
+                        dt.Rows.Add(row);
+
+                        _cadastroEstoque.dataGridView1.DataSource = dt;
+                        _cadastroEstoque.dataGridView1.ClearSelection();
+                    }
                 }
                 //se não, o código chamado será o de atualização das informações no banco
                 else
                 {
                     p.codigo = int.Parse(TfCodigo.Text);
-                    produtoDAO.AtualizarProduto(p);
+                    _produtoDAO.AtualizarProduto(p);
+                    DataTable dt = _produtoDAO.ListarProdutos(_cadastroEstoque.c);
+                    _cadastroEstoque.dataGridView1.DataSource = dt;
+                    _cadastroEstoque.dataGridView1.ClearSelection();
                 }
             }
         }

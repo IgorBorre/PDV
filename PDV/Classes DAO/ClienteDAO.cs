@@ -12,7 +12,7 @@ namespace PDV
 
         public ClienteDAO()
         {
-            conexao = new Conexao();
+            conexao = new();
         }
         public void InserirCliente(Clientes c)
         {

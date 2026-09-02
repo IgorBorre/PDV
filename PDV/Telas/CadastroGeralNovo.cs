@@ -63,8 +63,31 @@ namespace PDV
                 {
                     clientedao.InserirCliente(c);
                     TfCodigo.Text = c.codigo.ToString();
-                    _cadastroGeral.dataGridView1.Rows.Add(c.codigo, c.nome, c.identificacao, c.telefone);
-                    _cadastroGeral.dataGridView1.ClearSelection();
+                    if (!string.IsNullOrEmpty(_cadastroGeral.c))
+                    {
+                        DataTable dt = clientedao.ListarClientes(_cadastroGeral.c);
+                        _cadastroGeral.dataGridView1.DataSource = dt;
+                        _cadastroGeral.dataGridView1.ClearSelection();
+                    }
+                    else {
+                        DataTable dt = new();
+
+                        dt.Columns.Add("codigo");
+                        dt.Columns.Add("nome");
+                        dt.Columns.Add("identificacao");
+                        dt.Columns.Add("telefone");
+
+                        DataRow row = dt.NewRow();
+                        row["codigo"] = c.codigo;
+                        row["nome"] = c.nome;
+                        row["identificacao"] = c.identificacao;
+                        row["telefone"] = c.telefone;
+
+                        dt.Rows.Add(row);
+
+                        _cadastroGeral.dataGridView1.DataSource = dt;
+                        _cadastroGeral.dataGridView1.ClearSelection();
+                    }
                 }
 
             }
@@ -75,6 +98,9 @@ namespace PDV
                 {
                     c.codigo = Convert.ToInt32(TfCodigo.Text);
                     clientedao.AtualizarCliente(c);
+                    DataTable dt = clientedao.ListarClientes(_cadastroGeral.c);
+                    _cadastroGeral.dataGridView1.DataSource = dt;
+                    _cadastroGeral.dataGridView1.ClearSelection();
                 }
             }
 

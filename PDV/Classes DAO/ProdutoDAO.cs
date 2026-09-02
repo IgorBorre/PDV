@@ -35,6 +35,8 @@ namespace PDV
 
                     cmd.CommandText = "Select @@IDENTITY";
                     p.codigo = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    MessageBox.Show($"Produto {p.codigo} cadastrado com sucesso!");
                 }
                 conexao.FecharConexao();
             }
@@ -63,6 +65,8 @@ namespace PDV
                     cmd.Parameters.AddWithValue("@idGrupo", p.idGrupo);
                     cmd.Parameters.AddWithValue("@grupo", p.grupo);
                     cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Informações do produto alteradas com sucesso!");
                 }
                 conexao.FecharConexao();
             }
@@ -95,7 +99,7 @@ namespace PDV
 
         public DataTable ListarProdutoByiD(string codigo) { 
             
-            string comando = "select * from produtos where codigo = " + codigo;
+            string comando = $"select * from produtos where codigo = {codigo}";
             return ListarProdutos(comando);
 
 
@@ -103,7 +107,7 @@ namespace PDV
 
         public DataTable ListarNomeById(string id)
         {
-            string comando = "select descricao, referencia, estoque, preco from produtos where codigo = " + id;
+            string comando = $"select descricao, referencia, estoque, preco from produtos where codigo = {id}";
             return ListarProdutos(comando);
        }
 
@@ -124,16 +128,16 @@ namespace PDV
             string a = "";
 
             if (!string.IsNullOrEmpty(codigo)) { 
-                a += " and codigo = " + codigo;
+                a += $" and codigo = {codigo}";
             }
             if (!string.IsNullOrEmpty(referencia)) { 
-                a += " and referencia like '%"  + referencia + "%'";
+                a += $" and referencia like '%{referencia}" + "%'";
             }
             if (!string.IsNullOrEmpty(descricao)) { 
-                a += " and descricao like '%" + descricao + "%'";
+                a += $" and descricao like '%{descricao}" + "%'";
             }
             if (!string.IsNullOrEmpty(grupo)) { 
-                a += " and idGrupo like '%" + grupo + "%'";
+                a += $" and idGrupo = {grupo}";
             }
             return a;
         }
@@ -142,11 +146,11 @@ namespace PDV
             string a = "";
 
             if (!string.IsNullOrEmpty(documento)) { 
-                a += " and documento = " + documento;
+                a += $" and documento = {documento}";
             }
 
             if (!string.IsNullOrEmpty(fornecedor)) { 
-                a += " and nomefornecedor like '%" + fornecedor +"%'";
+                a += $" and nomefornecedor like '%{fornecedor}" +"%'";
             }
 
             if (!string.IsNullOrEmpty(data1) && !string.IsNullOrEmpty(data2)) { 
@@ -451,7 +455,7 @@ namespace PDV
             string a = "";
 
             if (!string.IsNullOrEmpty(documento)) { 
-                a += " and documento = " + documento;
+                a += $" and documento = {documento}";
             }
 
             if (!string.IsNullOrEmpty(data1) && !string.IsNullOrEmpty(data2)) {

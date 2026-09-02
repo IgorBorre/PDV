@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 
 namespace PDV
 {
     public partial class CadastroGeral : Form
     {
-
-
+        public string c = "";
 
         public CadastroGeral()
         {
@@ -23,9 +14,8 @@ namespace PDV
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //filtros para a pesquisa de clientes no banco
-            string c = "";
-            ClienteDAO clienteDAO = new ClienteDAO();
+            //filtros para a pesquisa de clientes no banco            
+            ClienteDAO clienteDAO = new();
             c = "select codigo, nome, telefone, identificacao from clientes where 1" + clienteDAO.Criterios(TFCodigo.Text, TFNome.Text, TFTelefone.Text, TFCpf.Text);
 
             DataTable dt = clienteDAO.ListarClientes(c);
@@ -64,7 +54,10 @@ namespace PDV
             }
             if (dataGridView1.Rows.Count > 0) { 
                 DataTable dt = (DataTable)dataGridView1.DataSource;
-                dt.Rows.Clear();
+                if(dt != null)
+                    dt.Rows.Clear();
+                else
+                    dataGridView1.Rows.Clear();
             }
         }
 
