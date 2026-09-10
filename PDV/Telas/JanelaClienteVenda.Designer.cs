@@ -42,6 +42,7 @@
             tfCodigo.Name = "tfCodigo";
             tfCodigo.Size = new Size(51, 23);
             tfCodigo.TabIndex = 0;
+            tfCodigo.TextChanged += tfCodigo_TextChanged;
             tfCodigo.Leave += tfCodigo_Leave;
             // 
             // tfNome

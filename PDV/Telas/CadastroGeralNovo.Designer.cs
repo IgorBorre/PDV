@@ -120,7 +120,7 @@
             label4.AutoSize = true;
             label4.Location = new Point(451, 15);
             label4.Name = "label4";
-            label4.Size = new Size(51, 15);
+            label4.Size = new Size(52, 15);
             label4.TabIndex = 6;
             label4.Text = "Telefone";
             // 

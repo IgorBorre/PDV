@@ -4,21 +4,22 @@ namespace PDV
 {
     public partial class CadastroGeral : Form
     {
-        public string c = "";
+        public string comando = "";
+        private readonly ClienteDAO _clienteDAO;
 
-        public CadastroGeral()
+        public CadastroGeral(ClienteDAO clienteDAO)
         {
             InitializeComponent();
             TFTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            _clienteDAO = clienteDAO;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //filtros para a pesquisa de clientes no banco            
-            ClienteDAO clienteDAO = new();
-            c = "select codigo, nome, telefone, identificacao from clientes where 1" + clienteDAO.Criterios(TFCodigo.Text, TFNome.Text, TFTelefone.Text, TFCpf.Text);
+            //filtros para a pesquisa de clientes no banco 
+            comando = "select codigo, nome, telefone, identificacao from clientes where 1" + _clienteDAO.Criterios(TFCodigo.Text, TFNome.Text, TFTelefone.Text, TFCpf.Text);
 
-            DataTable dt = clienteDAO.ListarClientes(c);
+            DataTable dt = _clienteDAO.ListarClientes(comando);
 
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -52,9 +53,10 @@ namespace PDV
                     maskedTextBox.Text = string.Empty;
                 }
             }
-            if (dataGridView1.Rows.Count > 0) { 
+            if (dataGridView1.Rows.Count > 0)
+            {
                 DataTable dt = (DataTable)dataGridView1.DataSource;
-                if(dt != null)
+                if (dt != null)
                     dt.Rows.Clear();
                 else
                     dataGridView1.Rows.Clear();
@@ -70,7 +72,7 @@ namespace PDV
 
         private void button3_Click(object sender, EventArgs e)
         {
-            CadastroGeralNovo cadastro = new CadastroGeralNovo(this);
+            CadastroGeralNovo cadastro = new(this);
             cadastro.ShowDialog();
         }
 
@@ -83,7 +85,7 @@ namespace PDV
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //abre a janela de cadastro preenchendo o código do cliente na célula selecionada
-            CadastroGeralNovo form = new CadastroGeralNovo(this);
+            CadastroGeralNovo form = new(this);
 
             form.TfCodigo.Text = dataGridView1.CurrentRow.Cells["Código"].Value.ToString();
 
@@ -140,6 +142,16 @@ namespace PDV
             {
                 button1.PerformClick();
             }
+        }
+
+        private void BtExcluir_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            BtExcluir.Enabled = dataGridView1.SelectedRows.Count > 0;
         }
     }
 }

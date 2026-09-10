@@ -1,14 +1,5 @@
 ﻿using PDV.Classes;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
 namespace PDV
 {
     public partial class CadastroGeralNovo : Form
@@ -18,7 +9,7 @@ namespace PDV
         public CadastroGeralNovo(CadastroGeral cadastroGeral)
         {
             InitializeComponent();
-            clientedao = new ClienteDAO();
+            clientedao = new();
             _cadastroGeral = cadastroGeral;
         }
 
@@ -31,7 +22,6 @@ namespace PDV
         {
 
             Clientes c = new();
-
             c.nome = TfNome.Text;
             TfTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
 
@@ -63,9 +53,9 @@ namespace PDV
                 {
                     clientedao.InserirCliente(c);
                     TfCodigo.Text = c.codigo.ToString();
-                    if (!string.IsNullOrEmpty(_cadastroGeral.c))
+                    if (!string.IsNullOrEmpty(_cadastroGeral.comando))
                     {
-                        DataTable dt = clientedao.ListarClientes(_cadastroGeral.c);
+                        DataTable dt = clientedao.ListarClientes(_cadastroGeral.comando);
                         _cadastroGeral.dataGridView1.DataSource = dt;
                         _cadastroGeral.dataGridView1.ClearSelection();
                     }
@@ -98,7 +88,7 @@ namespace PDV
                 {
                     c.codigo = Convert.ToInt32(TfCodigo.Text);
                     clientedao.AtualizarCliente(c);
-                    DataTable dt = clientedao.ListarClientes(_cadastroGeral.c);
+                    DataTable dt = clientedao.ListarClientes(_cadastroGeral.comando);
                     _cadastroGeral.dataGridView1.DataSource = dt;
                     _cadastroGeral.dataGridView1.ClearSelection();
                 }
@@ -116,7 +106,8 @@ namespace PDV
         {
             /*se ao abrir a janela, o campo TfCodigo estiver preenchido, faz um select no banco 
             com as informações do cliente buscando pelo id*/
-            if (!string.IsNullOrEmpty(TfCodigo.Text)) { 
+            if (!string.IsNullOrEmpty(TfCodigo.Text))
+            {
                 DataTable dt = clientedao.ClienteByID(TfCodigo.Text);
                 DataRow row = dt.Rows[0];
 
@@ -135,6 +126,9 @@ namespace PDV
                 CBEstado.SelectedItem = row["estado"].ToString();
                 CBLogradouro.SelectedItem = row["logradouro"].ToString();
                 CBSituacao.SelectedItem = row["situacao"].ToString();
+            }
+            else { 
+                CBSituacao.SelectedItem = "NORMAL";
             }
         }
     }

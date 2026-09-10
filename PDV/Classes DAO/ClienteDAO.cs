@@ -2,6 +2,7 @@
 using PDV.Classes;
 using PDV.Conexão;
 using System.Data;
+using System.Reflection.Metadata.Ecma335;
 
 namespace PDV
 {
@@ -52,6 +53,7 @@ namespace PDV
                      banco e atribui o valor no atributo codigo da classe*/
                     command.CommandText = "Select @@IDENTITY";
                     c.codigo = Convert.ToInt32(command.ExecuteScalar());
+                    MessageBox.Show($"Cliente {c.codigo} cadastrado com sucesso!");
 
                 }
                 conexao.FecharConexao();
@@ -63,6 +65,7 @@ namespace PDV
 
 
         }
+
 
         public void AtualizarCliente(Clientes c)
         {
@@ -95,6 +98,8 @@ namespace PDV
                     command.Parameters.AddWithValue("@referencia", c.referencia);
                     command.Parameters.AddWithValue("@codigo", c.codigo);
                     command.ExecuteNonQuery();
+
+                    MessageBox.Show("Informações atualizadas com sucesso!");
                 }
                 conexao.FecharConexao();
             }
@@ -103,6 +108,7 @@ namespace PDV
                 MessageBox.Show(ex.Message);
             }
         }
+
 
         public bool Validacoes(Clientes c) {
 
@@ -139,12 +145,11 @@ namespace PDV
         }
 
 
-
         public DataTable ClienteByID(string id) {
 
             //funcao para fazer o select de todos os campos da tabela cliente de acordo com o codigo
             
-            string comando = "SELECT * from clientes where codigo = " + id;
+            string comando = $"SELECT * from clientes where codigo = {id}";
 
             //chamando a função de cima que executa o comando passado e armazena os valores em uma DataTable
             return ListarClientes(comando);
@@ -153,7 +158,7 @@ namespace PDV
 
         public DataTable NomeById(string id) {
             
-            string comando = "SELECT nome from clientes where codigo = " + id;
+            string comando = $"SELECT nome from clientes where codigo = {id}";
 
             return ListarClientes(comando);
         }
@@ -165,6 +170,7 @@ namespace PDV
             return ListarClientes(comando);
         }
 
+
         public string Criterios(string codigo, string nome, string telefone, string identificacao) {
             string a = "";
 
@@ -172,7 +178,7 @@ namespace PDV
             e adicionar no select*/
             if (!string.IsNullOrEmpty(codigo))
             {
-                a += " and codigo = " + codigo;
+                a += $" and codigo = {codigo}";
             }
             if (!string.IsNullOrEmpty(nome))
             {

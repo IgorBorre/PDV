@@ -5,6 +5,7 @@ namespace PDV
     public partial class Form1 : Form
     {
         private readonly VendaDAO _vendaDAO;
+        private readonly ClienteDAO _clienteDAO;
 
         public Form1(VendaDAO vendaDAO)
         {
@@ -12,11 +13,13 @@ namespace PDV
             Conexao conexao = new();
             conexao.AbrirConexao();
             _vendaDAO = vendaDAO;
+            _clienteDAO = new();
         }
+
 
         private void cadastroGeralToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CadastroGeral form = new();
+            CadastroGeral form = new(_clienteDAO);
             form.ShowDialog();
         }
 

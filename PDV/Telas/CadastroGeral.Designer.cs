@@ -44,6 +44,7 @@
             CPF = new DataGridViewTextBoxColumn();
             Telefone = new DataGridViewTextBoxColumn();
             button3 = new Button();
+            BtExcluir = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -160,6 +161,7 @@
             dataGridView1.TabIndex = 10;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             dataGridView1.Sorted += dataGridView1_Sorted;
             // 
             // Código
@@ -202,11 +204,25 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
+            // BtExcluir
+            // 
+            BtExcluir.Enabled = false;
+            BtExcluir.Image = Properties.Resources.delete__1_1;
+            BtExcluir.ImageAlign = ContentAlignment.MiddleLeft;
+            BtExcluir.Location = new Point(822, 99);
+            BtExcluir.Name = "BtExcluir";
+            BtExcluir.Size = new Size(84, 23);
+            BtExcluir.TabIndex = 12;
+            BtExcluir.Text = "Excluir";
+            BtExcluir.UseVisualStyleBackColor = true;
+            BtExcluir.Click += BtExcluir_Click;
+            // 
             // CadastroGeral
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(953, 699);
+            Controls.Add(BtExcluir);
             Controls.Add(button3);
             Controls.Add(dataGridView1);
             Controls.Add(button2);
@@ -247,5 +263,6 @@
         private DataGridViewTextBoxColumn CPF;
         private DataGridViewTextBoxColumn Telefone;
         public DataGridView dataGridView1;
+        private Button BtExcluir;
     }
 }
