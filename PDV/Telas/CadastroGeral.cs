@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using PDV.Classes;
+using System.Data;
 
 namespace PDV
 {
@@ -146,7 +147,16 @@ namespace PDV
 
         private void BtExcluir_Click(object sender, EventArgs e)
         {
-            
+            Clientes c = new()
+            {
+                codigo = Convert.ToInt32(dataGridView1.SelectedCells[0].Value)
+            };
+            ClienteDAO clienteDAO = new();
+            clienteDAO.SelectExclusao(c);
+
+            DataTable dt = _clienteDAO.ListarClientes(comando);
+            dataGridView1.DataSource = dt;
+            dataGridView1.ClearSelection();
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)

@@ -172,7 +172,10 @@ namespace PDV
             string comando = "insert into entrada (idfornecedor, nomefornecedor, dataentrada) values (@idfornecedor, @nomefornecedor, @dataentrada)";
             string comandoEntrada = "insert into entradadados (docentrada, idproduto, descproduto, quantidade) values (@docentrada, @idproduto, @descproduto, @quantidade)";
             string atualizaEstoque = "update produtos set estoque = estoque + @quantidade where codigo = @codigo";
+            string updateCliente = "update clientes set movimentacao = @movimentacao where codigo = @codigo";
+
             e.data = DateTime.Now.Date;
+            c.movimentacao = DateTime.Now;
 
             try
             {
@@ -203,6 +206,12 @@ namespace PDV
 
                         cmd.ExecuteNonQuery();
                     }
+                }
+
+                using (MySqlCommand cmd = new(updateCliente, conexao.ObterConexao())) {
+                    cmd.Parameters.AddWithValue("@movimentacao", c.movimentacao);
+                    cmd.Parameters.AddWithValue("@codigo", c.codigo);
+                    cmd.ExecuteNonQuery();
                 }
                 conexao.FecharConexao();
                 MessageBox.Show("Documento " + e.documento.ToString() + " gravado com sucesso!");
@@ -345,7 +354,9 @@ namespace PDV
         {
             string comando = "insert into devolucao (dataDevolucao, doc_original, valor, idCliente, nomeCliente) " +
                 "values (@dataDevolucao, @doc_original, @valor, @idCliente, @nomeCliente)";
+            string updateCliente = "update clientes set movimentacao = @movimentacao where codigo = @codigo";
             d.data = DateTime.Now.Date;
+            c.movimentacao = DateTime.Now;
 
             try
             {
@@ -363,6 +374,13 @@ namespace PDV
                     d.documento = Convert.ToInt32(cmd.ExecuteScalar());
 
                     Entrada(e, produtos, d.documento);
+                }
+
+                using (MySqlCommand cmd = new(updateCliente, conexao.ObterConexao()))
+                {
+                    cmd.Parameters.AddWithValue("@movimentacao", c.movimentacao);
+                    cmd.Parameters.AddWithValue("@codigo", c.codigo);
+                    cmd.ExecuteNonQuery();
                 }
                 conexao.FecharConexao();
                 MessageBox.Show("Devolução " + d.documento.ToString() + " gravada com sucesso!");

@@ -29,5 +29,6 @@ namespace PDV.Classes
       public string estado { get; set; }
       public  string cep { get; set; }
       public string referencia { get; set; }
+      public DateTime movimentacao { get; set; }
     }
 }

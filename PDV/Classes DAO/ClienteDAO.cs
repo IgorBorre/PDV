@@ -2,7 +2,6 @@
 using PDV.Classes;
 using PDV.Conexão;
 using System.Data;
-using System.Reflection.Metadata.Ecma335;
 
 namespace PDV
 {
@@ -106,6 +105,47 @@ namespace PDV
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        private void ExcluirCliente(Clientes c) {
+            string comando = $"DELETE from clientes where codigo = {c.codigo}";
+
+            try
+            {
+                conexao.AbrirConexao();
+                using (MySqlCommand command = new(comando, conexao.ObterConexao()))
+                {
+                    command.ExecuteNonQuery();
+                    MessageBox.Show($"Cliente {c.codigo} excluído com sucesso!");
+                }
+                conexao.FecharConexao();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao excluir cliente " + ex.Message);
+            }
+
+        }
+
+
+        public void SelectExclusao(Clientes c) {
+            string comando = $"SELECT movimentacao from clientes where codigo = {c.codigo}";
+            DataTable dt = ListarClientes(comando);
+
+            if (dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+
+                if (row.IsNull("movimentacao"))
+                {
+                    ExcluirCliente(c);
+                }
+                else
+                {
+                    MessageBox.Show("Esse cliente possui movimentação no sistema, para manter a integridade das informações não é possível excluir esse cliente!");
+                }
             }
         }
 

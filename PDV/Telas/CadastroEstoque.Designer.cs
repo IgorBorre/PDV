@@ -45,6 +45,7 @@
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
+            BtExcluir = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -209,11 +210,23 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
+            // BtExcluir
+            // 
+            BtExcluir.Image = Properties.Resources.remove__1___1_;
+            BtExcluir.ImageAlign = ContentAlignment.MiddleLeft;
+            BtExcluir.Location = new Point(835, 97);
+            BtExcluir.Name = "BtExcluir";
+            BtExcluir.Size = new Size(75, 23);
+            BtExcluir.TabIndex = 12;
+            BtExcluir.Text = "Excluir";
+            BtExcluir.UseVisualStyleBackColor = true;
+            // 
             // CadastroEstoque
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(953, 699);
+            Controls.Add(BtExcluir);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -256,5 +269,6 @@
         private DataGridViewTextBoxColumn Estoque;
         private DataGridViewTextBoxColumn Preço;
         public DataGridView dataGridView1;
+        private Button BtExcluir;
     }
 }

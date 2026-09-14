@@ -22,6 +22,7 @@ namespace PDV
         private readonly string selectSaidadados = "select produto, quantidade from saidadados where documento = @documento";
         private readonly string addProdutos = "update produtos set estoque = estoque + @quantidade where codigo = @codigo";
         private readonly string cancelamentoLog = "insert into cancelamentoLog(documento, motivo, dataCancelamento) values(@documento, @motivo, @dataCancelamento)";
+        private readonly string updateCliente = "update clientes set movimentacao = @movimentacao where codigo = @codigo";
 
         public VendaDAO() { 
             con = new Conexao();
@@ -40,6 +41,9 @@ namespace PDV
 
                 if (formaspag != null && formaspag.Count > 0)
                     AddPagamento(v, formaspag);
+
+                if (c != null)
+                    ClienteMovimentacao(c);
 
                 con.FecharConexao();
                 MessageBox.Show("Documento " + v.codigo + " gravado com sucesso!");
@@ -65,17 +69,13 @@ namespace PDV
             cmd.Parameters.AddWithValue("@acrescimo", v.acrescimo);
             cmd.Parameters.AddWithValue("@subtotal", v.subtotal);
 
-            cmd.Parameters.AddWithValue("@clienteId",
-                c?.codigo > 0 ? c.codigo : DBNull.Value);
+            cmd.Parameters.AddWithValue("@clienteId", c?.codigo > 0 ? c.codigo : DBNull.Value);
 
-            cmd.Parameters.AddWithValue("@clienteNome",
-                !string.IsNullOrEmpty(c?.nome) ? c.nome : DBNull.Value);
+            cmd.Parameters.AddWithValue("@clienteNome", !string.IsNullOrEmpty(c?.nome) ? c.nome : DBNull.Value);
+                       
+            cmd.Parameters.AddWithValue("@docDevolucao", !string.IsNullOrEmpty(docDevolucao) ? docDevolucao : DBNull.Value);
 
-            cmd.Parameters.AddWithValue("@docDevolucao",
-                !string.IsNullOrEmpty(docDevolucao) ? docDevolucao : DBNull.Value);
-
-            cmd.Parameters.AddWithValue("@tipo",
-                !string.IsNullOrEmpty(docDevolucao) ? "T" : "N");
+            cmd.Parameters.AddWithValue("@tipo", !string.IsNullOrEmpty(docDevolucao) ? "T" : "N");
 
             cmd.ExecuteNonQuery();
             v.codigo = (int)cmd.LastInsertedId;
@@ -121,7 +121,16 @@ namespace PDV
 
             }
         }
-                          
+
+
+        private void ClienteMovimentacao(Clientes c) { 
+            using MySqlCommand cmd = new(updateCliente, con.ObterConexao());
+            cmd.Parameters.AddWithValue("@movimentacao", DateTime.Now);
+            cmd.Parameters.AddWithValue("@codigo", c.codigo);
+            cmd.ExecuteNonQuery();
+        }
+
+
         public void CancelarVenda(string documento, string motivo)
         {
 
