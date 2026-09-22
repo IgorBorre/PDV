@@ -137,5 +137,19 @@ namespace PDV
         private void TfFornecedor_Enter(object sender, EventArgs e)
         {
         }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            BtCancelar.Enabled = dataGridView1.SelectedRows.Count > 0;
+        }
+
+        private void BtCancelar_Click(object sender, EventArgs e)
+        {
+            JanelaCancelamentodeEntradas janelaCancelamento = new();
+            janelaCancelamento.TfDocumento.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            janelaCancelamento.Show();
+            janelaCancelamento.BtProcurar.PerformClick();
+            janelaCancelamento.TfMotivo.Focus();
+        }
     }
 }

@@ -133,6 +133,7 @@
             dataGridView1.Size = new Size(938, 554);
             dataGridView1.TabIndex = 8;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             // 
             // Código
             // 
@@ -212,6 +213,7 @@
             // 
             // BtExcluir
             // 
+            BtExcluir.Enabled = false;
             BtExcluir.Image = Properties.Resources.remove__1___1_;
             BtExcluir.ImageAlign = ContentAlignment.MiddleLeft;
             BtExcluir.Location = new Point(835, 97);
@@ -220,6 +222,7 @@
             BtExcluir.TabIndex = 12;
             BtExcluir.Text = "Excluir";
             BtExcluir.UseVisualStyleBackColor = true;
+            BtExcluir.Click += BtExcluir_Click;
             // 
             // CadastroEstoque
             // 

@@ -152,7 +152,13 @@ namespace PDV
                 else
                 {
                     MessageBox.Show("Esse produto não pertence à venda original!");
+
+                    LbCodigo.Text = string.Empty;
+                    LbDescricao.Text = string.Empty;
+                    LbReferencia.Text = string.Empty;
+                    TfValor.Text = string.Empty;
                     TfId.Focus();
+
                     if (!string.IsNullOrEmpty(TfProduto.Text))
                     {
                         TfProduto.Text = string.Empty;
@@ -165,6 +171,7 @@ namespace PDV
                 LbCodigo.Text = string.Empty;
                 LbDescricao.Text = string.Empty;
                 LbReferencia.Text = string.Empty;
+                TfValor.Text = string.Empty;
             }
         }
 
@@ -202,8 +209,15 @@ namespace PDV
                 }
                 else
                 {
+                    LbCodigo.Text = string.Empty;
+                    LbDescricao.Text = string.Empty;
+                    LbReferencia.Text = string.Empty;
+                    TfValor.Text = string.Empty;
+
                     MessageBox.Show("Esse produto não pertence à venda original!");
+
                     TfId.Focus();
+
                     if (!string.IsNullOrEmpty(TfProduto.Text))
                     {
                         TfProduto.Text = string.Empty;

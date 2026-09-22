@@ -49,6 +49,7 @@
             BtCancelar = new Button();
             groupBox2 = new GroupBox();
             LbDocumento = new Label();
+            BtDetalhada = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -73,9 +74,9 @@
             // 
             BtProcurar.Image = Properties.Resources.lupa_de_pesquisa__1___1___1_;
             BtProcurar.ImageAlign = ContentAlignment.MiddleRight;
-            BtProcurar.Location = new Point(202, 31);
+            BtProcurar.Location = new Point(195, 31);
             BtProcurar.Name = "BtProcurar";
-            BtProcurar.Size = new Size(75, 23);
+            BtProcurar.Size = new Size(82, 23);
             BtProcurar.TabIndex = 2;
             BtProcurar.Text = "Procurar";
             BtProcurar.TextAlign = ContentAlignment.MiddleLeft;
@@ -269,11 +270,25 @@
             LbDocumento.TabIndex = 10;
             LbDocumento.Visible = false;
             // 
+            // BtDetalhada
+            // 
+            BtDetalhada.Image = Properties.Resources.paper__1_;
+            BtDetalhada.ImageAlign = ContentAlignment.MiddleRight;
+            BtDetalhada.Location = new Point(195, 60);
+            BtDetalhada.Name = "BtDetalhada";
+            BtDetalhada.Size = new Size(82, 23);
+            BtDetalhada.TabIndex = 11;
+            BtDetalhada.Text = "Detalhada";
+            BtDetalhada.TextAlign = ContentAlignment.MiddleLeft;
+            BtDetalhada.UseVisualStyleBackColor = true;
+            BtDetalhada.Click += BtDetalhada_Click;
+            // 
             // JanelaDevolucao
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(357, 438);
+            Controls.Add(BtDetalhada);
             Controls.Add(LbDocumento);
             Controls.Add(groupBox2);
             Controls.Add(BtCancelar);
@@ -297,7 +312,6 @@
         #endregion
 
         private Label label1;
-        private Button BtProcurar;
         private GroupBox groupBox1;
         private Label label2;
         private Label label4;
@@ -317,5 +331,7 @@
         public Label LbSubtotal;
         public Label LbDesc;
         public Label LbTotal;
+        public Button BtDetalhada;
+        public Button BtProcurar;
     }
 }

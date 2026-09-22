@@ -229,11 +229,11 @@
         private Label label4;
         private Label label3;
         private Label label5;
-        private TextBox TfDocumento;
-        private TextBox TfMotivo;
-        private Button BtProcurar;
         private Button BtLimpar;
         private Button BtConfirmar;
         private Button BtCancelar;
+        public TextBox TfDocumento;
+        public Button BtProcurar;
+        public TextBox TfMotivo;
     }
 }

@@ -79,6 +79,9 @@
     <Compile Update="Telas\LancamentodeDevolucao.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Telas\ProcuraDetalhada.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Telas\SaidaDeTroca.cs">
       <SubType>Form</SubType>
     </Compile>

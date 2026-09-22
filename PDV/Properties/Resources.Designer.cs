@@ -123,6 +123,16 @@ namespace PDV.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap import__1_ {
+            get {
+                object obj = ResourceManager.GetObject("import (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap inserir__1_ {
             get {
                 object obj = ResourceManager.GetObject("inserir (1)", resourceCulture);
@@ -213,6 +223,16 @@ namespace PDV.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap paper__1_ {
+            get {
+                object obj = ResourceManager.GetObject("paper (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap payment_method__1_ {
             get {
                 object obj = ResourceManager.GetObject("payment-method (1)", resourceCulture);
@@ -226,6 +246,36 @@ namespace PDV.Properties {
         internal static System.Drawing.Bitmap payment_method__1_1 {
             get {
                 object obj = ResourceManager.GetObject("payment-method (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pdf__1_ {
+            get {
+                object obj = ResourceManager.GetObject("pdf (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pdf_file__1_ {
+            get {
+                object obj = ResourceManager.GetObject("pdf-file (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap product_return__1_ {
+            get {
+                object obj = ResourceManager.GetObject("product-return (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

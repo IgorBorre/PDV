@@ -23,13 +23,15 @@ namespace PDV
         private readonly string addProdutos = "update produtos set estoque = estoque + @quantidade where codigo = @codigo";
         private readonly string cancelamentoLog = "insert into cancelamentoLog(documento, motivo, dataCancelamento) values(@documento, @motivo, @dataCancelamento)";
         private readonly string updateCliente = "update clientes set movimentacao = @movimentacao where codigo = @codigo";
+        private readonly string updateProdutos = "update produtos set movimentacao = @movimentacao where codigo = @codigo";
 
         public VendaDAO() { 
             con = new Conexao();
         }
 
         public void Venda(Venda v, List<Produtos> produtos, Clientes? c, List<FormasdePagamento>? formaspag, string? docDevolucao) { 
-            
+            produtos.ForEach(p => p.movimentacao = DateTime.Now);
+
             con.AbrirConexao();
 
             try
@@ -44,6 +46,16 @@ namespace PDV
 
                 if (c != null)
                     ClienteMovimentacao(c);
+
+                foreach (Produtos p in produtos)
+                {
+                    using (MySqlCommand cmd = new(updateProdutos, con.ObterConexao()))
+                    {
+                        cmd.Parameters.AddWithValue("@movimentacao", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@codigo", p.codigo);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
 
                 con.FecharConexao();
                 MessageBox.Show("Documento " + v.codigo + " gravado com sucesso!");
@@ -182,7 +194,6 @@ namespace PDV
             DataTable dt = new();
             try
             {
-                con.AbrirConexao();
                 using (MySqlCommand command = new(c, con.ObterConexao()))
                 {
                     using MySqlDataAdapter da = new(command);
@@ -363,6 +374,26 @@ namespace PDV
 
             return a;
         }
-    }
 
+
+
+        public string ValidacaoDetalhada(string? codigo, string? data1, string? data2)
+        {
+            string a = "";
+
+            if (!string.IsNullOrEmpty(codigo))
+                a += $" and clienteId = {codigo}";
+
+            if (!string.IsNullOrEmpty(data1) && !string.IsNullOrEmpty(data2))
+                a += " and dataSaida between" + "'" + data1 + "'" + " and " + "'" + data2 + "'"; ;
+
+            if (!string.IsNullOrEmpty(data1) && string.IsNullOrEmpty(data2))
+                a += " and dataSaida >= " + "'" + data1 + "'";
+
+            if (string.IsNullOrEmpty(data1) && !string.IsNullOrEmpty(data2))
+                a += " and dataSaida <= " + "'" + data2 + "'";
+
+            return a;
+        }
+    }
 }

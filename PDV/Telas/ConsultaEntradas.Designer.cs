@@ -44,6 +44,7 @@
             Documento = new DataGridViewTextBoxColumn();
             Fornecedor = new DataGridViewTextBoxColumn();
             Data = new DataGridViewTextBoxColumn();
+            BtCancelar = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -187,6 +188,7 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(848, 300);
             dataGridView1.TabIndex = 1;
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             // 
             // Documento
             // 
@@ -212,11 +214,26 @@
             Data.Name = "Data";
             Data.ReadOnly = true;
             // 
+            // BtCancelar
+            // 
+            BtCancelar.Enabled = false;
+            BtCancelar.Image = Properties.Resources.cancelar__1_;
+            BtCancelar.ImageAlign = ContentAlignment.MiddleRight;
+            BtCancelar.Location = new Point(403, 461);
+            BtCancelar.Name = "BtCancelar";
+            BtCancelar.Size = new Size(75, 23);
+            BtCancelar.TabIndex = 2;
+            BtCancelar.Text = "Cancelar";
+            BtCancelar.TextAlign = ContentAlignment.MiddleLeft;
+            BtCancelar.UseVisualStyleBackColor = true;
+            BtCancelar.Click += BtCancelar_Click;
+            // 
             // ConsultaEntradas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(863, 467);
+            ClientSize = new Size(863, 490);
+            Controls.Add(BtCancelar);
             Controls.Add(dataGridView1);
             Controls.Add(groupBox1);
             Name = "ConsultaEntradas";
@@ -247,5 +264,6 @@
         private DataGridViewTextBoxColumn Documento;
         private DataGridViewTextBoxColumn Fornecedor;
         private DataGridViewTextBoxColumn Data;
+        private Button BtCancelar;
     }
 }

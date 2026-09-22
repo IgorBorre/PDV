@@ -219,19 +219,19 @@
         #endregion
 
         private Label label1;
-        private TextBox TfDocumento;
-        private Button BtProcurar;
         private Button BtLimpar;
         private GroupBox groupBox1;
         private Label label4;
         private Label label3;
         private Label label2;
-        private TextBox TfMotivo;
         private Label label5;
         private Button BtConfirmar;
         private Button BtCancelar;
         private Label lbFornecedor;
         private Label lbData;
         private Label lbDocumento;
+        public TextBox TfDocumento;
+        public Button BtProcurar;
+        public TextBox TfMotivo;
     }
 }

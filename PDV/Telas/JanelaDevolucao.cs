@@ -1,4 +1,5 @@
 ﻿using PDV.Classes;
+using PDV.Telas;
 using System.Data;
 
 namespace PDV
@@ -64,8 +65,9 @@ namespace PDV
                         TfDocumento.Focus();
                     }
                 }
-                else {
-                    MessageBox.Show("Já existe uma devolução para essa venda!"); 
+                else
+                {
+                    MessageBox.Show("Já existe uma devolução para essa venda!");
                     TfDocumento.Focus();
                 }
             }
@@ -105,14 +107,14 @@ namespace PDV
         {
             if (!string.IsNullOrEmpty(LbDocumento.Text))
             {
-                LancamentodeDevolucao lancamento = new (this, _vendaDAO);
+                LancamentodeDevolucao lancamento = new(this, _vendaDAO);
                 lancamento.LbDocumento.Text = LbDocumento.Text;
 
                 string c = "select codigo, referencia, descricao, quantidade, valor from produtos join saidadados on produtos.codigo = saidadados.produto " +
                       "where saidadados.documento = " + LbDocumento.Text;
 
-                
-                string comando = "select clienteId, clienteNome from saida where documento = "+LbDocumento.Text ;
+
+                string comando = "select clienteId, clienteNome from saida where documento = " + LbDocumento.Text;
 
                 DataTable dt1 = _vendaDAO.ConsultaSaidas(comando);
                 DataRow row1 = dt1.Rows[0];
@@ -123,13 +125,15 @@ namespace PDV
                 DataTable dt = _vendaDAO.ConsultaSaidas(c);
                 lancamento.LbDocumento.Text = LbDocumento.Text;
 
-                if (RbDevolucaototal.Checked) { 
-                    
+                if (RbDevolucaototal.Checked)
+                {
+
                     lancamento.dataGridView1.DataSource = dt;
                     lancamento.BtLimpar.Enabled = false;
                     double total = 0;
 
-                    foreach (DataRow row in dt.Rows) {
+                    foreach (DataRow row in dt.Rows)
+                    {
                         Produtos p = new()
                         {
                             codigo = Convert.ToInt32(row["codigo"]),
@@ -151,7 +155,8 @@ namespace PDV
                     lancamento.TfValor.Enabled = false;
                     lancamento.LbTotal.Text = total.ToString();
                 }
-                if (RbTroca.Checked) {
+                if (RbTroca.Checked)
+                {
                     lancamento.LbTroca.Text = "Troca";
                 }
 
@@ -162,6 +167,12 @@ namespace PDV
                 MessageBox.Show("Informe um documento de venda para realizar uma devolução/troca!");
                 TfDocumento.Focus();
             }
+        }
+
+        private void BtDetalhada_Click(object sender, EventArgs e)
+        {
+            ProcuraDetalhada procura = new(_vendaDAO, this);
+            procura.Show();
         }
     }
 }

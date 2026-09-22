@@ -49,6 +49,8 @@
             acrescimo = new DataGridViewTextBoxColumn();
             valortotal = new DataGridViewTextBoxColumn();
             BtPDF = new Button();
+            BtDevolucao = new Button();
+            BtCancelar = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -250,19 +252,52 @@
             // BtPDF
             // 
             BtPDF.Enabled = false;
-            BtPDF.Location = new Point(387, 541);
+            BtPDF.Image = Properties.Resources.pdf_file__1_;
+            BtPDF.ImageAlign = ContentAlignment.MiddleRight;
+            BtPDF.Location = new Point(264, 532);
             BtPDF.Name = "BtPDF";
-            BtPDF.Size = new Size(75, 23);
+            BtPDF.Size = new Size(55, 23);
             BtPDF.TabIndex = 2;
             BtPDF.Text = "PDF";
+            BtPDF.TextAlign = ContentAlignment.MiddleLeft;
             BtPDF.UseVisualStyleBackColor = true;
             BtPDF.Click += button1_Click;
+            // 
+            // BtDevolucao
+            // 
+            BtDevolucao.Enabled = false;
+            BtDevolucao.Image = Properties.Resources.product_return__1_;
+            BtDevolucao.ImageAlign = ContentAlignment.MiddleRight;
+            BtDevolucao.Location = new Point(336, 532);
+            BtDevolucao.Name = "BtDevolucao";
+            BtDevolucao.Size = new Size(123, 23);
+            BtDevolucao.TabIndex = 3;
+            BtDevolucao.Text = "Devolução / Troca";
+            BtDevolucao.TextAlign = ContentAlignment.MiddleLeft;
+            BtDevolucao.UseVisualStyleBackColor = true;
+            BtDevolucao.Click += BtDevolucao_Click;
+            // 
+            // BtCancelar
+            // 
+            BtCancelar.Enabled = false;
+            BtCancelar.Image = Properties.Resources.cancelar__1_;
+            BtCancelar.ImageAlign = ContentAlignment.MiddleRight;
+            BtCancelar.Location = new Point(476, 532);
+            BtCancelar.Name = "BtCancelar";
+            BtCancelar.Size = new Size(75, 23);
+            BtCancelar.TabIndex = 4;
+            BtCancelar.Text = "Cancelar";
+            BtCancelar.TextAlign = ContentAlignment.MiddleLeft;
+            BtCancelar.UseVisualStyleBackColor = true;
+            BtCancelar.Click += BtCancelar_Click;
             // 
             // JanelaConsultaSaidas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(859, 587);
+            ClientSize = new Size(859, 567);
+            Controls.Add(BtCancelar);
+            Controls.Add(BtDevolucao);
             Controls.Add(BtPDF);
             Controls.Add(dataGridView1);
             Controls.Add(groupBox1);
@@ -299,5 +334,7 @@
         private DataGridViewTextBoxColumn acrescimo;
         private DataGridViewTextBoxColumn valortotal;
         private Button BtPDF;
+        private Button BtDevolucao;
+        private Button BtCancelar;
     }
 }

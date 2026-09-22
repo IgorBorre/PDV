@@ -109,6 +109,25 @@ namespace PDV
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             BtPDF.Enabled = dataGridView1.SelectedRows.Count > 0;
+            BtDevolucao.Enabled = dataGridView1.SelectedRows.Count > 0;
+            BtCancelar.Enabled = dataGridView1.SelectedRows.Count > 0;
+        }
+
+        private void BtDevolucao_Click(object sender, EventArgs e)
+        {
+            JanelaDevolucao devolucao = new(_vendaDAO);
+            devolucao.TfDocumento.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString() ?? "sem documento";
+            devolucao.Show();
+            devolucao.BtProcurar.PerformClick();
+        }
+
+        private void BtCancelar_Click(object sender, EventArgs e)
+        {
+            JanelaCancelamentodeSaidas janelaCancelamento = new();
+            janelaCancelamento.TfDocumento.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString() ?? "sem documento";
+            janelaCancelamento.Show();
+            janelaCancelamento.BtProcurar.PerformClick();
+            janelaCancelamento.TfMotivo.Focus();
         }
     }
 }

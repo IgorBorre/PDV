@@ -155,3 +155,4 @@ C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\bin\Debug\net8.0-windows\r
 C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\bin\Debug\net8.0-windows\runtimes\win-x64\native\qpdf.dll
 C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\bin\Debug\net8.0-windows\runtimes\win-x86\native\QuestPdfSkia.dll
 C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\bin\Debug\net8.0-windows\runtimes\win-x86\native\qpdf.dll
+C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\obj\Debug\net8.0-windows\PDV.Telas.ProcuraDetalhada.resources

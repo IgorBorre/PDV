@@ -173,9 +173,11 @@ namespace PDV
             string comandoEntrada = "insert into entradadados (docentrada, idproduto, descproduto, quantidade) values (@docentrada, @idproduto, @descproduto, @quantidade)";
             string atualizaEstoque = "update produtos set estoque = estoque + @quantidade where codigo = @codigo";
             string updateCliente = "update clientes set movimentacao = @movimentacao where codigo = @codigo";
+            string updateProduto = "update produtos set movimentacao = @movimentacao where codigo = @codigo";
 
             e.data = DateTime.Now.Date;
             c.movimentacao = DateTime.Now;
+            produtos.ForEach(p => p.movimentacao = DateTime.Now);
 
             try
             {
@@ -206,6 +208,12 @@ namespace PDV
 
                         cmd.ExecuteNonQuery();
                     }
+
+                    using (MySqlCommand cmd = new(updateProduto, conexao.ObterConexao())) {
+                        cmd.Parameters.AddWithValue("@movimentacao", p.movimentacao);
+                        cmd.Parameters.AddWithValue("@codigo", p.codigo);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
 
                 using (MySqlCommand cmd = new(updateCliente, conexao.ObterConexao())) {
@@ -229,7 +237,10 @@ namespace PDV
             string comando = "insert into entrada (dataentrada) values (@dataentrada)";
             string comandoEntrada = "insert into entradadados (docentrada, idproduto, descproduto, quantidade) values (@docentrada, @idproduto, @descproduto, @quantidade)";
             string atualizaEstoque = "update produtos set estoque = estoque + @quantidade where codigo = @codigo";
+            string updateProduto = "update produtos set movimentacao = @movimentacao where codigo = @codigo";
+
             e.data = DateTime.Now.Date;
+            produtos.ForEach(p => p.movimentacao = DateTime.Now);
 
             try
             {
@@ -262,6 +273,13 @@ namespace PDV
 
                         cmd.ExecuteNonQuery();
                     }
+
+                    using (MySqlCommand cmd = new(updateProduto, conexao.ObterConexao()))
+                    {
+                        cmd.Parameters.AddWithValue("@movimentacao", p.movimentacao);
+                        cmd.Parameters.AddWithValue("@codigo", p.codigo);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
                 conexao.FecharConexao();
                 MessageBox.Show("Documento " + e.documento.ToString() + " gravado com sucesso!");
@@ -278,8 +296,11 @@ namespace PDV
             string comando = "insert into entrada (dataentrada, doc_original, tipo) values (@dataentrada, @doc_original, 'D')";
             string comandoEntrada = "insert into entradadados (docentrada, idproduto, descproduto, quantidade) values (@docentrada, @idproduto, @descproduto, @quantidade)";
             string atualizaEstoque = "update produtos set estoque = estoque + @quantidade where codigo = @codigo";
+            string updateProduto = "update produtos set movimentacao = @movimentacao where codigo = @codigo";
+
             e.data = DateTime.Now.Date;
             e.doc_original = doc_original;
+            produtos.ForEach(p => p.movimentacao = DateTime.Now);
 
             try
             {
@@ -310,6 +331,13 @@ namespace PDV
                         cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
                         cmd.Parameters.AddWithValue("@codigo", p.codigo);
 
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    using (MySqlCommand cmd = new(updateProduto, conexao.ObterConexao()))
+                    {
+                        cmd.Parameters.AddWithValue("@movimentacao", p.movimentacao);
+                        cmd.Parameters.AddWithValue("@codigo", p.codigo);
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -437,6 +465,47 @@ namespace PDV
             }
         }
 
+
+        private void ExcluirProduto(Produtos p) { 
+            string comando = $"delete from produtos where codigo = {p.codigo}";
+
+            try
+            {
+                conexao.AbrirConexao();
+
+                using (MySqlCommand cmd = new(comando, conexao.ObterConexao()))
+                {
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show($"Produto {p.codigo} excluído com sucesso!");
+                }
+                conexao.FecharConexao();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Erro ao excluir produto " + e.Message);               
+            }
+
+        }
+
+
+        public void SelectExclusao(Produtos p) {
+            string comando = $"select movimentacao from produtos where codigo = {p.codigo}";
+
+            DataTable dt = ListarProdutos(comando);
+
+            if (dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+                if (row.IsNull("movimentacao")) {
+                    ExcluirProduto(p);
+                }
+                else
+                {
+                    MessageBox.Show("Esse produto possui movimentação no sistema, para manter a integridade das informações não é possível excluir esse produto!");
+                }
+            }
+            
+        }
 
 
         public void CancelarDevolucao(string documento) {

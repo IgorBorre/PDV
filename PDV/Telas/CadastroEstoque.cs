@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using PDV.Classes;
+using System.Data;
 
 namespace PDV
 {
@@ -9,7 +10,7 @@ namespace PDV
         public CadastroEstoque()
         {
             InitializeComponent();
-            produtoDAO = new ();
+            produtoDAO = new();
         }
 
         private void CadastroEstoque_Load(object sender, EventArgs e)
@@ -42,7 +43,7 @@ namespace PDV
 
         private void button3_Click(object sender, EventArgs e)
         {
-            CadastroEstoqueNovo cadastroEstoqueNovo = new (this, produtoDAO);
+            CadastroEstoqueNovo cadastroEstoqueNovo = new(this, produtoDAO);
             cadastroEstoqueNovo.ShowDialog();
         }
 
@@ -77,7 +78,7 @@ namespace PDV
         {
             //duplo clique na linha da tabela abre a janela de cadastro de produtos com o código do produto
             //selecionado
-            CadastroEstoqueNovo cadastroEstoqueNovo = new (this, produtoDAO);
+            CadastroEstoqueNovo cadastroEstoqueNovo = new(this, produtoDAO);
 
             cadastroEstoqueNovo.TfCodigo.Text = dataGridView1.CurrentRow.Cells["Código"].Value.ToString();
 
@@ -119,6 +120,23 @@ namespace PDV
             {
                 button1.PerformClick();
             }
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            BtExcluir.Enabled = dataGridView1.SelectedRows.Count > 0;
+        }
+
+        private void BtExcluir_Click(object sender, EventArgs e)
+        {
+            Produtos p = new()
+            {
+                codigo = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Código"].Value)
+            };
+            produtoDAO.SelectExclusao(p);
+
+            dataGridView1.DataSource = produtoDAO.ListarProdutos(c);
+            dataGridView1.ClearSelection();
         }
     }
 }
