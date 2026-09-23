@@ -51,32 +51,40 @@ namespace PDV
             {
                 if (!clientedao.Validacoes(c))
                 {
-                    clientedao.InserirCliente(c);
-                    TfCodigo.Text = c.codigo.ToString();
-                    if (!string.IsNullOrEmpty(_cadastroGeral.comando))
+                    if (!clientedao.CpfExiste(c.identificacao))
                     {
-                        DataTable dt = clientedao.ListarClientes(_cadastroGeral.comando);
-                        _cadastroGeral.dataGridView1.DataSource = dt;
-                        _cadastroGeral.dataGridView1.ClearSelection();
+                        clientedao.InserirCliente(c);
+                        TfCodigo.Text = c.codigo.ToString();
+                        if (!string.IsNullOrEmpty(_cadastroGeral.comando))
+                        {
+                            DataTable dt = clientedao.ListarClientes(_cadastroGeral.comando);
+                            _cadastroGeral.dataGridView1.DataSource = dt;
+                            _cadastroGeral.dataGridView1.ClearSelection();
+                        }
+                        else
+                        {
+                            DataTable dt = new();
+
+                            dt.Columns.Add("codigo");
+                            dt.Columns.Add("nome");
+                            dt.Columns.Add("identificacao");
+                            dt.Columns.Add("telefone");
+
+                            DataRow row = dt.NewRow();
+                            row["codigo"] = c.codigo;
+                            row["nome"] = c.nome;
+                            row["identificacao"] = c.identificacao;
+                            row["telefone"] = c.telefone;
+
+                            dt.Rows.Add(row);
+
+                            _cadastroGeral.dataGridView1.DataSource = dt;
+                            _cadastroGeral.dataGridView1.ClearSelection();
+                        }
                     }
-                    else {
-                        DataTable dt = new();
-
-                        dt.Columns.Add("codigo");
-                        dt.Columns.Add("nome");
-                        dt.Columns.Add("identificacao");
-                        dt.Columns.Add("telefone");
-
-                        DataRow row = dt.NewRow();
-                        row["codigo"] = c.codigo;
-                        row["nome"] = c.nome;
-                        row["identificacao"] = c.identificacao;
-                        row["telefone"] = c.telefone;
-
-                        dt.Rows.Add(row);
-
-                        _cadastroGeral.dataGridView1.DataSource = dt;
-                        _cadastroGeral.dataGridView1.ClearSelection();
+                    else { 
+                        MessageBox.Show("CPF/CNPJ já cadastrado no sistema!");
+                        TfIdentificacao.Focus();
                     }
                 }
 
@@ -86,11 +94,19 @@ namespace PDV
             {
                 if (!clientedao.Validacoes(c))
                 {
-                    c.codigo = Convert.ToInt32(TfCodigo.Text);
-                    clientedao.AtualizarCliente(c);
-                    DataTable dt = clientedao.ListarClientes(_cadastroGeral.comando);
-                    _cadastroGeral.dataGridView1.DataSource = dt;
-                    _cadastroGeral.dataGridView1.ClearSelection();
+                    if (!clientedao.CpfExiste(c.identificacao))
+                    {
+                        c.codigo = Convert.ToInt32(TfCodigo.Text);
+                        clientedao.AtualizarCliente(c);
+                        DataTable dt = clientedao.ListarClientes(_cadastroGeral.comando);
+                        _cadastroGeral.dataGridView1.DataSource = dt;
+                        _cadastroGeral.dataGridView1.ClearSelection();
+                    }
+                    else
+                    {
+                        MessageBox.Show("CPF/CNPJ já cadastrado no sistema!");
+                        TfIdentificacao.Focus();
+                    }
                 }
             }
 

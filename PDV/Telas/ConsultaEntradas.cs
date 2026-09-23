@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 
 namespace PDV
 {
@@ -27,8 +19,8 @@ namespace PDV
 
         private void BtProcurar_Click(object sender, EventArgs e)
         {
-            string data1 = null;
-            string data2 = null;
+            string? data1 = null;
+            string? data2 = null;
 
             if (TfData1.MaskCompleted)
             {
@@ -74,8 +66,7 @@ namespace PDV
 
                 if (dt.Rows.Count > 0)
                 {
-                    DataRow row = null;
-                    row = dt.Rows[0];
+                    DataRow row = dt.Rows[0];
 
                     TfFornecedor.Text = row["nome"].ToString();
                 }
@@ -102,8 +93,7 @@ namespace PDV
 
                 if (dt.Rows.Count > 0)
                 {
-                    DataRow row = null;
-                    row = dt.Rows[0];
+                    DataRow row = dt.Rows[0];
 
                     TfIdFornecedor.Text = row["codigo"].ToString();
                     TfFornecedor.Text = row["nome"].ToString();

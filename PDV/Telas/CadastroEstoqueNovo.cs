@@ -64,46 +64,61 @@ namespace PDV
                 //se o campo TfCodigo estiver vazio, o código chamado será o de inserção no banco
                 if (string.IsNullOrEmpty(TfCodigo.Text))
                 {
-                    _produtoDAO.InserirProduto(p);
-                    TfCodigo.Text = p.codigo.ToString();
-                    if (!string.IsNullOrEmpty(_cadastroEstoque.c))
+                    if (!_produtoDAO.ReferenciaExiste(p.referencia))
                     {
-                        DataTable dt = _produtoDAO.ListarProdutos(_cadastroEstoque.c);
-                        _cadastroEstoque.dataGridView1.DataSource = dt;
-                        _cadastroEstoque.dataGridView1.ClearSelection();
+                        _produtoDAO.InserirProduto(p);
+                        TfCodigo.Text = p.codigo.ToString();
+                        if (!string.IsNullOrEmpty(_cadastroEstoque.c))
+                        {
+                            DataTable dt = _produtoDAO.ListarProdutos(_cadastroEstoque.c);
+                            _cadastroEstoque.dataGridView1.DataSource = dt;
+                            _cadastroEstoque.dataGridView1.ClearSelection();
+                        }
+                        else
+                        {
+                            DataTable dt = new();
+
+                            dt.Columns.Add("codigo");
+                            dt.Columns.Add("referencia");
+                            dt.Columns.Add("descricao");
+                            dt.Columns.Add("estoque");
+                            dt.Columns.Add("preco");
+
+                            DataRow row = dt.NewRow();
+
+                            row["codigo"] = p.codigo;
+                            row["referencia"] = p.referencia;
+                            row["descricao"] = p.descricao;
+                            row["estoque"] = p.estoque;
+                            row["preco"] = p.preco.ToString("F2");
+
+                            dt.Rows.Add(row);
+
+                            _cadastroEstoque.dataGridView1.DataSource = dt;
+                            _cadastroEstoque.dataGridView1.ClearSelection();
+                        }
                     }
                     else
                     {
-                        DataTable dt = new();
-
-                        dt.Columns.Add("codigo");
-                        dt.Columns.Add("referencia");
-                        dt.Columns.Add("descricao");
-                        dt.Columns.Add("estoque");
-                        dt.Columns.Add("preco");
-
-                        DataRow row = dt.NewRow();
-
-                        row["codigo"] = p.codigo;
-                        row["referencia"] = p.referencia;
-                        row["descricao"] = p.descricao;
-                        row["estoque"] = p.estoque;
-                        row["preco"] = p.preco.ToString("F2");
-
-                        dt.Rows.Add(row);
-
-                        _cadastroEstoque.dataGridView1.DataSource = dt;
-                        _cadastroEstoque.dataGridView1.ClearSelection();
+                        MessageBox.Show("Referência já cadastrada!");
+                        TfReferencia.Focus();
                     }
                 }
                 //se não, o código chamado será o de atualização das informações no banco
                 else
                 {
-                    p.codigo = int.Parse(TfCodigo.Text);
-                    _produtoDAO.AtualizarProduto(p);
-                    DataTable dt = _produtoDAO.ListarProdutos(_cadastroEstoque.c);
-                    _cadastroEstoque.dataGridView1.DataSource = dt;
-                    _cadastroEstoque.dataGridView1.ClearSelection();
+                    if (!_produtoDAO.ReferenciaExiste(p.referencia))
+                    {
+                        p.codigo = int.Parse(TfCodigo.Text);
+                        _produtoDAO.AtualizarProduto(p);
+                        DataTable dt = _produtoDAO.ListarProdutos(_cadastroEstoque.c);
+                        _cadastroEstoque.dataGridView1.DataSource = dt;
+                        _cadastroEstoque.dataGridView1.ClearSelection();
+                    }
+                    else { 
+                        MessageBox.Show("Referência já cadastrada!");
+                        TfReferencia.Focus();
+                    }
                 }
             }
         }

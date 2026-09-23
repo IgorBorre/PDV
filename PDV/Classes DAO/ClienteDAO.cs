@@ -185,6 +185,17 @@ namespace PDV
         }
 
 
+        public bool CpfExiste(string cpf) { 
+            string comando = $"SELECT identificacao from clientes where identificacao = '{cpf}'";
+            DataTable dt = ListarClientes(comando);
+
+            if (dt.Rows.Count > 0)            
+                return true;            
+            else            
+                return false;            
+        }
+
+
         public DataTable ClienteByID(string id) {
 
             //funcao para fazer o select de todos os campos da tabela cliente de acordo com o codigo

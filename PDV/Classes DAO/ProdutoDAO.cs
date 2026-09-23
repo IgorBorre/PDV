@@ -97,6 +97,19 @@ namespace PDV
             return dt;
         }
 
+
+        public bool ReferenciaExiste(string referencia) {
+            string comando = $"SELECT referencia from produtos where referencia = '{referencia}'";
+            DataTable dt = ListarProdutos(comando);
+
+            if (dt.Rows.Count > 0)            
+                return true;            
+            else            
+                return false;        
+
+        }
+
+
         public DataTable ListarProdutoByiD(string codigo) { 
             
             string comando = $"select * from produtos where codigo = {codigo}";
