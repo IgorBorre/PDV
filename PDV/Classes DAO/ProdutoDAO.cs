@@ -122,7 +122,8 @@ namespace PDV
         {
             string comando = $"select descricao, referencia, estoque, preco from produtos where codigo = {id}";
             return ListarProdutos(comando);
-       }
+        }
+
 
         public bool Validacoes(string descricao, string estoque, string preco) {
             if (string.IsNullOrEmpty(descricao) || string.IsNullOrEmpty(estoque)

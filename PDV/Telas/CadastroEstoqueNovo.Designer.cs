@@ -131,6 +131,7 @@
             TfEstoque.Name = "TfEstoque";
             TfEstoque.Size = new Size(100, 23);
             TfEstoque.TabIndex = 9;
+            TfEstoque.KeyPress += TfEstoque_KeyPress;
             // 
             // label6
             // 
@@ -147,6 +148,7 @@
             TfPreco.Name = "TfPreco";
             TfPreco.Size = new Size(100, 23);
             TfPreco.TabIndex = 11;
+            TfPreco.KeyPress += TfPreco_KeyPress;
             // 
             // button1
             // 
@@ -219,6 +221,7 @@
             TfIdGrupo.Size = new Size(50, 23);
             TfIdGrupo.TabIndex = 18;
             TfIdGrupo.Enter += TfIdGrupo_Enter;
+            TfIdGrupo.KeyPress += TfIdGrupo_KeyPress;
             TfIdGrupo.Leave += TfIdGrupo_Leave;
             // 
             // CadastroEstoqueNovo

@@ -107,6 +107,7 @@
             TfQtd.Name = "TfQtd";
             TfQtd.Size = new Size(100, 25);
             TfQtd.TabIndex = 2;
+            TfQtd.KeyPress += TfQtd_KeyPress;
             // 
             // label1
             // 
@@ -128,6 +129,7 @@
             TfPreco.Size = new Size(100, 25);
             TfPreco.TabIndex = 4;
             TfPreco.KeyDown += TfPreco_KeyDown;
+            TfPreco.KeyPress += TfPreco_KeyPress;
             // 
             // label2
             // 

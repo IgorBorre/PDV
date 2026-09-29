@@ -114,6 +114,7 @@
             TfIdentificacao.Name = "TfIdentificacao";
             TfIdentificacao.Size = new Size(227, 23);
             TfIdentificacao.TabIndex = 5;
+            TfIdentificacao.KeyPress += TfIdentificacao_KeyPress;
             // 
             // label4
             // 
@@ -254,6 +255,7 @@
             TfCep.Name = "TfCep";
             TfCep.Size = new Size(100, 23);
             TfCep.TabIndex = 23;
+            TfCep.KeyPress += TfCep_KeyPress;
             // 
             // label14
             // 

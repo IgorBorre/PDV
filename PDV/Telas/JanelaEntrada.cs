@@ -230,8 +230,42 @@ namespace PDV
                     tfIdProduto.Focus();
                 }
             }
-            else {
+            else
+            {
                 Dispose();
+            }
+        }
+
+        private void tfIdFornecedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                if (e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void tfIdProduto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                if (e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void tfQuantidade_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                if (e.KeyChar != ',' && e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true;
+                }
             }
         }
     }

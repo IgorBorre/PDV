@@ -1,3 +1,4 @@
+using PDV.Telas;
 using QuestPDF.Infrastructure;
 
 namespace PDV.Classes
@@ -15,7 +16,7 @@ namespace PDV.Classes
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             VendaDAO vendaDAO = new();
-            Application.Run(new Form1(vendaDAO));
+            Application.Run(new JanelaLogin(vendaDAO));
         }
     }
 }

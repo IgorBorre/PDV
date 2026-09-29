@@ -112,7 +112,7 @@ namespace PDV
 
         private void F5_Click(object sender, EventArgs e)
         {
-        
+
             if (listaProdutos.Count > 0)
             {
                 if (string.IsNullOrEmpty(LbDocumento.Text))
@@ -128,13 +128,14 @@ namespace PDV
                             subtotal = subtotal
                         };
 
-                        var clientes = string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text) 
+                        var clientes = string.IsNullOrEmpty(lbIdCliente.Text) && string.IsNullOrEmpty(lbNomeCliente.Text)
                             ? null : new Clientes(Convert.ToInt32(lbIdCliente.Text), lbNomeCliente.Text);
 
                         _vendaDAO.Venda(v, listaProdutos, clientes, janelaPagamento.listaFormasdePagamento, null);
 
                         var result = MessageBox.Show("Deseja visualizar o documento da saída?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (result == DialogResult.Yes) {
+                        if (result == DialogResult.Yes)
+                        {
                             var documento = new RelatorioSaida(v.codigo.ToString(), _vendaDAO.GetListProdutos(v.codigo.ToString()), _vendaDAO.GetListPagamento(v.codigo.ToString()),
                                 _vendaDAO.GetCliente(v.codigo.ToString()));
                             documento.GeneratePdfAndShow();
@@ -144,7 +145,7 @@ namespace PDV
                         subtotal = 0;
                     }
                 }
-                else 
+                else
                 {
                     if (total > 0)
                     {
@@ -202,15 +203,16 @@ namespace PDV
 
                     }
 
-                
+
                 }
-               
+
             }
-            else {
+            else
+            {
                 MessageBox.Show("Não é possível finalizar uma saída sem produto!");
             }
 
-            
+
         }
 
         private void TextBox1_Leave(object sender, EventArgs e)
@@ -233,7 +235,7 @@ namespace PDV
                 if (dt != null && dt.Rows.Count > 0)
                 {
                     DataRow row = dt.Rows[0];
-                    var descricao = row["descricao"]?.ToString()?.ToUpper() ?? "Sem descrição";              
+                    var descricao = row["descricao"]?.ToString()?.ToUpper() ?? "Sem descrição";
                     TfId.Text = descricao;
                     TfQtd.Text = "1,0";
                     TfPreco.Text = row["preco"].ToString();
@@ -335,14 +337,15 @@ namespace PDV
 
         private void JanelaVenda_Load(object sender, EventArgs e)
         {
-            
-            if (!string.IsNullOrEmpty(LbDocumento.Text)) {
+
+            if (!string.IsNullOrEmpty(LbDocumento.Text))
+            {
                 string c = "select idCliente, nomeCliente, valor from devolucao where documento = " + LbDocumento.Text;
                 DataTable dt = _vendaDAO.ConsultaSaidas(c);
                 if (dt.Rows.Count > 0)
                 {
                     DataRow row = dt.Rows[0];
-                    
+
                     troca = (Convert.ToDouble(row["valor"])) * -1;
 
                     lblTotal.Text = troca.ToString("F2");
@@ -353,7 +356,29 @@ namespace PDV
                     lbNomeCliente.Visible = true;
                 }
             }
-                                
-        } 
-    } 
+
+        }
+
+        private void TfQtd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                if (e.KeyChar != ',' && e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void TfPreco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                if (e.KeyChar != ',' && e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+    }
 } 

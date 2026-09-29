@@ -26,9 +26,10 @@ namespace PDV
             TfTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
 
             //se a data não estiver preenchida, exclui as '//' do texto para salvar null no banco
-            if (TfNascimento.Text == "  /  /") { 
+            if (TfNascimento.Text == "  /  /")
+            {
 
-                TfNascimento.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals; 
+                TfNascimento.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             }
             /*atribui os valores dos campos para os atributos da classe para que sejam passados nas 
             funções de insert e update*/
@@ -82,7 +83,8 @@ namespace PDV
                             _cadastroGeral.dataGridView1.ClearSelection();
                         }
                     }
-                    else { 
+                    else
+                    {
                         MessageBox.Show("CPF/CNPJ já cadastrado no sistema!");
                         TfIdentificacao.Focus();
                     }
@@ -143,8 +145,31 @@ namespace PDV
                 CBLogradouro.SelectedItem = row["logradouro"].ToString();
                 CBSituacao.SelectedItem = row["situacao"].ToString();
             }
-            else { 
+            else
+            {
                 CBSituacao.SelectedItem = "NORMAL";
+            }
+        }
+
+        private void TfIdentificacao_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                if (e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void TfCep_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                if (e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true;
+                }
             }
         }
     }

@@ -123,6 +123,26 @@ namespace PDV.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap grocery_store {
+            get {
+                object obj = ResourceManager.GetObject("grocery-store", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap grocery_store__1_ {
+            get {
+                object obj = ResourceManager.GetObject("grocery-store (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap import__1_ {
             get {
                 object obj = ResourceManager.GetObject("import (1)", resourceCulture);

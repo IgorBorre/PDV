@@ -115,7 +115,8 @@ namespace PDV
                         _cadastroEstoque.dataGridView1.DataSource = dt;
                         _cadastroEstoque.dataGridView1.ClearSelection();
                     }
-                    else { 
+                    else
+                    {
                         MessageBox.Show("Referência já cadastrada!");
                         TfReferencia.Focus();
                     }
@@ -155,10 +156,11 @@ namespace PDV
                     TfGrupo.Focus();
                 }
             }
-            else {
+            else
+            {
                 TfIdGrupo.Text = string.Empty;
             }
-            
+
         }
 
         private void TfIdGrupo_Leave(object sender, EventArgs e)
@@ -183,8 +185,42 @@ namespace PDV
                     TfGrupo.Text = string.Empty;
                 }
             }
-            else { 
+            else
+            {
                 TfGrupo.Text = string.Empty;
+            }
+        }
+
+        private void TfPreco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                if (e.KeyChar != ',' && e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void TfEstoque_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                if (e.KeyChar != ',' && e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void TfIdGrupo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                if (e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true;
+                }
             }
         }
     }

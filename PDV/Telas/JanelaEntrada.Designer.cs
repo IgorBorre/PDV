@@ -108,6 +108,7 @@
             tfQuantidade.Name = "tfQuantidade";
             tfQuantidade.Size = new Size(111, 23);
             tfQuantidade.TabIndex = 1;
+            tfQuantidade.KeyPress += tfQuantidade_KeyPress;
             // 
             // label2
             // 
@@ -131,6 +132,7 @@
             tfIdProduto.Name = "tfIdProduto";
             tfIdProduto.Size = new Size(33, 23);
             tfIdProduto.TabIndex = 3;
+            tfIdProduto.KeyPress += tfIdProduto_KeyPress;
             tfIdProduto.Leave += tfIdProduto_Leave;
             // 
             // label1
@@ -156,6 +158,7 @@
             tfIdFornecedor.Name = "tfIdFornecedor";
             tfIdFornecedor.Size = new Size(33, 23);
             tfIdFornecedor.TabIndex = 0;
+            tfIdFornecedor.KeyPress += tfIdFornecedor_KeyPress;
             tfIdFornecedor.Leave += tfIdFornecedor_Leave;
             // 
             // btConfirmar

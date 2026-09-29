@@ -50,9 +50,9 @@
             devoluçãoTrocaToolStripMenuItem = new ToolStripMenuItem();
             consultaDeDevoluçõesToolStripMenuItem = new ToolStripMenuItem();
             cancelamentoToolStripMenuItem = new ToolStripMenuItem();
+            saídaDeDevoluçãoTrocaToolStripMenuItem = new ToolStripMenuItem();
             caixaToolStripMenuItem = new ToolStripMenuItem();
             formasDePagamentoToolStripMenuItem = new ToolStripMenuItem();
-            saídaDeDevoluçãoTrocaToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -104,7 +104,7 @@
             // 
             entradaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { lançamentoDeEntradasToolStripMenuItem, consultaDeEntradasToolStripMenuItem, cancelamentoToolStripMenuItem1 });
             entradaToolStripMenuItem.Name = "entradaToolStripMenuItem";
-            entradaToolStripMenuItem.Size = new Size(180, 22);
+            entradaToolStripMenuItem.Size = new Size(114, 22);
             entradaToolStripMenuItem.Text = "Entrada";
             // 
             // lançamentoDeEntradasToolStripMenuItem
@@ -146,20 +146,20 @@
             // 
             saídaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { vendaToolStripMenuItem, consultaDeSaídasToolStripMenuItem, cancelamentoToolStripMenuItem2, devoluçãoToolStripMenuItem });
             saídaToolStripMenuItem.Name = "saídaToolStripMenuItem";
-            saídaToolStripMenuItem.Size = new Size(180, 22);
+            saídaToolStripMenuItem.Size = new Size(114, 22);
             saídaToolStripMenuItem.Text = "Saída";
             // 
             // vendaToolStripMenuItem
             // 
             vendaToolStripMenuItem.Name = "vendaToolStripMenuItem";
-            vendaToolStripMenuItem.Size = new Size(180, 22);
+            vendaToolStripMenuItem.Size = new Size(172, 22);
             vendaToolStripMenuItem.Text = "Venda";
             vendaToolStripMenuItem.Click += vendaToolStripMenuItem_Click;
             // 
             // consultaDeSaídasToolStripMenuItem
             // 
             consultaDeSaídasToolStripMenuItem.Name = "consultaDeSaídasToolStripMenuItem";
-            consultaDeSaídasToolStripMenuItem.Size = new Size(180, 22);
+            consultaDeSaídasToolStripMenuItem.Size = new Size(172, 22);
             consultaDeSaídasToolStripMenuItem.Text = "Consulta de saídas";
             consultaDeSaídasToolStripMenuItem.Click += consultaDeSaídasToolStripMenuItem_Click;
             // 
@@ -167,7 +167,7 @@
             // 
             cancelamentoToolStripMenuItem2.DropDownItems.AddRange(new ToolStripItem[] { cancelamentoDeSaídasToolStripMenuItem, consultaDeCancelamentosToolStripMenuItem });
             cancelamentoToolStripMenuItem2.Name = "cancelamentoToolStripMenuItem2";
-            cancelamentoToolStripMenuItem2.Size = new Size(180, 22);
+            cancelamentoToolStripMenuItem2.Size = new Size(172, 22);
             cancelamentoToolStripMenuItem2.Text = "Cancelamento";
             // 
             // cancelamentoDeSaídasToolStripMenuItem
@@ -188,7 +188,7 @@
             // 
             devoluçãoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { devoluçãoTrocaToolStripMenuItem, consultaDeDevoluçõesToolStripMenuItem, cancelamentoToolStripMenuItem, saídaDeDevoluçãoTrocaToolStripMenuItem });
             devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
-            devoluçãoToolStripMenuItem.Size = new Size(180, 22);
+            devoluçãoToolStripMenuItem.Size = new Size(172, 22);
             devoluçãoToolStripMenuItem.Text = "Devolução";
             // 
             // devoluçãoTrocaToolStripMenuItem
@@ -212,6 +212,13 @@
             cancelamentoToolStripMenuItem.Text = "Cancelamento";
             cancelamentoToolStripMenuItem.Click += cancelamentoToolStripMenuItem_Click;
             // 
+            // saídaDeDevoluçãoTrocaToolStripMenuItem
+            // 
+            saídaDeDevoluçãoTrocaToolStripMenuItem.Name = "saídaDeDevoluçãoTrocaToolStripMenuItem";
+            saídaDeDevoluçãoTrocaToolStripMenuItem.Size = new Size(216, 22);
+            saídaDeDevoluçãoTrocaToolStripMenuItem.Text = "Saída de devolução (Troca)";
+            saídaDeDevoluçãoTrocaToolStripMenuItem.Click += saídaDeDevoluçãoTrocaToolStripMenuItem_Click;
+            // 
             // caixaToolStripMenuItem
             // 
             caixaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { formasDePagamentoToolStripMenuItem });
@@ -226,13 +233,6 @@
             formasDePagamentoToolStripMenuItem.Text = "Formas de pagamento";
             formasDePagamentoToolStripMenuItem.Click += formasDePagamentoToolStripMenuItem_Click;
             // 
-            // saídaDeDevoluçãoTrocaToolStripMenuItem
-            // 
-            saídaDeDevoluçãoTrocaToolStripMenuItem.Name = "saídaDeDevoluçãoTrocaToolStripMenuItem";
-            saídaDeDevoluçãoTrocaToolStripMenuItem.Size = new Size(216, 22);
-            saídaDeDevoluçãoTrocaToolStripMenuItem.Text = "Saída de devolução (Troca)";
-            saídaDeDevoluçãoTrocaToolStripMenuItem.Click += saídaDeDevoluçãoTrocaToolStripMenuItem_Click;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -243,6 +243,7 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            FormClosed += Form1_FormClosed;
             Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
