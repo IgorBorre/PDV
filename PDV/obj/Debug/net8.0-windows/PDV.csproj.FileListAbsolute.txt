@@ -157,3 +157,5 @@ C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\bin\Debug\net8.0-windows\r
 C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\bin\Debug\net8.0-windows\runtimes\win-x86\native\qpdf.dll
 C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\obj\Debug\net8.0-windows\PDV.Telas.ProcuraDetalhada.resources
 C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\obj\Debug\net8.0-windows\PDV.Telas.JanelaLogin.resources
+C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\obj\Debug\net8.0-windows\PDV.Telas.JanelaUsuarios.resources
+C:\Users\Igor\Documents\Visual Studio 2022\C#\PDV\PDV\obj\Debug\net8.0-windows\PDV.Telas.JanelaUsuarioNovo.resources

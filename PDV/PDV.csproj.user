@@ -76,6 +76,12 @@
     <Compile Update="Telas\JanelaPagamento.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Telas\JanelaUsuarioNovo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Telas\JanelaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Telas\JanelaVenda.cs">
       <SubType>Form</SubType>
     </Compile>

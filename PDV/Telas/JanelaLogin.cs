@@ -13,7 +13,7 @@ namespace PDV.Telas
 
         private void TfUsuario_Enter(object sender, EventArgs e)
         {
-            if (TfUsuario.Text == "      Nome de usuário")
+            if (TfUsuario.Text == "Nome de usuário")
                 TfUsuario.Text = string.Empty;
         }
 
@@ -26,12 +26,12 @@ namespace PDV.Telas
         private void TfUsuario_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(TfUsuario.Text))
-                TfUsuario.Text = "      Nome de usuário";
+                TfUsuario.Text = "Nome de usuário";
         }
 
         private void TfSenha_Enter(object sender, EventArgs e)
         {
-            if (TfSenha.Text == "      Senha")
+            if (TfSenha.Text == "Senha")
                 TfSenha.Text = string.Empty;
 
             TfSenha.UseSystemPasswordChar = true;
@@ -41,10 +41,10 @@ namespace PDV.Telas
         {
             if (string.IsNullOrEmpty(TfSenha.Text))
             {
-                TfSenha.Text = "      Senha";
+                TfSenha.Text = "Senha";
                 TfSenha.UseSystemPasswordChar = false;
             }
         }
-        
+
     }
 }

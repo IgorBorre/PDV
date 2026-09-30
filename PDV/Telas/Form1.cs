@@ -1,4 +1,5 @@
 using PDV.Conexão;
+using PDV.Telas;
 
 namespace PDV
 {
@@ -121,6 +122,12 @@ namespace PDV
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JanelaUsuarios janela = new();
+            janela.Show();
         }
     }
 }
