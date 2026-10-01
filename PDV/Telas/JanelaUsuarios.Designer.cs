@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            BtInserir = new Button();
             BtLimpar = new Button();
             BtProcurar = new Button();
             TfUsuario = new TextBox();
@@ -37,7 +38,6 @@
             dataGridView1 = new DataGridView();
             codigo = new DataGridViewTextBoxColumn();
             usuario = new DataGridViewTextBoxColumn();
-            BtInserir = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -56,6 +56,18 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Filtros";
+            // 
+            // BtInserir
+            // 
+            BtInserir.Image = Properties.Resources.adicionar_usuario__1_1;
+            BtInserir.ImageAlign = ContentAlignment.MiddleLeft;
+            BtInserir.Location = new Point(608, 73);
+            BtInserir.Name = "BtInserir";
+            BtInserir.Size = new Size(75, 23);
+            BtInserir.TabIndex = 5;
+            BtInserir.Text = "  Inserir";
+            BtInserir.UseVisualStyleBackColor = true;
+            BtInserir.Click += BtInserir_Click;
             // 
             // BtLimpar
             // 
@@ -134,18 +146,6 @@
             usuario.Name = "usuario";
             usuario.ReadOnly = true;
             // 
-            // BtInserir
-            // 
-            BtInserir.Image = Properties.Resources.adicionar_usuario__1_1;
-            BtInserir.ImageAlign = ContentAlignment.MiddleLeft;
-            BtInserir.Location = new Point(608, 73);
-            BtInserir.Name = "BtInserir";
-            BtInserir.Size = new Size(75, 23);
-            BtInserir.TabIndex = 5;
-            BtInserir.Text = "  Inserir";
-            BtInserir.UseVisualStyleBackColor = true;
-            BtInserir.Click += BtInserir_Click;
-            // 
             // JanelaUsuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -170,9 +170,9 @@
         private Label label1;
         private Button BtProcurar;
         private Button BtLimpar;
-        private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn codigo;
         private DataGridViewTextBoxColumn usuario;
         private Button BtInserir;
+        public DataGridView dataGridView1;
     }
 }

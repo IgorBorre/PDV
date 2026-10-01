@@ -3,15 +3,31 @@
   "WorkspaceRootPath": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\telas\\janelausuarionovo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\telas\\janelausuarionovo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\classes dao\\usuariodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\classes dao\\usuariodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\telas\\janelalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\telas\\janelalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\telas\\janelausuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\telas\\janelausuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\telas\\janelausuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\classes dao\\clientedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\classes dao\\clientedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\telas\\janelausuarionovo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\telas\\janelausuarionovo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\telas\\janelausuarionovo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\telas\\janelausuarionovo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\pdv\\telas\\janelausuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\telas\\janelausuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -19,7 +35,11 @@
       "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\telas\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\telas\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\classes\\usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\classes\\usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\pdv\\telas\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\telas\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -29,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\pdv\\telas\\janelalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\telas\\janelalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\telas\\janelalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\telas\\janelalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\pdv\\telas\\cadastrogeralnovo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -53,10 +69,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\classes dao\\produtodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\classes dao\\produtodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\classes dao\\clientedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|solutionrelative:pdv\\classes dao\\clientedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0EA609A3-8CDE-46C5-9BCE-3BCA90169CD0}|PDV\\PDV.csproj|c:\\users\\igor\\documents\\visual studio 2022\\c#\\pdv\\pdv\\telas\\consultaentradas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -142,24 +154,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "UsuarioDAO.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Classes DAO\\UsuarioDAO.cs",
+              "RelativeDocumentMoniker": "PDV\\Classes DAO\\UsuarioDAO.cs",
+              "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Classes DAO\\UsuarioDAO.cs",
+              "RelativeToolTip": "PDV\\Classes DAO\\UsuarioDAO.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAIwGgAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-01T14:26:13.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Usuarios.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Classes\\Usuarios.cs",
+              "RelativeDocumentMoniker": "PDV\\Classes\\Usuarios.cs",
+              "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Classes\\Usuarios.cs",
+              "RelativeToolTip": "PDV\\Classes\\Usuarios.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-01T14:24:31.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "JanelaUsuarios.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\JanelaUsuarios.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\JanelaUsuarios.cs",
               "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\JanelaUsuarios.cs",
               "RelativeToolTip": "PDV\\Telas\\JanelaUsuarios.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-30T19:15:21.396Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "JanelaUsuarioNovo.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\JanelaUsuarioNovo.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\JanelaUsuarioNovo.cs",
@@ -171,7 +209,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\Form1.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\Form1.cs",
@@ -184,7 +222,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "JanelaUsuarios.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\JanelaUsuarios.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\JanelaUsuarios.cs",
@@ -196,56 +234,79 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "Form1.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\Form1.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\Form1.cs",
               "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\Form1.cs [Projeto]",
               "RelativeToolTip": "PDV\\Telas\\Form1.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-30T15:49:10.071Z",
-              "EditorCaption": " [Projeto]"
+              "WhenOpened": "2026-09-30T15:49:10.071Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "JanelaLogin.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\JanelaLogin.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\JanelaLogin.cs",
               "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\JanelaLogin.cs",
               "RelativeToolTip": "PDV\\Telas\\JanelaLogin.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAQwCsAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-29T20:19:20.325Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
+              "Title": "ClienteDAO.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Classes DAO\\ClienteDAO.cs",
+              "RelativeDocumentMoniker": "PDV\\Classes DAO\\ClienteDAO.cs",
+              "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Classes DAO\\ClienteDAO.cs",
+              "RelativeToolTip": "PDV\\Classes DAO\\ClienteDAO.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-01T14:33:09.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "JanelaUsuarioNovo.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\JanelaUsuarioNovo.cs",
+              "RelativeDocumentMoniker": "PDV\\Telas\\JanelaUsuarioNovo.cs",
+              "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\JanelaUsuarioNovo.cs",
+              "RelativeToolTip": "PDV\\Telas\\JanelaUsuarioNovo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-01T15:59:19.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "JanelaLogin.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\JanelaLogin.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\JanelaLogin.cs",
               "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\JanelaLogin.cs [Projeto]",
               "RelativeToolTip": "PDV\\Telas\\JanelaLogin.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-29T19:56:06.978Z",
-              "EditorCaption": " [Projeto]"
+              "WhenOpened": "2026-09-29T19:56:06.978Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "ProcuraDetalhada.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\ProcuraDetalhada.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\ProcuraDetalhada.cs",
               "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\ProcuraDetalhada.cs [Projeto]",
               "RelativeToolTip": "PDV\\Telas\\ProcuraDetalhada.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-21T20:59:01.436Z",
-              "EditorCaption": " [Projeto]"
+              "WhenOpened": "2026-09-21T20:59:01.436Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "VendaDAO.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Classes DAO\\VendaDAO.cs",
               "RelativeDocumentMoniker": "PDV\\Classes DAO\\VendaDAO.cs",
@@ -257,7 +318,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "CadastroGeralNovo.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\CadastroGeralNovo.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\CadastroGeralNovo.cs",
@@ -270,7 +331,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "CadastroEstoqueNovo.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\CadastroEstoqueNovo.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\CadastroEstoqueNovo.cs",
@@ -283,7 +344,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "CadastroEstoqueNovo.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\CadastroEstoqueNovo.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\CadastroEstoqueNovo.cs",
@@ -294,7 +355,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "CadastroGeralNovo.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\CadastroGeralNovo.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\CadastroGeralNovo.cs",
@@ -305,7 +366,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "ProcuraDetalhada.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\ProcuraDetalhada.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\ProcuraDetalhada.cs",
@@ -317,7 +378,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "ProdutoDAO.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Classes DAO\\ProdutoDAO.cs",
               "RelativeDocumentMoniker": "PDV\\Classes DAO\\ProdutoDAO.cs",
@@ -329,19 +390,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ClienteDAO.cs",
-              "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Classes DAO\\ClienteDAO.cs",
-              "RelativeDocumentMoniker": "PDV\\Classes DAO\\ClienteDAO.cs",
-              "ToolTip": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Classes DAO\\ClienteDAO.cs",
-              "RelativeToolTip": "PDV\\Classes DAO\\ClienteDAO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-05T18:43:57.427Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "ConsultaEntradas.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\ConsultaEntradas.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\ConsultaEntradas.cs",
@@ -352,7 +401,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "ConsultaEntradas.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\ConsultaEntradas.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\ConsultaEntradas.cs",
@@ -364,7 +413,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "JanelaCancelamentodeEntradas.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\JanelaCancelamentodeEntradas.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\JanelaCancelamentodeEntradas.cs",
@@ -375,7 +424,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "JanelaConsultaSaidas.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\JanelaConsultaSaidas.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\JanelaConsultaSaidas.cs",
@@ -386,7 +435,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "JanelaConsultaSaidas.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\JanelaConsultaSaidas.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\JanelaConsultaSaidas.cs",
@@ -398,7 +447,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "LancamentodeDevolucao.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\LancamentodeDevolucao.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\LancamentodeDevolucao.cs",
@@ -411,7 +460,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "CadastroGeral.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\CadastroGeral.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\CadastroGeral.cs",
@@ -422,7 +471,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 25,
               "Title": "LancamentodeDevolucao.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\LancamentodeDevolucao.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\LancamentodeDevolucao.cs",
@@ -433,7 +482,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "JanelaDevolucao.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\JanelaDevolucao.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\JanelaDevolucao.cs",
@@ -444,7 +493,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "CadastroEstoque.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\CadastroEstoque.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\CadastroEstoque.cs",
@@ -457,7 +506,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 29,
               "Title": "CadastroEstoque.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\CadastroEstoque.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\CadastroEstoque.cs",
@@ -468,7 +517,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 30,
               "Title": "JanelaClienteVenda.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\JanelaClienteVenda.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\JanelaClienteVenda.cs",
@@ -481,7 +530,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 31,
               "Title": "JanelaClienteVenda.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\JanelaClienteVenda.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\JanelaClienteVenda.cs",
@@ -492,7 +541,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 32,
               "Title": "CancelamentoDeDevolucao.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\CancelamentoDeDevolucao.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\CancelamentoDeDevolucao.cs",
@@ -504,7 +553,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 33,
               "Title": "RelatorioSaida.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Relat\u00F3rios\\RelatorioSaida.cs",
               "RelativeDocumentMoniker": "PDV\\Relat\u00F3rios\\RelatorioSaida.cs",
@@ -516,7 +565,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 34,
               "Title": "SaidaDeTroca.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\SaidaDeTroca.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\SaidaDeTroca.cs",
@@ -529,7 +578,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 35,
               "Title": "SaidaDeTroca.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Igor\\Documents\\Visual Studio 2022\\C#\\PDV\\PDV\\Telas\\SaidaDeTroca.cs",
               "RelativeDocumentMoniker": "PDV\\Telas\\SaidaDeTroca.cs",

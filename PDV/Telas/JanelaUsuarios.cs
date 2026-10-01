@@ -19,7 +19,7 @@ namespace PDV.Telas
 
         private void BtInserir_Click(object sender, EventArgs e)
         {
-            JanelaUsuarioNovo janelaUsuarioNovo = new();
+            JanelaUsuarioNovo janelaUsuarioNovo = new(this);
             janelaUsuarioNovo.Show();
         }
     }

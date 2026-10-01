@@ -1,5 +1,7 @@
 ﻿
 
+using PDV.Classes_DAO;
+
 namespace PDV.Telas
 {
     public partial class JanelaLogin : Form
@@ -19,8 +21,12 @@ namespace PDV.Telas
 
         private void BtEntrar_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new(_vendaDAO);
-            form1.Show();
+            UsuarioDAO usuarioDAO = new();
+            if(usuarioDAO.VerificaLogin(TfUsuario.Text, TfSenha.Text))
+            {
+                Form1 form1 = new(_vendaDAO);
+                form1.Show();
+            }
         }
 
         private void TfUsuario_Leave(object sender, EventArgs e)
