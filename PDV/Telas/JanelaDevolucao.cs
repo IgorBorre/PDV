@@ -142,7 +142,7 @@ namespace PDV
                             quantidade = Convert.ToDouble(row["quantidade"]),
                             preco = Convert.ToDouble(row["valor"])
                         };
-                        total += p.quantidade * p.preco;
+                        total += Convert.ToDouble(p.quantidade) * p.preco;
                         lancamento.produtos.Add(p);
                     }
 

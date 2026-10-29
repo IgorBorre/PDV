@@ -1,14 +1,5 @@
 ﻿using PDV.Classes;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PDV
 {
@@ -285,7 +276,7 @@ namespace PDV
                         if (codigo == produto.codigo)
                         {
                             row1.Cells["quantidade"].Value = produto.quantidade;
-                            LbTotal.Text = (double.Parse(LbTotal.Text) + (p.quantidade * p.preco)).ToString();
+                            LbTotal.Text = (double.Parse(LbTotal.Text) + (Convert.ToDouble(p.quantidade) * p.preco)).ToString();
                             LbCodigo.Text = string.Empty;
                             LbDescricao.Text = string.Empty;
                             LbReferencia.Text = string.Empty;
@@ -303,10 +294,10 @@ namespace PDV
                     LbDescricao.Text = string.Empty;
                     LbReferencia.Text = string.Empty;
                     TfValor.Text = string.Empty;
-                    LbTotal.Text = (double.Parse(LbTotal.Text) + (p.quantidade * p.preco)).ToString();
+                    LbTotal.Text = (double.Parse(LbTotal.Text) + (Convert.ToDouble(p.quantidade) * p.preco)).ToString();
                 }
 
-                quantidadeOriginal -= p.quantidade;
+                quantidadeOriginal -= Convert.ToDouble(p.quantidade);
 
                 TfId.Text = string.Empty;
                 TfProduto.Text = string.Empty;

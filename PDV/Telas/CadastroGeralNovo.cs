@@ -96,7 +96,7 @@ namespace PDV
             {
                 if (!clientedao.Validacoes(c))
                 {
-                    if (!clientedao.CpfExiste(c.identificacao))
+                    if (!clientedao.CpfExiste(c.identificacao, TfCodigo.Text))
                     {
                         c.codigo = Convert.ToInt32(TfCodigo.Text);
                         clientedao.AtualizarCliente(c);

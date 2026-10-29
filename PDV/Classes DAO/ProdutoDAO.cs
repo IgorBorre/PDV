@@ -11,8 +11,9 @@ namespace PDV
 
         public ProdutoDAO()
         {
-            conexao = new Conexao();
+            conexao = new();
         }
+
 
         public void InserirProduto(Produtos p) {
             string comando = "insert into produtos (referencia, descricao, estoque, preco, idGrupo, grupo) values " +
@@ -48,6 +49,7 @@ namespace PDV
 
         }
 
+
         public void AtualizarProduto(Produtos p)
         {
             string comando = "update produtos set referencia = @referencia, descricao = @descricao, estoque = @estoque, preco = @preco, idGrupo = @idGrupo, " +
@@ -75,112 +77,7 @@ namespace PDV
                 MessageBox.Show("Erro ao atualizar produto: " + e);
             }
         }
-
-
-        public DataTable ListarProdutos(string c)
-        {
-            DataTable dt = new();
-            try
-            {
-                conexao.AbrirConexao();
-                using (MySqlCommand command = new(c, conexao.ObterConexao()))
-                {
-                    using MySqlDataAdapter da = new(command);
-                    da.Fill(dt);
-                }
-                conexao.FecharConexao();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            return dt;
-        }
-
-
-        public bool ReferenciaExiste(string referencia) {
-            string comando = $"SELECT referencia from produtos where referencia = '{referencia}'";
-            DataTable dt = ListarProdutos(comando);
-
-            if (dt.Rows.Count > 0)            
-                return true;            
-            else            
-                return false;        
-
-        }
-
-
-        public DataTable ListarProdutoByiD(string codigo) { 
-            
-            string comando = $"select * from produtos where codigo = {codigo}";
-            return ListarProdutos(comando);
-
-
-        }
-
-        public DataTable ListarNomeById(string id)
-        {
-            string comando = $"select descricao, referencia, estoque, preco from produtos where codigo = {id}";
-            return ListarProdutos(comando);
-        }
-
-
-        public bool Validacoes(string descricao, string estoque, string preco) {
-            if (string.IsNullOrEmpty(descricao) || string.IsNullOrEmpty(estoque)
-                || string.IsNullOrEmpty(preco)) {
-                MessageBox.Show("Os campos Descrição, Estoque e Preço não podem ser vazios!");
-                return false;
-            }
-            else
-            {
-                return true;
-            }
         
-        }
-
-        public string Criterios(string codigo, string referencia, string descricao, string grupo) {
-            string a = "";
-
-            if (!string.IsNullOrEmpty(codigo)) { 
-                a += $" and codigo = {codigo}";
-            }
-            if (!string.IsNullOrEmpty(referencia)) { 
-                a += $" and referencia like '%{referencia}" + "%'";
-            }
-            if (!string.IsNullOrEmpty(descricao)) { 
-                a += $" and descricao like '%{descricao}" + "%'";
-            }
-            if (!string.IsNullOrEmpty(grupo)) { 
-                a += $" and idGrupo = {grupo}";
-            }
-            return a;
-        }
-
-        public string CriteriosConsulta(string documento, string fornecedor, string data1, string data2) { 
-            string a = "";
-
-            if (!string.IsNullOrEmpty(documento)) { 
-                a += $" and documento = {documento}";
-            }
-
-            if (!string.IsNullOrEmpty(fornecedor)) { 
-                a += $" and nomefornecedor like '%{fornecedor}" +"%'";
-            }
-
-            if (!string.IsNullOrEmpty(data1) && !string.IsNullOrEmpty(data2)) { 
-                a += " and dataentrada between" + "'"+data1+"'" + " and " + "'"+data2+"'";
-            }
-
-            if (!string.IsNullOrEmpty(data1) && string.IsNullOrEmpty(data2)) { 
-                a += " and dataentrada >=" + "'" + data1 + "'";
-            }
-
-            if (string.IsNullOrEmpty(data1) && !string.IsNullOrEmpty(data2)) { 
-                a += " and dataentrada <=" + "'" + data2 + "'";
-            }
-            return a;
-
-        }
 
         public void Entrada(Entrada e, Clientes c, List<Produtos> produtos) {
             string comando = "insert into entrada (idfornecedor, nomefornecedor, dataentrada) values (@idfornecedor, @nomefornecedor, @dataentrada)";
@@ -305,6 +202,7 @@ namespace PDV
             }
         }
 
+
         public void Entrada(Entrada e, List<Produtos> produtos, int doc_original)
         {
             string comando = "insert into entrada (dataentrada, doc_original, tipo) values (@dataentrada, @doc_original, 'D')";
@@ -334,7 +232,7 @@ namespace PDV
                     {
                         cmd.Parameters.AddWithValue("@docentrada", e.documento);
                         cmd.Parameters.AddWithValue("@idproduto", p.codigo);
-                        cmd.Parameters.AddWithValue("@descproduto", p.descricao.ToUpper());
+                        cmd.Parameters.AddWithValue("@descproduto", (p.descricao ?? string.Empty).ToUpper());
                         cmd.Parameters.AddWithValue("@quantidade", p.quantidade);
 
                         cmd.ExecuteNonQuery();
@@ -364,6 +262,7 @@ namespace PDV
             }
         }
 
+
         public void Devolucao(Devolucao d,Entrada e ,List<Produtos> produtos, string doc_original) {
             string c = "insert into devolucao (dataDevolucao, doc_original, valor) values (@dataDevolucao, @doc_original, @valor)";
             d.data = DateTime.Now.Date;
@@ -392,6 +291,7 @@ namespace PDV
             }
         }
 
+
         public void Devolucao(Devolucao d, Entrada e, List<Produtos> produtos, string doc_original, Clientes c)
         {
             string comando = "insert into devolucao (dataDevolucao, doc_original, valor, idCliente, nomeCliente) " +
@@ -418,6 +318,7 @@ namespace PDV
                     Entrada(e, produtos, d.documento);
                 }
 
+                conexao.AbrirConexao();
                 using (MySqlCommand cmd = new(updateCliente, conexao.ObterConexao()))
                 {
                     cmd.Parameters.AddWithValue("@movimentacao", c.movimentacao);
@@ -433,6 +334,7 @@ namespace PDV
                 throw;
             }
         }
+
 
         public void CancelarEntrada(string documento, string motivo) {
             string comando = "update entrada set cancelada = 'S' where documento = @documento";
@@ -550,6 +452,143 @@ namespace PDV
             }
         }
 
+
+        public DataTable ListarProdutos(string c)
+        {
+            DataTable dt = new();
+            try
+            {
+                conexao.AbrirConexao();
+                using (MySqlCommand command = new(c, conexao.ObterConexao()))
+                {
+                    using MySqlDataAdapter da = new(command);
+                    da.Fill(dt);
+                }
+                conexao.FecharConexao();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return dt;
+        }
+
+
+        public bool ReferenciaExiste(string referencia)
+        {
+            string comando = $"SELECT referencia from produtos where referencia = '{referencia}'";
+            DataTable dt = ListarProdutos(comando);
+
+            return dt.Rows.Count > 0;
+
+        }
+
+
+        public bool ReferenciaExiste(string referencia, string codigo)
+        {
+            string comando = $"SELECT referencia from produtos where referencia = '{referencia}' and codigo != {codigo}";
+            DataTable dt = ListarProdutos(comando);
+
+            return dt.Rows.Count > 0;
+
+        }
+
+
+        public DataTable ListarProdutoByiD(string codigo)
+        {
+
+            string comando = $"select * from produtos where codigo = {codigo}";
+            return ListarProdutos(comando);
+
+
+        }
+
+
+        public DataTable ListarNomeById(string id)
+        {
+            string comando = $"select descricao, referencia, estoque, preco from produtos where codigo = {id}";
+            return ListarProdutos(comando);
+        }
+
+
+        public DataTable ListarNomeByReferencia(string referencia)
+        {
+            string comando = $"select codigo, descricao, referencia, estoque, preco from produtos where referencia = '{referencia}'";
+            return ListarProdutos(comando);
+        }
+
+
+        public bool Validacoes(string descricao, string estoque, string preco)
+        {
+            if (string.IsNullOrEmpty(descricao) || string.IsNullOrEmpty(estoque)
+                || string.IsNullOrEmpty(preco))
+            {
+                MessageBox.Show("Os campos Descrição, Estoque e Preço não podem ser vazios!");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+
+
+        public string Criterios(string codigo, string referencia, string descricao, string grupo)
+        {
+            string a = "";
+
+            if (!string.IsNullOrEmpty(codigo))
+            {
+                a += $" and codigo = {codigo}";
+            }
+            if (!string.IsNullOrEmpty(referencia))
+            {
+                a += $" and referencia like '%{referencia}" + "%'";
+            }
+            if (!string.IsNullOrEmpty(descricao))
+            {
+                a += $" and descricao like '%{descricao}" + "%'";
+            }
+            if (!string.IsNullOrEmpty(grupo))
+            {
+                a += $" and idGrupo = {grupo}";
+            }
+            return a;
+        }
+
+
+        public string CriteriosConsulta(string documento, string fornecedor, string data1, string data2)
+        {
+            string a = "";
+
+            if (!string.IsNullOrEmpty(documento))
+            {
+                a += $" and documento = {documento}";
+            }
+
+            if (!string.IsNullOrEmpty(fornecedor))
+            {
+                a += $" and nomefornecedor like '%{fornecedor}" + "%'";
+            }
+
+            if (!string.IsNullOrEmpty(data1) && !string.IsNullOrEmpty(data2))
+            {
+                a += " and dataentrada between" + "'" + data1 + "'" + " and " + "'" + data2 + "'";
+            }
+
+            if (!string.IsNullOrEmpty(data1) && string.IsNullOrEmpty(data2))
+            {
+                a += " and dataentrada >=" + "'" + data1 + "'";
+            }
+
+            if (string.IsNullOrEmpty(data1) && !string.IsNullOrEmpty(data2))
+            {
+                a += " and dataentrada <=" + "'" + data2 + "'";
+            }
+            return a;
+
+        }
 
 
         public string CriteriosConsultaCancelamentoEntrada(string documento, string data1, string data2) { 

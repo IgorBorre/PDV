@@ -77,7 +77,7 @@ namespace PDV.Telas
                 data2 = date2.ToString("yyyy-MM-dd");
             }
 
-            string comando = "select documento, clienteNome, dataSaida, valortotal from saida where 1" +
+            string comando = "select documento, clienteNome, dataSaida, valortotal from saida where cancelada = 'N' " +
                 _vendaDAO.ValidacaoDetalhada(TfCliente.Text, data1, data2);
 
             DataTable dt = _vendaDAO.ConsultaSaidas(comando);

@@ -1,28 +1,20 @@
 ﻿using PDV.Classes;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PDV
 {
     public partial class JanelaEntrada : Form
     {
-        ClienteDAO clienteDAO;
-        ProdutoDAO produtoDAO;
-        List<Produtos> produtos = new List<Produtos>();
+        readonly ClienteDAO clienteDAO;
+        readonly ProdutoDAO produtoDAO;
+        readonly List<Produtos> produtos = [];
         public JanelaEntrada()
         {
             InitializeComponent();
-            clienteDAO = new ClienteDAO();
-            produtoDAO = new ProdutoDAO();
+            clienteDAO = new();
+            produtoDAO = new();
         }
-
+        
         private void tfIdFornecedor_Leave(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(tfIdFornecedor.Text))
@@ -40,10 +32,9 @@ namespace PDV
                 DataTable dt = clienteDAO.NomeById(tfIdFornecedor.Text);
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    DataRow row = null;
-                    row = dt.Rows[0];
+                    DataRow row = dt.Rows[0];
 
-                    tfFornecedor.Text = row["nome"].ToString().ToUpper();
+                    tfFornecedor.Text = (row["nome"]?.ToString() ?? string.Empty).ToUpper();
                 }
                 else
                 {
@@ -67,11 +58,10 @@ namespace PDV
                 DataTable dt = clienteDAO.CodigoByNome(tfFornecedor.Text);
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    DataRow row = null;
-                    row = dt.Rows[0];
+                    DataRow row = dt.Rows[0];
 
                     tfIdFornecedor.Text = row["codigo"].ToString();
-                    tfFornecedor.Text = row["nome"].ToString().ToUpper();
+                    tfFornecedor.Text = (row["nome"]?.ToString() ?? string.Empty).ToUpper();
                 }
                 else
                 {
@@ -108,10 +98,9 @@ namespace PDV
                 DataTable dt = produtoDAO.ListarNomeById(tfIdProduto.Text);
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    DataRow row = null;
-                    row = dt.Rows[0];
+                    DataRow row = dt.Rows[0];
 
-                    tfProduto.Text = row["descricao"].ToString().ToUpper();
+                    tfProduto.Text = (row["descricao"]?.ToString() ?? string.Empty).ToUpper();
                     tfQuantidade.Text = "1";
                     tfQuantidade.Focus();
                 }
@@ -140,11 +129,12 @@ namespace PDV
         {
             if (!string.IsNullOrEmpty(tfIdProduto.Text) && !string.IsNullOrEmpty(tfQuantidade.Text))
             {
-                Produtos p = new Produtos();
-
-                p.codigo = Convert.ToInt32(tfIdProduto.Text);
-                p.descricao = tfProduto.Text;
-                p.quantidade = Double.Parse(tfQuantidade.Text);
+                Produtos p = new()
+                {
+                    codigo = Convert.ToInt32(tfIdProduto.Text),
+                    descricao = tfProduto.Text,
+                    quantidade = Double.Parse(tfQuantidade.Text)
+                };
 
                 produtos.Add(p);
 
@@ -163,6 +153,7 @@ namespace PDV
             }
         }
 
+
         private void btLimpar_Click(object sender, EventArgs e)
         {
             if (produtos.Count > 0)
@@ -172,30 +163,23 @@ namespace PDV
             }
         }
 
-        private void dataGridView1_Sorted(object sender, EventArgs e)
-        { }
-
-        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        { }
-
-        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-        }
 
         private void btConfirmar_Click(object sender, EventArgs e)
         {
             if (produtos.Count > 0)
             {
-                Entrada entrada = new Entrada();
+                Entrada entrada = new();
                 if (string.IsNullOrEmpty(tfIdFornecedor.Text))
                 {
                     produtoDAO.Entrada(entrada, produtos);
                 }
                 else
                 {
-                    Clientes c = new Clientes();
-                    c.codigo = Convert.ToInt32(tfIdFornecedor.Text);
-                    c.nome = tfFornecedor.Text;
+                    Clientes c = new()
+                    {
+                        codigo = Convert.ToInt32(tfIdFornecedor.Text),
+                        nome = tfFornecedor.Text
+                    };
                     produtoDAO.Entrada(entrada, c, produtos);
                     tfIdFornecedor.Text = string.Empty;
                     tfFornecedor.Text = string.Empty;
@@ -268,5 +252,6 @@ namespace PDV
                 }
             }
         }
+
     }
 }

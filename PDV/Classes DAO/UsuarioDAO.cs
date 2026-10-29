@@ -8,7 +8,7 @@ namespace PDV.Classes_DAO
 {
     internal class UsuarioDAO
     {
-        Conexao conexao;
+       readonly Conexao conexao;
 
         public UsuarioDAO()
         {
@@ -16,7 +16,7 @@ namespace PDV.Classes_DAO
         }
 
 
-        public string HashSenha(string senha)
+        public static string HashSenha(string senha)
         {
             byte[] bytes = System.Text.Encoding.UTF8.GetBytes(senha);
             byte[] hash = SHA256.HashData(bytes);
@@ -40,8 +40,8 @@ namespace PDV.Classes_DAO
                     cmd.ExecuteNonQuery();
 
                     cmd.CommandText = "SELECT @@IDENTITY";
-                    u.id = Convert.ToInt32(cmd.ExecuteScalar());
-                    MessageBox.Show($"Usuário {u.id} cadastrado com sucesso!");
+                    u.codigo = Convert.ToInt32(cmd.ExecuteScalar());
+                    MessageBox.Show($"Usuário {u.codigo} cadastrado com sucesso!");
 
                 }
                 conexao.FecharConexao();
@@ -55,27 +55,42 @@ namespace PDV.Classes_DAO
 
 
         public void AtualizaUsuario(Usuarios u){
-            string comando = "Update usuarios set nome = @nome, senha = @senha where id = @id";
-
-            try
+            if (!string.IsNullOrEmpty(u.nome))
             {
-                conexao.AbrirConexao();
-
-                using (MySqlCommand cmd = new(comando, conexao.ObterConexao()))
+                string comando;
+                if (string.IsNullOrEmpty(u.senha))
                 {
-                    cmd.Parameters.AddWithValue("@id", u.id);
-                    cmd.Parameters.AddWithValue("@nome", u.nome);
-                    cmd.Parameters.AddWithValue("@senha", HashSenha(u.senha));
+                    comando = "Update usuarios set nome = @nome where codigo = @codigo";
+                }
+                else
+                {
+                    comando = "Update usuarios set nome = @nome, senha = @senha where codigo = @codigo";
+                }
+                try
+                {
+                    conexao.AbrirConexao();
 
-                    MessageBox.Show("Informações atualizadas!");
+                    using (MySqlCommand cmd = new(comando, conexao.ObterConexao()))
+                    {
+                        cmd.Parameters.AddWithValue("@codigo", u.codigo);
+                        cmd.Parameters.AddWithValue("@nome", u.nome);
+                        cmd.Parameters.AddWithValue("@senha", HashSenha(u.senha));
 
-                    cmd.ExecuteNonQuery();
-                }                
-                conexao.FecharConexao();
+
+                        MessageBox.Show("Informações atualizadas!");
+
+                        cmd.ExecuteNonQuery();
+                    }
+                    conexao.FecharConexao();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Erro ao atualizar usuário: " + e.Message);
+                }
             }
-            catch (Exception e)
+            else
             {
-                MessageBox.Show("Erro ao atualizar usuário: " + e.Message);
+                MessageBox.Show("Não é permitido salvar um usuário sem nome!");
             }
         }
 
@@ -94,8 +109,6 @@ namespace PDV.Classes_DAO
 
 
         public bool VerificaLogin(string nome, string senha) { 
-                      
-
             string comando = $"select * from usuarios where nome = '{nome}' and senha = '{HashSenha(senha)}'";
 
             VendaDAO vendaDAO = new();
@@ -112,5 +125,22 @@ namespace PDV.Classes_DAO
             }
         }
 
+
+        public bool UsuarioExiste(Usuarios u)
+        {
+            string comando = $"select * from usuarios where nome = '{u.nome}'";
+
+            VendaDAO vendaDAO = new();
+
+            DataTable dt = vendaDAO.ConsultaSaidas(comando);
+
+            if (dt.Rows.Count > 0)
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
     }
 }

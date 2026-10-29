@@ -215,9 +215,6 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(871, 359);
             dataGridView1.TabIndex = 11;
-            dataGridView1.DataBindingComplete += dataGridView1_DataBindingComplete;
-            dataGridView1.RowsAdded += dataGridView1_RowsAdded;
-            dataGridView1.Sorted += dataGridView1_Sorted;
             // 
             // codigo
             // 

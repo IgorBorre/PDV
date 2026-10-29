@@ -79,6 +79,7 @@
             BtLimpar.TabIndex = 4;
             BtLimpar.Text = "   Limpar";
             BtLimpar.UseVisualStyleBackColor = true;
+            BtLimpar.Click += BtLimpar_Click;
             // 
             // BtProcurar
             // 
@@ -91,6 +92,7 @@
             BtProcurar.Text = "Procurar";
             BtProcurar.TextAlign = ContentAlignment.MiddleRight;
             BtProcurar.UseVisualStyleBackColor = true;
+            BtProcurar.Click += BtProcurar_Click;
             // 
             // TfUsuario
             // 
@@ -127,8 +129,10 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(703, 334);
             dataGridView1.TabIndex = 5;
+            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
             // codigo
             // 
@@ -140,7 +144,7 @@
             // 
             // usuario
             // 
-            usuario.DataPropertyName = "usuario";
+            usuario.DataPropertyName = "nome";
             usuario.FillWeight = 169.543152F;
             usuario.HeaderText = "Usuário";
             usuario.Name = "usuario";
@@ -170,9 +174,9 @@
         private Label label1;
         private Button BtProcurar;
         private Button BtLimpar;
-        private DataGridViewTextBoxColumn codigo;
-        private DataGridViewTextBoxColumn usuario;
         private Button BtInserir;
         public DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn codigo;
+        private DataGridViewTextBoxColumn usuario;
     }
 }

@@ -59,7 +59,7 @@
             F4 = new Button();
             label12 = new Label();
             F5 = new Button();
-            label13 = new Label();
+            LbCodRef = new Label();
             F6 = new Button();
             listView1 = new ListView();
             CÓDIGO = new ColumnHeader();
@@ -411,16 +411,16 @@
             F5.UseVisualStyleBackColor = true;
             F5.Click += F5_Click;
             // 
-            // label13
+            // LbCodRef
             // 
-            label13.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.Location = new Point(588, 723);
-            label13.Name = "label13";
-            label13.Size = new Size(65, 17);
-            label13.TabIndex = 15;
-            label13.Text = "Vendedor";
+            LbCodRef.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            LbCodRef.AutoSize = true;
+            LbCodRef.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LbCodRef.Location = new Point(588, 723);
+            LbCodRef.Name = "LbCodRef";
+            LbCodRef.Size = new Size(51, 17);
+            LbCodRef.TabIndex = 15;
+            LbCodRef.Text = "Código";
             // 
             // F6
             // 
@@ -431,6 +431,7 @@
             F6.TabIndex = 16;
             F6.Text = "F6";
             F6.UseVisualStyleBackColor = true;
+            F6.Click += F6_Click;
             // 
             // listView1
             // 
@@ -587,7 +588,7 @@
             Controls.Add(lblTotal);
             Controls.Add(lblQtd);
             Controls.Add(listView1);
-            Controls.Add(label13);
+            Controls.Add(LbCodRef);
             Controls.Add(F6);
             Controls.Add(label12);
             Controls.Add(F5);
@@ -641,7 +642,7 @@
         private Button F4;
         private Label label12;
         private Button F5;
-        private Label label13;
+        private Label LbCodRef;
         private Button F6;
         private Label LbPreco;
         private Label LbEstoque;

@@ -19,7 +19,7 @@ namespace PDV
             "values (@documento, @idpagamento, @descpagamento, @valor, @parcelas)";
 
         private readonly string comando = "update saida set cancelada = 'S' where documento = @documento";
-        private readonly string selectSaidadados = "select produto, quantidade from saidadados where documento = @documento";
+        private readonly string selectSaidadados = "select produto, quantidade from saidadados where documento = ";
         private readonly string addProdutos = "update produtos set estoque = estoque + @quantidade where codigo = @codigo";
         private readonly string cancelamentoLog = "insert into cancelamentoLog(documento, motivo, dataCancelamento) values(@documento, @motivo, @dataCancelamento)";
         private readonly string updateCliente = "update clientes set movimentacao = @movimentacao where codigo = @codigo";
@@ -49,12 +49,10 @@ namespace PDV
 
                 foreach (Produtos p in produtos)
                 {
-                    using (MySqlCommand cmd = new(updateProdutos, con.ObterConexao()))
-                    {
-                        cmd.Parameters.AddWithValue("@movimentacao", DateTime.Now);
-                        cmd.Parameters.AddWithValue("@codigo", p.codigo);
-                        cmd.ExecuteNonQuery();
-                    }
+                    using MySqlCommand cmd = new(updateProdutos, con.ObterConexao());
+                    cmd.Parameters.AddWithValue("@movimentacao", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@codigo", p.codigo);
+                    cmd.ExecuteNonQuery();
                 }
 
                 con.FecharConexao();
@@ -148,15 +146,15 @@ namespace PDV
 
             try
             {
-                DataTable dt = ConsultaSaidas(selectSaidadados);
+                DataTable dt = ConsultaSaidas(selectSaidadados + documento);
                 con.AbrirConexao();
 
                 foreach (DataRow row in dt.Rows)
                 {
                     Produtos p = new()
                     {
-                        codigo = (int)row["produto"],
-                        quantidade = (double)row["quantidade"]
+                        codigo = Convert.ToInt32(row["produto"]),
+                        quantidade = Convert.ToDouble(row["quantidade"])
                     };
 
                     using MySqlCommand cmd = new(addProdutos, con.ObterConexao());
@@ -228,6 +226,14 @@ namespace PDV
             return produtos;
         }
 
+
+        public bool SaidaPossuiDevolucao(string documento) {
+            string c = $"select * from saida s join devolucao d on d.doc_original = {documento}";
+            DataTable dt = ConsultaSaidas(c);
+            return dt.Rows.Count > 0;
+        }
+
+
         public List<FormasdePagamento> GetListPagamento(string documento)
         {
             string c = $"select descpagamento, valor from pagsaida where documento = {documento}";
@@ -263,6 +269,34 @@ namespace PDV
             }
             return null;
         }
+
+
+        public double GetDesconto(string documento) {
+            string c = $"select desconto from saida where documento = {documento}";
+
+            DataTable dt = ConsultaSaidas(c);
+
+            DataRow row = dt.Rows[0];
+
+            double desconto = Convert.ToDouble(row["desconto"]);
+
+            return desconto;
+        }
+
+
+        public double GetAcrescimo(string documento) {
+            string c = $"select acrescimo from saida where documento = {documento}";
+
+            DataTable dt = ConsultaSaidas(c);
+
+            DataRow row = dt.Rows[0];
+
+            double acrescimo = Convert.ToDouble(row["acrescimo"]);
+
+            return acrescimo;
+
+        }
+
 
         public bool Validações(double preco, double quantidade)
         {
@@ -376,7 +410,6 @@ namespace PDV
         }
 
 
-
         public string ValidacaoDetalhada(string? codigo, string? data1, string? data2)
         {
             string a = "";
@@ -394,6 +427,19 @@ namespace PDV
                 a += " and dataSaida <= " + "'" + data2 + "'";
 
             return a;
+        }
+
+        public string ValidacaoUsuario(string id, string nome) { 
+
+            string a = "";
+
+            if (!string.IsNullOrEmpty(id))
+                a += $" and id = {id}";
+
+            if (!string.IsNullOrEmpty(nome))
+                a += $" and nome like '%{nome}%'";
+
+            return a + " order by codigo";
         }
     }
 }

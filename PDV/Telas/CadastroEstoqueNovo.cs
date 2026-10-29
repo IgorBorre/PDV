@@ -107,7 +107,7 @@ namespace PDV
                 //se não, o código chamado será o de atualização das informações no banco
                 else
                 {
-                    if (!_produtoDAO.ReferenciaExiste(p.referencia))
+                    if (!_produtoDAO.ReferenciaExiste(p.referencia, TfCodigo.Text))
                     {
                         p.codigo = int.Parse(TfCodigo.Text);
                         _produtoDAO.AtualizarProduto(p);

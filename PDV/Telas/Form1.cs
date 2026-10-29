@@ -126,7 +126,7 @@ namespace PDV
 
         private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            JanelaUsuarios janela = new();
+            JanelaUsuarios janela = new(_vendaDAO);
             janela.Show();
         }
     }

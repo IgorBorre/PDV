@@ -34,7 +34,7 @@
             BtCancelar = new Button();
             BtConfirmar = new Button();
             TfSenha = new TextBox();
-            label2 = new Label();
+            LbSenha = new Label();
             TfUsuario = new TextBox();
             TfId = new TextBox();
             groupBox1.SuspendLayout();
@@ -47,7 +47,7 @@
             groupBox1.Controls.Add(BtCancelar);
             groupBox1.Controls.Add(BtConfirmar);
             groupBox1.Controls.Add(TfSenha);
-            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(LbSenha);
             groupBox1.Controls.Add(TfUsuario);
             groupBox1.Controls.Add(TfId);
             groupBox1.Location = new Point(12, 2);
@@ -111,15 +111,15 @@
             TfSenha.TabIndex = 4;
             TfSenha.TextChanged += TfSenha_TextChanged;
             // 
-            // label2
+            // LbSenha
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(11, 123);
-            label2.Name = "label2";
-            label2.Size = new Size(41, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Senha";
+            LbSenha.AutoSize = true;
+            LbSenha.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LbSenha.Location = new Point(11, 123);
+            LbSenha.Name = "LbSenha";
+            LbSenha.Size = new Size(41, 15);
+            LbSenha.TabIndex = 3;
+            LbSenha.Text = "Senha";
             // 
             // TfUsuario
             // 
@@ -145,6 +145,7 @@
             Name = "JanelaUsuarioNovo";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Usuários";
+            Load += JanelaUsuarioNovo_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -156,10 +157,10 @@
         private Button BtCancelar;
         private Button BtConfirmar;
         private TextBox TfSenha;
-        private Label label2;
-        private TextBox TfUsuario;
         public TextBox TfId;
         private Label label3;
         private Label label1;
+        public Label LbSenha;
+        public TextBox TfUsuario;
     }
 }

@@ -10,7 +10,7 @@ namespace PDV.Classes
         public int? idGrupo { get; set; }
         public double estoque { get; set; }
         public double preco { get; set; }
-        public double quantidade { get; set; }
+        public double quantidade { get; set; } 
         public DateTime movimentacao { get; set; }
 
     }

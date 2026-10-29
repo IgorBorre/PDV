@@ -20,7 +20,7 @@ namespace PDV
         public JanelaVenda(VendaDAO vendaDAO)
         {
             InitializeComponent();
-            produtoDAO = new ProdutoDAO();
+            produtoDAO = new();
             _vendaDAO = vendaDAO;
         }
 
@@ -95,7 +95,7 @@ namespace PDV
 
             if (e.KeyCode == Keys.F6)
             {
-                F5.PerformClick();
+                F6.PerformClick();
             }
         }
 
@@ -137,7 +137,7 @@ namespace PDV
                         if (result == DialogResult.Yes)
                         {
                             var documento = new RelatorioSaida(v.codigo.ToString(), _vendaDAO.GetListProdutos(v.codigo.ToString()), _vendaDAO.GetListPagamento(v.codigo.ToString()),
-                                _vendaDAO.GetCliente(v.codigo.ToString()));
+                                _vendaDAO.GetCliente(v.codigo.ToString()), v.desconto, v.acrescimo);
                             documento.GeneratePdfAndShow();
                         }
 
@@ -167,7 +167,7 @@ namespace PDV
                             if (result == DialogResult.Yes)
                             {
                                 var documento = new RelatorioSaida(v.codigo.ToString(), _vendaDAO.GetListProdutos(v.codigo.ToString()), _vendaDAO.GetListPagamento(v.codigo.ToString()),
-                                    _vendaDAO.GetCliente(v.codigo.ToString()));
+                                    _vendaDAO.GetCliente(v.codigo.ToString()), v.desconto, v.acrescimo);
                                 documento.GeneratePdfAndShow();
                             }
 
@@ -195,7 +195,7 @@ namespace PDV
                         if (result == DialogResult.Yes)
                         {
                             var documento = new RelatorioSaida(v.codigo.ToString(), _vendaDAO.GetListProdutos(v.codigo.ToString()), _vendaDAO.GetListPagamento(v.codigo.ToString()),
-                                _vendaDAO.GetCliente(v.codigo.ToString()));
+                                _vendaDAO.GetCliente(v.codigo.ToString()), v.desconto, v.acrescimo);
                             documento.GeneratePdfAndShow();
                         }
 
@@ -219,42 +219,74 @@ namespace PDV
         {
             if (!string.IsNullOrEmpty(TfId.Text))
             {
-                //tenta converter o texto do campo TfId em int para fazer a pesquisa no banco
-                //se nao conseguir, joga uma mensagem de erro ao procurar o produto
-                try
-                {
-                    id = int.Parse(TfId.Text);
-                }
-                catch
-                {
-                    MessageBox.Show("Produto não encontrado!");
-                    TfId.Focus();
-                    return;
-                }
-                DataTable dt = produtoDAO.ListarNomeById(TfId.Text);
-                if (dt != null && dt.Rows.Count > 0)
-                {
-                    DataRow row = dt.Rows[0];
-                    var descricao = row["descricao"]?.ToString()?.ToUpper() ?? "Sem descrição";
-                    TfId.Text = descricao;
-                    TfQtd.Text = "1,0";
-                    TfPreco.Text = row["preco"].ToString();
-                    lbDetalhesCodigo.Text = id.ToString();
-                    lbDetalhesDesc.Text = descricao;
-                    lbDetalhesReferencia.Text = row["referencia"]?.ToString()?.ToUpper() ?? "Sem referência";
-                    lbDetalhesPreco.Text = row["preco"].ToString();
-                    lbDetalhesEstoque.Text = row["estoque"].ToString();
 
-                    lbDetalhesCodigo.Visible = true;
-                    lbDetalhesDesc.Visible = true;
-                    lbDetalhesEstoque.Visible = true;
-                    lbDetalhesPreco.Visible = true;
-                    lbDetalhesReferencia.Visible = true;
-                }
-                else
+                if (LbCodRef.Text == "Código")
                 {
-                    MessageBox.Show("Produto não encontrado!");
-                    TfId.Focus();
+                    //tenta converter o texto do campo TfId em int para fazer a pesquisa no banco
+                    //se nao conseguir, joga uma mensagem de erro ao procurar o produto
+                    try
+                    {
+                        id = int.Parse(TfId.Text);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Produto não encontrado!");
+                        TfId.Focus();
+                        return;
+                    }
+                    DataTable dt = produtoDAO.ListarNomeById(TfId.Text);
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        DataRow row = dt.Rows[0];
+                        var descricao = row["descricao"]?.ToString()?.ToUpper() ?? "Sem descrição";
+                        TfId.Text = descricao;
+                        TfQtd.Text = "1,0";
+                        TfPreco.Text = row["preco"].ToString();
+                        lbDetalhesCodigo.Text = id.ToString();
+                        lbDetalhesDesc.Text = descricao;
+                        lbDetalhesReferencia.Text = row["referencia"]?.ToString()?.ToUpper() ?? "Sem referência";
+                        lbDetalhesPreco.Text = row["preco"].ToString();
+                        lbDetalhesEstoque.Text = row["estoque"].ToString();
+
+                        lbDetalhesCodigo.Visible = true;
+                        lbDetalhesDesc.Visible = true;
+                        lbDetalhesEstoque.Visible = true;
+                        lbDetalhesPreco.Visible = true;
+                        lbDetalhesReferencia.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Produto não encontrado!");
+                        TfId.Focus();
+                    }
+                }
+                else {
+                    DataTable dt = produtoDAO.ListarNomeByReferencia(TfId.Text);
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        DataRow row = dt.Rows[0];
+                        var descricao = row["descricao"]?.ToString()?.ToUpper() ?? "Sem descrição";
+                        var id = Convert.ToInt32(row["codigo"]);
+                        TfId.Text = descricao;
+                        TfQtd.Text = "1,0";
+                        TfPreco.Text = row["preco"].ToString();
+                        lbDetalhesCodigo.Text = id.ToString();
+                        lbDetalhesDesc.Text = descricao;
+                        lbDetalhesReferencia.Text = row["referencia"]?.ToString()?.ToUpper() ?? "Sem referência";
+                        lbDetalhesPreco.Text = row["preco"].ToString();
+                        lbDetalhesEstoque.Text = row["estoque"].ToString();
+
+                        lbDetalhesCodigo.Visible = true;
+                        lbDetalhesDesc.Visible = true;
+                        lbDetalhesEstoque.Visible = true;
+                        lbDetalhesPreco.Visible = true;
+                        lbDetalhesReferencia.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Produto não encontrado!");
+                        TfId.Focus();
+                    }
                 }
             }
 
@@ -276,9 +308,9 @@ namespace PDV
                         preco = double.Parse(TfPreco.Text),
                         quantidade = double.Parse(TfQtd.Text)
                     };
-                    quantidade += p.quantidade;
-                    total += p.preco * p.quantidade;
-                    subtotal += p.preco * p.quantidade;
+                    quantidade += Convert.ToDouble(p.quantidade);
+                    total += p.preco * Convert.ToDouble(p.quantidade);
+                    subtotal += p.preco * Convert.ToDouble(p.quantidade);
 
                     lblQtd.Text = quantidade.ToString("N2");
                     lblQtd.Visible = true;
@@ -296,7 +328,7 @@ namespace PDV
                     {
                         string linha =
                         produtos.codigo.ToString().PadLeft(0) +
-                        produtos.descricao.PadLeft(33) +
+                        (produtos.descricao ?? string.Empty).PadLeft(33) +
                         produtos.quantidade.ToString().PadLeft(35) +
                         produtos.preco.ToString("C", new CultureInfo("pt-BR")).PadLeft(19);
 
@@ -378,6 +410,17 @@ namespace PDV
                 {
                     e.Handled = true;
                 }
+            }
+        }
+
+        private void F6_Click(object sender, EventArgs e)
+        {
+            if (LbCodRef.Text == "Código") { 
+                LbCodRef.Text = "Referência";
+            }
+            else
+            {
+                LbCodRef.Text = "Código";
             }
         }
     }

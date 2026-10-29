@@ -12,12 +12,16 @@ namespace PDV.Relatórios
         private readonly List<FormasdePagamento>? _formas;
         private readonly string _documento;
         private readonly Clientes? _c;
-        public RelatorioSaida(string documento, List<Produtos> produtos, List<FormasdePagamento>? formas, Clientes? c)
+        private readonly double _desconto;
+        private readonly double _acrescimo;
+        public RelatorioSaida(string documento, List<Produtos> produtos, List<FormasdePagamento>? formas, Clientes? c, double desconto, double acrescimo)
         {
             _produtos = produtos;
             _formas = formas;
             _documento = documento;
             _c = c;
+            _desconto = desconto;
+            _acrescimo = acrescimo;
         }
 
         public void Compose(IDocumentContainer container)
@@ -73,10 +77,10 @@ namespace PDV.Relatórios
                                 table.Cell().Text(p.descricao);
                                 table.Cell().Text(p.quantidade.ToString());
                                 table.Cell().Text(p.preco.ToString("F2"));
-                                table.Cell().Text((p.preco * p.quantidade).ToString("F2"));
+                                table.Cell().Text((p.preco * Convert.ToDouble(p.quantidade)).ToString("F2"));
                             }
-                        });
-
+                        });              
+                                                
                         if (_formas != null && _formas.Count > 0)
                         {
                             column.Item().PaddingTop(400).Table(table =>
@@ -100,6 +104,18 @@ namespace PDV.Relatórios
                                 {
                                     table.Cell().Text(f.descricao);
                                     table.Cell().Text(f.valor.ToString("F2"));
+                                }
+
+                                if (_desconto > 0)
+                                {
+                                    table.Cell().Text("DESCONTO");
+                                    table.Cell().Text(_desconto.ToString("F2"));
+                                }
+
+                                if (_acrescimo > 0)
+                                {
+                                    table.Cell().Text("ACRÉSCIMO");
+                                    table.Cell().Text(_acrescimo.ToString("F2"));
                                 }
 
 

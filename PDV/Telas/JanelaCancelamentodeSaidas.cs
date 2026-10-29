@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 
 namespace PDV
 {
@@ -26,20 +18,44 @@ namespace PDV
             if (!string.IsNullOrEmpty(TfDocumento.Text))
             {
 
-                VendaDAO vendaDAO = new VendaDAO();
+                VendaDAO vendaDAO = new();
                 string c = "select documento, dataSaida, valortotal from saida where cancelada = 'N' " +
                     vendaDAO.Criterios(TfDocumento.Text, false);
-                DataTable dt;
-                dt = vendaDAO.ConsultaSaidas(c);
+                DataTable dt = vendaDAO.ConsultaSaidas(c);
                 if (dt.Rows.Count > 0)
                 {
-                    DataRow row = null;
-                    row = dt.Rows[0];
+                    if (vendaDAO.SaidaPossuiDevolucao(TfDocumento.Text))
+                    {
+                        string c2 = $"select s.documento, s.dataSaida, s.valortotal from saida s join devolucao d on d.doc_original = {TfDocumento.Text} " +
+                            $"where d.cancelada = 'S' and s.cancelada = 'N'";
 
-                    LbDocumento.Text = row["documento"].ToString();
-                    DateTime data = Convert.ToDateTime(row["dataSaida"]);
-                    LbData.Text = data.ToString("dd/MM/yyyy");
-                    LbValor.Text = row["valortotal"].ToString();
+                        DataTable dt2 = vendaDAO.ConsultaSaidas(c2);
+
+                        if (dt2.Rows.Count > 0)
+                        {
+
+                            DataRow row = dt.Rows[0];
+
+                            LbDocumento.Text = row["documento"].ToString();
+                            DateTime data = Convert.ToDateTime(row["dataSaida"]);
+                            LbData.Text = data.ToString("dd/MM/yyyy");
+                            LbValor.Text = row["valortotal"].ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Essa saída possui uma devolução, cancele a devolução primeiro para poder cancelar essa saída!");
+                            TfDocumento.Text = string.Empty;
+                            TfDocumento.Focus();
+                        }
+                    }
+                    else {
+                        DataRow row = dt.Rows[0];
+
+                        LbDocumento.Text = row["documento"].ToString();
+                        DateTime data = Convert.ToDateTime(row["dataSaida"]);
+                        LbData.Text = data.ToString("dd/MM/yyyy");
+                        LbValor.Text = row["valortotal"].ToString();
+                    }
 
                 }
                 else
@@ -73,7 +89,7 @@ namespace PDV
         {
             if (!string.IsNullOrEmpty(LbDocumento.Text) && !string.IsNullOrEmpty(TfMotivo.Text) && TfMotivo.Text.Length > 15)
             {
-                VendaDAO vendaDAO = new VendaDAO();
+                VendaDAO vendaDAO = new();
                 vendaDAO.CancelarVenda(LbDocumento.Text, TfMotivo.Text);
                 TfDocumento.Text = string.Empty;
                 LbDocumento.Text = string.Empty;

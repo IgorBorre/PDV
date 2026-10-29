@@ -1,12 +1,10 @@
-﻿
-
-using PDV.Classes_DAO;
+﻿using PDV.Classes_DAO;
 
 namespace PDV.Telas
 {
     public partial class JanelaLogin : Form
     {
-        VendaDAO _vendaDAO;
+        readonly VendaDAO _vendaDAO;
         public JanelaLogin(VendaDAO vendaDAO)
         {
             InitializeComponent();
@@ -26,6 +24,7 @@ namespace PDV.Telas
             {
                 Form1 form1 = new(_vendaDAO);
                 form1.Show();
+                Hide();
             }
         }
 
