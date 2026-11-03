@@ -241,12 +241,23 @@ namespace PDV
                         var descricao = row["descricao"]?.ToString()?.ToUpper() ?? "Sem descrição";
                         TfId.Text = descricao;
                         TfQtd.Text = "1,0";
-                        TfPreco.Text = row["preco"].ToString();
                         lbDetalhesCodigo.Text = id.ToString();
                         lbDetalhesDesc.Text = descricao;
                         lbDetalhesReferencia.Text = row["referencia"]?.ToString()?.ToUpper() ?? "Sem referência";
                         lbDetalhesPreco.Text = row["preco"].ToString();
                         lbDetalhesEstoque.Text = row["estoque"].ToString();
+
+                        var produto = listaProdutos.FirstOrDefault(p => p.codigo == id);
+                        if (produto != null)
+                        {
+                            TfPreco.ReadOnly = true;
+                            TfPreco.Text = produto.preco.ToString();
+                        }
+                        else
+                        {
+                            TfPreco.ReadOnly = false;
+                            TfPreco.Text = row["preco"].ToString();
+                        }
 
                         lbDetalhesCodigo.Visible = true;
                         lbDetalhesDesc.Visible = true;
@@ -269,12 +280,23 @@ namespace PDV
                         var id = Convert.ToInt32(row["codigo"]);
                         TfId.Text = descricao;
                         TfQtd.Text = "1,0";
-                        TfPreco.Text = row["preco"].ToString();
                         lbDetalhesCodigo.Text = id.ToString();
                         lbDetalhesDesc.Text = descricao;
                         lbDetalhesReferencia.Text = row["referencia"]?.ToString()?.ToUpper() ?? "Sem referência";
                         lbDetalhesPreco.Text = row["preco"].ToString();
                         lbDetalhesEstoque.Text = row["estoque"].ToString();
+
+                        var produto = listaProdutos.FirstOrDefault(p => p.codigo == id);
+                        if (produto != null)
+                        {
+                            TfPreco.ReadOnly = true;
+                            TfPreco.Text = produto.preco.ToString();
+                        }
+                        else
+                        {
+                            TfPreco.ReadOnly = false;
+                            TfPreco.Text = row["preco"].ToString();
+                        }
 
                         lbDetalhesCodigo.Visible = true;
                         lbDetalhesDesc.Visible = true;
@@ -308,47 +330,74 @@ namespace PDV
                         preco = double.Parse(TfPreco.Text),
                         quantidade = double.Parse(TfQtd.Text)
                     };
-                    quantidade += Convert.ToDouble(p.quantidade);
-                    total += p.preco * Convert.ToDouble(p.quantidade);
-                    subtotal += p.preco * Convert.ToDouble(p.quantidade);
 
-                    lblQtd.Text = quantidade.ToString("N2");
-                    lblQtd.Visible = true;
+                    
+                        quantidade += Convert.ToDouble(p.quantidade);
+                        total += p.preco * Convert.ToDouble(p.quantidade);
+                        subtotal += p.preco * Convert.ToDouble(p.quantidade);
 
-                    lblTotal.Text = total.ToString("N2");
-                    lblTotal.Visible = true;
+                        lblQtd.Text = quantidade.ToString("N2");
+                        lblQtd.Visible = true;
+
+                        lblTotal.Text = total.ToString("N2");
+                        lblTotal.Visible = true;
 
 
-                    lbDesconto.Text = "0,00";
-                    lbAcrescimo.Text = "0,00";
+                        lbDesconto.Text = "0,00";
+                        lbAcrescimo.Text = "0,00";
 
-                    listaProdutos.Add(p);
-                    listBox1.Items.Clear();
-                    foreach (var produtos in listaProdutos)
+                        double quantidadetotal = 0;
+                        var produto = listaProdutos.FirstOrDefault(prod => prod.codigo == p.codigo);
+                        var quantidadeproduto = produto != null ? produto.quantidade : 0;
+                        quantidadetotal = quantidadeproduto + p.quantidade;
+
+                    if (quantidadetotal > Convert.ToDouble(lbDetalhesEstoque.Text))
                     {
-                        string linha =
-                        produtos.codigo.ToString().PadLeft(0) +
-                        (produtos.descricao ?? string.Empty).PadLeft(33) +
-                        produtos.quantidade.ToString().PadLeft(35) +
-                        produtos.preco.ToString("C", new CultureInfo("pt-BR")).PadLeft(19);
-
-                        listBox1.Items.Add(linha);
+                        MessageBox.Show("Quantidade insuficiente em estoque!");
+                        TfQtd.Focus();
                     }
-                    TfId.Text = string.Empty;
-                    TfQtd.Text = string.Empty;
-                    TfPreco.Text = string.Empty;
+                    else
+                    {
 
-                    lbDetalhesDesc.Text = string.Empty;
-                    lbDetalhesDesc.Visible = false;
-                    lbDetalhesCodigo.Text = string.Empty;
-                    lbDetalhesCodigo.Visible = false;
-                    lbDetalhesEstoque.Text = string.Empty;
-                    lbDetalhesEstoque.Visible = false;
-                    lbDetalhesPreco.Text = string.Empty;
-                    lbDetalhesPreco.Visible = false;
-                    lbDetalhesReferencia.Text = string.Empty;
-                    lbDetalhesReferencia.Visible = false;
-                    TfId.Focus();
+                        if (produto != null)
+                        {
+                            produto.quantidade += p.quantidade;
+                        }
+                        else
+                        {
+                            listaProdutos.Add(p);
+                        }
+
+                        listBox1.Items.Clear();
+                        foreach (var produtos in listaProdutos)
+                        {
+                            string linha =
+                            produtos.codigo.ToString().PadLeft(0) +
+                            (produtos.descricao ?? string.Empty).PadLeft(33) +
+                            produtos.quantidade.ToString().PadLeft(35) +
+                            produtos.preco.ToString("C", new CultureInfo("pt-BR")).PadLeft(19);
+
+                            listBox1.Items.Add(linha);
+                        }
+
+                        TfId.Text = string.Empty;
+                        TfQtd.Text = string.Empty;
+                        TfPreco.Text = string.Empty;
+
+                        lbDetalhesDesc.Text = string.Empty;
+                        lbDetalhesDesc.Visible = false;
+                        lbDetalhesCodigo.Text = string.Empty;
+                        lbDetalhesCodigo.Visible = false;
+                        lbDetalhesEstoque.Text = string.Empty;
+                        lbDetalhesEstoque.Visible = false;
+                        lbDetalhesPreco.Text = string.Empty;
+                        lbDetalhesPreco.Visible = false;
+                        lbDetalhesReferencia.Text = string.Empty;
+                        lbDetalhesReferencia.Visible = false;
+                        TfId.Focus();
+                    }
+
+                    
                 }
             }
         }
